@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
      // Add smooth scrolling to all links
      $("a").on('click', function(event) {
           // Make sure this.hash has a value before overriding default behavior
@@ -16,6 +17,7 @@ $(document).ready(function(){
                });
           } // End if
      });
+
      // "Hide/Show Content" button
      $(".post .footer .confidential").on('click',function() {
           // hide post content
@@ -27,11 +29,13 @@ $(document).ready(function(){
           // Toggle text (hide vs. show)
          $(this).closest('.post').toggleClass('min');
      });
+
      // Internal toggle for new post
      $('.post.new .footer .internal input').on('click',function() {
           // change new post header border-color
           $(this).closest('.post').find('.header').toggleClass('public');
      });
+
      // PHI button
      $(".post .header .phi .fa").on('click',function() {
           // change PHI icon
@@ -49,6 +53,7 @@ $(document).ready(function(){
                $(this).closest('.post').toggleClass('min');
           }
      });
+
      // Hide All phi
      $(".navigation .phi").on('click',function() {
           // change behavior depending on button text
@@ -66,6 +71,7 @@ $(document).ready(function(){
           // toggle "Show/Hide PHI" button (on both nav menus)
           $(".navigation .phi").find('span').toggleClass('notVisible')
      });
+     
      // Hide All Internal posts (note this removes post entirely)
      $(".navigation .internal").on('click',function() {
           // change button text (on both navigation menus)
