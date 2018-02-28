@@ -120,6 +120,9 @@ body {
 	width:200px;
 	color:rgba(255,255,255,.5);
 }
+#menu select option {
+	color:#000;
+}
 #menu .admin li {
 	font-size:15pt;
 	margin-right:0;
@@ -155,7 +158,7 @@ body {
 
 /* Post header */
 
-h1 {
+#header h1 {
 	font:20pt/40px Helvetica;
 	margin:20px 0 var(--padding) 0;
 	color:var(--darkBlue);
@@ -302,14 +305,12 @@ h1 {
 	color:var(--red);
 }
 #sidebar input[type="text"] {
-	margin:10px 0 0 0;
+	margin:0;
 	padding:0 10px;
 	border-radius:3px;
 	font:100 13pt/30px Helvetica;
 	border:1px solid rgba(0,0,0,.1);
-	width:calc(var(--sidebarWidth) - 22px);
 	color:#333;
-	/** takes in account sidebarbox padding, input padding, and borders**/
 	width:calc(var(--sidebarWidth) - 64px);
 }
 #sidebar input[type="text"]::placeholder {
@@ -326,8 +327,7 @@ h1 {
 	height:30px;
 	border-radius:3px;
 	margin-bottom:10px;
-	width:var(--postWidth);
-	float:left;
+	width:100%;
 	font:17pt/30px Helvetica;
 }
 .navigation .fa {
@@ -378,12 +378,16 @@ h1 {
 }
 
 /* Post structure */
-
+#posts, #details, #related, #attachments {
+	width:var(--postWidth);
+	float:left;
+}
+#details,#related,#attachments {
+	display:none;
+}
 #content .post {
 	margin-top:var(--padding);
 	position:relative;
-	width:var(--postWidth);
-	float:left;
 }
 #content .post.first {
 	margin-top:0;
@@ -400,6 +404,7 @@ h1 {
 	font:11pt/26px Helvetica;
 	color:#444;
 	overflow:hidden;
+	width:calc(100% - 42px);
 }
 #content .post .entry a {
 	color:var(--blue);
@@ -423,7 +428,7 @@ h1 {
 	font-family:Courier;
 	padding-bottom:10px;
 }
-#content .attachments {
+#content .post .attachments {
 	padding-top:10px;
 }
 #content .attachments span {
@@ -452,6 +457,7 @@ h1 {
 	border-top-right-radius:5px;
 	border-top-left-radius:5px;
 	height:30px;
+	position:relative;
 }
 #content .header:before { /**Chat box arrow magic**/
     content:"\A";
@@ -460,7 +466,7 @@ h1 {
     border-color: transparent transparent var(--border) transparent;
     position: absolute;
     left: 20px;
-    top:-12px
+    top:-14px
 }
 #content .post.new .header.public:before {
 	border-bottom-color:var(--red);
@@ -489,7 +495,7 @@ h1 {
 #content .post .header .phi {
 	float:right;
 	color:#ccc;
-	margin-right:15px;
+	margin-right:20px;
 	font:15pt/30px Helvetica;
 	line-height:30px;
 	cursor:pointer;
@@ -503,26 +509,29 @@ h1 {
 #content .post .phi.active:hover {
 	color:var(--yellow);
 }
-.post .profilepic {
+#content .post .profilepic {
 	width:30px;
 	height:30px;
-	float:left;
-	margin-right:15px;
+	position:absolute;
+	top:10px;
+	left:20px;
 	border-radius:50px;
 	background:url(pic3.png) scroll no-repeat center center;
 }
-.post .name {
-	float:left;
+#content .post .name {
+	position:absolute;
+	left:70px;
+	top:10px;
 	font:100 13pt/30px Helvetica;
-	width:calc(100% - 180px);
+	display:inline-block;
 	color:var(--green);
 }
-.post .name .fa {
+#content .post .name .fa {
 	color:#ccc;
-	margin-left:10px;
+	margin-left:20px;
 	cursor:pointer;
 }
-.post .name .fa:hover {
+#content .post .name .fa:hover {
 	color:var(--blue);
 }
 #content .post .footer {
@@ -541,12 +550,10 @@ h1 {
 	border-top:0;
 }
 #content .post .footer .confidential {
-	position:absolute;
-	width:200px;
-	text-align:center;
-	left:calc(50% - 100px);
-	font-weight:bold;
 	display:none;
+	float:right;
+	margin-left:20px;
+	font-size:13pt;
 }
 #content .post.phi .footer .confidential {
 	display:inline-block;
@@ -560,12 +567,9 @@ h1 {
 #content .post.min .footer .confidential .hide {
 	display:none;
 }
-#content .post .footer span:hover, #content .post .footer span .fa:hover {
+#content .post .footer span .fa:hover {
 	color:var(--blue);
 	cursor:pointer;
-}
-#content .footer .fa {
-	padding-right:8px;
 }
 
 /* New Post */
@@ -600,7 +604,7 @@ h1 {
 	border: 1px solid rgba(0,0,0,.1);
 	font-size:11pt;
 }
-.post.new textarea {
+#content .post.new textarea {
 	border:0;
 	border-left:1px solid var(--border);
 	border-right:1px solid var(--border);
@@ -613,14 +617,17 @@ h1 {
 	min-width:calc(100% - 42px);
 	max-width:calc(100% - 42px);
 }
-.post.new textarea::placeholder {
+#content .post.new textarea::placeholder {
 	color:#aaa;
 }
 #content .post.new .footer span {
 	margin:0 15px 0 0;
 }
+#content .post.new .footer .fa {
+	padding-right:8px;
+}
 #content .post.new input[type="checkbox"] {
-	margin-right:5px;
+	margin-right:8px;
 }
 #content .post.new .footer .submit {
 	float:right;
@@ -654,7 +661,7 @@ h1 {
 	color:rgba(255,255,255,.7);
 	font:11pt/25px Helvetica;
 }
-#epic {
+#footer #epic {
 	font:bold italic 30pt/60px Helvetica;
 	letter-spacing:-3.5px;
 	color:rgba(255,255,255,.1);

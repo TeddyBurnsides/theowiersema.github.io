@@ -1,7 +1,23 @@
 $(document).ready(function(){
 
-     // Add smooth scrolling to all links
-     $("a").on('click', function(event) {
+     // make sidebar links work
+     $("#sidebar li.link").on('click',function() {
+          $("#sidebar li").removeClass('active'); // make all links inactive
+          $(".page").hide(); // hide all pages
+          $(this).toggleClass('active'); // make the clicked link active
+     });
+     // Show each individual page
+     $("#sidebar .discussion").on('click',function() {$("#posts").show();});
+     $("#sidebar .details").on('click',function() {$("#details").show();});
+     $("#sidebar .related").on('click',function() {$("#related").show();});
+     $("#sidebar .attachments").on('click',function() {$("#attachments").show();});
+
+     // Add smooth scrolling to new post link
+     $("li.newpost a").on('click', function(event) {
+          $("#sidebar li").removeClass('active'); // make all limks inactive
+          $(".page").hide(); // hide all pages
+          $("#sidebar li.discussion").addClass('active'); // make discussion link active
+          $("#posts").show(); // show discussion page
           // Make sure this.hash has a value before overriding default behavior
           if (this.hash !== "") {
                // Prevent default anchor click behavior
@@ -71,7 +87,7 @@ $(document).ready(function(){
           // toggle "Show/Hide PHI" button (on both nav menus)
           $(".navigation .phi").find('span').toggleClass('notVisible')
      });
-     
+
      // Hide All Internal posts (note this removes post entirely)
      $(".navigation .internal").on('click',function() {
           // change button text (on both navigation menus)
@@ -79,4 +95,5 @@ $(document).ready(function(){
           // hide epic posts
           $(this).parent().siblings('.epic').toggle();
      });
+
 });
