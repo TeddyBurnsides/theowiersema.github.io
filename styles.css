@@ -390,9 +390,36 @@ h3 {
 	float:left;
 	background:#fff;
 	border:1px solid var(--border);
+	border-top-width:3px;
 	border-radius:5px;
 	padding:20px;
 	width:calc(var(--postWidth) - 42px)
+}
+#related .record {
+	font:11pt/30px Helvetica;
+	margin:0 0 5px 0px;
+	color:#333;
+}
+#related .record .number {
+	margin-right:15px;
+	color:#666;
+	font-weight:bold;
+	width:80px;
+	display:inline-block;
+	text-align:right;
+}
+#related .record:hover .fa {
+	display:inline-block;
+}
+#related .record .fa {
+	display:none;
+	font-size:13pt;
+	margin-left:15px;
+	color:#777;
+	cursor:pointer;
+}
+#related .record .fa:hover {
+	color:var(--red);
 }
 #content .post {
 	margin-top:var(--padding);
@@ -440,7 +467,7 @@ h3 {
 #content .post .attachments {
 	padding-top:10px;
 }
-#content .attachments span {
+#content .attachments span, #attachments .file {
 	margin-top:10px;
 	background:#fafafa;
 	border-radius:5px;
@@ -452,10 +479,10 @@ h3 {
 	cursor:pointer;
 	display:block;
 }
-#content .attachments span:hover {
+#content .attachments span:hover, #attachments .file:hover {
 	background:#f6f6f6;
 }
-#content .attachments .fa {
+#content .attachments .fa, #attachments .file .fa {
 	padding-right:10px;
 }
 #content .header {

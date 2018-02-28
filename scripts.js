@@ -96,4 +96,9 @@ $(document).ready(function(){
           $(this).parent().siblings('.epic').toggle();
      });
 
+     // Remove related Records
+     $(".record .fa-trash").on('click',function() {
+          $(this).parent().remove();
+     });
+
 });
