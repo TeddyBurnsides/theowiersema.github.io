@@ -402,9 +402,8 @@ h3 {
 }
 #related .record .number {
 	margin-right:15px;
-	color:#666;
-	font-weight:bold;
-	width:80px;
+	color:var(--blue);
+	width:6t0px;
 	display:inline-block;
 	text-align:right;
 }
@@ -420,6 +419,59 @@ h3 {
 }
 #related .record .fa:hover {
 	color:var(--red);
+}
+#details .title {
+	margin: 0 0 20px 0;
+	padding: 0 10px;
+	border-radius: 3px;
+	font: 100 13pt/30px Helvetica;
+	border: 1px solid rgba(0,0,0,.1);
+	color: #333;
+	width:calc(100% - 20px);
+}
+#details select {
+	width:25%;
+	padding:0 10px;
+	border:1px solid #eee;
+	background:#fff;
+	font:10pt/30px Helvetica;
+	height:30px;
+	margin:0 15px 20px 0;
+	float:left;
+}
+#details input[type="radio"] {
+     margin: 8px 0 0 0;
+	padding:0;
+	float:left;
+}
+#details label {
+	font:10pt/30px Helvetica;
+	color:#777;
+	padding:0 15px 0 8px;
+	float:left;
+}
+#details .person {
+	margin: 0 15px 20px 0;
+	padding: 0 10px;
+	border-radius: 3px;
+	font: 100 10pt/30px Helvetica;
+	border: 1px solid rgba(0,0,0,.1);
+	color: #333;
+	width:20%;
+	float:left;
+}
+#details .epic.person {
+	margin-right:0;
+}
+#details input[type="submit"] {
+	background: var(--blue);
+	border: 0;
+	color: #fff;
+	font: 11pt/28px Helvetica;
+	border-radius: 5px;
+	margin:0;
+	padding: 0 10px;
+	cursor:pointer;
 }
 #content .post {
 	margin-top:var(--padding);
