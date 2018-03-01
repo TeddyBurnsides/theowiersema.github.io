@@ -1,3 +1,1 @@
-Custom design for Epic's ticket system
-
-Give it a run here: https://theowiersema.github.io/
+Test it out here: https://theowiersema.github.io/
