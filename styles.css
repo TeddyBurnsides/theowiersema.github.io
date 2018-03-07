@@ -519,6 +519,11 @@ h3 {
 #content .post .attachments {
 	padding-top:10px;
 }
+#content .post.new .attachments {
+	background:#fff;
+	border-right:1px solid var(--border);
+	border-left:1px solid var(--border);
+}
 #content .attachments span, #attachments .file {
 	margin-top:10px;
 	background:#fafafa;
@@ -530,6 +535,13 @@ h3 {
 	color:var(--blue);
 	cursor:pointer;
 	display:block;
+}
+#content .attachments span:first-child {
+	margin-top:0;
+}
+#content .post.new .attachments {
+	width:calc(100% - 42px);
+	padding:20px 20px;
 }
 #content .attachments span:hover, #attachments .file:hover {
 	background:#f6f6f6;
@@ -623,13 +635,13 @@ h3 {
 	color:var(--blue);
 }
 #content .post .footer {
-	height:50px;
+	height:30px;
 	width:calc(100% - 42px);
-	padding:0 20px;
+	padding:10px 20px;
 	border-bottom-right-radius:5px;
 	border-bottom-left-radius:5px;
 	border:1px solid var(--border);
-	font:11pt/50px Helvetica;
+	font:11pt/30px Helvetica;
 	color:rgba(0,0,0,.5);
 	background:#F0F3F4;
 	position:relative;
@@ -681,7 +693,7 @@ h3 {
 	margin-right:0;
 	margin-left:10px;
 }
-#content .post.new .fa:hover {
+#content .post.new .header .fa:hover {
 	cursor:pointer;
 }
 #content .post.new select {
@@ -694,14 +706,15 @@ h3 {
 }
 #content .post.new textarea {
 	border:0;
+	resize:none;
 	border-left:1px solid var(--border);
 	border-right:1px solid var(--border);
 	background:#fff;
-	padding:20px;
+	padding:20px 20px 0 20px;
 	display:block;
 	font:11pt/26px Helvetica;
 	color:#444;
-	min-height:170px;
+	min-height:190px;
 	min-width:calc(100% - 42px);
 	max-width:calc(100% - 42px);
 }
@@ -716,16 +729,22 @@ h3 {
 }
 #content .post.new input[type="checkbox"] {
 	margin-right:8px;
+	cursor:pointer;
 }
-#content .post.new .footer .submit {
-	float:right;
+#content .post.new .footer button {
 	background:var(--blue);
-	border:0;
 	color:#fff;
 	font:11pt/28px Helvetica;
 	border-radius:5px;
-	margin:10px 0 0 0;
+	margin:0;
 	padding:0 10px;
+	border:1px solid var(--blue);
+	cursor:pointer;
+}
+#content .post.new .footer .attach {
+	background:#fff;
+	border:1px solid var(--border);
+	color:var(--darkBlue);
 }
 
 /* Footer */
