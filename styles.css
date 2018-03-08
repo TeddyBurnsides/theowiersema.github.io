@@ -39,7 +39,7 @@ a {text-decoration:none;}
 	--bg:#F5F8F9;
 	--green:#0196AD;
 	--border:#e0e9ec;
-	--minContentWidth:900px;
+	--minContentWidth:1000px;
 	--postWidth:calc(calc(100% - var(--sidebarWidth)) - 30px);
 	--sidebarWidth:300px;
 	--padding:30px;
@@ -55,16 +55,16 @@ body {
 	height:36px;
 	background:var(--darkerBlue);
 	padding:0 var(--padding);
-	min-width:910px;
+	min-width:var(--minContentWidth);
 }
 #mainmenu .main li {
 	float:left;
 	font:100 11pt/36px Helvetica;
 	margin-right:20px;
-	color:rgba(255,255,255,.7);
+	color:rgba(255,255,255,.5);
 	cursor:pointer;
 }
-#mainmenu .main li:first-child {
+#mainmenu .main li:nth-child(2) {
 	background:var(--darkBlue);
 	padding:0 20px;
 	color:#fff;
@@ -90,7 +90,7 @@ body {
 	height:50px;
 	background:var(--darkBlue);
 	padding:0 var(--padding);
-	min-width:910px;
+	min-width:var(--minContentWidth);
 	margin-bottom:var(--padding);
 }
 #menu li {
@@ -634,6 +634,12 @@ h3 {
 #content .post .name .fa:hover {
 	color:var(--blue);
 }
+#content .post .header .newDate {
+	float:right;
+	font:10pt/30px Helvetica;
+	color:#bbb;
+	padding-right:20px;
+}
 #content .post .footer {
 	height:30px;
 	width:calc(100% - 42px);
@@ -754,6 +760,7 @@ h3 {
 	background:var(--darkBlue);
 	margin-top:var(--padding);
 	position:relative;
+	min-width:var(--minContentWidth);
 }
 #footer .info {
 	float:left;
