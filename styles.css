@@ -349,22 +349,17 @@ h3 {
 	float:left;
 	border-radius:0;
 	height:32px;
-	border:1px solid rgba(0,0,0,.1);
-	background:var(--border);
-	color:rgba(0,0,0,.7);
+	border:1px solid var(--border);
+	background:var(--bg);
+	color:rgba(0,0,0,.6);
 	font:400 11pt/30px Helvetica;
-	-webkit-appearance:none;
-	width:50px;
+	width:65px;
 	text-align-last:center;
-	border-top-left-radius:5px;
-	border-bottom-left-radius:5px;
 }
 #sidebar .sidebarbox.records input[type="text"] {
 	margin-top:20px;
-	width:calc(var(--sidebarWidth) - 113px);
-	border-top-left-radius:0;
-	border-bottom-left-radius:0;
-	border-left:0;
+	width:calc(var(--sidebarWidth) - 139px);
+	margin-left:10px;
 }
 #sidebar input[type="text"]::placeholder {
 	color:#ccc;
