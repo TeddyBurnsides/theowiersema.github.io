@@ -9,7 +9,6 @@ $(document).ready(function(){
      // Show each individual page
      $("#sidebar .discussion").on('click',function() {$("#posts").show();});
      $("#sidebar .details").on('click',function() {$("#details").show();});
-     $("#sidebar .related").on('click',function() {$("#related").show();});
      $("#sidebar .attachments").on('click',function() {$("#attachments").show();});
 
      // Add smooth scrolling to new post link
