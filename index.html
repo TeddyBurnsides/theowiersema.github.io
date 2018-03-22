@@ -12,7 +12,7 @@
 <div id="mainmenu">
      <div class="main">
           <li>Userweb</li>
-          <li>Sherlock</li>
+          <li class="active">Sherlock</li>
           <li>Release Authorization</li>
           <li>Reports</li>
      </div>
@@ -23,29 +23,32 @@
      </div>
 </div><!--main menu-->
 <div id="menu">
-     <li>
-          <select>
-               <option>Rady Children's</option>
-               <option>Peninsula Regional Medical Center</option>
-               <option>Cheyenne Regional Medical Center</option>
-               <option>Sentara</option>
-          </select>
-     </li>
-     <li><input type="text" placeholder="Search"/></li>
+     <select>
+          <option>Rady Children's</option>
+          <option>Peninsula Regional Medical Center</option>
+          <option>Cheyenne Regional Medical Center</option>
+          <option>Sentara</option>
+     </select>
+     <input type="text" placeholder="Search"/>
      <li>All</li>
      <li class="active">Review</li>
-     <li><i class="fa fa-plus"></i>New</li>
+     <li class="new">New</li>
 </div> <!-- menu -->
 
 <div id="header">
      <div class="details">
           <span><i class="fa fa-hashtag"></i>4347234</span>
-          <span class="priority critical">Critical</span>
-          <span><select>
+          <select class="priority critical">
+               <option selected>Critical</option>
+               <option>High</option>
+               <option>Medium</option>
+               <option>Low</option>
+          </select>
+          <select class="status">
                <option>New</option>
                <option selected>In Progress</option>
                <option>Closed</option>
-          </select></span>
+          </select>
           <span class="time">Created: 11/1/17 1:30 PM</span>
      </div>
      <h1>Issue at main clinic. Confidential Patient can't be transferred from 2 West - what are the current options? Can we move them to 2 West or not?</h1>
@@ -350,19 +353,19 @@
 
 <div id="footer">
      <div class="info">
-          <h4>Resources</h4>
+          <h5>Resources</h5>
           <li>Userweb</li>
           <li>Epic Homepage</li>
           <li>Foundation System</li>
      </div>
      <div class="info">
-          <h4>Contact</h4>
+          <h5>Contact</h5>
           <li>608.771.5333</li>
           <li>contact@epic.com</li>
           <li>Plz no fax</li>
      </div>
      <div class="info">
-          <h4>Other</h4>
+          <h5>Other</h5>
           <li>Design by Theo Wiersema</li>
      </div>
      <span id="epic">Epic</span>
