@@ -61,17 +61,17 @@ body {
 	padding:0 var(--padding);
 	min-width:var(--minContentWidth);
 	z-index:10;
+	padding-top:4px;
 }
 #mainmenu .main li {
 	float:left;
 	font:11pt/36px Helvetica;
-	margin-right:var(--padding);
 	color:rgba(0,0,0,.5);
 	cursor:pointer;
+		padding:0 var(--padding);
 }
 #mainmenu .main li.active {
 	background:#fff;
-	padding:0 var(--padding);
 	color:#666;
 }
 #mainmenu .admin {
@@ -81,12 +81,13 @@ body {
 	float:left;
 	font-size:12pt;
 	line-height:36px;
-	margin-left:20px;
 	color:#555;
 	cursor:pointer;
+	margin-left:15px;
 }
 #mainmenu li:hover {
-	color:#000;
+	background:rgba(0,0,0,.08);
+	color:#222;
 }
 
 /*  Secondary Nav Bar */
@@ -100,6 +101,7 @@ body {
 	background:#fff;
 	box-shadow:0 0 20px rgba(0,0,0,.06);
 	z-index:20;
+		border-bottom:1px solid var(--border);
 }
 #menu li {
 	float:left;
