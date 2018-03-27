@@ -518,6 +518,10 @@ h3 {
 #content .post {
 	margin-top:var(--padding);
 	position:relative;
+	border:1px solid var(--border);
+	border-top-width:3px;
+	border-radius:5px;
+	background:#fff;
 }
 #content .post.first {
 	margin-top:0;
@@ -526,15 +530,11 @@ h3 {
 	margin-bottom:15px;
 }
 #content .post .entry {
-	background:#fff;
-	border:1px solid var(--border);
-	border-top:0;
-	padding:20px;
-	border-bottom:0;
+	padding:0 20px 20px 20px;
 	font:11pt/26px Helvetica;
 	color:#444;
 	overflow:hidden;
-	width:calc(100% - 42px);
+	width:calc(100% - 40px);
 }
 #content .post .entry a {
 	color:var(--blue);
@@ -562,9 +562,7 @@ h3 {
 	padding-top:10px;
 }
 #content .post.new .attachments {
-	background:#fff;
-	border-right:1px solid var(--border);
-	border-left:1px solid var(--border);
+
 }
 #content .attachments span, #attachments .file {
 	margin-top:10px;
@@ -592,17 +590,17 @@ h3 {
 	padding-right:10px;
 }
 #content .header {
-	padding:10px 20px;
-	background:#fff;
-	border:1px solid var(--border);
-	border-top-width:3px;
-	border-top-right-radius:5px;
-	border-top-left-radius:5px;
-	height:30px;
+	padding:20px;
+	height:50px;
 	position:relative;
+	border-bottom:0;
+}
+#content .post.new .header {
+	height:30px;
+	padding:15px 20px;
 }
 #content .header:before { /**Chat box arrow magic**/
-    content:"\A";
+    content:"";
     border-style: solid;
     border-width: 0px 15px 12px 15px;
     border-color: transparent transparent var(--border) transparent;
@@ -610,17 +608,14 @@ h3 {
     left: 20px;
     top:-14px
 }
-#content .post.new .header.public:before {
-	border-bottom-color:var(--red);
-}
-#content .epic.post .header:before {
+#content .post.epic .header:before, #content .post.new.public .header:before {
 	border-bottom-color:var(--red);
 }
 #content .post.new .header:before {
 	border-bottom-color:var(--blue);
 }
-#content .post.epic .header {
-	border-top:3px solid var(--red);
+#content .post.epic {
+	border-top-color:var(--red);
 }
 #content .post .number {
 	float:right;
@@ -652,19 +647,19 @@ h3 {
 	color:var(--yellow);
 }
 #content .post .profilepic {
-	width:30px;
-	height:30px;
+	width:50px;
+	height:50px;
 	position:absolute;
-	top:10px;
+	top:20px;
 	left:20px;
 	border-radius:50px;
-	background:url(pic3.png) scroll no-repeat center center;
+	background:url(pic2.png) scroll no-repeat center center;
 }
 #content .post .name {
 	position:absolute;
-	left:70px;
-	top:10px;
-	font:100 13pt/30px Helvetica;
+	left:90px;
+	top:20px;
+	font:100 14pt/30px Helvetica;
 	display:inline-block;
 	color:var(--green);
 }
@@ -677,25 +672,24 @@ h3 {
 	color:var(--blue);
 }
 #content .post .header .newDate {
-	float:right;
+	position:absolute;
+	left:90px;
+	top:45px;
 	font:10pt/30px Helvetica;
 	color:#bbb;
 	padding-right:20px;
 }
 #content .post .footer {
 	height:30px;
-	width:calc(100% - 42px);
+	width:calc(100% - 40px);
 	padding:10px 20px;
 	border-bottom-right-radius:5px;
 	border-bottom-left-radius:5px;
-	border:1px solid var(--border);
+	border-top:1px solid var(--border);
 	font:11pt/30px Helvetica;
 	color:rgba(0,0,0,.4);
 	background:var(--darkbg);
 	position:relative;
-}
-#content .post.min .footer {
-	border-top:0;
 }
 #content .post .footer .confidential {
 	display:none;
@@ -725,10 +719,10 @@ h3 {
 #content .post.new {
 	margin-top:var(--padding);
 }
-#content .post.new .header {
+#content .post.new {
 	border-top-color:var(--blue);
 }
-#content .post.new .header.public {
+#content .post.new.public {
 	border-top-color:var(--red);
 }
 #content .post.new .header .style .fa {
@@ -755,16 +749,14 @@ h3 {
 #content .post.new textarea {
 	border:0;
 	resize:none;
-	border-left:1px solid var(--border);
-	border-right:1px solid var(--border);
 	background:#fff;
-	padding:20px 20px 0 20px;
+	padding:0px 20px 0 20px;
 	display:block;
 	font:11pt/26px Helvetica;
 	color:#444;
 	min-height:190px;
-	min-width:calc(100% - 42px);
-	max-width:calc(100% - 42px);
+	min-width:calc(100% - 40px);
+	max-width:calc(100% - 40px);
 }
 #content .post.new textarea::placeholder {
 	color:#aaa;

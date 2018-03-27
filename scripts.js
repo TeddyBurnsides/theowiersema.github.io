@@ -48,7 +48,7 @@ $(document).ready(function(){
      // Internal toggle for new post
      $('.post.new .footer .internal input').on('click',function() {
           // change new post header border-color
-          $(this).closest('.post').find('.header').toggleClass('public');
+          $(this).closest('.post').toggleClass('public');
      });
 
      // PHI button
