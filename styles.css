@@ -68,11 +68,13 @@ body {
 	font:11pt/36px Helvetica;
 	color:rgba(0,0,0,.5);
 	cursor:pointer;
-	padding:0 20px;
+	padding:0 15px;
 }
 #mainmenu .main li.active {
 	background:#fff;
 	color:#666;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
 }
 #mainmenu .admin {
 	float:right;
@@ -99,11 +101,8 @@ body {
 	padding:15px var(--padding);
 	margin-bottom:var(--padding);
 	min-width:var(--minContentWidth);
-	background:#016a7a;
 	background:#fff;
-	box-shadow:0 0 20px rgba(0,0,0,.06);
-	z-index:20;
-		border-bottom:1px solid var(--border);
+	border-bottom:1px solid var(--border);
 }
 #menu li {
 	float:left;
@@ -173,7 +172,7 @@ body {
 	min-width:900px;
 }
 #header h1 {
-	font:20pt/40px Helvetica;
+	font:18pt/30px Helvetica;
 	margin:20px 0 var(--padding) 0;
 	color:var(--darkBlue);
 	border-radius:5px;
@@ -188,7 +187,7 @@ body {
 }
 #header .details span{
 	display:inline-block;
-	font:100 11pt/30px Helvetica;
+	font:100 11pt/26px Helvetica;
 	margin:0 15px 0 0 ;
 	border-radius:3px;
 	float:left;
@@ -197,11 +196,11 @@ body {
 	color:#fff;
 	padding:0 10px;
 	border:1px solid rgba(0,0,0,.2);
-	height:30px;
+	height:26px;
 	margin:0 15px 0 0;
 	float:left;
 	width:100px;
-	font:11pt/30px Helvetica;
+	font:11pt/26px Helvetica;
 }
 #header select.priority.critical  {background:var(--red);}
 #header select.priority.high  {background:var(--yellow);}
@@ -209,15 +208,14 @@ body {
 #header select.priority.low {background:#aaa;}
 #header select.status {
 	background:#fff;
-	height:27px;
 	padding:0;
 	margin:0 15px 0 0;
 	color:#555;
 	border:1px solid rgba(0,0,0,.1);
 	width:130px;
-	font:100 11pt/30px Helvetica;
+	font:100 11pt/28px Helvetica;
 	float:left;
-	height:30px;
+	height:27px;
 }
 
 /* Content Wrapper */
@@ -558,12 +556,6 @@ h3 {
 	font-family:Courier;
 	padding-bottom:10px;
 }
-#content .post .attachments {
-	padding-top:10px;
-}
-#content .post.new .attachments {
-
-}
 #content .attachments span, #attachments .file {
 	margin-top:10px;
 	background:#fafafa;
@@ -579,9 +571,12 @@ h3 {
 #content .attachments span:first-child {
 	margin-top:0;
 }
+#content .post .attachments {
+	padding:20px 0 0 0;
+}
 #content .post.new .attachments {
-	width:calc(100% - 42px);
-	padding:20px 20px;
+	padding:20px;
+	width:calc(100% - 40px);
 }
 #content .attachments span:hover, #attachments .file:hover {
 	background:#f6f6f6;
@@ -649,9 +644,7 @@ h3 {
 #content .post .profilepic {
 	width:50px;
 	height:50px;
-	position:absolute;
-	top:20px;
-	left:20px;
+	float:left;
 	border-radius:50px;
 	background:url(pic2.png) scroll no-repeat center center;
 }
@@ -687,7 +680,7 @@ h3 {
 	border-bottom-left-radius:5px;
 	border-top:1px solid var(--border);
 	font:11pt/30px Helvetica;
-	color:rgba(0,0,0,.4);
+	color:rgba(0,0,0,.3);
 	background:var(--darkbg);
 	position:relative;
 }
