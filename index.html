@@ -6,6 +6,7 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="scripts.js"></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet">
      <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,21 +25,29 @@
      </div>
 </div><!--main menu-->
 <div id="menu">
+     <div id="postID">#4347234</div>
      <select>
-          <option>Rady Children's</option>
           <option>Peninsula Regional Medical Center</option>
+          <option>Rady Children's</option>
           <option>Cheyenne Regional Medical Center</option>
           <option>Sentara</option>
      </select>
-     <input type="text" placeholder="Search"/>
-     <li>All</li>
-     <li class="active">Review</li>
-     <li class="new">New</li>
+     <div class="search">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Search tickets by name or ID"/>
+     </div>
+     <ul id="nav">
+          <li>All</li>
+          <li class="active">Review</li>
+          <li class="new">New</li>
+     </ul>
 </div> <!-- menu -->
 
 <div id="header">
+
+     <h1>Issue at main clinic. Confidential Patient can't be transferred from 2 West - what are the current options? Can we move them to 2 West?</h1>
      <div class="details">
-          <span><i class="fa fa-hashtag"></i>4347234</span>
+<div class="time">11/1/17 1:30 PM</div>
           <select class="priority critical">
                <option selected>Critical</option>
                <option>High</option>
@@ -50,9 +59,9 @@
                <option selected>In Progress</option>
                <option>Closed</option>
           </select>
-          <span class="time">Created: 11/1/17 1:30 PM</span>
+
+          <div class="clear"></div>
      </div>
-     <h1>Issue at main clinic. Confidential Patient can't be transferred from 2 West - what are the current options? Can we move them to 2 West or not?</h1>
 </div> <!--Header-->
 
 <div id="content">
@@ -214,7 +223,7 @@
                  </span>
                  <span class="right">Last edited by Theo Wiersema on 11/1/2017 5:15 PM (Yesterday)</span>
                </div>
-          </div> <!-- Post -->
+          </div>
 
           <div class="post epic">
                <div class="header">
@@ -224,7 +233,7 @@
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
                     <div class="newDate">11/1/2017 11:12 PM</div>
                     <div class="clear"></div>
-               </div> <!-- Post Header -->
+               </div>
                <div class="entry">
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                </div>
@@ -236,7 +245,7 @@
                     </span>
                     <span class="right">Last edited by Theo Wiersema on 11/1/2017 5:15 PM (Last Week)</span>
                </div>
-          </div> <!-- Post -->
+          </div>
 
           <div class="post last">
                <div class="header">
@@ -258,7 +267,7 @@
                  </span>
                  <span class="right">Last edited by Theo Wiersema on 11/6/2017 5:15 PM</span>
                </div>
-          </div> <!-- Post -->
+          </div>
 
           <div class="navigation">
                <div class="nav">
@@ -270,9 +279,9 @@
                <span class="link internal"><i class="fa fa-comments"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> Internal</span>
                <span class="link phi"><i class="fa fa-lock"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> PHI</span>
                <span class="link direction"><i class="fa fa-arrows-v"></i>Sort</span>
-          </div> <!--navigation-->
+          </div>
 
-          <div class="post new">
+          <div id="newpost" class="post new">
                <div class="header">
                     <div class="style left">
                          <i class="fa fa-bold"></i>
@@ -306,8 +315,10 @@
                     <span class="internal right"><input type="checkbox" />Internal</span>
                     <span class="right"><input type="checkbox" />Suppress Notification</span>
                </div>
-          </div> <!--new post-->
+          </div>
+
      </div> <!--Posts-->
+
      <div id="details" class="page">
           <input class="title" type="text" placeholder="Issue at main clinic. Confidential Patient can't be transferred from 2 West - what are the current options? Can we move them to 2 West or not?" />
           <select>
@@ -319,35 +330,37 @@
           <div class="clear"></div>
           <h3>Team</h3>
           <form>
-          <select>
-               <option>Grand Central</option>
-               <option>Prelude</option>
-               <option>Radiant</option>
-               <option>Beaker</option>
-          </select>
-          <input type="radio" checked /><label>Primary?</label>
-          <input placeholder="Jim Wilks" class="customer person" type="text" />
-          <input placeholder="Bonnita Hernandez" class="epic person" type="text" />
-          <div class="clear"></div>
-          <select>
-               <option>Grand Central</option>
-               <option>Prelude</option>
-               <option>Radiant</option>
-               <option>Beaker</option>
-          </select>
-          <input type="radio" /><label>Primary?</label>
-          <input placeholder="Claire Mikey" class="customer person" type="text" />
-          <input placeholder="Corriane Sanders" class="epic person" type="text" />
-          <div class="clear"></div>
-          <input type="submit" value="Save" />
-     </form>
-
+               <select>
+                    <option>Grand Central</option>
+                    <option>Prelude</option>
+                    <option>Radiant</option>
+                    <option>Beaker</option>
+               </select>
+               <input type="radio" checked /><label>Primary?</label>
+               <input placeholder="Jim Wilks" class="customer person" type="text" />
+               <input placeholder="Bonnita Hernandez" class="epic person" type="text" />
+               <div class="clear"></div>
+               <select>
+                    <option>Grand Central</option>
+                    <option>Prelude</option>
+                    <option>Radiant</option>
+                    <option>Beaker</option>
+               </select>
+               <input type="radio" /><label>Primary?</label>
+               <input placeholder="Claire Mikey" class="customer person" type="text" />
+               <input placeholder="Corriane Sanders" class="epic person" type="text" />
+               <div class="clear"></div>
+               <input type="submit" value="Save" />
+          </form>
      </div>
+     <!-- Details -->
+
      <div id="attachments" class="page">
           <h3>Attachments</h3>
           <div class="file"><i class="fa fa-file"></i>1/12 Testing Results.doc</div>
           <div class="file"><i class="fa fa-file"></i>List of Patient Names for import.xlsr</div>
      </div>
+
      <div class="clear"></div>
 
 </div> <!--Content-->
