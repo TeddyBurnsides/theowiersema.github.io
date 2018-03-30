@@ -46,7 +46,10 @@ a {text-decoration:none;}
 	--sidebarWidth:300px;
 	--padding:20px;
 }
-select{border-radius:5px;}
+select{
+	border-radius:5px;
+	cursor:pointer;
+}
 body {
 	font-family:Helvetica;
 	background:var(--bg);
