@@ -93,6 +93,11 @@ $(document).ready(function(){
           $(".navigation .internal").find('span').toggleClass('notVisible');
           // hide epic posts
           $(this).parent().siblings('.epic').toggle();
-     });     
+     });
+
+     // Remove related records
+     $('.fa-minus-circle').on('click',function() {
+          $(this).closest('.record').remove();
+     });
 
 });
