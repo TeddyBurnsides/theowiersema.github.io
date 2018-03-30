@@ -192,7 +192,6 @@ body {
 	font:10pt/22px "Open Sans",Helvetica;
 	display:inline-block;
 	height:22px;
-	margin-bottom:10px;
 }
 #header .details .time {
 	font-size:11pt;
@@ -213,7 +212,7 @@ body {
 	background:var(--border);
 	border:0;
 	font-weight:bold;
-	padding:0 10px;
+	padding:0 2px;
 	height:22px;
 }
 #header select.priority {
