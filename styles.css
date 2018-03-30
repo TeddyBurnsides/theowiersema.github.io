@@ -832,7 +832,7 @@ h4 {
 #content .post.min .footer .confidential .hide {
 	display:none;
 }
-#content .post .footer span .fa:hover {
+#content .post .footer span:hover > .fa {
 	color:var(--blue);
 }
 
