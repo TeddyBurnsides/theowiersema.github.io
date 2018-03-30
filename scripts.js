@@ -93,6 +93,6 @@ $(document).ready(function(){
           $(".navigation .internal").find('span').toggleClass('notVisible');
           // hide epic posts
           $(this).parent().siblings('.epic').toggle();
-     });
+     });     
 
 });
