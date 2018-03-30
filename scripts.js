@@ -52,9 +52,9 @@ $(document).ready(function(){
      });
 
      // PHI button
-     $(".post .header .phi .fa").on('click',function() {
+     $(".post .header .phi").on('click',function() {
           // change PHI icon
-          $(this).toggleClass('fa-lock fa-unlock-alt');
+          $(this).find('.fa').toggleClass('fa-lock fa-unlock-alt');
           // change post class to toggle "Hide Content" text
           $(this).closest('.post').toggleClass('phi');
           // if post content is hidden, show again (otherwise you lose it!)
