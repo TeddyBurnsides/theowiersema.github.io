@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
      <meta charset="utf-8">
-     <title>SLG 4347234 - Rady Children's</title>
+     <title>Sherlock</title>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="scripts.js"></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet">
      <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
 <div id="mainmenu">
      <div class="main">
           <li><i class="fa fa-users"></i>Userweb</li>
@@ -24,14 +25,10 @@
           <li>Help</li>
      </div>
 </div><!--main menu-->
+
 <div id="menu">
      <div id="postID">#4347234</div>
-     <select>
-          <option>Peninsula Regional Medical Center</option>
-          <option>Rady Children's</option>
-          <option>Cheyenne Regional Medical Center</option>
-          <option>Sentara</option>
-     </select>
+     <input id="customer" type="Text" placeholder="Peninsula Regional Medical Center" />
      <div class="search">
           <i class="fa fa-search"></i>
           <input type="text" placeholder="Search tickets by name or ID"/>
@@ -39,15 +36,15 @@
      <ul id="nav">
           <li>All</li>
           <li class="active">Review</li>
-          <li class="new">New</li>
+          <li>New</li>
+          <li>Reports</li>
      </ul>
 </div> <!-- menu -->
 
 <div id="header">
-
      <h1>Issue at main clinic. Confidential Patient can't be transferred from 2 West - what are the current options? Can we move them to 2 West?</h1>
      <div class="details">
-<div class="time">11/1/17 1:30 PM</div>
+          <div class="time">Created on <span>September 1, 2017</span> at <span>1:30 PM</span></div>
           <select class="priority critical">
                <option selected>Critical</option>
                <option>High</option>
@@ -57,9 +54,11 @@
           <select class="status">
                <option>New</option>
                <option selected>In Progress</option>
+               <option>On Hold</option>
+               <option>Testing</option>
+               <option>Waiting for Information</option>
                <option>Closed</option>
           </select>
-
           <div class="clear"></div>
      </div>
 </div> <!--Header-->
@@ -101,12 +100,16 @@
                     <span class="number">25444</span>
                     <span class="name">Testing testing what a news</span>
                </div>
-               <select>
-                    <option>SLG</option>
-                    <option>RA</option>
-                    <option>RN</option>
-               </select>
-               <input type="text" placeholder="Link new record" />
+
+               <div class="newRecord">
+                    <select>
+                         <option>SLG</option>
+                         <option>RA</option>
+                         <option>RN</option>
+                    </select>
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="Link new record" />
+               </div>
                <div class="clear"></div>
           </div><!--sidebar box-->
           <div class="sidebarbox">
@@ -147,7 +150,10 @@
                     <div class="role">Cupid</div>
                     <div class="clear"></div>
                </div>
-               <input type="text" placeholder="Add new person" />
+               <div class="newPerson">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="Add new person" />
+               </div>
           </div>
      </div> <!-- Sidebar -->
      <div id="posts" class="page">
@@ -160,13 +166,15 @@
                </div>
                <span class="link internal"><i class="fa fa-comments"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> Internal</span>
                <span class="link phi"><i class="fa fa-lock"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> PHI</span>
-               <span class="link "><i class="fa fa-arrows-v"></i>Sort</span>
+               <span class="link"><i class="fa fa-arrows-v"></i>Sort</span>
+               <span class="link filter"><i class="fa fa-filter"></i>Filter</span>
           </div> <!--navigation-->
           <div class="post first phi">
                <div class="header">
                     <div class="profilepic"></div>
                     <div class="name">Bonnita Hernandez<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                     <div class="number">#1</div>
+                    <div class="flag"><i class="fa fa-flag"></i></div>
                     <div class="phi"><i class="fa fa-lock"></i></div>
                     <div class="newDate">11/1/2017 11:12 PM</div>
                     <div class="clear"></div>
@@ -205,6 +213,7 @@
                     <div class="profilepic"></div>
                     <div class="name">Jim Wilks<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                     <div class="number">Epic #1</div>
+                    <div class="flag"><i class="fa fa-flag"></i></div>
                     <div class="phi"><i class="fa fa-lock"></i></div>
                     <div class="newDate">11/1/2017 11:12 PM</div>
                     <div class="clear"></div>
@@ -230,6 +239,7 @@
                     <div class="profilepic"></div>
                     <div class="name">Teddy Henderson<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                     <div class="number">Epic #2</div>
+                    <div class="flag"><i class="fa fa-flag"></i></div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
                     <div class="newDate">11/1/2017 11:12 PM</div>
                     <div class="clear"></div>
@@ -252,6 +262,7 @@
                     <div class="profilepic"></div>
                     <div class="name">Teddy Henderson<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                     <div class="number">#2</div>
+                    <div class="flag"><i class="fa fa-flag"></i></div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
                     <div class="newDate">11/1/2017 11:12 PM</div>
                     <div class="clear"></div>
@@ -279,6 +290,7 @@
                <span class="link internal"><i class="fa fa-comments"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> Internal</span>
                <span class="link phi"><i class="fa fa-lock"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> PHI</span>
                <span class="link direction"><i class="fa fa-arrows-v"></i>Sort</span>
+               <span class="link filter"><i class="fa fa-filter"></i>Filter</span>
           </div>
 
           <div id="newpost" class="post new">
@@ -302,10 +314,12 @@
                          <i class="fa fa-list-ol"></i>
                          <i class="fa fa-table"></i>
                     </div>
+                    <div class="flag"><i class="fa fa-flag"></i></div>
                     <span class="phi"><i class="fa fa-unlock-alt"></i></span>
+
                     <div class="clear"></div>
                </div>
-               <textarea placeholder="Type your new post here...">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</textarea>
+               <textarea>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</textarea>
                <div class="attachments">
                     <span><i class="fa fa-file"></i>1/12 Testing Results.doc</span>
                </div>

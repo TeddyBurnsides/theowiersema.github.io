@@ -32,18 +32,12 @@ a {text-decoration:none;}
 .clear{clear:both;}
 :root {
 	--red:#FB889D;
-	--red:#C86C7D;
-	--lightblue:#5894FF;
-	--blue:#5894FF;
-	--darkBlue:#394251;
-	--darkerBlue:#2b323d;
-	--darkBlue:#2D3E50;
-	--darkerBlue:#44596F;
 	--yellow:#FEB64D;
-	--bg:#F5F8F9;
+	--blue:#5894FF;
+	--darkBlue:#2D3E50;
+	--green:#0196AD;
 	--bg:#F5F7F8;
 	--darkbg:#f0f3f4;
-	--green:#0196AD;
 	--border:#d5e2e6;
 	--lightborder:#eaf1f3;
 	--minContentWidth:1000px;
@@ -61,21 +55,20 @@ body {
 
 #mainmenu {
 	height:36px;
-	background:var(--darkBlue);
+	background:var(--darkBlue)
 	padding:0 var(--padding);
 	min-width:var(--minContentWidth);
 	display:none;
 }
 #mainmenu .main li {
 	float:left;
-	font:100 10pt/36px Helvetica;
-	color:rgba(255,255,255,.3);
+	font:600 10pt/36px Helvetica;
+	color:var(--darkBlue);
 	cursor:pointer;
 	padding:0 15px;
 }
 #mainmenu .main li.active {
-	background:var(--darkerBlue);
-	color:rgba(255,255,255,.6);
+
 }
 #mainmenu .admin {
 	float:right;
@@ -104,7 +97,6 @@ body {
 	margin-bottom:var(--padding);
 	min-width:var(--minContentWidth);
 	background:#fff;
-/*	background:#F6E481;*/
 	border-bottom:1px solid var(--border);
 	border-top:3px solid var(--darkBlue);
 	font:11pt/32px "Open Sans",Helvetica;
@@ -118,7 +110,7 @@ body {
 	color:rgba(0,0,0,.4);
 	font-weight:800;
 	font-size:10pt;
-	padding:0 10px;
+	padding:0 12px;
 	margin-right:var(--padding);
 }
 #nav {
@@ -138,33 +130,34 @@ body {
 	color:var(--green);
 	border-bottom:1px solid var(--green);
 }
-#menu select {
+#menu #customer {
+	border-radius:5px;
 	float:left;
 	height:32px;
-	padding:0;
+	padding:0 12px;
 	margin:0 var(--padding) 0 0;
 	font:10pt/32px "Open Sans",Helvetica;
 	border:0;
-	width:280px;
+	width:230px;
 	color:var(--green);
 	background:var(--lightborder);
 	cursor:pointer;
 }
-#menu select option {
-	color:#000;
+#menu #customer::placeholder {
+	color:var(--green);
 }
 #menu .search {
 	float:left;
 	position:relative;
 }
-#menu .fa-search {
+#menu .search .fa-search {
 	position:absolute;
 	line-height:32px;
 	font-size:11pt;
 	left:12px;
 	color:#aaa;
 }
-#menu input[type="text"] {
+#menu .search input[type="text"] {
 	margin:0 var(--padding) 0 0;
 	float:left;
 	padding:0 10px 0 34px;
@@ -174,10 +167,10 @@ body {
 	color:#000;
 	border:1px solid rgba(0,0,0,.1);
 }
-#menu input[type="text"]:focus {
+#menu .search input[type="text"]:focus {
 	border:1px solid var(--green);
 }
-#menu input[type="text"]::placeholder {
+#menu .search input[type="text"]::placeholder {
 	color:#aaa;
 }
 
@@ -191,42 +184,45 @@ body {
 #header h1 {
 	font:800 19pt/40px "Open Sans","Nunito",Helvetica;
 	letter-spacing:-1px;
-	margin:0 0 10px 0;
+	margin:0 0 5px 0;
 	color:var(--darkBlue);
 }
 #header .details {
 	color:rgba(0,0,0,.5);
-	padding-top:15px;
-	border-top:1px solid var(--border);
-	font:10pt/20px "Open Sans",Helvetica;
+	font:10pt/22px "Open Sans",Helvetica;
 	display:inline-block;
-	height:20px;
+	height:22px;
 }
 #header .details .time {
-	font-size:10pt;
-	color:rgba(0,0,0,.5);
+	font-size:11pt;
+	color:rgba(0,0,0,.3);
 	float:left;
 	margin-right:20px;
 }
+#header .details .time span {
+	font-weight:bold;
+	color:rgba(0,0,0,.4);
+}
 #header select {
-	color:#fff;
-	border:1px solid rgba(0,0,0,.2);
-	width:100px;
+	color:var(--green);
+	width:110px;
 	font-size:10pt;
-	line-height:20px;
+	line-height:22px;
 	float:left;
-	background:#444;
+	background:var(--border);
+	border:0;
+	font-weight:bold;
+	padding:0 2px;
+	height:22px;
 }
-#header select.priority.critical  {
-	background:var(--red);
+#header select.priority {
 	margin:0 20px 0 0;
+	color:#fff;
 }
+#header select.priority.critical  {background:var(--red);}
 #header select.priority.high  {background:var(--yellow);}
 #header select.priority.medium {background:var(--blue);}
-#header select.priority.low {background:#aaa;}
-#header select.priority {
-
-}
+#header select.priority.low {background:#777;}
 
 /* Content Wrapper */
 
@@ -253,15 +249,16 @@ body {
 	margin:0;
 }
 h3 {
-	font:100 16pt/30px Helvetica;
+	font:100 15pt/30px "Open Sans",Helvetica;
 	padding-bottom:10px;
 	color:#777;
 }
 #sidebar li {
 	color:#bbb;
-	font:100 14pt/20px "Open Sans",Helvetica;
+	font:14pt/20px "Open Sans",Helvetica;
 	margin:5px 0 20px;
 	cursor:pointer;
+	letter-spacing:-.5px;
 }
 #sidebar li:last-child {
 	margin-bottom:5px;
@@ -331,8 +328,9 @@ h3 {
 }
 #sidebar .people .name {
 	float:left;
-	font:100 12pt/25px Helvetica;
+	font:100 12pt/25px "Open Sans",Helvetica;
 	padding:5px 0 0 60px;
+	letter-spacing:.-5px;
 	color:var(--darkBlue);
 }
 #sidebar .people .name span {
@@ -358,7 +356,7 @@ h3 {
 #sidebar .people .role {
 	float:left;
 	color:#888;
-	font:100 10pt/15px Helvetica;
+	font:100 10pt/15px "Open Sans", Helvetica;
 	padding-left:60px;
 }
 #sidebar .people.primary .role {
@@ -368,37 +366,49 @@ h3 {
 	font-weight:bold;
 	color:var(--red);
 }
+#sidebar .newPerson, #sidebar .newRecord {
+	position:relative;
+	margin-top:20px;
+}
 #sidebar input[type="text"] {
 	margin:0;
-	padding:0 10px;
+	padding:0 10px 0 36px;
 	border-radius:3px;
-	font:100 13pt/30px Helvetica;
+	font:11pt/30px "Open Sans", Helvetica;
 	border:1px solid rgba(0,0,0,.1);
 	color:#333;
-	width:calc(var(--sidebarWidth) - 64px);
+	width:calc(var(--sidebarWidth) - 90px);
+}
+#sidebar .fa-search {
+	position:absolute;
+	line-height:32px;
+	font-size:11pt;
+	left:12px;
+	color:#aaa;
+}
+#sidebar .newRecord .fa-search {
+	left:86px;
 }
 #sidebar .sidebarbox.records select {
-	margin-top:20px;
 	float:left;
-	border-radius:0;
+	border-radius:5px;
 	height:32px;
 	border:1px solid var(--border);
 	background:var(--bg);
-	color:rgba(0,0,0,.6);
-	font:400 11pt/30px Helvetica;
+	color:rgba(0,0,0,.5);
+	font:600 11pt/30px "Open Sans", Helvetica;
 	width:65px;
 	text-align-last:center;
 }
 #sidebar .sidebarbox.records input[type="text"] {
-	margin-top:20px;
-	width:calc(var(--sidebarWidth) - 139px);
-	margin-left:10px;
+	width:calc(var(--sidebarWidth) - 165px);
+	margin:0 0 0 10px;
 }
 #sidebar input[type="text"]::placeholder {
-	color:#ccc;
+	color:#aaa;
 }
 #sidebar input[type="Text"]:focus {
-	border-color:var(--blue);
+	border-color:var(--green);
 	outline-width:0;
 }
 
@@ -418,7 +428,7 @@ h3 {
 	padding:0;
 }
 .navigation .link {
-	font-size:10pt;
+	font-size:11pt;
 	margin-right:20px;
 	color:rgba(0,0,0,.4);
 	float:right;
@@ -445,7 +455,7 @@ h3 {
 .navigation .pages {
 	float:right;
 	color:rgba(0,0,0,.2);
-	font-size:10pt;
+	font-size:11pt;
 	font-weight:Bold;
 	margin:0 8px;
 }
@@ -616,7 +626,7 @@ h3 {
     border-width: 0px 15px 12px 15px;
     border-color: transparent transparent var(--border) transparent;
     position: absolute;
-    left: 20px;
+    left: 30px;
     top:-14px
 }
 #content .post.epic .header:before, #content .post.new.public .header:before {
@@ -633,29 +643,33 @@ h3 {
 	border:1px solid var(--border);
 	border-radius:5px;
 	height:28px;
-	font:11pt/28px Helvetica;
-	color:rgba(0,0,0,.4);
+	font:10pt/28px "Open Sans",Helvetica;
+	color:rgba(0,0,0,.6);
 	padding:0 10px;
 	min-width:20px;
-	text-align:Center;
+	text-align:center;
+	margin-left:20px;
 }
-#content .post.epic .number {color:var(--red)}
-#content .post .header .phi {
+#content .post.epic .number {
+	color:var(--red);
+}
+#content .post .header .flag, #content .post .header .phi {
 	float:right;
-	color:#ccc;
-	margin-right:20px;
-	font:15pt/30px Helvetica;
+	color:var(--green);
+	margin-left:20px;
+	font-size:13pt;
 	line-height:30px;
 	cursor:pointer;
+}
+#content .post .header .phi {
+	color:#ccc;
+	font-size:15pt;
 }
 #content .post .phi .fa-lock {
 	color:var(--yellow);
 }
 #content .post .phi:hover {
 	color:#777;
-}
-#content .post .phi.active:hover {
-	color:var(--yellow);
 }
 #content .post .profilepic {
 	width:50px;
@@ -665,9 +679,8 @@ h3 {
 	background:url(pic2.png) scroll no-repeat center center;
 }
 #content .post .name {
-	position:absolute;
-	left:90px;
-	top:20px;
+	float:left;
+	padding-left:20px;
 	font:400 14pt/30px "Open Sans",Helvetica;
 	letter-spacing:-.5px;
 	display:inline-block;
@@ -687,7 +700,6 @@ h3 {
 	top:45px;
 	font:10pt/30px "Open Sans",Helvetica;
 	color:#bbb;
-	padding-right:20px;
 }
 #content .post .footer {
 	height:30px;
@@ -696,8 +708,8 @@ h3 {
 	border-bottom-right-radius:5px;
 	border-bottom-left-radius:5px;
 	border-top:1px solid var(--border);
-	font:11pt/30px Helvetica;
-	color:rgba(0,0,0,.3);
+	font:10pt/30px "Open Sans",Helvetica;
+	color:rgba(0,0,0,.4);
 	background:var(--darkbg);
 	position:relative;
 }
@@ -706,6 +718,7 @@ h3 {
 	float:right;
 	margin-left:20px;
 	font-size:13pt;
+	cursor:pointer;
 }
 #content .post.phi .footer .confidential {
 	display:inline-block;
@@ -721,15 +734,12 @@ h3 {
 }
 #content .post .footer span .fa:hover {
 	color:var(--blue);
-	cursor:pointer;
 }
 
 /* New Post */
 
 #content .post.new {
 	margin-top:var(--padding);
-}
-#content .post.new {
 	border-top-color:var(--blue);
 }
 #content .post.new.public {
@@ -739,13 +749,6 @@ h3 {
 	color:#666;
 	line-height:30px;
 	margin-right:15px;
-}
-#content .post.new .header .phi {
-	float:right;
-	margin-right:0;
-	margin-left:10px;
-}
-#content .post.new .header .fa:hover {
 	cursor:pointer;
 }
 #content .post.new select {
@@ -754,7 +757,7 @@ h3 {
 	padding: 0;
 	margin: 0 10px 0 0;
 	border: 1px solid rgba(0,0,0,.1);
-	font-size:11pt;
+	font:10pt/20px "Open Sans", Helvetica;
 }
 #content .post.new textarea {
 	border:0;
@@ -767,9 +770,6 @@ h3 {
 	min-height:190px;
 	min-width:calc(100% - 40px);
 	max-width:calc(100% - 40px);
-}
-#content .post.new textarea::placeholder {
-	color:#aaa;
 }
 #content .post.new .footer span {
 	margin:0 15px 0 0;
@@ -784,7 +784,7 @@ h3 {
 #content .post.new .footer button {
 	background:var(--blue);
 	color:#fff;
-	font:11pt/28px Helvetica;
+	font:100 11pt/28px "Opens Sans", Helvetica;
 	border-radius:5px;
 	margin:0;
 	padding:0 10px;
@@ -811,13 +811,13 @@ h3 {
 	width:200px;
 }
 #footer h5 {
-	font:100 14pt/25px Helvetica;
+	font:100 14pt/25px "Open Sans",Helvetica;
 	padding-bottom:10px;
 	color:var(--blue);
 }
 #footer li {
-	color:rgba(255,255,255,.7);
-	font:11pt/25px Helvetica;
+	color:rgba(255,255,255,.6);
+	font:10pt/25px 'Open Sans',Helvetica;
 }
 #footer #epic {
 	font:bold italic 30pt/60px Helvetica;
