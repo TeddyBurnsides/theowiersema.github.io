@@ -46,7 +46,10 @@ a {text-decoration:none;}
 	--sidebarWidth:300px;
 	--padding:20px;
 }
-select{border-radius:5px;}
+select{
+	border-radius:5px;
+	cursor:pointer;
+}
 body {
 	font-family:Helvetica;
 	background:var(--bg);
@@ -192,7 +195,6 @@ body {
 	font:10pt/22px "Open Sans",Helvetica;
 	display:inline-block;
 	height:22px;
-	margin-bottom:10px;
 }
 #header .details .time {
 	font-size:11pt;
@@ -479,6 +481,7 @@ h4 {
 	border-radius:5px;
 	border:1px solid var(--border);
 	border-top:3px solid var(--green);
+	cursor:default;
 }
 .dropdown.show {display:block;}
 .dropdown:before {
@@ -830,7 +833,7 @@ h4 {
 #content .post.min .footer .confidential .hide {
 	display:none;
 }
-#content .post .footer span .fa:hover {
+#content .post .footer span:hover > .fa {
 	color:var(--blue);
 }
 
