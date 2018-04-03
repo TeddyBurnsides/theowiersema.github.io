@@ -407,7 +407,7 @@ h4 {
 	border:1px solid var(--border);
 	background:var(--bg);
 	color:rgba(0,0,0,.7);
-	font:10pt/30px "Open Sans", Helvetica;
+	font:bold 10pt/30px "Open Sans", Helvetica;
 	width:65px;
 	text-align-last:center;
 	cursor:pointer;
