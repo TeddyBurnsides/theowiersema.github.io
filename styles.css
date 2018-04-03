@@ -340,7 +340,7 @@ h4 {
 #sidebar .people .name {
 	float:left;
 	font:100 12pt/25px "Open Sans",Helvetica;
-	padding:5px 0 0 60px;
+	padding:2px 0 0 60px;
 	letter-spacing:.-5px;
 	color:var(--darkBlue);
 }
@@ -368,7 +368,7 @@ h4 {
 	float:left;
 	color:#888;
 	font:100 10pt/15px "Open Sans", Helvetica;
-	padding-left:60px;
+	padding:2px 0 0 60px;
 }
 #sidebar .people.primary .role {
 	color:rgba(255,255,255,.7);
@@ -786,6 +786,7 @@ h4 {
 	top:45px;
 	font:10pt/30px "Open Sans",Helvetica;
 	color:#aaa;
+	letter-spacing:-.5px;
 }
 #content .post .footer {
 	height:30px;
@@ -827,7 +828,7 @@ h4 {
 #content .post.min .footer .confidential .hide {
 	display:none;
 }
-#content .post .footer .confidential:hover > span .fa {
+#content .post .footer .confidential:hover > span .fa, #content .post .footer span:hover > .fa {
 	color:var(--blue);
 }
 
