@@ -50,6 +50,9 @@ select{
 	border-radius:5px;
 	cursor:pointer;
 }
+option {
+	background:#fff !important;
+}
 body {
 	font-family:"Open Sans",Helvetica;
 	background:var(--bg);
@@ -403,11 +406,12 @@ h4 {
 	height:32px;
 	border:1px solid var(--border);
 	background:var(--bg);
-	color:rgba(0,0,0,.5);
+	color:rgba(0,0,0,.7);
 	font:10pt/30px "Open Sans", Helvetica;
 	width:65px;
 	text-align-last:center;
 	cursor:pointer;
+	letter-spacing: -.5px;
 }
 #sidebar input[type="text"]::placeholder {
 	color:#888;
