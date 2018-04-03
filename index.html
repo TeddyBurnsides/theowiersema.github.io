@@ -13,13 +13,12 @@
 
 <div id="mainmenu">
      <div class="main">
-          <li><i class="fa fa-users"></i>Userweb</li>
-          <li class="active"><i class="fa fa-life-ring"></i>Support Logs</li>
-          <li><i class="fa fa-pencil"></i>Release Authorization</li>
-          <li><i class="fa fa-list"></i>Checklists</li>
+          <li>Userweb</li>
+          <li class="active">Support Logs</li>
+          <li>Release Authorization</li>
+          <li>Checklists</li>
      </div>
      <div class="admin">
-          <li>Reports</li>
           <li>Admin</li>
           <li>Options</li>
           <li>Help</li>
@@ -31,7 +30,7 @@
      <input id="customer" type="text" placeholder="John Hopkins Healthcare" />
      <div class="search">
           <i class="fa fa-search"></i>
-          <input type="text" placeholder="Search tickets by name or ID"/>
+          <input type="text" placeholder="Search posts..."/>
      </div>
      <ul id="nav">
           <li>Home</li>
@@ -102,7 +101,7 @@
                </div>
 
                <div class="newRecord">
-                    <select>
+                    <select class="leftButton" >
                          <option>SLG</option>
                          <option>RA</option>
                          <option>RN</option>
@@ -151,6 +150,7 @@
                     <div class="clear"></div>
                </div>
                <div class="newPerson">
+                    <button class="leftButton" value="Add Me">Add Me</button>
                     <i class="fa fa-search"></i>
                     <input type="text" placeholder="Add new person" />
                </div>
@@ -164,19 +164,33 @@
                     <div class="leftarrow"><i class="fa fa-arrow-circle-left"></i></div>
                     <div class="clear"></div>
                </div>
-               <span class="link internal"><i class="fa fa-comments"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> Internal</span>
-               <span class="link phi"><i class="fa fa-lock"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> PHI</span>
-               <span class="link"><i class="fa fa-arrows-v"></i>Sort</span>
+               <span class="link internal">
+                    <span>
+                         <i class="fa fa-comments"></i>
+                         <span class="hide">Hide</span><span class="show notVisible">Show</span> Internal
+                    </span>
+               </span>
+               <span class="link phi">
+                    <span>
+                         <i class="fa fa-lock"></i>
+                         <span class="hide">Hide</span><span class="show notVisible">Show</span> PHI
+                    </span>
+                    </span>
+               <span class="link">
+                    <span><i class="fa fa-arrows-v"></i>Sort</span></span>
                <span class="link filter">
-                    <i class="fa fa-filter"></i>Filter
+                    <span><i class="fa fa-filter"></i>Filter</span>
                     <div class="dropdown">
                          <h4>Filter by Tag</h4>
                          <label><input type="checkbox" /><span>Summary</span></label>
                          <label><input type="checkbox" /><span>Problem Description</span></label>
                          <label><input type="checkbox" /><span>Resolution</span></label>
+                         <div class="clear"></div>
+                         <button class="closeDropdown">Ok</button>
                     </div>
                </span>
           </div> <!--navigation-->
+
           <div class="post first phi">
                <div class="header">
                     <div class="profilepic"></div>
@@ -185,10 +199,12 @@
                     <div class="flag">
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
-                              <h4>Add a Tag</h4>
+                              <h4>Add Tag</h4>
                               <label><input type="checkbox" /><span>Summary</span></label>
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">Ok</button>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-lock"></i></div>
@@ -232,10 +248,12 @@
                     <div class="flag">
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
-                              <h4>Add a Tag</h4>
+                              <h4>Add Tag</h4>
                               <label><input type="checkbox" /><span>Summary</span></label>
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">Ok</button>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-lock"></i></div>
@@ -266,10 +284,12 @@
                     <div class="flag">
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
-                              <h4>Add a Tag</h4>
+                              <h4>Add Tag</h4>
                               <label><input type="checkbox" /><span>Summary</span></label>
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">Ok</button>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
@@ -297,10 +317,12 @@
                     <div class="flag">
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
-                              <h4>Add a Tag</h4>
+                              <h4>Add Tag</h4>
                               <label><input type="checkbox" /><span>Summary</span></label>
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">Ok</button>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
@@ -327,19 +349,32 @@
                     <div class="leftarrow"><i class="fa fa-arrow-circle-left"></i></div>
                     <div class="clear"></div>
                </div>
-               <span class="link internal"><i class="fa fa-comments"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> Internal</span>
-               <span class="link phi"><i class="fa fa-lock"></i><span class="hide">Hide</span><span class="show notVisible">Show</span> PHI</span>
-               <span class="link direction"><i class="fa fa-arrows-v"></i>Sort</span>
+               <span class="link internal">
+                    <span>
+                         <i class="fa fa-comments"></i>
+                         <span class="hide">Hide</span><span class="show notVisible">Show</span> Internal
+                    </span>
+               </span>
+               <span class="link phi">
+                    <span>
+                         <i class="fa fa-lock"></i>
+                         <span class="hide">Hide</span><span class="show notVisible">Show</span> PHI
+                    </span>
+                    </span>
+               <span class="link">
+                    <span><i class="fa fa-arrows-v"></i>Sort</span></span>
                <span class="link filter">
-                    <i class="fa fa-filter"></i>Filter
+                    <span><i class="fa fa-filter"></i>Filter</span>
                     <div class="dropdown">
-                         <h4>Filter by Tag</h4>
+                         <h4>Add Tag</h4>
                          <label><input type="checkbox" /><span>Summary</span></label>
                          <label><input type="checkbox" /><span>Problem Description</span></label>
                          <label><input type="checkbox" /><span>Resolution</span></label>
+                         <div class="clear"></div>
+                         <button class="closeDropdown">Ok</button>
                     </div>
                </span>
-          </div>
+          </div> <!--navigation-->
 
           <div id="newpost" class="post new">
                <div class="header">
@@ -435,26 +470,7 @@
 
 </div> <!--Content-->
 
-<div id="footer">
-     <div class="info">
-          <h5>Resources</h5>
-          <li>Userweb</li>
-          <li>Epic Homepage</li>
-          <li>Foundation System</li>
-     </div>
-     <div class="info">
-          <h5>Contact</h5>
-          <li>608.771.5333</li>
-          <li>contact@epic.com</li>
-          <li>Plz no fax</li>
-     </div>
-     <div class="info">
-          <h5>Other</h5>
-          <li>Design by Theo Wiersema</li>
-     </div>
-     <span id="epic">Epic</span>
-     <div class="clear"></div>
-</div> <!--footer-->
+<div id="footer"></div> <!--footer-->
 
 </body>
 </html>

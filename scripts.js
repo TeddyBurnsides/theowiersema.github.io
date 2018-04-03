@@ -33,7 +33,7 @@ $(document).ready(function(){
           } // End if
      });
 
-     // "Hide/Show Content" button
+     // "Hide/Show Content" post footer button
      $(".post .footer .confidential").on('click',function() {
           // hide post content
           $(this).parent().siblings('.entry').animate({
@@ -51,7 +51,7 @@ $(document).ready(function(){
           $(this).closest('.post').toggleClass('public');
      });
 
-     // PHI button
+     // PHI post button
      $(".post .header .phi").on('click',function() {
           // change PHI icon
           $(this).find('.fa').toggleClass('fa-lock fa-unlock-alt');
@@ -72,7 +72,7 @@ $(document).ready(function(){
      // Hide All phi
      $(".navigation .phi").on('click',function() {
           // change behavior depending on button text
-          if ($(this).find('.show').is(':hidden')) {
+          if ($(this).children('span').children('.show').is(':hidden')) {
                // toggle minimized post class
                $('.post.phi').addClass('min');
                // hide post content
@@ -84,13 +84,13 @@ $(document).ready(function(){
                $(this).parent().siblings('.phi').children('.entry').show();
           }
           // toggle "Show/Hide PHI" button (on both nav menus)
-          $(".navigation .phi").find('span').toggleClass('notVisible')
+          $(".navigation .phi").children('span').children('span').toggleClass('notVisible')
      });
 
      // Hide All Internal posts (note this removes post entirely)
      $(".navigation .internal").on('click',function() {
           // change button text (on both navigation menus)
-          $(".navigation .internal").find('span').toggleClass('notVisible');
+          $(".navigation .internal").children('span').children('span').toggleClass('notVisible');
           // hide epic posts
           $(this).parent().siblings('.epic').toggle();
      });
@@ -98,6 +98,16 @@ $(document).ready(function(){
      // Remove related records
      $('.fa-minus-circle').on('click',function() {
           $(this).closest('.record').remove();
+     });
+
+     // Show filter dropdown for navigation and posts
+     $('.navigation .filter span, .flag .fa-flag').on('click',function() {
+          $(this).siblings('.dropdown').toggleClass('show');
+     });
+
+     // Hide dropdown when clicking OK
+     $('.dropdown .closeDropdown').on('click',function() {
+          $(this).closest('.dropdown').toggleClass('show');
      });
 
 });
