@@ -53,6 +53,7 @@ select{
 }
 option {
 	background:#fff !important;
+	color:#000;
 }
 body {
 	font-family:"Open Sans",Helvetica;
