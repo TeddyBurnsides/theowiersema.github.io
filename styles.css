@@ -67,6 +67,17 @@ body {
 	padding:0 var(--padding);
 	min-width:var(--minContentWidth);
 }
+#mainmenu .fa-bars {
+	float:left;
+	line-height:34px;
+	font-size:14pt;
+	color:rgba(255,255,255,.4);
+	margin-right:var(--padding);
+	cursor:pointer;
+}
+#mainmenu .fa-bars:hover {
+	color:rgba(255,255,255,.8);
+}
 #mainmenu .main li {
 	float:left;
 	font:9pt/24px Helvetica;
