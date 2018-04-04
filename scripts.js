@@ -102,12 +102,12 @@ $(document).ready(function(){
 
      // Show filter dropdown for navigation and posts
      $('.navigation .filter span, .flag .fa-flag').on('click',function() {
-          $(this).siblings('.dropdown').toggleClass('show');
+          $(this).siblings('.dropdown').fadeIn(200);
      });
 
      // Hide dropdown when clicking OK
      $('.dropdown .closeDropdown').on('click',function() {
-          $(this).closest('.dropdown').toggleClass('show');
+          $(this).closest('.dropdown').fadeOut(50);
      });
 
 });

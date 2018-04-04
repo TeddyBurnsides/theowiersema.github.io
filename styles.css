@@ -40,8 +40,9 @@ a {text-decoration:none;}
 	--bg:#F5F7F8;
 	--darkbg:#f0f3f4;
 	--border:#d5e2e6;
+	--border:#ccdce0;
 	--lightborder:#eaf1f3;
-	--minContentWidth:920px;
+	--minContentWidth:1000px;
 	--postWidth:calc(calc(100% - var(--sidebarWidth)) - var(--padding));
 	--sidebarWidth:300px;
 	--padding:20px;
@@ -406,7 +407,7 @@ h4 {
 	height:32px;
 	border:1px solid var(--border);
 	background:var(--bg);
-	color:rgba(0,0,0,.7);
+	color:rgba(0,0,0,.6);
 	font:bold 10pt/30px "Open Sans", Helvetica;
 	width:65px;
 	text-align-last:center;
