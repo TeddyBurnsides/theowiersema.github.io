@@ -406,25 +406,26 @@ h4 {
 #sidebar .people.primary .name {
 	color:#fff;
 }
-#sidebar .people .name .fa {
+#sidebar .people .role .fa {
 	color:#ccc;
-	padding-right:5px;
+	padding-left:5px;
 	cursor:pointer;
 }
-#sidebar .people .name .fa:hover {
+#sidebar .people .role .fa:hover {
 	color:var(--blue)
 }
-#sidebar .people .name .fa:last-child {
+#sidebar .people .role .fa:last-child {
 	padding:0;
 }
-#sidebar .people.primary .name .fa {
+#sidebar .people.primary .role .fa {
 	color:rgba(0,0,0,.4);
 }
 #sidebar .people .role {
-	float:left;
-	color:#888;
-	font:100 10pt/15px "Open Sans", Helvetica;
-	padding:2px 0 0 60px;
+	position: absolute;
+   	color: #888;
+  	font: 100 10pt/15px "Open Sans", Helvetica;
+   	padding: 2px 0 0 60px;
+    	top: 27px;
 }
 #sidebar .people.primary .role {
 	color:rgba(255,255,255,.7);
