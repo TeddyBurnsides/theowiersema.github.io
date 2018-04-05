@@ -110,4 +110,16 @@ $(document).ready(function(){
           $(this).closest('.dropdown').fadeOut(50);
      });
 
+     // Hide the hidden sidebarbox
+     $('.fa-bars').on('click',function() {
+          if($("#hiddenMenu").css("left") == "-200px") {
+               $("#hiddenMenu").animate({"left": "0px"},"fast");
+               $('body').animate({"padding-left": "200px"},"fast");
+          } else {
+            $("#hiddenMenu").animate({"left": "-200px"},"fast");
+            $('body').animate({"padding-left": "0px"},"fast");
+          }
+     });
+
+
 });
