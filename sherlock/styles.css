@@ -817,12 +817,15 @@ h4 {
 	display:inline-block;
 	color:var(--green);
 }
-#content .post .name sup {
+#content .post .name sup, #sidebar .name sup {
 	font-size:9pt;
 	color:var(--red);
 	position:relative;
 	top:-4px;
 	left:4px;
+}
+#sidebar .name sup {
+	left:0;
 }
 #content .post .name .fa {
 	color:#ccc;
