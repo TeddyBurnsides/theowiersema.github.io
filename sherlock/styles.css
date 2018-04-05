@@ -378,13 +378,6 @@ h4 {
 	min-height:50px;
 	position:relative;
 }
-#sidebar .people.primary {
-	background:var(--blue);
-	border-top-right-radius:15px;
-	border-top-left-radius:100px;
-	border-bottom-left-radius:100px;
-	border-bottom-right-radius:15px;
-}
 #sidebar .people .profilepic {
 	width:50px;
 	height:50px;
@@ -823,9 +816,6 @@ h4 {
 	position:relative;
 	top:-4px;
 	left:4px;
-}
-#sidebar .name sup {
-	left:0;
 }
 #content .post .name .fa {
 	color:#ccc;
