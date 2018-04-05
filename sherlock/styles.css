@@ -411,9 +411,6 @@ h4 {
 #sidebar .people .role .fa:hover {
 	color:var(--blue)
 }
-#sidebar .people .role .fa:last-child {
-	padding:0;
-}
 #sidebar .people.primary .role .fa {
 	color:rgba(0,0,0,.4);
 }
