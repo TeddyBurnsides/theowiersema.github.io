@@ -395,10 +395,10 @@ h4 {
 }
 #sidebar .people .name {
 	float:left;
-	font:100 12pt/25px "Open Sans",Helvetica;
+	font:400 12pt/25px "Open Sans",Helvetica;
 	padding:2px 0 0 60px;
 	letter-spacing:-.5px;
-	color:var(--darkBlue);
+	color:var(--green);
 }
 #sidebar .people.primary .name {
 	color:#fff;
