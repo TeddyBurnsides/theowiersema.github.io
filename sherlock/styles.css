@@ -397,11 +397,8 @@ h4 {
 	float:left;
 	font:100 12pt/25px "Open Sans",Helvetica;
 	padding:2px 0 0 60px;
-	letter-spacing:.-5px;
+	letter-spacing:-.5px;
 	color:var(--darkBlue);
-}
-#sidebar .people .name span {
-	padding-right:10px;
 }
 #sidebar .people.primary .name {
 	color:#fff;
