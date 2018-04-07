@@ -90,6 +90,10 @@ body {
 	font:9pt/20px "Open Sans",Helvetica;
 	margin-left:20px;
 }
+#hiddenMenu li:hover {
+	color:#000;
+	font-weight:bold;
+}
 #hiddenMenu li ul li {
 	margin-left:10px;
 }
