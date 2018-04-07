@@ -57,61 +57,55 @@ option {
 }
 body {
 	font-family:"Open Sans",Helvetica;
-	background:var(--bg);
-	padding-left:200px;
+	background:var(--darkbg);
 }
 
 /* Hidden Menu */
 
 #hiddenMenu {
-	width:var(--hiddenMenuWidth);
-	position:fixed;
-	left:0px;
-	top:0;
-	height:100%;
-	border-top:34px solid rgba(0,0,0,.2);
-	background: rgb(45,62,80);
-	background: linear-gradient(90deg, rgba(45,62,80,1) 95%, rgba(33,45,58,1) 100%);
+	width:calc(100% - var(--padding));
+	height:0;
+	overflow:hidden;
 }
-#hiddenMenu .logo {
-	height:71px;
-	background:rgba(255,255,255,.05);
-	border-bottom:1px solid rgba(255,255,255,.1);
-	margin:0 0 20px 0;
+#hiddenMenu .quarter {
+	width:25%;
+	float:left;
+}
+#hiddenMenu .clear {
+	height:20px;
 }
 #hiddenMenu .logo img {
 	width:80px;
 	margin:22px 0 0 20px;
 }
 #hiddenMenu h5 {
-	padding-left:20px;
-	font:100 13pt/24px "Open Sans",Helvetica;
+	font:100 13pt/20px "Open Sans",Helvetica;
 	color:var(--green);
-}
-#hiddenMenu h5 {
-	margin:20px 0 5px;
+	margin:20px 0 12px 20px;
+	padding:0 0 10px 0;
+	border-bottom:1px solid rgba(0,0,0,.15);
 }
 #hiddenMenu li {
-	color:#fff;
-	font:10pt/24px "Open Sans",Helvetica;
+	color:rgba(0,0,0,.8);
+	font:9pt/20px "Open Sans",Helvetica;
 	margin-left:20px;
 }
-#hiddenMenu li ul {
-
+#hiddenMenu li ul li {
+	margin-left:10px;
 }
 
 /* The Top Bar */
 
 #mainmenu {
-	height:34px;
+	height:40px;
 	background:var(--darkBlue);
 	padding:0 var(--padding);
 	min-width:var(--minContentWidth);
 }
 #mainmenu .fa-bars {
 	float:left;
-	line-height:34px;
-	font-size:14pt;
+	line-height:40px;
+	font-size:15pt;
 	color:rgba(255,255,255,.4);
 	margin-right:var(--padding);
 	cursor:pointer;
@@ -127,7 +121,7 @@ body {
 	padding:0 15px;
 	background:rgba(255,255,255,.1);
 	border-radius:5px;
-	margin:5px 5px 0 0;
+	margin:8px 5px 0 0;
 }
 #mainmenu .main li.active, #mainmenu .main li:hover {
 	background:rgba(255,255,255,.4);
@@ -138,7 +132,7 @@ body {
 }
 #mainmenu .admin li {
 	float:left;
-	font:9pt/34px Helvetica;
+	font:9pt/40px Helvetica;
 	color:rgba(255,255,255,.7);
 	cursor:pointer;
 	margin-left:var(--padding);
@@ -152,7 +146,6 @@ body {
 #menu {
 	height:32px;
 	padding:var(--padding);
-	margin-bottom:var(--padding);
 	min-width:var(--minContentWidth);
 	background:#fff;
 	border-bottom:1px solid var(--border);
@@ -234,9 +227,10 @@ body {
 /* Post header */
 
 #header {
-	padding:0 var(--padding);
+	padding:var(--padding);
 	min-width:var(--minContentWidth);
 	position:relative;
+	background:var(--bg);
 }
 #header h1 {
 	font:800 19pt/40px "Open Sans","Nunito",Helvetica;
@@ -284,7 +278,8 @@ body {
 
 #content {
 	min-width:var(--minContentWidth);
-	padding:var(--padding);
+	padding:0 var(--padding) var(--padding);
+	background:var(--bg);
 }
 
 /* Sidebar */
