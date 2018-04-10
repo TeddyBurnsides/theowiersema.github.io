@@ -102,7 +102,7 @@
 </div>
 
 <div id="mainmenu">
-     <i class="fa fa-bars"></i>
+     
      <div class="main">
           <li class="active">Support Logs</li>
           <li>Release Authorization</li>
@@ -118,6 +118,7 @@
 </div><!--main menu-->
 
 <div id="menu">
+	<i class="fa fa-bars"></i>
      <div id="postID">#4342334</div>
      <input id="customer" type="text" placeholder="John Hopkins Healthcare" />
      <div class="search">
@@ -496,60 +497,38 @@
 
      </div> <!--Posts-->
 
-     <div id="details" class="page">
-          <input class="title" type="text" placeholder="Issue at main clinic. Confidential Patient can't be transferred from 2 West - what are the current options? Can we move them to 2 West or not?" />
-          <select>
-               <option>Critical</option>
-               <option>High</option>
-               <option>Medium</option>
-               <option>Low</option>
-          </select>
-		  <input type="text" placeholder="Reference #" />
-		  <input type="text" placeholder="Reported On" />
-		  <input type="text" placeholder="Reported By" />
-		  <input type="text" placeholder="Sent to Epic" />
-		  <input type="text" placeholder="Next Update" />
-		  <select>
+    <div id="details" class="page">
+	
+		<label class="fullWidth">Title</label>
+		<input class="fullWidth" type="text" placeholder="RTE has become sentient. Please advise. What can we possibly do?" />
+		
+		<label class="leftSide">Reference #</label>
+		<label class="rightSide">Reported On</label>
+		<div class="clear"></div>
+		<input class="leftSide" type="text" placeholder="1322" />
+		<input class="rightSide" type="text" placeholder="1/22/2017" />
+		<div class="clear"></div>
+		
+		<label class="leftSide">Reported By</label>
+		<label class="rightSide">Next Update</label>
+		<input class="leftSide" type="text" placeholder="Mr. Bean" />
+		<input class="rightSide" type="text" placeholder="1/23/2022" />
+		
+		<label class="leftSide">Sent to Epic</label>
+		<label class="rightSide">Type</label>
+		<input type="text" class="leftSide" placeholder="1/23/2018" />
+		<select class="rightSide">
 			<option>Project Tracking</option>
 			<option>Problem Investigation</option>
 			<option>Upgrade Tracking</option>
-			</select>
-		<select>
-			<option>Tags</option>
-			<option>Another Tag</option>
-			<option>test</option>
-			</select>
-          <div class="clear"></div>
-          <h3>Team</h3>
-          <form>
-               <select>
-                    <option>Grand Central</option>
-                    <option>Prelude</option>
-                    <option>Radiant</option>
-                    <option>Beaker</option>
-               </select>
-               <input type="radio" checked /><label>Primary?</label>
-               <input placeholder="Jim Wilks" class="customer person" type="text" />
-               <input placeholder="Bonnita Hernandez" class="epic person" type="text" />
-               <div class="clear"></div>
-               <select>
-                    <option>Grand Central</option>
-                    <option>Prelude</option>
-                    <option>Radiant</option>
-                    <option>Beaker</option>
-               </select>
-               <input type="radio" /><label>Primary?</label>
-               <input placeholder="Claire Mikey" class="customer person" type="text" />
-               <input placeholder="Corriane Sanders" class="epic person" type="text" />
-               <div class="clear"></div>
-               <input type="submit" value="Save" />
-          </form>
+		</select>
+		
+		<div class="clear"></div>
      </div>
      <!-- Details -->
 
      <div id="attachments" class="page">
-          <h3>Files associated with this discussion</h3>
-          <div class="file"><i class="fa fa-file"></i>1/12 Testing Results.doc</div>
+                    <div class="file"><i class="fa fa-file"></i>1/12 Testing Results.doc</div>
           <div class="file"><i class="fa fa-file"></i>List of Patient Names for import.xlsr</div>
      </div>
 
