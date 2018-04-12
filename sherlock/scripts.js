@@ -114,8 +114,10 @@ $(document).ready(function(){
      $('.fa-bars').on('click',function() {
           if($("#hiddenMenu").css("height") == "0px") {
                $("#hiddenMenu").animate({"height": "320px"},"fast");
+			   $("#mainmenu").animate({"height": "40px"},"fast");
           } else {
             $("#hiddenMenu").animate({"height": "0"},"fast");
+			$("#mainmenu").animate({"height": "0"},"fast");
           }
      });
 
