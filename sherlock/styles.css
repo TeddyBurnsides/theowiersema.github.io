@@ -48,7 +48,7 @@ a {text-decoration:none;}
 	--lightborder:#eaf1f3;
 	--darkBg:#25262B;
 
-	--minContentWidth:1050px;
+	--minContentWidth:1100px;
 	--postWidth:calc(100% - var(--sidebarWidth));
 	--sidebarWidth:340px;
 	--padding:20px;
