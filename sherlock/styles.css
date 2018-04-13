@@ -46,13 +46,13 @@ a {text-decoration:none;}
 	--darkborder:#ccdce0;
 	--border:#81D7CD;
 	--lightborder:#eaf1f3;
-	--darkBg:#25262B;
+	--darkbg:#25262B; /*color of sidebar image*/
 
 	--minContentWidth:1100px;
 	--postWidth:calc(100% - var(--sidebarWidth));
 	--sidebarWidth:340px;
 	--padding:20px;
-	--radius:0px;
+	--radius:6px;
 
 	--font:"Open Sans",Helvetica;
 }
@@ -67,6 +67,7 @@ option {
 body {
 	font-family:var(--font);
 	background:#fff;
+	height:100%;
 	min-width:var(--minContentWidth);
 }
 
@@ -160,7 +161,6 @@ body {
 #postID {
 	float:left;
 	background:#FBF2C0;
-	border-radius:var(--radius);
 	text-align:center;
 	color:rgba(0,0,0,.5);
 	font-weight:bold;
@@ -189,7 +189,6 @@ body {
 	font-weight:bold;
 }
 #menu #customer {
-	border-radius:var(--radius);
 	float:left;
 	height:40px;
 	padding:0 15px;
@@ -241,11 +240,13 @@ body {
 }
 
 /* Sidebar */
+
 #sidebar {
 	float:right;
-	background:var(--darkBg);
 	width:var(--sidebarWidth);
+	background:var(--darkbg);
 	padding-bottom:40px;
+	height:1000%;
 }
 #sidebar .sidebarbox {
 	padding:40px 40px 0 40px;
@@ -307,9 +308,13 @@ body {
 	color:#fff;
 	position:relative;
 }
-#sidebar li.active, #sidebar li.link:hover {
+#sidebar li.active {
 	color:#fff;
-	background:rgba(255,255,255,.08);
+	background:rgba(255,255,255,.1);
+}
+#sidebar li.link:hover {
+	color:#ddd;
+	background:rgba(255,255,255,.1);
 }
 #sidebar li:last-child {
 	margin-bottom:0;
@@ -365,7 +370,6 @@ h4 {
 	position: relative;
 	background:#1C1D21;
 	margin-top:10px;
-	border-radius:var(--radius);
 	color:rgba(255,255,255,.8);
 	letter-spacing: -.3px;
 }
@@ -470,14 +474,14 @@ h3 {
 
 .navigation {
 	height:20px;
-	margin:0 0 20px 0;
-	width:100%;
-	font:12pt/20px var(--font);
+	padding:0 0 20px 0;
+	width:calc(100% - 0px);
+	font:bold 11pt/20px var(--font);
 	letter-spacing:-.5px;
-	color:rgba(0,0,0,.4);
+	color:rgba(0,0,0,.3);
 }
 .navigation .fa {
-	padding-right:8px;
+	padding-right:5px;
 }
 .navigation .rightarrow .fa, .navigation .leftarrow .fa {
 	padding:0;
@@ -501,8 +505,8 @@ h3 {
 
 .dropdown {
 	position:absolute;
-	background:var(--darkBlue);
-	display:none;
+	background:#eee;
+	border-radius:var(--radius);
 	top:34px;
 	left:10px;
 	color:#000;
@@ -511,22 +515,22 @@ h3 {
 	box-shadow:0 3px 5px rgba(0,0,0,.2);
 	font:11pt/24px var(--font);
 	border-radius:var(--radius);
-	border-top:3px solid var(--darkBlue);
+	border-top:3px solid var(--darkbg);
 	cursor:default;
+	display:none;
 }
 .dropdown.show {display:block;}
 .dropdown:before {
 	content:"";
 	border-style: solid;
 	border-width: 0px 10px 8px 10px;
-	border-color: transparent transparent var(--darkBlue) transparent;
+	border-color: transparent transparent var(--darkbg) transparent;
 	position: absolute;
 	left: 20px;
 	top:-11px
 }
 .dropdown h4  {
 	margin:25px 20px 15px 20px;
-	color:#fff;
 }
 .dropdown input[type="checkbox"]{
 	float:left;
@@ -553,8 +557,8 @@ h3 {
 	cursor:pointer;
 	width:100%;
 	text-align:center;
-	border-bottom-right-radius:5px;
-	border-bottom-left-radius:5px;
+	border-bottom-right-radius:var(--radius);
+	border-bottom-left-radius:var(--radius);
 }
 
 /*       */
@@ -592,9 +596,6 @@ h3 {
 
 /* Details Page */
 
-#posts {
-	padding:0 40px 40px 40px;
-}
 #details,#attachments {
 	display:none;
 	float:left;
@@ -652,11 +653,15 @@ h3 {
 
 /* Posts */
 
+
+#posts {
+	padding:10px 40px 40px 40px;
+}
 #content .post {
 	margin-top:calc(2 * var(--padding));
 	position:relative;
 	border-top:2px solid var(--border);
-	padding:30px 0;
+	padding:20px 0px;
 }
 #content .post.first {
 	margin-top:0;
@@ -664,8 +669,11 @@ h3 {
 #content .post.last {
 	margin-bottom:25px;
 }
+
+/* Post Entry */
+
 #content .post .entry {
-	padding:0 0 30px 0;
+	padding:0 0 20px 0;
 	font:12pt/30px var(--font);
 	color:#444;
 	overflow:hidden;
@@ -705,8 +713,11 @@ h3 {
 #content .page .file .fa, #content .page .attachments span .fa {
 	padding-right:10px;
 }
+
+/* Post Header */
+
 #content .post .header {
-	padding-bottom:30px;
+	padding-bottom:20px;
 	height:50px;
 	position:relative;
 }
@@ -719,7 +730,7 @@ h3 {
     border-width: 0px 10px 7px 10px;
     border-color: transparent transparent var(--border) transparent;
     position: absolute;
-    left: 45px;
+    left: 15px;
     top:-9px;
 }
 #content .post .header:before { /**inner white part of arrpw**/
@@ -729,7 +740,7 @@ h3 {
     border-color: transparent transparent #fff transparent;
     position: absolute;
     left: 15px;
-    top:-36px;
+    top:-26px;
 }
 #content .post.epic:before, #content .post.new.public:before {
 	border-bottom-color:var(--fadedred);
@@ -742,15 +753,17 @@ h3 {
 }
 #content .post .number {
 	float:right;
-	border:1px solid #ddd;
-	border-radius:var(--radius);
-	height:28px;
-	font:10pt/28px var(--font);
+	background:#eee;
+	height:30px;
+	font:bold 10pt/28px var(--font);
 	color:rgba(0,0,0,.6);
 	padding:0 10px;
 	min-width:20px;
 	text-align:center;
 	margin-left:10px;
+}
+#content .post.epic .number {
+	background:var(--fadedred);
 }
 #content .post .header .flag, #content .post .header .phi {
 	float:right;
@@ -784,7 +797,6 @@ h3 {
 	height:50px;
 	float:left;
 	border-radius:50px;
-
 }
 #content .post .name {
 	float:left;
@@ -792,7 +804,8 @@ h3 {
 	font:400 14pt/30px var(--font);
 	letter-spacing:-.5px;
 	display:inline-block;
-	color:var(--green);
+	color:var(--lightgreen);
+	color:#333;
 }
 #content .post .name sup, #sidebar .name sup {
 	font-size:9pt;
@@ -817,25 +830,26 @@ h3 {
 	color:#aaa;
 	letter-spacing:-.5px;
 }
+
+/* Post footer */
+
 #content .post .footer {
 	height:20px;
-	font:10pt/20px var(--font);
+	font:11pt/20px var(--font);
 	letter-spacing:-.5px;
 	color:rgba(0,0,0,.5);
 }
 #content .post .footer .left {
-	cursor:pointer;
-	font-size:11pt;
+	margin-right:10px;
 }
 #content .post .footer .fa {
 	padding-right:10px;
+	cursor:pointer;
 }
 #content .post .footer .confidential {
 	display:none;
 	float:right;
 	font-size:14pt;
-	cursor:pointer;
-	margin-left:20px;
 	width:16px;
 }
 #content .post.phi .footer .confidential {
@@ -850,8 +864,8 @@ h3 {
 #content .post.min .footer .confidential .hide {
 	display:none;
 }
-#content .post .footer .confidential:hover, #content .post .footer .left:hover {
-	color:var(--blue);
+#content .post .footer .confidential:hover, #content .post .footer i:hover {
+	color:var(--green);
 }
 
 /* New Post */
