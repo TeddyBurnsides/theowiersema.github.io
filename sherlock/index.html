@@ -24,8 +24,8 @@
           <div class="clear"></div>
      </div>
      <div class="sidebarbox meta">
-          <label>Priority</label>
-          <label>Status</label>
+          <h4>Priority</h4>
+          <h4>Status</h4>
           <div class="clear"></div>
           <select class="priority critical">
                <option selected>Critical</option>
@@ -44,21 +44,21 @@
           <div class="clear"></div>
      </div>
      <div class="sidebarbox records">
-          <h4 class="slg"><i class="fa fa-bug"></i>Support Logs</h4>
+          <h4 class="slg">Support Logs</h4>
           <div class="record slg">
                <span class="number">906772</span>
-               <span class="name">Can our TS be available 24/7?<i class="fa fa-minus-circle"></i></span>
+               <span class="name">Can our TS be available...<i class="fa fa-minus-circle"></i></span>
           </div>
           <div class="record slg">
                <span class="number">312223</span>
-               <span class="name">ADT Auto Transfer is actually moving patients via the teleportation script<i class="fa fa-minus-circle"></i></span>
+               <span class="name">ADT Auto Transfer is...<i class="fa fa-minus-circle"></i></span>
           </div>
-          <h4 class="ra"><i class="fa fa-edit"></i>Release Authorizations</h4>
+          <h4 class="ra">Release Authorizations</h4>
           <div class="record ra">
                <span class="number">312</span>
-               <span class="name">Jan '18 Package: removes RTE...<i class="fa fa-minus-circle"></i></span>
+               <span class="name">Jan '18 Package: removes...<i class="fa fa-minus-circle"></i></span>
           </div>
-          <h4 class="rn"><i class="fa fa-sticky-note"></i>Nova Notes</h4>
+          <h4 class="rn">Nova Notes</h4>
           <div class="record rn">
                <span class="number">25444</span>
                <span class="name">RTE - Now Sentient!<i class="fa fa-minus-circle"></i></span>
@@ -66,15 +66,17 @@
      </div>
      <div class="sidebarbox subSearch">
           <select class="leftButton" >
-               <option>SLG</option>
-               <option>RA</option>
-               <option>RN</option>
+               <option>Support Log</option>
+               <option>Release Authorization</option>
+               <option>Release Note</option>
+			   <option>Reportable Issue</option>
           </select>
           <i class="fa fa-search"></i>
-          <input type="text" placeholder="Link new record" />
+          <input type="text" placeholder="Link record" />
+		  <div class="clear"></div>
      </div>
      <div class="sidebarbox">
-          <h3>Owners</h3>
+          <h4>Owners</h4>
           <div class="people primary">
                <img src="pic2.png" class="profilepic" />
                <div class="name">Teddy McGees<sup>(Epic)</sup></div>
@@ -87,7 +89,7 @@
                <div class="role">Cupid<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                <div class="clear"></div>
           </div>
-          <h3>Interested</h3>
+          <h4>Interested</h4>
           <div class="people">
                <img src="pic2.png" class="profilepic" />
                <div class="name">Frodo Baggins<sup>(Epic)</sup></div>
@@ -102,9 +104,8 @@
           </div>
      </div>
      <div class="sidebarbox subSearch">
-          <button class="leftButton" value="Add Me">Add Me</button>
           <i class="fa fa-search"></i>
-          <input type="text" placeholder="Add new person" />
+          <input type="text" placeholder="Add others" /><button class="leftButton">Add me</button>
      </div>
 </div> <!-- Sidebar -->
 <div id="content">
