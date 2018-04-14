@@ -96,7 +96,7 @@ $(document).ready(function(){
      });
 
      // Remove related records
-     $('.fa-minus-circle').on('click',function() {
+     $('.fa-trash').on('click',function() {
           $(this).closest('.record').remove();
      });
 
@@ -119,6 +119,12 @@ $(document).ready(function(){
             $("#hiddenMenu").animate({"height": "0"},"fast");
 			$("#mainmenu").animate({"height": "0"},"fast");
           }
+     });
+
+     // Show others input fieldset
+
+     $('.newPeople button.others').on('click',function() {
+          $(this).siblings('input, .fa').toggle();
      });
 
 });

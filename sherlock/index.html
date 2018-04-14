@@ -14,7 +14,7 @@
 <div id="sidebar">
      <div class="sidebarbox">
           <i class="fa fa-search"></i>
-          <input type="text" placeholder="Search posts..."/>
+          <input type="text" placeholder="Search..."/>
      </div>
      <div class="sidebarbox">
           <li class="newpost"><a href="#newpost"><i class="fa fa-plus"></i>Add a new post</a></li>
@@ -47,33 +47,38 @@
           <h4 class="slg">Support Logs</h4>
           <div class="record slg">
                <span class="number">906772</span>
-               <span class="name">Can our TS be available...<i class="fa fa-minus-circle"></i></span>
+               <span class="name">Can our TS be available at all times of the day</span>
+               <i class="fa fa-trash"></i>
           </div>
           <div class="record slg">
                <span class="number">312223</span>
-               <span class="name">ADT Auto Transfer is...<i class="fa fa-minus-circle"></i></span>
+               <span class="name">ADT Auto Transfer is crazy</span>
+               <i class="fa fa-trash"></i>
           </div>
           <h4 class="ra">Release Authorizations</h4>
           <div class="record ra">
                <span class="number">312</span>
-               <span class="name">Jan '18 Package: removes...<i class="fa fa-minus-circle"></i></span>
+               <span class="name">Jan '18 Package: removes bugs</span>
+               <i class="fa fa-trash"></i>
           </div>
           <h4 class="rn">Nova Notes</h4>
           <div class="record rn">
                <span class="number">25444</span>
-               <span class="name">RTE - Now Sentient!<i class="fa fa-minus-circle"></i></span>
+               <span class="name">RTE - Now Sentient!</span>
+               <i class="fa fa-trash"></i>
           </div>
      </div>
-     <div class="sidebarbox subSearch">
-          <select class="leftButton" >
-               <option selected="true" disabled="disabled">Type</option>
+     <div class="sidebarbox subSearch newRecord">
+          <h4>Link new Record
+          <select class="button" >
+               <option selected="true" disabled="disabled">Select a record type</option>
                <option>Support Log</option>
                <option>Release Authorization</option>
                <option>Release Note</option>
 			   <option>Reportable Issue</option>
           </select>
           <i class="fa fa-search"></i>
-          <input type="text" placeholder="Link record" />
+          <input type="text" placeholder="Search for a record..." />
 		  <div class="clear"></div>
      </div>
      <div class="sidebarbox">
@@ -90,6 +95,12 @@
                <div class="role">Cupid<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                <div class="clear"></div>
           </div>
+          <div class="people">
+               <img src="pic2.png" class="profilepic" />
+               <div class="name">Frodo Baggins</div>
+               <div class="role">Hobbit<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+               <div class="clear"></div>
+          </div>
           <h4>Interested</h4>
           <div class="people">
                <img src="pic2.png" class="profilepic" />
@@ -104,9 +115,11 @@
                <div class="clear"></div>
           </div>
      </div>
-     <div class="sidebarbox subSearch">
+     <div class="sidebarbox subSearch newPeople">
+          <button class="button">Add me</button>
+          <button class="button others">Add others</button>
           <i class="fa fa-search"></i>
-          <input type="text" placeholder="Add others" /><button class="leftButton">Add me</button>
+          <input type="text" placeholder="Add others" />
      </div>
 </div> <!-- Sidebar -->
 <div id="content">
@@ -214,7 +227,7 @@
                <li>Options</li>
                <li>Help</li>
           </div>
-     </div><!--main menu-->
+     </div>
 
      <div id="menu">
      	<i class="fa fa-bars"></i>
@@ -226,29 +239,15 @@
                <li>Search</li>
                <li>Create</li>
           </ul>
-     </div> <!-- menu -->
+     </div>
 
      <div id="header">
           <h1>When an Automatic Transfer Fails, the Error Message Is Potentially Ambiguous, and Certain Medications Might Remain Active If the Transfer Isn't Manually Performed</h1>
           <div class="details">
                <div class="time">Created on <span>April 1, 2018</span> at <span>1:30 PM</span></div>
-               <!--<select class="priority critical">
-                    <option selected>Critical</option>
-                    <option>High</option>
-                    <option>Medium</option>
-                    <option>Low</option>
-               </select>
-               <select class="status">
-                    <option>New</option>
-                    <option selected>In Progress</option>
-                    <option>On Hold</option>
-                    <option>Testing</option>
-                    <option>Waiting for Information</option>
-                    <option>Closed</option>
-               </select>-->
-               <div class="clear"></div>
           </div>
-     </div> <!--Header-->
+     </div>
+
      <div id="posts" class="page">
           <div class="navigation">
                <div class="nav">
@@ -279,6 +278,7 @@
                          <label><input type="checkbox" /><span>Problem Description</span></label>
                          <label><input type="checkbox" /><span>Resolution</span></label>
                          <div class="clear"></div>
+                         <i class="fa fa-check"></i>
                          <button class="closeDropdown">Apply</button>
                     </div>
                </span>
@@ -287,7 +287,9 @@
           <div class="post first phi">
                <div class="header">
                     <img src="pic2.png" class="profilepic" />
-                    <div class="name">Bon Bon the Magnificient<sup>(Epic)</sup><i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+                    <div class="name">Bon Bon the Magnificient<sup>(Epic)</sup></div>
+                    <div class="date">11/1/2017 11:12 PM<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+
                     <div class="number">#1</div>
                     <div class="flag">
                          <i class="fa fa-flag"></i>
@@ -297,11 +299,12 @@
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
                               <div class="clear"></div>
+                              <i class="fa fa-check"></i>
                               <button class="closeDropdown">Apply</button>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-lock"></i></div>
-                    <div class="newDate">11/1/2017 11:12 PM</div>
+
                     <div class="clear"></div>
                </div>
                <div class="entry">
@@ -317,8 +320,8 @@
                <div class="footer">
                  <span class="left"><i class="fa fa-pencil"></i></span>
                  <span class="confidential">
-                    <span class="show"><i class="fa fa-chevron-circle-down"></i></span>
-                    <span class="hide"><i class="fa fa-chevron-circle-up"></i></span>
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
                  </span>
                  <span class="left">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Today)</span>
                </div>
@@ -327,7 +330,8 @@
           <div class="epic post phi">
                <div class="header">
                     <img src="pic2.png" class="profilepic" />
-                    <div class="name">Actually Sauron<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+                    <div class="name">Actually Sauron</div>
+                    <div class="date">11/1/2017 11:12 PM<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                     <div class="number">Epic #1</div>
                     <div class="flag">
                          <i class="fa fa-flag"></i>
@@ -337,11 +341,11 @@
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
                               <div class="clear"></div>
+                              <i class="fa fa-check"></i>
                               <button class="closeDropdown">Apply</button>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-lock"></i></div>
-                    <div class="newDate">11/1/2017 11:12 PM</div>
                     <div class="clear"></div>
                </div>
                <div class="entry">
@@ -349,18 +353,19 @@
 
                </div>
                <div class="footer">
-                 <span class="left"><i class="fa fa-pencil"></i>Edit</span>
+                 <span class="left"><i class="fa fa-pencil"></i></span>
                  <span class="confidential">
-                    <span class="show"><i class="fa fa-chevron-circle-down"></i></span>
-                    <span class="hide"><i class="fa fa-chevron-circle-up"></i></span>
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
                  </span>
-                 <span class="right">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Yesterday)</span>
+                 <span class="left">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Today)</span>
                </div>
           </div>
           <div class="post epic">
                <div class="header">
                     <img src="pic2.png" class="profilepic" />
-                    <div class="name">Teddy McGees<sup>(Epic)</sup><i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+                    <div class="name">Teddy McGees<sup>(Epic)</sup></div>
+                    <div class="date">11/1/2017 11:12 PM<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                     <div class="number">Epic #2</div>
                     <div class="flag">
                          <i class="fa fa-flag"></i>
@@ -370,11 +375,11 @@
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
                               <div class="clear"></div>
+                              <i class="fa fa-check"></i>
                               <button class="closeDropdown">Apply</button>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
-                    <div class="newDate">11/1/2017 11:12 PM</div>
                     <div class="clear"></div>
                </div>
                <div class="entry">
@@ -386,19 +391,20 @@
                     </div>
                </div>
                <div class="footer">
-                    <span class="left"><i class="fa fa-pencil"></i>Edit</span>
-                    <span class="confidential">
-                       <span class="show"><i class="fa fa-chevron-circle-down"></i></span>
-                       <span class="hide"><i class="fa fa-chevron-circle-up"></i></span>
-                    </span>
-                    <span class="right">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Last Week)</span>
+                 <span class="left"><i class="fa fa-pencil"></i></span>
+                 <span class="confidential">
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
+                 </span>
+                 <span class="left">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Today)</span>
                </div>
           </div>
 
           <div class="post last">
                <div class="header">
                     <img src="pic2.png" class="profilepic" />
-                    <div class="name">Dobby the Elf<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+                    <div class="name">Dobby the Elf</div>
+                    <div class="date">11/1/2017 11:12 PM<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
                     <div class="number">#2</div>
                     <div class="flag">
                          <i class="fa fa-flag"></i>
@@ -408,23 +414,23 @@
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
                               <div class="clear"></div>
+                              <i class="fa fa-check"></i>
                               <button class="closeDropdown">Apply</button>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
-                    <div class="newDate">11/1/2017 11:12 PM</div>
                     <div class="clear"></div>
                </div>
                <div class="entry">
                     <p>What if we just turn it off? Wouldn't that work?</p>
                </div>
                <div class="footer">
-                 <span class="left"><i class="fa fa-pencil"></i>Edit</span>
+                 <span class="left"><i class="fa fa-pencil"></i></span>
                  <span class="confidential">
-                    <span class="show"><i class="fa fa-chevron-circle-down"></i></span>
-                    <span class="hide"><i class="fa fa-chevron-circle-up"></i></span>
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
                  </span>
-                 <span class="right">Last edited by Corriane Sanders on 11/6/2017 5:15 PM</span>
+                 <span class="left">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Today)</span>
                </div>
           </div>
 
@@ -457,6 +463,7 @@
                          <label><input type="checkbox" /><span>Problem Description</span></label>
                          <label><input type="checkbox" /><span>Resolution</span></label>
                          <div class="clear"></div>
+                         <i class="fa fa-check"></i>
                          <button class="closeDropdown">Apply</button>
                     </div>
                </span>
@@ -491,10 +498,11 @@
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
                               <div class="clear"></div>
+                              <i class="fa fa-check"></i>
                               <button class="closeDropdown">Apply</button>
                          </div>
                     </div>
-                    <span class="phi"><i class="fa fa-unlock-alt"></i></span>
+                    <div class="phi"><i class="fa fa-unlock-alt"></i></div>
 
                     <div class="clear"></div>
                </div>
@@ -504,8 +512,7 @@
 					<div class="clear"></div>
                </div>
                <div class="footer">
-					<span class="left"><i class="fa fa-plus"></i>Add Attachment</span>
-
+				<span class="left"><i class="fa fa-plus"></i>Add Attachment</span>
                     <button type="button" class="right submit"><i class="fa fa-check"></i>Submit post</button>
                     <label class="internal right"><input type="checkbox" />Internal</label>
                     <label class="right"><input type="checkbox" />Suppress Notification</label>
