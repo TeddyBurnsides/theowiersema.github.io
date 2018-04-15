@@ -17,7 +17,7 @@
           <input type="text" placeholder="Search..."/>
      </div>
      <div class="sidebarbox">
-          <li class="newpost"><a href="#newpost"><i class="fa fa-plus"></i>Add a new post</a></li>
+          <li class="newpost"><a href="#newpost"><i class="fa fa-plus"></i>Write a new post</a></li>
           <li class="link discussion active"><i class="fa fa-comments"></i>Discussion</li>
           <li class="link attachments"><i class="fa fa-paperclip"></i>Attachments</li>
           <li class="link details"><i class="fa fa-info-circle"></i>Details</li>
@@ -120,6 +120,7 @@
           <button class="button others">Add others</button>
           <i class="fa fa-search"></i>
           <input type="text" placeholder="Add others" />
+          <div class="clear"></div>
      </div>
 </div> <!-- Sidebar -->
 <div id="content">
@@ -229,24 +230,22 @@
           </div>
      </div>
 
-     <div id="menu">
-     	<i class="fa fa-bars"></i>
-          <div id="postID">#4342334</div>
-          <input id="customer" type="text" placeholder="John Hopkins Healthcare" />
-          <ul id="nav">
-               <li>Home</li>
-               <li class="active">Review</li>
-               <li>Search</li>
-               <li>Create</li>
-          </ul>
-     </div>
-
-     <div id="header">
-          <h1>When an Automatic Transfer Fails, the Error Message Is Potentially Ambiguous, and Certain Medications Might Remain Active If the Transfer Isn't Manually Performed</h1>
-          <div class="details">
-               <div class="time">Created on <span>April 1, 2018</span> at <span>1:30 PM</span></div>
+          <div id="menu">
+          	<i class="fa fa-bars"></i>
+               <div id="postID">#4342334</div>
+               <input id="customer" type="text" placeholder="John Hopkins Healthcare" />
+               <ul id="nav">
+                    <li>Home</li>
+                    <li class="active">Review</li>
+                    <li>Search</li>
+                    <li>Create</li>
+               </ul>
           </div>
-     </div>
+
+          <div id="header">
+               <h1>When an Automatic Transfer Fails, the Error Message Is Potentially Ambiguous, and Certain Medications Might Remain Active If the Transfer Isn't Manually Performed</h1>
+               <div class="details">Created on <span>April 1, 2018</span> at <span>1:30 PM</span></div>
+          </div>
 
      <div id="posts" class="page">
           <div class="navigation">
@@ -287,7 +286,7 @@
           <div class="post first phi">
                <div class="header">
                     <img src="pic2.png" class="profilepic" />
-                    <div class="name">Bon Bon the Magnificient<sup>(Epic)</sup></div>
+                    <div class="name">Theodore Wiersema<sup>(Epic)</sup></div>
                     <div class="date">11/1/2017 11:12 PM<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
 
                     <div class="number">#1</div>
@@ -513,7 +512,7 @@
                </div>
                <div class="footer">
 				<span class="left"><i class="fa fa-plus"></i>Add Attachment</span>
-                    <button type="button" class="right submit"><i class="fa fa-check"></i>Submit post</button>
+                    <button type="button" class="right submit"><i class="fa fa-check"></i>Post</button>
                     <label class="internal right"><input type="checkbox" />Internal</label>
                     <label class="right"><input type="checkbox" />Suppress Notification</label>
                </div>
@@ -555,8 +554,9 @@
      <!-- Details -->
 
      <div id="attachments" class="page">
-                    <div class="file"><i class="fa fa-file"></i>1/12 Testing Results.doc</div>
+          <div class="file"><i class="fa fa-file"></i>1/12 Testing Results.doc</div>
           <div class="file"><i class="fa fa-file"></i>List of Patient Names for import.xlsr</div>
+          <div class="clear"></div>
      </div>
 
      <div class="clear"></div>

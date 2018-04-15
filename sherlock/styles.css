@@ -37,6 +37,7 @@ a {text-decoration:none;}
 	--darkBlue:#1b3c58;
 	--anotherBlue:#00A6CF;
 	--green:#52BAA1;
+	--darkgreen:#34867B;
 	--lightgreen:#59CCBB;
 	--purple:#7757ff;
 	--lightpurple:#9BA0FC;
@@ -45,13 +46,14 @@ a {text-decoration:none;}
 	--darkbg:#002B39;
 	--darkborder:#ccdce0;
 	--border:#81D7CD;
+	--border:#e0e0e0;
 	--lightborder:#eaf1f3;
 	--darkbg:#25262B; /*color of sidebar image*/
 	--darkestbg:#1C1D21;
 
 	--minContentWidth:1100px;
 	--postWidth:calc(100% - var(--sidebarWidth));
-	--sidebarWidth:340px;
+	--sidebarWidth:320px;
 	--padding:20px;
 	--radius:6px;
 
@@ -79,7 +81,8 @@ option {
 }
 body {
 	font-family:var(--font);
-	background:#F6F8FF;
+	background:#F7F8FA;
+
 	min-width:var(--minContentWidth);
 }
 
@@ -155,20 +158,19 @@ body {
 
 #menu {
 	height:40px;
-	padding:40px 40px 0;
+	padding:40px;
 	font:12pt/40px var(--font);
-	background:#fff;
-	padding-bottom:1px; /*Allow for active link to show border */
+
 }
-#menu .fa-bars {
+#menu > i {
 	float:left;
 	line-height:40px;
 	font-size:14pt;
-	color:rgba(0,0,0,.5);
+	color:rgba(0,0,0,.3);
 	margin-right:var(--padding);
 	cursor:pointer;
 }
-#menu .fa-bars:hover {
+#menu > i:hover {
 	color:#444;
 }
 #postID {
@@ -180,9 +182,25 @@ body {
 	padding:0 15px;
 	margin-right:var(--padding);
 }
+#menu #customer {
+	float:left;
+	height:40px;
+	padding:0 15px;
+	margin:0 var(--padding) 0 0;
+	font:12pt/40px var(--font);
+	border:0;
+	width:180px;
+	color:var(--green);
+	background:rgba(0,0,0,.03);
+	letter-spacing:-.5px;
+}
+#menu #customer::placeholder {
+	color:var(--green);
+}
 #nav {
 	float:left;
-	color:#888;
+	color:#999;
+	letter-spacing:-.5px;
 	padding-left:10px;
 }
 #nav li {
@@ -197,51 +215,32 @@ body {
 	color:var(--green);
 }
 #nav li.active {
-	color:#555;
-	border-bottom:1px solid #666;
+	color:var(--darkgreen);
+	border-bottom:1px solid rgba(0,0,0,.2);
+	line-height:39px;
 	font-weight:bold;
-}
-#menu #customer {
-	float:left;
-	height:40px;
-	padding:0 15px;
-	margin:0 var(--padding) 0 0;
-	font:12pt/40px var(--font);
-	border:0;
-	width:160px;
-	color:var(--green);
-	background:#f3f3f3;
-	letter-spacing:-.5px;
-}
-#menu #customer::placeholder {
-	color:var(--green);
 }
 
 /* Post header */
 
 #header {
-	padding:40px;
+	padding:0 40px;
 	position:relative;
-	background:#fff;
 }
 #header h1 {
-	font:800 17pt/32px "Open Sans","Nunito",Helvetica;
-	letter-spacing:-1px;
+	font:900 17pt/32px var(--font);
+	letter-spacing:-1.3px;
 	margin:0 0 5px 0;
-	color:var(--darkBlue);
+	color:var(--darkgreen);
 }
 #header .details {
-	font:10pt/24px var(--font);
+	font:italic 11pt/24px var(--font);
 	display:inline-block;
+	letter-spacing:-.3px;
 	height:24px;
+	color:rgba(0,0,0,.4);
 }
-#header .details .time {
-	font-size:11pt;
-	color:rgba(0,0,0,.6);
-	float:left;
-	margin-right:var(--padding);
-}
-#header .details .time span {
+#header .details span {
 	font-weight:bold;
 }
 
@@ -258,7 +257,13 @@ body {
 	padding:40px 40px 0 40px;
 	position:relative;
 }
-
+/*
+#sidebar .sidebarbox:first-child {
+	background:rgba(255,255,255,.01);
+	padding-bottom:38px;
+	border:1px solid rgba(0,0,0,.4);
+}
+*/
 /* Search bar */
 
 #sidebar .search {
@@ -270,8 +275,13 @@ body {
 	font-size:14pt;
 	right:46px;
 	bottom:0;
-	color:#666;
+	color:#777;
 }
+/*
+#sidebar .sidebarbox:first-child .fa-search {
+	bottom:38px;
+}
+*/
 #sidebar input[type="text"] {
 	padding:0 30px 0 0;
 	margin:0;
@@ -500,7 +510,7 @@ h4 {
 	padding-top:40px;
 }
 #sidebar .subSearch input[type="text"] {
-	margin-top:10px;
+	margin-top:5px;
 }
 #sidebar .subSearch.newPeople input, #sidebar .subSearch.newPeople .fa {
 	display:none;
@@ -514,7 +524,7 @@ h4 {
 	width:calc(100% - 0px);
 	font:bold 11pt/20px var(--font);
 	letter-spacing:-.5px;
-	color:rgba(0,0,0,.25);
+	color:rgba(0,0,0,.3);
 }
 .navigation .fa {
 	padding-right:5px;
@@ -645,13 +655,25 @@ h4 {
 
 #details,#attachments {
 	display:none;
-	float:left;
 	background:#fff;
-	border-top:2px solid var(--border);
+	border-top:4px solid var(--border);
 	border-radius:var(--radius);
 	padding:30px;
-	width:calc(var(--postWidth) - 60px);
 	box-shadow:0 5px 10px rgba(0,0,0,.05);
+	width:calc(100% - 140px);
+	margin: 40px;
+}
+#attachments .file {
+	margin:0 10px 10px 0;
+	float:none;
+	width:calc(100% - 30px);
+	padding:0 15px;
+	background:#fafafa;
+	border-radius:var(--radius);
+	border:1px solid rgba(0,0,0,.05);
+	font:11pt/40px Helvetica;
+	color:var(--green);
+	cursor:pointer;
 }
 #details label {
 	font:10pt/30px var(--font);
@@ -709,16 +731,15 @@ h4 {
 
 #posts {
 	padding:40px;
-	padding-top:20px;
 }
 #content .post {
 	margin-top:calc(2 * var(--padding));
 	position:relative;
-	border-top:2px solid var(--border);
-	padding:30px;
+	border-top:4px solid var(--border);
 	background:#fff;
-	box-shadow:0 5px 20px #e5ebff;
-	border-radius:6px;
+	padding:20px 30px;
+	border-radius:var(--radius);
+	box-shadow:0 10px 15px rgba(0,0,0,.05);
 }
 #content .post.first {
 	margin-top:0;
@@ -730,9 +751,9 @@ h4 {
 /* Post Entry */
 
 #content .post .entry {
-	padding:0 0 30px 0;
-	font:12pt/30px var(--font);
-	color:#444;
+	padding:0 0 20px 0;
+	font:11pt/26px var(--font);
+	color:#000;
 	overflow:hidden;
 }
 #content .post .entry a {
@@ -749,7 +770,7 @@ h4 {
 #content .post .attachments {
 	padding-top:10px;
 }
-#content .attachments span, #attachments .file {
+#content .attachments span {
 	margin:10px 10px 0px 0;
 	background:#fafafa;
 	border-radius:var(--radius);
@@ -774,7 +795,7 @@ h4 {
 /* Post Header */
 
 #content .post .header {
-	padding-bottom:30px;
+	padding:0 0 20px 0;
 	height:40px;
 	position:relative;
 }
@@ -784,20 +805,20 @@ h4 {
 #content .post:before { /**Chat box arrow magic**/
     content:"";
     border-style: solid;
-    border-width: 0px 10px 7px 10px;
+    border-width: 0px 12px 9px 12px;
     border-color: transparent transparent var(--border) transparent;
     position: absolute;
-    left: 45px;
-    top:-9px;
+    left: 41px;
+    top:-13px;
 }
 #content .post .header:before { /**inner white part of arrpw**/
     content:"";
     border-style: solid;
-    border-width: 0px 10px 7px 10px;
+    border-width: 0px 12px 9px 12px;
     border-color: transparent transparent #fff transparent;
     position: absolute;
-    left:15px;
-    top:-36px;
+    left:11px;
+    top:-28px;
 }
 #content .post.epic:before, #content .post.new.public:before {
 	border-bottom-color:var(--fadedred);
@@ -853,25 +874,37 @@ h4 {
 	color:#777;
 }
 #content .post .profilepic {
-	width:40px;
-	height:40px;
+	width:46px;
+	height:46px;
 	float:left;
 	border-radius:50px;
+	position:relative;
+	top:-3px;
 }
 #content .post .name {
 	float:left;
 	padding-left:20px;
-	font:400 13pt/22px var(--font);
+	font:900 12pt/24px var(--font);
 	letter-spacing:-.5px;
 	display:inline-block;
-	color:var(--darkbg);
+	color:var(--green);
+	color:#555;
 }
 #content .post .name sup, #sidebar .name sup {
 	font-size:9pt;
+	font-weight:400;
 	color:var(--red);
 	position:relative;
 	top:-4px;
 	left:4px;
+}
+#content .post .header .date {
+	position:absolute;
+	left:66px;
+	top:27px;
+	font:9pt/1 var(--font);
+	color:#bbb;
+	letter-spacing:-.5px;
 }
 #content .post .date .fa {
 	color:#ccc;
@@ -880,14 +913,6 @@ h4 {
 }
 #content .post .date .fa:hover {
 	color:var(--green);
-}
-#content .post .header .date {
-	position:absolute;
-	left:60px;
-	top:27px;
-	font:9pt/1 var(--font);
-	color:#bbb;
-	letter-spacing:-.5px;
 }
 
 /* Post footer */
@@ -904,6 +929,7 @@ h4 {
 #content .post .footer .fa {
 	padding-right:10px;
 	cursor:pointer;
+	font-size:12pt;
 }
 #content .post .footer .confidential {
 	display:none;
@@ -965,7 +991,7 @@ h4 {
 	margin: 0 10px 0 0;
 	border:0;
 	font:10pt/20px var(--font);
-	background-color:#eee;
+	background-color:#f3f3f3;
 	border-radius:var(--radius)
 }
 #content .post.new textarea {
@@ -979,28 +1005,25 @@ h4 {
 	min-width:calc(100% - 40px);
 	max-width:calc(100% - 40px);
 }
-#content .post.new .footer {
-	line-height:30px;
-	height:30px;
-}
 #content .post.new .footer label {
-	margin:0 15px 0 0;
+	margin:0 0 0 15px;
 	cursor:pointer;
-	font-size:11pt;
+	font-size:10pt;
 }
 #content .post.new input[type="checkbox"] {
 	margin-right:10px;
 	cursor:pointer;
 }
 #content .post.new .footer button {
-	background:var(--lightgreen);
-	color:#fff;
-	font:700 10pt/30px "Opens Sans", Helvetica;
-	border-radius:var(--radius);
-	margin:0 0 0 10px;
-	padding:0 10px;
+	color:var(--green);
+	font:bold 10pt/20px var(--font);
+	margin:0 0 0 25px;
+	padding:0;
 	border:0;
 	cursor:pointer;
+}
+#content .post.new .footer button .fa {
+
 }
 #content .post.new .footer .left:hover {
 	color:var(--green);
