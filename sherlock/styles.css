@@ -229,6 +229,7 @@ body {
 #header {
 	padding:40px 40px 0 40px;
 	position:relative;
+	background:#fff;
     	border-top: 1px solid rgba(0,0,0,.05);
 }
 #header h1 {
