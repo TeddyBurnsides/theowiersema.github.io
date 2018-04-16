@@ -82,8 +82,11 @@ option {
 body {
 	font-family:var(--font);
 	background:#F7F8FA;
-
 	min-width:var(--minContentWidth);
+}
+#container {
+	min-height:100%;
+	position:relative;
 }
 
 /* Hidden Menu */
@@ -247,11 +250,13 @@ body {
 /* Sidebar */
 
 #sidebar {
-	float:right;
-	width:var(--sidebarWidth);
-	background:var(--darkbg);
-	padding-bottom:40px;
-	height:1000%;
+	right: 0;
+  	width: var(--sidebarWidth);
+    	background: var(--darkbg);
+    	padding-bottom: 40px;
+    	position: absolute;
+    	bottom: 0;
+    	top: 0;
 }
 #sidebar .sidebarbox {
 	padding:40px 40px 0 40px;
