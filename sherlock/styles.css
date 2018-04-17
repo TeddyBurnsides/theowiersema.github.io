@@ -808,7 +808,7 @@ h2 {
 	font-weight:normal;
 	color:#888;
 }
-#content .post .attachments .file:hover {
+#content .post .attachments .file:hover, #content .post .attachments .file:hover .desc {
 	color:var(--green);
 }
 #content .post .attachments .file:hover .type {
