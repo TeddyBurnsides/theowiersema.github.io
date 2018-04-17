@@ -783,7 +783,7 @@ h2 {
 #content .post .attachments {
 	padding-top:15px;
 	margin-top:20px;
-	font:bold 10pt/26px var(--font);
+	font:bold 10pt/22px var(--font);
 	color:#444;
 	border-top:1px solid #e3e3e3;
 }
