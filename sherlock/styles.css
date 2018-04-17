@@ -787,11 +787,14 @@ h2 {
 	color:#444;
 	border-top:1px solid #e3e3e3;
 }
+#content .post.new .attachments {
+	padding-bottom:20px;
+}
 #content .post .attachments .file {
 	color:#555;
 	cursor:pointer;
 }
-#content .attachments span {
+#content .post .attachments .type {
 	margin:5px 10px 0px 0;
 	background:#bbb;
 	border-radius:var(--radius);
@@ -801,13 +804,14 @@ h2 {
 	color:#fff;
 	text-align:center;
 }
-#content .post.new .attachments {
-	padding-bottom:20px;
+#content .post .attachments .desc {
+	font-weight:normal;
+	color:#888;
 }
-#content .attachments .file:hover {
+#content .post .attachments .file:hover {
 	color:var(--green);
 }
-#content .attachments .file:hover span {
+#content .post .attachments .file:hover span {
 	background:var(--green);
 }
 
