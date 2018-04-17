@@ -777,12 +777,19 @@ h2 {
 #content .post .entry p:last-of-type {
 	padding:0;
 }
+
+/* Post Attachments */
+
 #content .post .attachments {
 	padding-top:15px;
 	margin-top:20px;
-	font:10pt/26px var(--font);
+	font:bold 10pt/26px var(--font);
 	color:#444;
 	border-top:1px solid #e3e3e3;
+}
+#content .post .attachments .file {
+	color:#555;
+	cursor:pointer;
 }
 #content .attachments span {
 	margin:5px 10px 0px 0;
@@ -790,17 +797,15 @@ h2 {
 	border-radius:var(--radius);
 	width:35px;
 	display:inline-block;
-	font:bold 8pt/22px var(--font);
+	font-size:8pt;
 	color:#fff;
 	text-align:center;
-	cursor:pointer;
 }
 #content .post.new .attachments {
 	padding-bottom:20px;
 }
 #content .attachments .file:hover {
 	color:var(--green);
-	cursor:pointer;
 }
 #content .attachments .file:hover span {
 	background:var(--green);
