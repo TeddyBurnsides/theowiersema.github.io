@@ -41,7 +41,7 @@ a {text-decoration:none;}
 	--darkbg:#25262B; /* sidebar bg*/
 	--darkestbg:#1C1D21; /* Sidebar recorsd bg */
 
-	--minContentWidth:1100px;
+	--minContentWidth:1000px;
 	--postWidth:calc(100% - var(--sidebarWidth));
 	--sidebarWidth:330px;
 	--padding:20px;
@@ -395,6 +395,7 @@ h4 {
 	border-right:30px solid var(--darkbg);
 	border-radius:var(--radius);
 	width:calc(var(--sidebarWidth) - 80px);
+	cursor:pointer;
 }
 #sidebar .record:last-child {
 	margin-bottom:0;
@@ -404,7 +405,6 @@ h4 {
 	float:right;
 	padding-left:6px;
 	color:var(--purple);
-	cursor: pointer;
 }
 #sidebar .record .name {
 	display:block;
@@ -755,7 +755,7 @@ h2 {
 	margin-top:0;
 }
 #content .post.last {
-	margin-bottom:25px;
+	margin-bottom:15px;
 }
 
 /* Post Entry */
@@ -922,12 +922,12 @@ h2 {
 	color:#bbb;
 	letter-spacing:-.5px;
 }
-#content .post .date .fa {
+#content .post .name .fa {
 	color:#ccc;
 	margin-left:10px;
 	cursor:pointer;
 }
-#content .post .date .fa:hover {
+#content .post .name .fa:hover {
 	color:var(--green);
 }
 
