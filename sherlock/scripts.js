@@ -110,7 +110,7 @@ $(document).ready(function(){
           $(this).closest('.dropdown').fadeOut(50);
      });
 
-     // Hide the hidden sidebarbox
+     // Hide the hidden top menus
      $('.fa-bars').on('click',function() {
           if($("#hiddenMenu").css("height") == "0px") {
                $("#hiddenMenu").animate({"height": "320px"},"fast");
@@ -121,10 +121,33 @@ $(document).ready(function(){
           }
      });
 
-     // Show others input fieldset
-
+     // Show others input field
      $('.newPeople button.others').on('click',function() {
           $(this).siblings('input, .fa').toggle();
+     });
+
+     // Change color of priority select
+     $('.meta .priority').change(function() {
+          if ($(this).val() === 'High') {
+               $(this).css({
+                    "background-color": "#FEB64D" // yellow
+               });
+          }
+          if ($(this).val() === 'Critical') {
+               $(this).css({
+                    "background-color": "#FB889D" // red
+               });
+          }
+          if ($(this).val() === 'Medium') {
+               $(this).css({
+                    "background-color": "#5894FF" // blue
+               });
+          }
+          if ($(this).val() === 'Low') {
+               $(this).css({
+                    "background-color": "#777"
+               });
+          }
      });
 
 });
