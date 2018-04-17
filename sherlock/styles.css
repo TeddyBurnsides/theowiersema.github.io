@@ -554,7 +554,7 @@ h4 {
 	z-index:1000;
 	width:220px;
 	box-shadow:0 10px 15px rgba(0,0,0,.2);
-	font:11pt/24px var(--font);
+	font:10pt/20px var(--font);
 	border-radius:var(--radius);
 	border-top:3px solid var(--darkbg);
 	cursor:default;
@@ -571,11 +571,11 @@ h4 {
 	top:-11px
 }
 .dropdown h4  {
-	margin:25px 20px 15px 20px;
+	margin:20px 20px 15px 20px;
 }
 .dropdown input[type="checkbox"]{
 	float:left;
-	margin:7px 15px 0 0;
+	margin:5px 10px 0 0;
 }
 .dropdown label {
 	float:left;
