@@ -811,7 +811,7 @@ h2 {
 #content .post .attachments .file:hover {
 	color:var(--green);
 }
-#content .post .attachments .file:hover span {
+#content .post .attachments .file:hover .type {
 	background:var(--green);
 }
 
