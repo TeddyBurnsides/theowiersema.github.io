@@ -860,13 +860,12 @@ h2 {
 	float:right;
 	border:1px solid #eee;
 	border-radius:var(--radius);
-	height:30px;
-	font:bold 9pt/30px var(--font);
+	font:bold 9pt/26px var(--font);
 	color:rgba(0,0,0,.6);
-	padding:0 10px;
+	padding:0 8px;
 	min-width:20px;
 	text-align:center;
-	margin:5px 0 0 10px;
+	margin:7px 0 0 10px;
 }
 #content .post.epic .number {
 	color:var(--red);
