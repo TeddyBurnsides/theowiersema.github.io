@@ -389,7 +389,7 @@ h4 {
 	padding:6px 10px;
 	position: relative;
 	background:var(--darkestbg);
-	margin-bottom:10px;
+	margin-bottom:5px;
 	color:rgba(255,255,255,.8);
 	letter-spacing: -.3px;
 	border-right:30px solid var(--darkbg);
@@ -423,7 +423,7 @@ h4 {
 	height:100%;
 	cursor: pointer;
 	text-align:center;
-	line-height:40px;
+	line-height:43px;
 	display:none;
 }
 #sidebar .record .fa:hover {
