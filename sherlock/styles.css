@@ -740,7 +740,7 @@ h2 {
 	padding:0 30px 30px;
 }
 #content .post {
-	margin-top:calc(2 * var(--padding));
+	margin-top:30px;
 	position:relative;
 	border-top:2px solid var(--border);
 	background:#fff;
