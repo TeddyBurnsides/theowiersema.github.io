@@ -71,7 +71,7 @@ option {
 }
 body {
 	font-family:var(--font);
-	background:var(--bg);
+	background:var(--bg) url(bg.png) scroll repeat-x 0 85px;
 	min-width:var(--minContentWidth);
 }
 #container {
@@ -218,7 +218,7 @@ body {
 /* Post header */
 
 #header {
-	padding:20px 30px;
+	padding:30px 30px 20px;
 	position:relative;
     	border-top: 1px solid rgba(0,0,0,.05);
 }
