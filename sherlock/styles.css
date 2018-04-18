@@ -657,10 +657,11 @@ h4 {
 	box-shadow:0 5px 10px rgba(0,0,0,.05);
 	width: calc(var(--postWidth) - 100px);
     float: left;
-    margin: 20px 0 0 30px;
+    margin: 20px 30px 30px 30px;
+	min-height:1000px;
 }
 h2 {
-	font: 100 17pt/30px var(--font);
+	font: 17pt/30px var(--font);
 	color: var(--green);
 	letter-spacing: -1px;
 	margin: 10px 0 20px;
