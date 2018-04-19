@@ -105,12 +105,22 @@ $(document).ready(function(){
           $(this).siblings('.dropdown').fadeIn(200);
      });
 
+     // Hide all dropdowns when clicking outside of them
+     $(document).click(function(event) {
+          // stop hiding from happening when cliking on button
+          if (!$(event.target).closest('.flag, .filter').length) {
+               if ($('.dropdown').is(':visible')) {
+                    $('.dropdown').hide();
+               }
+          }
+     });
+
      // Hide dropdown when clicking OK
-     $('.dropdown .closeDropdown').on('click',function() {
+     $('.dropdown button').on('click',function() {
           $(this).closest('.dropdown').fadeOut(50);
      });
 
-     // Hide the hidden top menus
+     // Toggle the hidden top menus
      $('.fa-bars').on('click',function() {
           if($("#hiddenMenu").css("height") == "0px") {
                $("#hiddenMenu").animate({"height": "320px"},"fast");

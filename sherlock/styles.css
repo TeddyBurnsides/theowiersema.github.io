@@ -149,21 +149,21 @@ body {
 /*  Secondary Nav Bar */
 
 #menu {
-	height:40px;
+	height:36px;
 	padding:22px 30px;
 	font:11pt/36px var(--font);
 	background:#fff;
 }
 #menu > i {
 	float:left;
-	line-height:40px;
-	font-size:14pt;
-	color:rgba(0,0,0,.3);
-	margin-right:var(--padding);
+	line-height:36px;
+	font-size:20pt;
+	color:rgba(0,0,0,.10);
+	margin-right:15px;
 	cursor:pointer;
 }
 #menu > i:hover {
-	color:#444;
+	color:#aaa;
 }
 #postID {
 	float:left;
@@ -172,8 +172,9 @@ body {
 	color:rgba(0,0,0,.5);
 	font-weight:bold;
 	padding:0 12px;
-	margin-right:var(--padding);
+	margin-right:10px;
 	border-radius:var(--radius);
+	line-height:36px;
 }
 #menu #customer {
 	float:left;
@@ -195,12 +196,13 @@ body {
 	float:left;
 	color:#999;
 	letter-spacing:-.5px;
-	padding-left:5px;
+	
 }
 #nav li {
 	display:inline-block;
 	margin:0 15px 0 0;
 	cursor:pointer;
+	line-height:36px;
 }
 #nav li:last-child {
 	margin-right:0;
@@ -211,7 +213,7 @@ body {
 #nav li.active {
 	color:#555;
 	border-bottom:1px solid rgba(0,0,0,.15);
-	line-height:39px;
+	line-height:35px;
 	font-weight:bold;
 }
 
@@ -268,13 +270,8 @@ body {
 	font-size:14pt;
 	left:calc(var(--sidebarWidth) - 50px);
 	bottom:0;
-	color:#777;
+	color:#555;
 }
-/*
-#sidebar .sidebarbox:first-child .fa-search {
-	bottom:38px;
-}
-*/
 #sidebar input[type="text"] {
 	padding:0 30px 0 0;
 	margin:0;
@@ -289,7 +286,7 @@ body {
 	border-bottom:1px solid #fff;
 }
 #sidebar input[type="text"]::placeholder {
-	color:#666;
+	color:#555;
 }
 
 /* Main Navigation */
@@ -313,12 +310,20 @@ body {
 	margin-bottom:10px;
 }
 #sidebar li.newpost a {
-    background: var(--green);
-    padding: 0 25px 0 50px;
+     background: var(--green);
+     padding: 0 25px 0 50px;
 	display:block;
 	color:#fff;
 	position:relative;
 	border-radius:var(--radius);
+	border-bottom:3px solid rgba(0,0,0,.5);
+}
+#sidebar li.newpost a:focus {
+	border-bottom-width:2px;
+	line-height:46px;
+}
+#sidebar li.newpost a:focus i {
+	top:1px;
 }
 #sidebar li.link:nth-child(2) {
 	border-top-left-radius:var(--radius);
@@ -350,18 +355,15 @@ body {
 .meta select {
 	color:#666;
 	width:calc(50% - 11px);
-	font-size:10pt;
-	line-height:30px;
 	float:left;
 	border:0;
-	font-weight:bold;
+	font:bold 10pt/30px var(--font);
 	padding:0 25px 0 8px;
-	height:30px;
 	margin:0;
 	border-radius:var(--radius);
 	background-color:#fff;
 	background-image:url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='rgba(0,0,0,.4)' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
-	background-position:calc(100% - 4px) 50%;
+	background-position:calc(100% - 4px) 55%;
 	background-repeat: no-repeat;
 	background-size: 20px;
 }
@@ -417,7 +419,7 @@ h4 {
 	display:inline-block;
 }
 #sidebar .record .fa {
-	color:rgba(255,255,255,.5);
+	color:rgba(255,255,255,.3);
 	position:absolute;
 	right:-30px;
 	top:0;
@@ -553,7 +555,7 @@ h4 {
 	position:absolute;
 	background:var(--darkbg);
 	border-radius:var(--radius);
-	top:34px;
+	top:30px;
 	left:10px;
 	color:#000;
 	z-index:1000;
@@ -561,8 +563,8 @@ h4 {
 	box-shadow:0 10px 15px rgba(0,0,0,.2);
 	font:10pt/20px var(--font);
 	border-radius:var(--radius);
-	border-top:3px solid var(--darkbg);
 	cursor:default;
+	padding:20px;
 	display:none;
 }
 .dropdown.show {display:block;}
@@ -573,21 +575,20 @@ h4 {
 	border-color: transparent transparent var(--darkbg) transparent;
 	position: absolute;
 	left: 20px;
-	top:-11px
+	top:-8px
 }
 .dropdown h4  {
-	margin:20px 20px 15px 20px;
+	margin:0 0 15px 0;
 }
 .dropdown input[type="checkbox"]{
 	float:left;
 	margin:5px 10px 0 0;
 }
 .dropdown label {
-	float:left;
 	margin-bottom:5px;
 	color:#fff;
 	cursor:pointer;
-	padding:0 20px;
+	display:block;
 	letter-spacing:-.5px;
 }
 .dropdown label:last-child {
@@ -596,26 +597,46 @@ h4 {
 .dropdown span:hover {
 	color:#fff !important;
 }
-.dropdown .fa-check {
+.dropdown button i {
 	position:absolute;
 	bottom:0;
-	left:20px;
+	left:12px;
 	color:#fff;
 	font-size:11pt;
-	line-height:45px;
+	line-height:30px;
 }
 .dropdown button {
 	background:var(--green);
 	border:0;
-	padding: 0 0 0 50px;
+	padding: 0 0 0 34px;
 	color:#fff;
 	margin-top:15px;
-	font:bold 11pt/45px var(--font);
+	font:bold 10pt/30px var(--font);
 	cursor:pointer;
-	width:100%;
-	border-bottom-right-radius:var(--radius);
-	border-bottom-left-radius:var(--radius);
+	width:calc(50% - 5px);
+	border-radius:var(--radius);
 	text-align:left;
+	position:Relative;
+	float:left;
+}
+.dropdown .closeDropdown {
+	line-height:29px;
+	border-bottom:1px solid rgba(0,0,0,.5);
+}
+.dropdown .closeDropdown:focus {
+	border:0;
+	top:1px;
+}
+.dropdown .cancel {
+	color:rgba(255,255,255,.6);
+	background:rgba(255,255,255,.1);
+	margin-left:10px;
+}
+.dropdown .cancel i {
+	color:rgba(255,255,255,.6);
+}
+.dropdown .cancel:hover {
+	background:rgba(255,255,255,.13);
 }
 
 /*       */
@@ -755,7 +776,7 @@ h2 {
 	border-radius:var(--radius);
 }
 #content .post.min {
-	background:rgba(255,255,255,.5);
+	opacity:.7;
 }
 #content .post.first {
 	margin-top:0;
@@ -888,11 +909,11 @@ h2 {
 	height:40px;
 }
 #content .post .flag .dropdown {
-	left:-170px;
+	left:-190px;
 	top:45px;
 }
 #content .post .flag .dropdown:before {
-	left:180px;
+	left:200px;
 }
 #content .post .header .phi i {
 	color:#ccc;
@@ -1038,7 +1059,7 @@ h2 {
 	cursor:pointer;
 	font-size:10pt;
 }
-#content .post.new input[type="checkbox"] {
+#content .post.new .footer input[type="checkbox"] {
 	margin: 0 5px 0 0;
     	cursor: pointer;
     	vertical-align: middle;

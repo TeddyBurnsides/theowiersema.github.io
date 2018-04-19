@@ -14,7 +14,7 @@
 <div id="sidebar">
      <div class="sidebarbox">
           <i class="fa fa-search"></i>
-          <input type="text" placeholder="Search..."/>
+          <input type="text" placeholder="Search for posts or tickets..."/>
      </div>
      <div class="sidebarbox">
           <li class="newpost"><a href="#newpost"><i class="fa fa-plus"></i>Write a new post</a></li>
@@ -43,7 +43,7 @@
           <div class="clear"></div>
      </div>
      <div class="sidebarbox records">
-          <h4 class="slg">Support Logs</h4>
+          <h4 class="slg">Support Logs (2)</h4>
           <div class="record slg">
                <span class="number">906772</span>
                <span class="name">I am alone, and feel the charm...</span>
@@ -54,13 +54,13 @@
                <span class="name">When, while the lovely valley...</span>
                <i class="fa fa-trash"></i>
           </div>
-          <h4 class="ra">Release Authorizations</h4>
+          <h4 class="ra">Release Authorizations (1)</h4>
           <div class="record ra">
                <span class="number">312</span>
                <span class="name">I should be incapable of draw...</span>
                <i class="fa fa-trash"></i>
           </div>
-          <h4 class="rn">Nova Notes</h4>
+          <h4 class="rn">Nova Notes (1)</h4>
           <div class="record rn">
                <span class="number">25444</span>
                <span class="name">I throw myself down among...</span>
@@ -232,7 +232,7 @@
      </div>
 
      <div id="menu">
-     	<i class="fa fa-bars"></i>
+     	<i title="Back to all Sherlocks" class="fa fa-chevron-circle-left"></i>
           <div id="postID">#4342334</div>
           <input id="customer" type="text" placeholder="Generic Hospital Name" />
           <ul id="nav">
@@ -274,12 +274,15 @@
                     <span><i class="fa fa-filter"></i>Filter</span>
                     <div class="dropdown">
                          <h4>Filter by Tag</h4>
-                         <label><input type="checkbox" /><span>Summary</span></label>
-                         <label><input type="checkbox" /><span>Problem Description</span></label>
+                         <label><input type="checkbox" /><span>Problem Details</span></label>
                          <label><input type="checkbox" /><span>Resolution</span></label>
+                         <label><input type="checkbox" /><span>Summary</span></label>
+                         <label><input type="checkbox" /><span>Technical Notes</span></label>
+                         <label><input type="checkbox" /><span>No Flags</span></label>
                          <div class="clear"></div>
-                         <i class="fa fa-check"></i>
-                         <button class="closeDropdown">Apply</button>
+                         <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                         <button class="cancel"><i class="fa fa-trash"></i>Cancel</button>
+                         <div class="clear"></div>
                     </div>
                </span>
           </div> <!--navigation-->
@@ -295,12 +298,14 @@
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
                               <h4>Add Tag</h4>
-                              <label><input type="checkbox" /><span>Summary</span></label>
-                              <label><input type="checkbox" /><span>Problem Description</span></label>
+                              <label><input type="checkbox" /><span>Problem Details</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <label><input type="checkbox" /><span>Summary</span></label>
+                              <label><input type="checkbox" /><span>Technical Notes</span></label>
                               <div class="clear"></div>
-                              <i class="fa fa-check"></i>
-                              <button class="closeDropdown">Apply</button>
+                              <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                              <button class="cancel"><i class="fa fa-trash"></i>Cancel</button>
+                              <div class="clear"></div>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-lock"></i></div>
@@ -340,12 +345,14 @@
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
                               <h4>Add Tag</h4>
-                              <label><input type="checkbox" /><span>Summary</span></label>
-                              <label><input type="checkbox" /><span>Problem Description</span></label>
+                              <label><input type="checkbox" /><span>Problem Details</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <label><input type="checkbox" /><span>Summary</span></label>
+                              <label><input type="checkbox" /><span>Technical Notes</span></label>
                               <div class="clear"></div>
-                              <i class="fa fa-check"></i>
-                              <button class="closeDropdown">Apply</button>
+                              <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                              <button class="cancel"><i class="fa fa-trash"></i>Cancel</button>
+                              <div class="clear"></div>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-lock"></i></div>
@@ -375,12 +382,14 @@
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
                               <h4>Add Tag</h4>
-                              <label><input type="checkbox" /><span>Summary</span></label>
-                              <label><input type="checkbox" /><span>Problem Description</span></label>
+                              <label><input type="checkbox" /><span>Problem Details</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <label><input type="checkbox" /><span>Summary</span></label>
+                              <label><input type="checkbox" /><span>Technical Notes</span></label>
                               <div class="clear"></div>
-                              <i class="fa fa-check"></i>
-                              <button class="closeDropdown">Apply</button>
+                              <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                              <button class="cancel"><i class="fa fa-trash"></i>Cancel</button>
+                              <div class="clear"></div>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
@@ -415,12 +424,14 @@
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
                               <h4>Add Tag</h4>
-                              <label><input type="checkbox" /><span>Summary</span></label>
-                              <label><input type="checkbox" /><span>Problem Description</span></label>
+                              <label><input type="checkbox" /><span>Problem Details</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <label><input type="checkbox" /><span>Summary</span></label>
+                              <label><input type="checkbox" /><span>Technical Notes</span></label>
                               <div class="clear"></div>
-                              <i class="fa fa-check"></i>
-                              <button class="closeDropdown">Apply</button>
+                              <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                              <button class="cancel"><i class="fa fa-trash"></i>Cancel</button>
+                              <div class="clear"></div>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
@@ -449,12 +460,14 @@
                          <i class="fa fa-flag"></i>
                          <div class="dropdown">
                               <h4>Add Tag</h4>
-                              <label><input type="checkbox" /><span>Summary</span></label>
-                              <label><input type="checkbox" /><span>Problem Description</span></label>
+                              <label><input type="checkbox" /><span>Problem Details</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
+                              <label><input type="checkbox" /><span>Summary</span></label>
+                              <label><input type="checkbox" /><span>Technical Notes</span></label>
                               <div class="clear"></div>
-                              <i class="fa fa-check"></i>
-                              <button class="closeDropdown">Apply</button>
+                              <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                              <button class="cancel"><i class="fa fa-trash"></i>Cancel</button>
+                              <div class="clear"></div>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
@@ -499,12 +512,15 @@
                     <span><i class="fa fa-filter"></i>Filter</span>
                     <div class="dropdown">
                          <h4>Add Tag</h4>
-                         <label><input type="checkbox" /><span>Summary</span></label>
-                         <label><input type="checkbox" /><span>Problem Description</span></label>
+                         <label><input type="checkbox" /><span>Problem Details</span></label>
                          <label><input type="checkbox" /><span>Resolution</span></label>
+                         <label><input type="checkbox" /><span>Summary</span></label>
+                         <label><input type="checkbox" /><span>Technical Notes</span></label>
+                         <label><input type="checkbox" /><span>No Flags</span></label>
                          <div class="clear"></div>
-                         <i class="fa fa-check"></i>
-                         <button class="closeDropdown">Apply</button>
+                         <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                         <button class="cancel"><i class="fa fa-trash"></i>Cancel</button>
+                         <div class="clear"></div>
                     </div>
                </span>
           </div> <!--navigation-->
@@ -538,8 +554,9 @@
                               <label><input type="checkbox" /><span>Problem Description</span></label>
                               <label><input type="checkbox" /><span>Resolution</span></label>
                               <div class="clear"></div>
-                              <i class="fa fa-check"></i>
-                              <button class="closeDropdown">Apply</button>
+                              <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                              <button class="cancel"><i class="fa fa-trash"></i>Cancel</button>
+                              <div class="clear"></div>
                          </div>
                     </div>
                     <div class="phi"><i class="fa fa-unlock-alt"></i></div>
@@ -556,7 +573,7 @@
                <div class="footer">
 				<span class="left"><i class="fa fa-plus"></i>Add Attachment</span>
                     <button type="button" class="right submit"><i class="fa fa-check"></i>Post</button>
-                    <label class="internal right"><input type="checkbox" />Internal</label>
+                    <label class="internal right"><input type="checkbox" />Hide this post from customers</label>
                     <label class="right"><input type="checkbox" />Suppress Notification</label>
                </div>
           </div>
