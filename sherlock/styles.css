@@ -293,10 +293,10 @@ body {
 
 #sidebar li {
 	color:#999;
-	font:700 11pt/45px var(--font);
+	font:700 11pt/40px var(--font);
 	cursor:pointer;
 	letter-spacing:-.5px;
-	padding: 0 25px 0 50px;
+	padding: 0 25px 0 45px;
 	background:rgba(255,255,255,.05);
 	position:relative;
 	border-radius:var(--radius);
@@ -304,8 +304,8 @@ body {
 }
 #sidebar li .fa {
 	position:absolute;
-	left:20px;
-	line-height:45px;
+	left:15px;
+	line-height:40px;
 }
 #sidebar li.newpost {
 	padding:0;
