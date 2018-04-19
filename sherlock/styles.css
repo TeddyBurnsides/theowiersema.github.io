@@ -819,9 +819,10 @@ h2 {
 #content .post .attachments .file {
 	color:#555;
 	cursor:pointer;
+	margin-top:5px;
 }
 #content .post .attachments .type {
-	margin:5px 10px 0px 0;
+	margin:0 10px 0 0;
 	background:#bbb;
 	border-radius:var(--radius);
 	width:35px;
