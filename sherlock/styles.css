@@ -310,8 +310,8 @@ body {
 	margin-bottom:10px;
 }
 #sidebar li.newpost a {
-     background: var(--green);
-     padding: 0 25px 0 50px;
+        background: var(--green);
+        padding: 0 25px 0 50px;
 	display:block;
 	color:#fff;
 	position:relative;
@@ -321,6 +321,7 @@ body {
 #sidebar li.newpost a:focus {
 	border-bottom-width:2px;
 	top:1px;
+        margin-bottom: 11px;
 }
 #sidebar li.newpost a:focus i {
 	top:1px;
