@@ -359,6 +359,10 @@ body {
 	background-size: 20px;
 	border-bottom: 2px solid rgba(0,0,0,.5);
 }
+.meta select:focus {
+	border-bottom-width:1px;
+	top:1px;
+}
 .meta .priority {
 	margin-right:20px;
 	color:#fff;
@@ -652,10 +656,11 @@ h4 {
 	color:var(--green);
 }
 .navigation .pages {
-	float:right;
-	font-weight:Bold;
-	margin:0 8px;
-	cursor:pointer;
+	float: right;
+        font-weight: Bold;
+        padding: 0 8px;
+    	cursor: pointer;
+    	font-size: 11pt;
 }
 .navigation .pages span:hover {
 	color:var(--green);
