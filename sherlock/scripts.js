@@ -123,7 +123,7 @@ $(document).ready(function(){
 
      // Show others input field
      $('.newPeople button.others').on('click',function() {
-          $(this).siblings('input, .fa').toggle();
+          $(this).siblings('input, .fa').show();
      });
 
      // Change color of priority select
@@ -147,6 +147,13 @@ $(document).ready(function(){
                $(this).css({
                     "background-color": "#777"
                });
+          }
+     });
+
+     // show new REcord search viewBox
+     $('.newRecord .button').change(function() {
+          if ($(this).val() > '0') {
+               $(this).siblings('input, i').show();
           }
      });
 

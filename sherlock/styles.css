@@ -290,18 +290,17 @@ body {
 }
 #sidebar input[type="text"]::placeholder {
 	color:#666;
-	font-style:italic;
 }
 
 /* Main Navigation */
 
 #sidebar li {
-	color:#777;
+	color:#999;
 	font:700 11pt/45px var(--font);
 	cursor:pointer;
 	letter-spacing:-.5px;
 	padding: 0 25px 0 50px;
-	background:rgba(255,255,255,.03);
+	background:rgba(255,255,255,.05);
 	position:relative;
 }
 #sidebar li .fa {
@@ -311,6 +310,7 @@ body {
 }
 #sidebar li.newpost {
 	padding:0;
+	margin-bottom:10px;
 }
 #sidebar li.newpost a {
     background: var(--green);
@@ -318,12 +318,15 @@ body {
 	display:block;
 	color:#fff;
 	position:relative;
+	border-radius:var(--radius);
+}
+#sidebar li.link:nth-child(2) {
 	border-top-left-radius:var(--radius);
 	border-top-right-radius:var(--radius);
 }
 #sidebar li.active {
 	color:#fff;
-	background:rgba(255,255,255,.1);
+	background:rgba(255,255,255,.15);
 }
 #sidebar li.link:hover {
 	color:#ddd;
@@ -492,7 +495,6 @@ h4 {
 	margin-right:20px;
 }
 #sidebar select.button {
-	margin-top:10px;
 	padding:0 10px;
 	width:100%;
 	background-image:url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#fff' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
@@ -508,6 +510,9 @@ h4 {
 	margin-top:5px;
 }
 #sidebar .subSearch.newPeople input, #sidebar .subSearch.newPeople .fa {
+	display:none;
+}
+#sidebar .newRecord input, #sidebar .newRecord i {
 	display:none;
 }
 
