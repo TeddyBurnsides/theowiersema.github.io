@@ -320,7 +320,7 @@ body {
 }
 #sidebar li.newpost a:focus {
 	border-bottom-width:2px;
-	line-height:46px;
+	top:1px;
 }
 #sidebar li.newpost a:focus i {
 	top:1px;
