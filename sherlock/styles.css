@@ -43,7 +43,7 @@ a {text-decoration:none;}
 
 	--minContentWidth:1000px;
 	--postWidth:calc(100% - var(--sidebarWidth));
-	--sidebarWidth:330px;
+	--sidebarWidth:300px;
 	--padding:20px;
 	--radius:4px;
 
@@ -382,8 +382,8 @@ h4 {
 	margin-top:0;
 }
 #sidebar .record {
-	font:10pt/20px var(--font);
-	padding:6px 10px;
+	font:10pt/30px var(--font);
+	padding:0 10px;
 	position: relative;
 	background:var(--darkestbg);
 	margin-bottom:5px;
@@ -393,6 +393,7 @@ h4 {
 	border-radius:var(--radius);
 	width:calc(var(--sidebarWidth) - 80px);
 	cursor:pointer;
+	height:30px;
 }
 #sidebar .record:last-child {
 	margin-bottom:0;
@@ -405,7 +406,9 @@ h4 {
 }
 #sidebar .record .name {
 	display:block;
-	padding-right:55px;
+	overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 }
 #sidebar .record:hover > .fa { /*display delete button */
 	display:inline-block;
