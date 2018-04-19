@@ -355,7 +355,7 @@ body {
 	width:calc(50% - 11px);
 	float:left;
 	border:0;
-	font:bold 10pt/30px var(--font);
+	font:bold 10pt/28px var(--font);
 	padding:0 25px 0 8px;
 	margin:0;
 	border-radius:var(--radius);
