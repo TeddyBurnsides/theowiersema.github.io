@@ -364,6 +364,7 @@ body {
 	background-position:calc(100% - 4px) 55%;
 	background-repeat: no-repeat;
 	background-size: 20px;
+	border-bottom: 2px solid rgba(0,0,0,.5);
 }
 .meta .priority {
 	margin-right:20px;
@@ -623,8 +624,7 @@ h4 {
 }
 .dropdown .closeDropdown:focus {
 	border-bottom-width:1px;
-	top:1px;
-	
+	top:1px;	
 }
 .dropdown .cancel {
 	color:rgba(255,255,255,.6);
