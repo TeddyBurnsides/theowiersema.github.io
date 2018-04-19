@@ -300,7 +300,7 @@ body {
 	background:rgba(255,255,255,.05);
 	position:relative;
 	border-radius:var(--radius);
-	margin-bottom:10px;
+	margin-bottom:5px;
 }
 #sidebar li .fa {
 	position:absolute;
@@ -318,6 +318,7 @@ body {
 	color:#fff;
 	position:relative;
 	border-bottom:3px solid rgba(0,0,0,.5);
+	border-radius:var(--radius);
 }
 #sidebar li.newpost a:focus {
 	border-bottom-width:2px;
