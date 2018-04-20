@@ -119,17 +119,6 @@ $(document).ready(function(){
           $(this).closest('.dropdown').fadeOut(50);
      });
 
-     // Toggle the hidden top menus
-     $('#menu > i').on('click',function() {
-          if($("#hiddenMenu").css("height") == "0px") {
-               $("#hiddenMenu").animate({"height": "320px"},"fast");
-			   $("#mainmenu").animate({"height": "40px"},"fast");
-          } else {
-            $("#hiddenMenu").animate({"height": "0"},"fast");
-			$("#mainmenu").animate({"height": "0"},"fast");
-          }
-     });
-
      // Show "Add Others" text field
      $('.newPeople button.others').on('click',function() {
           $(this).siblings('input, .fa').show();

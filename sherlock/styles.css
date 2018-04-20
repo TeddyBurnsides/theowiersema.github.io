@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd,ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;list-style:none;}
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike,strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd,ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;list-style:none;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
 body {line-height: 1;}
 ol, ul {list-style: none;}
@@ -57,74 +57,65 @@ body {
 /* Hidden Menu */
 
 #hiddenMenu {
-	height:0;
-	overflow:hidden;
-	padding:0px 40px;
-}
-#hiddenMenu .quarter {
-	width:25%;
-	float:left;
-}
-#hiddenMenu .clear {
-	height:20px;
-}
-#hiddenMenu .logo img {
-	width:80px;
-	margin:22px 0 0 20px;
-}
-#hiddenMenu h4 {
-	margin:20px 0 12px 20px;
-	color:var(--blue);
-}
-#hiddenMenu li {
-	color:#000;
-	font:9pt/18px var(--font);
-	margin-left:20px;
-}
-#hiddenMenu li ul li {
-	margin-left:15px;
+	display:none;
 }
 
 /* The Top Bar */
 
 #mainmenu {
-	height:0px;
-	overflow:hidden;
-	padding:0 40px;
-	border-bottom:1px solid rgba(0,0,0,.05);
+	padding:0 40px 0;
+	background:#eee;
+	height:35px;
+	border-bottom:1px solid #E2E2E2;
+	position:relative;
+}
+#mainmenu .main {
+	padding: 5px 0 0;
 }
 #mainmenu .main li {
 	float:left;
-	font:9pt/24px Helvetica;
-	color:#000;
+	font:bold 9pt/30px var(--font);
+	letter-spacing:-.5px;
+	color:#999;
 	cursor:pointer;
 	padding:0 15px;
-	background:rgba(255,255,255,.1);
-	border-radius:var(--radius);
-	margin:8px 5px 0 0;
 }
-#mainmenu .main li.active, #mainmenu .main li:hover {
+#mainmenu .main li.active {
 	background:rgba(255,255,255,.8);
-	color:#3E6175;
+	color:#666;
+	background:#fff;
+	border:1px solid #E2E2E2;
+	border-bottom:0;
+	border-top-right-radius:var(--radius);
+	border-top-left-radius:var(--radius);
+}
+#mainmenu .main li:hover {
+	color:#555;
 }
 #mainmenu .admin {
-	float:right;
+	position:absolute;
+	right:calc(-1 * var(--sidebarWidth));
+	width:calc(var(--sidebarWidth) - 60px);
+	top:0;
+	height:36px;
+	padding:0 30px;
 }
 #mainmenu .admin li {
-	float:left;
-	font:9pt/40px Helvetica;
-	color:#000
+	float:right;
+	font:13pt/36px var(--font);
+	color:rgba(255,255,255,.3);
 	cursor:pointer;
-	margin-left:var(--padding);
+	margin:0 5px 0 10px;
+	text-align:right;
 }
 #mainmenu li:hover {
-	color:#fff;
+	color:#ddd;
 }
 
 /*  Secondary Nav Bar */
 
 #menu {
-	height:32px;
+	height:30px;
 	padding:16px 30px;
 	font:10pt/36px var(--font);
 	background:#fff;
@@ -133,32 +124,24 @@ body {
 	margin-right:10px;
 	float:left;
 }
-#menu > i {
-	line-height:30px;
-	font-size:14pt;
-	color:rgba(0,0,0,.2);
-	cursor:pointer;
-}
-#menu > i:hover {
-	color:#aaa;
-}
 #menu .postID {
 	background:#FBF2C0;
 	text-align:center;
 	color:rgba(0,0,0,.5);
 	font-weight:bold;
-	padding:0 12px;
+	padding:0 10px;
 	border-radius:var(--radius);
 	line-height:30px;
 }
 #menu .customer {
 	height:30px;
-	padding:0 12px;
+	padding:0 10px;
 	font:10pt/30px var(--font);
 	border:0;
-	width:150px;
+	width:140px;
 	color:var(--green);
 	background:rgba(0,0,0,.03);
+	background:var(--bg);
 	letter-spacing:-.5px;
 	border-radius:var(--radius);
 }
@@ -196,14 +179,11 @@ body {
 	letter-spacing:-1.3px;
 	color:#444;
 }
-#header .details {
+#header .details, #header .date {
 	font: 10pt/20px var(--font);
 	letter-spacing:-.3px;
-	color:rgba(0,0,0,.3);
+	color:rgba(0,0,0,.4);
 	padding:0 0 5px;
-}
-#header .details span {
-	font-weight:bold;
 }
 #header .details i {
 	padding-right:5px;
@@ -214,6 +194,11 @@ body {
 	color:var(--purple);
 	font-weight:bold;
 }
+#header .date {
+	padding:5px 0 0 0;
+	font-size:9pt;
+}
+
 /* Sidebar */
 
 #sidebar {
@@ -224,6 +209,7 @@ body {
     	position: absolute;
     	bottom: 0;
     	top: 0;
+	border-top:36px solid rgba(0,0,0,.1);
 }
 #sidebar .sidebarbox {
 	padding:30px 30px 0 30px;
@@ -231,6 +217,7 @@ body {
 }
 #sidebar .sidebarbox:first-child {
 	padding-top:15px;
+	border-top:1px solid rgba(255,255,255,.05);
 }
 
 /* Search bar */
@@ -262,27 +249,28 @@ body {
 /* Main Navigation */
 
 #sidebar li {
-	color:#999;
-	font:700 11pt/40px var(--font);
+	color:#888;
+	font:700 10pt/40px var(--font);
 	cursor:pointer;
-	letter-spacing:-.5px;
-	padding: 0 25px 0 45px;
+	letter-spacing:-.2px;
+	padding: 0 25px 0 40px;
 	background:rgba(255,255,255,.05);
 	position:relative;
-	border-radius:var(--radius);
-	margin-bottom:3px;
+	margin-bottom:2px;
 }
 #sidebar li .fa {
 	position:absolute;
 	left:15px;
+	font-size:11pt;
 }
 #sidebar li.newpost {
 	padding:0;
 	margin-bottom:10px;
+	background:none;
 }
 #sidebar li.newpost a {
      background: var(--green);
-     padding: 0 25px 0 50px;
+     padding: 0 25px 0 40px;
 	display:block;
 	color:#fff;
 	position:relative;
@@ -293,6 +281,14 @@ body {
 	border-bottom-width:2px;
 	top:1px;
      margin-bottom: 11px;
+}
+#sidebar li.link:nth-child(2) {
+	border-top-right-radius:var(--radius);
+	border-top-left-radius:var(--radius);
+}
+#sidebar li.link:last-child {
+	border-bottom-right-radius:var(--radius);
+	border-bottom-left-radius:var(--radius);
 }
 #sidebar li.active {
 	color:#fff;
@@ -477,7 +473,7 @@ h4 {
 
 .navigation {
 	height:20px;
-	padding:0 0 10px 0;
+	padding:0 0 15px 0;
 	width:calc(100% - 0px);
 	font:bold 10pt/20px var(--font);
 	letter-spacing:-.5px;
