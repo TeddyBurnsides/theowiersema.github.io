@@ -35,7 +35,7 @@ $(document).ready(function(){
 
      // "Hide/Show Content" post footer button
      $(".post .footer .confidential").on('click',function() {
-          // smooth hide motion
+          // hide post content
           $(this).parent().siblings('.entry').animate({
                'height':"toggle",
                'padding-top':"toggle",
@@ -47,6 +47,7 @@ $(document).ready(function(){
 
      // Internal toggle for new post
      $('.post.new .footer .internal input').on('click',function() {
+          // change new post header border-color
           $(this).closest('.post').toggleClass('public');
      });
 
@@ -58,7 +59,6 @@ $(document).ready(function(){
           $(this).closest('.post').toggleClass('phi');
           // if post content is hidden, show again (otherwise you lose it!)
           if($(this).closest('.post').hasClass('min')) {
-               // smooth hide motion
                $(this).closest('.post').children('.entry').animate({
                     'height':"toggle",
                     'padding-top':"toggle",
@@ -87,7 +87,7 @@ $(document).ready(function(){
           $(".navigation .phi").children('span').children('span').toggleClass('notVisible')
      });
 
-     // Hide All Internal posts
+     // Hide All Internal posts (note this removes post entirely)
      $(".navigation .internal").on('click',function() {
           // change button text (on both navigation menus)
           $(".navigation .internal").children('span').children('span').toggleClass('notVisible');
@@ -96,7 +96,7 @@ $(document).ready(function(){
      });
 
      // Remove related records
-     $('.record .fa-trash').on('click',function() {
+     $('.fa-trash').on('click',function() {
           $(this).closest('.record').remove();
      });
 
@@ -114,13 +114,14 @@ $(document).ready(function(){
                }
           }
      });
-     // Hide dropdown when clicking cancel/apply buttons
+
+     // Hide dropdown when clicking OK
      $('.dropdown button').on('click',function() {
           $(this).closest('.dropdown').fadeOut(50);
      });
 
      // Toggle the hidden top menus
-     $('#menu > i').on('click',function() {
+     $('.fa-bars').on('click',function() {
           if($("#hiddenMenu").css("height") == "0px") {
                $("#hiddenMenu").animate({"height": "320px"},"fast");
 			   $("#mainmenu").animate({"height": "40px"},"fast");
@@ -130,7 +131,7 @@ $(document).ready(function(){
           }
      });
 
-     // Show "Add Others" text field
+     // Show others input field
      $('.newPeople button.others').on('click',function() {
           $(this).siblings('input, .fa').show();
      });
@@ -138,20 +139,28 @@ $(document).ready(function(){
      // Change color of priority select
      $('.meta .priority').change(function() {
           if ($(this).val() === 'High') {
-               $(this).css({"background-color": "#FEB64D"});
+               $(this).css({
+                    "background-color": "#FEB64D" // yellow
+               });
           }
           if ($(this).val() === 'Critical') {
-               $(this).css({"background-color": "#FB889D"});
+               $(this).css({
+                    "background-color": "#FB889D" // red
+               });
           }
           if ($(this).val() === 'Medium') {
-               $(this).css({"background-color": "#5894FF"});
+               $(this).css({
+                    "background-color": "#5894FF" // blue
+               });
           }
           if ($(this).val() === 'Low') {
-               $(this).css({"background-color": "#777"});
+               $(this).css({
+                    "background-color": "#777"
+               });
           }
      });
 
-     // show new record search box
+     // show new REcord search viewBox
      $('.newRecord .button').change(function() {
           if ($(this).val() > '0') {
                $(this).siblings('input, i').show();

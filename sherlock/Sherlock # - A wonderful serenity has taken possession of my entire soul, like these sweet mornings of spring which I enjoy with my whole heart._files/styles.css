@@ -7,6 +7,21 @@ blockquote:before, blockquote:after,
 q:before, q:after {content: '';content: none;}
 table {border-collapse: collapse;border-spacing: 0;}
 
+/*
+
+#mainmenu
+#menu
+#header
+#content
+	.navigation		#sidebar
+	.post				.sidebarbox
+	.post				.sidebarbox
+	.post				.sidebarbox
+	.navigation
+	.new.post
+
+*/
+
 /* The Basics */
 
 a {text-decoration:none;}
@@ -25,14 +40,17 @@ a {text-decoration:none;}
 	--bg:#F4F6F9; /*body bg */
 	--darkbg:#25262B; /* sidebar bg*/
 	--darkestbg:#1C1D21; /* Sidebar recorsd bg */
+
 	--minContentWidth:1000px;
 	--postWidth:calc(100% - var(--sidebarWidth));
-	--sidebarWidth:310px;
+	--sidebarWidth:300px;
 	--padding:20px;
 	--radius:4px;
+
 	--font:"Open Sans",Helvetica;
 }
 select{
+	cursor:pointer;
 	-webkit-appearance: none;
     -moz-appearance: none;
     -webkit-border-radius: 0px;
@@ -41,12 +59,25 @@ select{
     background-repeat: no-repeat;
     background-size: 20px;
 }
-label, input[type="checkbox"], button, .fa, select {cursor:pointer;}
-input:focus {outline-width:none;}
-.fa {line-height:inherit;}
+label, input[type="checkbox"], button, .fa {
+	cursor:pointer;
+}
+input{
+	border-radius:0;
+}
+input:focus {
+	outline-width:none;
+}
+option {
+	background:#fff;
+	color:#000;
+}
+.fa {
+	line-height:inherit;
+}
 body {
 	font-family:var(--font);
-	background:var(--bg) url(bg.png) scroll repeat-x 0 64px;
+	background:var(--bg) url(bg.png) scroll repeat-x 0 85px;
 	min-width:var(--minContentWidth);
 }
 #container {
@@ -124,9 +155,9 @@ body {
 /*  Secondary Nav Bar */
 
 #menu {
-	height:32px;
-	padding:16px 30px;
-	font:10pt/36px var(--font);
+	height:36px;
+	padding:22px 30px;
+	font:11pt/36px var(--font);
 	background:#fff;
 }
 #menu .left {
@@ -134,9 +165,9 @@ body {
 	float:left;
 }
 #menu > i {
-	line-height:30px;
-	font-size:14pt;
-	color:rgba(0,0,0,.2);
+	line-height:36px;
+	font-size:20pt;
+	color:rgba(0,0,0,.10);
 	cursor:pointer;
 }
 #menu > i:hover {
@@ -149,12 +180,12 @@ body {
 	font-weight:bold;
 	padding:0 12px;
 	border-radius:var(--radius);
-	line-height:30px;
+	line-height:36px;
 }
 #menu .customer {
-	height:30px;
+	height:36px;
 	padding:0 12px;
-	font:10pt/30px var(--font);
+	font:11pt/36px var(--font);
 	border:0;
 	width:150px;
 	color:var(--green);
@@ -168,13 +199,12 @@ body {
 #menu .nav {
 	color:#999;
 	letter-spacing:-.5px;
-	line-height:28px;
-	font-size:11pt;
 }
 #menu .nav li {
-	float:left;
-	margin:0 10px;
+	display:inline-block;
+	margin:0 0 0 15px;
 	cursor:pointer;
+	line-height:36px;
 }
 #menu .nav li:hover  {
 	color:var(--green);
@@ -188,32 +218,23 @@ body {
 /* Post header */
 
 #header {
-	padding:20px 30px;
+	padding:30px 30px 20px;
     	border-top: 1px solid rgba(0,0,0,.05);
 }
 #header h1 {
-	font:900 16pt/30px var(--font);
+	font:900 15pt/30px var(--font);
 	letter-spacing:-1.3px;
 	color:#444;
 }
 #header .details {
-	font: 10pt/20px var(--font);
+	font: 10pt/24px var(--font);
 	letter-spacing:-.3px;
-	color:rgba(0,0,0,.3);
-	padding:0 0 5px;
+	color:rgba(0,0,0,.4);
 }
 #header .details span {
 	font-weight:bold;
 }
-#header .details i {
-	padding-right:5px;
-	font-size:12pt;
-	line-height:20px;
-}
-#header .details a {
-	color:var(--purple);
-	font-weight:bold;
-}
+
 /* Sidebar */
 
 #sidebar {
@@ -230,7 +251,7 @@ body {
 	position:relative;
 }
 #sidebar .sidebarbox:first-child {
-	padding-top:15px;
+	padding-top:20px;
 }
 
 /* Search bar */
@@ -238,14 +259,14 @@ body {
 #sidebar .fa-search {
 	position:absolute;
 	line-height:36px;
-	font-size:13pt;
+	font-size:14pt;
 	left:calc(var(--sidebarWidth) - 50px);
 	bottom:0;
 	color:#555;
 }
 #sidebar input[type="text"] {
 	padding:0 30px 0 0;
-	font:11pt/32px var(--font);
+	font:11pt/35px var(--font);
 	width:calc(100% - 30px);
 	color:#fff;
 	border:0;
@@ -477,7 +498,7 @@ h4 {
 
 .navigation {
 	height:20px;
-	padding:0 0 10px 0;
+	padding:0 0 15px 0;
 	width:calc(100% - 0px);
 	font:bold 10pt/20px var(--font);
 	letter-spacing:-.5px;
@@ -838,11 +859,11 @@ h2 {
 	height:40px;
 }
 .post .dropdown {
-	left:-150px;
-	top:45px;
+	left:-160px;
+	top:40px;
 }
 .post .dropdown:before {
-	left:160px;
+	left:170px;
 }
 .post .header .phi i {
 	color:#ccc;
@@ -930,7 +951,6 @@ h2 {
 
 .post.new {
 	border-top-color:var(--purple);
-	padding-top:10px;
 }
 .post.new.public {
 	border-top-color:var(--fadedred);
@@ -938,13 +958,13 @@ h2 {
 .post.new .header {
 	padding-bottom:10px;
 }
-.post.new .header:before {
-	top:-16px;
-}
 .post.new .style .fa {
 	color:#666;
-	line-height:40px;
+	line-height:30px;
 	margin-right:15px;
+}
+.post.new .dropdown {
+	top:35px;
 }
 .header select {
 	height: 20px;
