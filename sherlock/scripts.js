@@ -147,4 +147,14 @@ $(document).ready(function(){
           }
      });
 
+     // Show/Hide Hidden header navigation
+     $('#menu > i').click(function() {
+          $('#menu > i').toggleClass('fa-angle-down fa-angle-up');
+          if ($('#hiddenMenu').is(':hidden')) {
+               $('#hiddenMenu').slideDown();
+          } else {
+               $('#hiddenMenu').slideUp();
+          }
+     });
+
 });

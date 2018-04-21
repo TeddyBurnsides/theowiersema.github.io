@@ -10,13 +10,15 @@
      <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
 <div id="container">
+
 <div id="sidebar">
      <div class="sidebarbox">
           <i class="fa fa-search"></i>
           <input type="text" placeholder="Search for posts or tickets..."/>
      </div>
-     <div class="sidebarbox">
+     <div class="sidebarbox mainnav">
           <li class="newpost"><a href="#newpost"><i class="fa fa-plus"></i>Write a new post</a></li>
           <li class="link discussion active"><i class="fa fa-comments"></i>Discussion</li>
           <li class="link attachments"><i class="fa fa-paperclip"></i>Attachments</li>
@@ -123,7 +125,33 @@
      </div>
 </div> <!-- Sidebar -->
 
-     <div id="hiddenMenu">
+     <div id="hiddenMenu" class="hidden">
+          <div class="top">
+               <a href="">Userweb</a>
+               <input type="text" placeholder="Search the UserWeb" />
+               <li>Forums</li>
+               <li>Galaxy</li>
+               <li>Nova</li>
+               <li>Sherlock</li>
+               <li>Community Library</li>
+               <li>Training Home</li>
+               <img src="profile.jpg" />
+               <li>Sign Out</li>
+               <li>Sign in as a different organization</li>
+               <li>Edit your profile</li>
+               <div class="main">
+                    <li><img src="sherlock.gif" /></li>
+                    <li><i class="fa fa-edit"></i></li>
+                    <li><i class="fa fa-exclamation-triangle"></i></li>
+                    <li><i class="fa fa-list"></i></li>
+               </div>
+               <div class="admin">
+                    <li><i class="fa fa-question-circle"></i>Help</li>
+                    <li><i class="fa fa-cogs"></i>Options</li>
+                    <li><i class="fa fa-building"></i>Admin</li>
+                    <li><i class="fa fa-table"></i>Reports</li>
+               </div>
+          </div>
      <div class="quarter">
           <h4>Events</h4>
           <ul>
@@ -214,31 +242,18 @@
           </ul>
      </div>
      <div class="clear"></div>
-     </div>
+</div>
 <div id="content">
-     <div id="mainmenu">
-          <div class="main">
-               <li class="active">Support Logs</li>
-               <li>Release Authorization</li>
-               <li>Reportables</li>
-               <li>Checklists</li>
-          </div>
-          <div class="admin">
-               <li><i class="fa fa-question-circle"></i></li>
-
-               <li><i class="fa fa-cogs"></i></li>
-               <li><i class="fa fa-user"></i></li>
-
-          </div>
-     </div>
-
      <div id="menu">
-     	<ul>
+     	<ul class="left">
                <li class="back"><i title="Back to all Sherlocks" class="fa fa-arrow-left"></i>Back</li>
                <li><i class="fa fa-home"></i>Home</li>
                <li><i class="fa fa-tasks"></i>Review</li>
+               <li><i class="fa fa-search"></i>Search</li>
+               <li><i class="fa fa-table"></i>Reports</li>
                <li class="create"><i class="fa fa-plus"></i>Create</li>
           </ul>
+          <i class="right fa fa-angle-down"></i>
      </div>
 
      <div id="header">
