@@ -27,7 +27,7 @@ a {text-decoration:none;}
 	--bg:#F4F6F9; /*body bg */
 	--darkbg:#25262B; /* sidebar bg*/
 	--darkestbg:#1C1D21; /* Sidebar recorsd bg */
-	--minContentWidth:1000px;
+	--minContentWidth:1100px;
 	--postWidth:calc(100% - var(--sidebarWidth));
 	--sidebarWidth:310px;
 	--padding:20px;
@@ -59,24 +59,88 @@ body {
 /* Hidden Menu */
 
 #hiddenMenu {
-	padding:0 30px 30px;
+	padding:30px 30px 0px 30px;
 	width:calc(var(--postWidth) - 60px);
 	float:left;
 	display:none;
 	background:#fff;
 }
+#hiddenMenu .top {
+	height:30px;
+	background:#eee;
+	border-radius:100px;
+}
+#hiddenMenu .top li {
+	font:10pt/30px var(--font);
+	color:#555;
+	letter-spacing:-.3px;
+	cursor:pointer;
+	float:left;
+	margin-left:15px;
+}
+#hiddenMenu img {
+	border-radius:100px;
+	float:right;
+}
+#hiddenMenu .left img {
+	margin-right:15px;
+}
+#hiddenMenu input[type="text"] {
+	float:left;
+	height:28px;
+	border:1px solid #ddd;
+	padding:0 15px;
+	margin:0;
+	border-radius:100px;
+	font:9pt/28px var(--font);
+	width:120px;
+}
+
 .quarter {
 	width:25%;
 	float:left;
+	margin-bottom:20px;
 }
 #hiddenMenu li {
 	font:9pt/18px var(--font);
+	color:#777;
+	cursor:pointer;
+}
+#hiddenMenu li i {
+	padding-right:4px;
+}
+#hiddenMenu .left i {
+	font-size:12pt;
 }
 #hiddenMenu li > ul {
 	margin-left:10px;
 }
 #hiddenMenu h4 {
 	color:var(--green);
+}
+#hiddenMenu .main {
+	float:left;
+}
+#hiddenMenu .admin {
+	float:right;
+}
+#hiddenMenu .main li {
+	margin-left:0;
+	margin-right:15px;
+	float:left;
+	color:#999;
+	letter-spacing:-.5px;
+	font:10pt/40px var(--font);
+}
+#hiddenMenu .main li.active {
+	color:#555;
+	font-weight:bold;
+}
+#hiddenMenu .admin li {
+	float:left;
+	margin-left:15px;
+	color:#999;
+	line-height:40px;
 }
 
 /*  Nav Bar */
@@ -173,44 +237,6 @@ h1 .slash {
 }
 #sidebar .sidebarbox:first-child {
 	padding-top:23px;
-}
-
-/* Site-wide nav bar */
-
-#sidebar .sitenav {
-	height:30px;
-	position:relative;
-}
-#sidebar .sitenav .main {
-	float:left;
-}
-#sidebar .sitenav .main li {
-	float:left;
-	font:bold 9pt/32px var(--font);
-	letter-spacing:-.5px;
-	color:#aaa;
-	cursor:pointer;
-	padding:0 10px;
-}
-#sidebar .sitenav .main li.active {
-	color:#666;
-	border-radius:4px;
-	line-height:32px;
-}
-#sidebar .sitenav .main li:hover {
-	color:#555;
-}
-#sidebar .sitenav .admin {
-	float:right;
-}
-#sidebar .sitenav .admin li {
-	float:right;
-	font:13pt/32px var(--font);
-	color:rgba(255,255,255,.3);
-	cursor:pointer;
-}
-#sidebar .sitenav li:hover {
-	color:#ddd;
 }
 
 /* Search bar */
