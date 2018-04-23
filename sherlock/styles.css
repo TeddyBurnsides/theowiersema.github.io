@@ -43,6 +43,10 @@ select{
     background-repeat: no-repeat;
     background-size: 20px;
 }
+option {
+	background:#fff;
+	color:#000;
+}
 label, input[type="checkbox"], button, .fa, select {cursor:pointer;}
 input:focus {outline-width:none;}
 .fa {line-height:inherit;}
