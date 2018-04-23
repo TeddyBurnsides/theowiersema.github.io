@@ -204,7 +204,7 @@ body {
 }
 #header .customer {
 	font:13pt/20px var(--font);
-	color:rgba(0,0,0,.35);
+	color:rgba(0,0,0,.5);
 	padding:0 0 5px 0;
 	letter-spacing:-1px;
 }
