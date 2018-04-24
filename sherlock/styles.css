@@ -28,7 +28,7 @@ a {text-decoration:none;}
 	--bg:#F0F2F4; /*slightly darker and more green*/
 	--darkbg:#25262B; /* sidebar bg*/
 	--darkestbg:#1C1D21; /* Sidebar recorsd bg */
-	--minContentWidth:1100px;
+	--minContentWidth:950px;
 	--postWidth:calc(100% - var(--sidebarWidth));
 	--sidebarWidth:310px;
 	--padding:20px;
@@ -205,7 +205,7 @@ body {
 }
 #header .customer {
 	font:13pt/20px var(--font);
-	color:rgba(0,0,0,.5);
+	color:rgba(0,0,0,.6);
 	padding:0 0 5px 0;
 	letter-spacing:-1px;
 }
@@ -219,6 +219,7 @@ h1 .postid {
      margin-right: 10px;
      border-bottom: 1px dotted var(--green);
 	letter-spacing:-.5px;
+	cursor:pointer;
 }
 h1 .slash {
 	margin-right: 10px;
@@ -273,7 +274,7 @@ h1 .slash {
 /* Main Navigation */
 
 #sidebar .mainnav li {
-	color:#888;
+	color:#aaa;
 	font:700 10pt/40px var(--font);
 	cursor:pointer;
 	letter-spacing:-.2px;
@@ -367,7 +368,7 @@ h4 {
 	text-transform:uppercase;
 	margin:20px 0 10px 0;
 	letter-spacing:-.5px;
-	color:var(--h4);
+	color:#888;
 }
 #sidebar h4:first-child {
 	margin-top:0;
@@ -823,7 +824,7 @@ h4 {
 	left:61px;
 	top:27px;
 	font:9pt/1 var(--font);
-	color:#bbb;
+	color:#777;
 	letter-spacing:-.5px;
 }
 .post .name > i {
@@ -840,7 +841,7 @@ h4 {
 	height:20px;
 	font:10pt/20px var(--font);
 	letter-spacing:-.5px;
-	color:rgba(0,0,0,.4);
+	color:#777;
 }
 .footer .left {margin-right:15px;}
 .footer .right {margin-left:15px;}
@@ -950,7 +951,6 @@ h4 {
      margin:10px 30px 600px 30px;
 }
 #attachments h4 {
-	color:#c5c5c5;
 	margin-top:30px;
 }
 #attachments .file {
