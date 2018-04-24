@@ -25,6 +25,7 @@ a {text-decoration:none;}
 	--fadedred:#F9ABB9; /* epic post border */
 	--h4:#67686B;
 	--bg:#F4F6F9; /*body bg */
+	--bg:#F0F2F4; /*slightly darker and more green*/
 	--darkbg:#25262B; /* sidebar bg*/
 	--darkestbg:#1C1D21; /* Sidebar recorsd bg */
 	--minContentWidth:1100px;
