@@ -253,7 +253,7 @@ h1 .slash {
 	font-size:13pt;
 	left:calc(var(--sidebarWidth) - 50px);
 	bottom:0;
-	color:#555;
+	color:#777;
 }
 #sidebar input[type="text"] {
 	padding:0 30px 0 0;
@@ -261,14 +261,14 @@ h1 .slash {
 	width:calc(100% - 30px);
 	color:#fff;
 	border:0;
-	border-bottom:1px solid rgba(255,255,255,.2);
+	border-bottom:1px solid #777;
 	background:none;
 }
 #sidebar input[type="text"]:focus {
 	border-bottom:1px solid #fff;
 }
 #sidebar input[type="text"]::placeholder {
-	color:#555;
+	color:#777;
 }
 
 /* Main Navigation */
