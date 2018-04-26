@@ -1,18 +1,24 @@
 $(document).ready(function(){
 
      // make sidebar links work
-     $("#sidebar li.link").on('click',function() {
+     $("#sidebar li.link").click(function() {
           $("#sidebar li").removeClass('active'); // make all links inactive
           $(".page").hide(); // hide all pages
           $(this).toggleClass('active'); // make the clicked link active
      });
      // Show each individual page
-     $("#sidebar .discussion").on('click',function() {$("#posts").show();});
-     $("#sidebar .details").on('click',function() {$("#details").show();});
-     $("#sidebar .attachments").on('click',function() {$("#attachments").show();});
+     $("#sidebar .discussion").click(function() {
+          $("#posts").show();
+     });
+     $("#sidebar .details").click(function() {
+          $("#details").show();
+     });
+     $("#sidebar .attachments").click(function() {
+          $("#attachments").show();
+     });
 
      // Add smooth scrolling to new post link
-     $("li.newpost a").on('click', function(event) {
+     $("li.newpost a").click(function(event) {
           $("#sidebar li").removeClass('active'); // make all limks inactive
           $(".page").hide(); // hide all pages
           $("#sidebar li.discussion").addClass('active'); // make discussion link active
@@ -40,7 +46,7 @@ $(document).ready(function(){
                'height':"toggle",
                'padding-top':"toggle",
                'padding-bottom':"toggle"
-          },100,"linear");
+          },200,"linear");
           // Toggle text (hide vs. show)
          $(this).closest('.post').toggleClass('min');
      });
@@ -96,7 +102,11 @@ $(document).ready(function(){
      });
 
      // Remove related records
-     $('.record .fa-trash').on('click',function() {
+     // adjust h4 count
+     $('.record .fa-trash').click(function() {
+          var cnt = $(this).closest('.record').prevAll('h4:first').children('.count').html();
+          var total=cnt-1;
+          $(this).closest('.record').prevAll('h4:first').children('.count').html(total);
           $(this).closest('.record').remove();
      });
 
@@ -107,7 +117,7 @@ $(document).ready(function(){
 
      // Hide all dropdowns when clicking outside of them
      $(document).click(function(event) {
-          // stop hiding from happening when cliking on button
+          // stop hiding from happening when clicking on button
           if (!$(event.target).closest('.flag, .filter').length) {
                if ($('.dropdown').is(':visible')) {
                     $('.dropdown').hide();
@@ -145,6 +155,18 @@ $(document).ready(function(){
           if ($(this).val() > '0') {
                $(this).siblings('input, i').show();
           }
+          if ($(this).val() === '1') {
+               $(this).siblings('input').attr("placeholder","Search for support logs");
+          }
+          if ($(this).val() === '2') {
+               $(this).siblings('input').attr("placeholder","Search for release authorizations");
+          }
+          if ($(this).val() === '3') {
+               $(this).siblings('input').attr("placeholder","Search for release notes");
+          }
+          if ($(this).val() === '4') {
+               $(this).siblings('input').attr("placeholder","Search for reportable issues");
+          }
      });
 
      // Show/Hide Hidden header navigation
@@ -154,6 +176,51 @@ $(document).ready(function(){
                $('#hiddenMenu').slideDown();
           } else {
                $('#hiddenMenu').slideUp();
+          }
+     });
+
+     // Add yourself to the sidebar and disable button
+     $('button.addme').click(function() {
+          $('#sidebar .me').fadeIn();
+          $(this).addClass('disabled');
+     });
+
+     // Set/unset flag color to blue if checkbox is checked
+     $('.closeDropdown').click(function() {
+          if ($(this).siblings('label').children('input:checked').length > '0') {
+               $(this).closest('.dropdown').siblings('.fa').addClass('active');
+          }
+          if ($(this).siblings('label').children('input:checked').length == '0') {
+               $(this).closest('.dropdown').siblings('.fa').removeClass('active');
+          }
+     });
+
+     // highlight label on Details Forms
+     $('#details form :input').bind({
+          focus: function () {
+             var id = $(this).attr('id').toString();
+             var add = $("label[for='" + this.id + "']").addClass('labelfocus');
+             switch (id) {
+                 case 'title':add;break;
+                 case 'RefNum':add;break;
+                 case 'ReportedOn':add;break;
+                 case 'ReportedBy':add;break;
+                 case 'SentToEpic':add;break;
+                 case 'NextUpdate':add;break;
+                 case 'type':add;break;
+             }
+          },
+          blur: function () {
+             $('label').removeClass('labelfocus');
+          }
+     });
+
+     // Show search dropdowns
+     $('.newRecord input').bind({
+          focus: function() {
+               $(this).siblings('.searchResults').slideDown();
+          },blur: function() {
+               $(this).siblings('.searchResults').slideUp();
           }
      });
 
