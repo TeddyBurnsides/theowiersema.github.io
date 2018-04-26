@@ -844,6 +844,16 @@ h4 {
 .post .header .phi .fa-lock {
 	color:var(--yellow);
 }
+.post .header .tags {
+    font: 9pt/20px var(--font);
+    color: #888;
+    letter-spacing: -.5px;
+    margin: 10px 10px 0 0;
+    background: var(--bg);
+    padding: 0 6px;
+    border-radius: 4px;
+    float: right;
+}
 .post .profilepic {
 	width:46px;
 	height:46px;
