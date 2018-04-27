@@ -193,6 +193,17 @@ $(document).ready(function(){
           if ($(this).siblings('label').children('input:checked').length == '0') {
                $(this).closest('.dropdown').siblings('.fa').removeClass('active');
           }
+          // show Tags
+          $(this).siblings('label').children('input:checked').each(function() {
+               var tagClass = "." + $(this).attr('class');
+               $(this).closest('.header').children(tagClass).show();
+          });
+
+          // hide Tags
+          $(this).siblings('label').children('input').not(':checked').each(function() {
+               var tagClass = "." + $(this).attr('class');
+               $(this).closest('.header').children(tagClass).hide();
+          });
      });
 
      // highlight label on Details Forms

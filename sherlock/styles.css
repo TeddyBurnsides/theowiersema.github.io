@@ -28,7 +28,7 @@ a {text-decoration:none;}
 	--bg:#F0F2F4; /*slightly darker and more green*/
 	--darkbg:#25262B; /* sidebar bg*/
 	--darkestbg:#1C1D21; /* Sidebar recorsd bg */
-	--minContentWidth:1050px;
+	--minContentWidth:1150px;
 	--postWidth:calc(100% - var(--sidebarWidth));
 	--sidebarWidth:320px;
 	--padding:20px;
@@ -822,7 +822,7 @@ h4 {
 }
 .post .header .flag > i, .post .header .phi > i {
 	color:#bbb;
-	padding:0 10px;
+	padding:0 8px;
 	font-size:13pt;
 	line-height:40px;
 	height:40px;
@@ -848,11 +848,12 @@ h4 {
     font: 9pt/20px var(--font);
     color: #888;
     letter-spacing: -.5px;
-    margin: 10px 10px 0 0;
+    margin: 10px 5px 0 0;
     background: var(--bg);
     padding: 0 6px;
     border-radius: 4px;
     float: right;
+    display:none;
 }
 .post .profilepic {
 	width:46px;
