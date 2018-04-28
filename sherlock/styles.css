@@ -609,7 +609,7 @@ h4 {
 	position:absolute;
 	background:var(--darkbg);
 	border-radius:var(--radius);
-	top:30px;
+	top:34px;
 	left:10px;
 	color:#000;
 	z-index:1000;
@@ -811,7 +811,7 @@ h4 {
 	padding:0 8px;
 	min-width:20px;
 	text-align:center;
-	margin:7px 0 0 10px;
+	margin:7px 0 0 5px;
 }
 .post.epic .number {
 	color:var(--red);
@@ -831,7 +831,7 @@ h4 {
 	color:var(--blue);
 }
 .post .dropdown {
-	left:-150px;
+	left:-155px;
 	top:45px;
 }
 .post .dropdown:before {
@@ -948,7 +948,7 @@ h4 {
 .post.new .style .fa {
 	color:#666;
 	line-height:40px;
-	margin-right:15px;
+	margin-right:10px;
 }
 .header select {
 	height: 20px;
