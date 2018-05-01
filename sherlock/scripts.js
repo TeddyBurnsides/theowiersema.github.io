@@ -11,7 +11,7 @@ $("#sidebar li.link").click(function() {
      $(this).toggleClass('active'); // make the clicked link active
 });
 // Show each individual page
-$("#sidebar .discussion").click(function() {
+$("#sidebar .posts").click(function() {
      $("#posts").show();
 });
 $("#sidebar .details").click(function() {
@@ -25,7 +25,7 @@ $("#sidebar .attachments").click(function() {
 $("li.newpost a").click(function(event) {
      $("#sidebar li").removeClass('active'); // make all limks inactive
      $(".page").hide(); // hide all pages
-     $("#sidebar li.discussion").addClass('active'); // make discussion link active
+     $("#sidebar li.posts").addClass('active'); // make discussion link active
      $("#posts").show(); // show discussion page
      // Make sure this.hash has a value before overriding default behavior
      if (this.hash !== "") {
@@ -132,26 +132,53 @@ $('.navigation .filter > span, .flag .fa-flag').click(function() {
 });
 
 // hold over until advanced filtering
-$('.filter button').click(function() {
+$('.filter .closeDropdown').click(function() {
+     // hide dropdown
      $(this).closest('.dropdown').hide();
-});
-/*
-// all post filtering on accept
-$('.navigation .filter .dropdown .closeDropdown').click(function() {
+     var selectedTags = "";
+     var visibleTag = "";
+     var quit = ""
+     // if no boxes are checked, quit
+     if ($(this).siblings('label').find('input:checked').length == 0) {
+          return false;
+     }
+     // generate string of selected filters
      $(this).siblings('label').children('input:checked').each(function() {
-          var tagClass = "." + $(this).attr('class');
-          $('.post').each(function() {
-               if (($(this).attr('id') === 'newpost')) {
-                    return false;
+          selectedTags += $(this).attr('class') + ",";
+     });
+     // loop through all posts
+     $('.post').each(function() {
+          quit = "";
+          // don't ever hide the new post
+          if (($(this).attr('id') === 'newpost')) {
+               return false;
+          }
+          // loop through visible tags
+          $(this).find('.header .tags:visible').each(function() {
+               // remove "tag" class - only want unique class name
+               visibleTag = $(this).attr('class').slice(0,-4);
+               // if tag is in generated string of selected filters quit
+               if (selectedTags.search(visibleTag)) {
+                    quit = 1;
+                    return false
                }
-               if ($(this).children('.header').children(tagClass + ':visible').length != '1') {
-                    $(this).hide();
-               }
-
           });
+          // if we never found the string, hide the post
+          if (quit != 1) {
+               $(this).hide();
+          }
      });
 });
-*/
+
+// filter cancel button
+$('.filter .cancel').click(function() {
+     // uncheck all active checkboxes
+     $(this).siblings('label').find('input:checked').prop('checked', false);
+     // hide dropdown
+     $(this).closest('.dropdown').hide();
+     // show all posts again
+     $('.post').show();
+});
 
 // flag stuff upon APPLY button in post filter dropdown
 $('.post .dropdown button.closeDropdown').click(function() {
