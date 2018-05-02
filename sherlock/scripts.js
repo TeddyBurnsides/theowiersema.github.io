@@ -85,12 +85,12 @@ $(".navigation .phi").on('click',function() {
           // toggle minimized post class
           $('.post.phi').addClass('min');
           // hide post content
-          $(this).parent().siblings('.phi').children('.entry').hide();
+          $(this).parent().siblings('#postContainer').children('.phi').children('.entry').hide();
      } else {
           // toggle minimized post class
           $('.post.phi').removeClass('min');
           // show post content
-          $(this).parent().siblings('.phi').children('.entry').show();
+          $(this).parent().siblings('#postContainer').children('.phi').children('.entry').show();
      }
      // toggle "Show/Hide PHI" button (on both nav menus)
      $(".navigation .phi").children('span').children('span').toggleClass('notVisible')
@@ -105,7 +105,7 @@ $(".navigation .internal").on('click',function() {
      // change button text (on both navigation menus)
      $(".navigation .internal").children('span').children('span').toggleClass('notVisible');
      // hide epic posts
-     $(this).parent().siblings('.epic').toggle();
+     $(this).parent().siblings('#postContainer').children('.epic').toggle();
 });
 
 // Internal toggle for new post
