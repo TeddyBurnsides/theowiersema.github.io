@@ -765,6 +765,7 @@ h4 {
 	height:20px;
 	color:#fff;
 	text-align:center;
+	font-weight:bold;
 }
 .fileHeader .type {
 	background:none !important;
