@@ -98,7 +98,7 @@ body {
 	margin:0;
 	border-radius:100px;
 	font:9pt/28px var(--font);
-	width:120px;
+	width:170px;
 }
 
 .quarter {
@@ -113,7 +113,7 @@ body {
 	cursor:pointer;
 }
 #hiddenMenu li i {
-	padding-right:2px;
+	padding-right:5px;
 }
 #hiddenMenu li:hover {
 	color:#333;
@@ -150,7 +150,7 @@ body {
 }
 #hiddenMenu .admin li {
 	float:left;
-	margin-left:12px;
+	margin-left:15px;
 	color:#999;
 	line-height:40px;
 }
