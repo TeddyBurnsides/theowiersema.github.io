@@ -708,7 +708,7 @@ h4 {
 .post .entry {
 	font:11pt/28px var(--font);
 	color:#222;
-	padding-bottom:20px;
+	padding-bottom:10px;
 }
 .post .entry a {
 	color:var(--green);
