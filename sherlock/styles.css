@@ -208,7 +208,7 @@ body {
 /* Post header */
 
 #header {
-	padding:10px 30px 20px 30px;
+	padding:10px 30px 0px 30px;
 }
 #header .customer {
 	font:13pt/20px var(--font);
@@ -550,6 +550,7 @@ h4 {
 	padding:0 30px 30px;
 }
 
+
 /* Page Navigation */
 
 .navigation {
@@ -558,6 +559,10 @@ h4 {
 	font:bold 10pt/20px var(--font);
 	letter-spacing:-.5px;
 	color:rgba(0,0,0,.4);
+}
+.navigation.top { /*This handles the filter padding issue*/
+	position:relative;
+	top:20px;
 }
 .navigation .fa {
 	padding-right:4px;
@@ -693,7 +698,17 @@ h4 {
 #postContainer {
 	margin:0 0 10px 0;
 }
-
+#postContainer .placeholder {
+	margin-top: 30px;
+	background: rgba(0,0,0,.05);
+	border-radius: var(--radius);
+	padding: 20px;
+	text-align: center;
+	font: bold 12pt/150px var(--font);
+	color: #888;
+	letter-spacing: -.5px;
+	display:none;
+}
 .post {
 	margin-top:30px;
 	position:relative;
@@ -703,9 +718,7 @@ h4 {
 	box-shadow:0 2px 2px rgba(0,0,0,0.15);
 	border-radius:var(--radius);
 }
-.post:first-child {
-	margin-top:10px;
-}
+
 
 /* Post Entry */
 
@@ -729,46 +742,78 @@ h4 {
 /* Post Attachments */
 
 .post .attachments {
-	padding-top:15px;
 	margin-top:20px;
 	color:#444;
-	border-top:1px solid #e3e3e3;
 }
 .post.new .attachments {
 	padding-bottom:10px; /* no .entry in new post*/
 }
 .file {
-	color:#555;
 	cursor:pointer;
-	margin-top:5px;
-	font:bold 10pt/22px var(--font);
+	margin-bottom:8px;
+	font:10pt/20px var(--font);
+	color:#888;
 }
-.file .type {
-	margin:0 10px 0 0;
+.attachments span, #attachments span {
+	display:inline-block;
+	float:left;
+	overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+}
+.fileHeader {
+	border-bottom:1px solid #e3e3e3;
+	margin-bottom:10px;
+}
+.fileHeader span {
+	color:#bbb !important;
+	font:bold 9pt/1 var(--font) !important;
+}
+.attachments .type, #attachments .type {
+	margin:0 15px 0 0;
 	background:#cfcfcf;
 	border-radius:var(--radius);
 	width:35px;
 	display:inline-block;
 	font-size:8pt;
+	height:20px;
 	color:#fff;
 	text-align:center;
 }
-.file .desc {
+.fileHeader .type {
+	background:none !important;
+}
+.attachments .name, #attachments .name {
+	font-weight:bold;
+	color:#555;
+	width:calc(80% - 200px);
+}
+.attachments .author, #attachments .author {
+	width:20%;
+}
+.attachments .date, #attachments .date {
 	font-weight:normal;
 	color:#888;
+	width:90px;
 }
-.file:hover, .file:hover .desc, .file:hover .size {
-	color:var(--green);
+.attachments .size, #attachments .size {
+	float:right;
+	width:50px;
+
+}
+.file:hover span {
+	color:var(--green) !important;
 }
 .file:hover .type {
-	background:var(--green);
+	background:var(--green) !important;
 }
-.file .size {
-	font-weight:normal;
-	color:#888;
-	float:right;
+.file:hover .type {
+	color:#fff !important;
 }
-
+.fileHeader span:hover {
+	background:none;
+	color:#aaa !;
+}
 /* Post Header */
 
 .post .header {
@@ -856,6 +901,10 @@ h4 {
     float: right;
     display:none;
 }
+.post .header .tags.active
+{
+	display:block;
+}
 .post .profilepic {
 	width:46px;
 	height:46px;
@@ -864,7 +913,7 @@ h4 {
 	position:relative;
 	top:-3px;
 }
-.post .name {
+.post .header > .name {
 	float:left;
 	padding-left:15px;
 	font:900 12pt/24px var(--font);
@@ -880,7 +929,7 @@ h4 {
 	top:-4px;
 	left:4px;
 }
-.post .date {
+.post .header > .date {
 	position:absolute;
 	left:61px;
 	top:27px;
@@ -1022,7 +1071,7 @@ h2 {
 	font: 17pt/30px var(--font);
 	color:var(--green);
 	letter-spacing: -1px;
-	margin:0 0 20px;
+	margin:0 0 10px;
 	border-bottom: 1px solid #e3e3e3;
 	padding: 0px 0 5px;
 }

@@ -85,12 +85,12 @@ $(".navigation .phi").on('click',function() {
           // toggle minimized post class
           $('.post.phi').addClass('min');
           // hide post content
-          $(this).parent().siblings('#postContainer').children('.phi').children('.entry').hide();
+          $(this).parent().siblings('.phi').children('.entry').hide();
      } else {
           // toggle minimized post class
           $('.post.phi').removeClass('min');
           // show post content
-          $(this).parent().siblings('#postContainer').children('.phi').children('.entry').show();
+          $(this).parent().siblings('.phi').children('.entry').show();
      }
      // toggle "Show/Hide PHI" button (on both nav menus)
      $(".navigation .phi").children('span').children('span').toggleClass('notVisible')
@@ -105,7 +105,7 @@ $(".navigation .internal").on('click',function() {
      // change button text (on both navigation menus)
      $(".navigation .internal").children('span').children('span').toggleClass('notVisible');
      // hide epic posts
-     $(this).parent().siblings('#postContainer').children('.epic').toggle();
+     $(this).parent().siblings('.epic').toggle();
 });
 
 // Internal toggle for new post
@@ -138,36 +138,47 @@ $('.filter .closeDropdown').click(function() {
      var selectedTags = "";
      var visibleTag = "";
      var quit = ""
-     // if no boxes are checked, quit
-     if ($(this).siblings('label').find('input:checked').length == 0) {
-          return false;
-     }
      // generate string of selected filters
      $(this).siblings('label').children('input:checked').each(function() {
           selectedTags += $(this).attr('class') + ",";
      });
-     // loop through all posts
-     $('.post').each(function() {
-          quit = "";
-          // don't ever hide the new post
-          if (($(this).attr('id') === 'newpost')) {
-               return false;
-          }
-          // loop through visible tags
-          $(this).find('.header .tags:visible').each(function() {
-               // remove "tag" class - only want unique class name
-               visibleTag = $(this).attr('class').slice(0,-4);
-               // if tag is in generated string of selected filters quit
-               if (selectedTags.search(visibleTag)) {
-                    quit = 1;
-                    return false
+     // if no filters selected, show all posts
+     if (selectedTags == "") {
+          $('.post').show();
+     // else determine what posts to show
+     } else {
+          // loop through all posts
+          $('.post').each(function() {
+               // don't ever hide the new post
+               if (($(this).attr('id') === 'newpost')) {
+                    return false;
+               }
+               // loop through visible tags
+               quit = ""
+               $(this).find('.header .tags.active').each(function() {
+                    // remove "tag" class - only want unique class name
+                    visibleTag = $(this).attr('class').slice(0,-12);
+                    // if tag is in generated string of selected filters quit
+                    if (selectedTags.search(visibleTag) > -1) {
+                         quit = 1;
+                         return false;
+                    }
+               });
+               // if we never found the string, hide the post
+               if (quit != 1) {
+                    $(this).hide();
+               // otherwise we'll show it
+               } else {
+                    $(this).show();
                }
           });
-          // if we never found the string, hide the post
-          if (quit != 1) {
-               $(this).hide();
-          }
-     });
+     }
+     // if no posts are visible (except new post), show the placeholder
+     if ($('.post:visible').length == 1) {
+          $('#postContainer .placeholder').show();
+     } else {
+          $('#postContainer .placeholder').hide();
+     }
 });
 
 // filter cancel button
@@ -178,6 +189,8 @@ $('.filter .cancel').click(function() {
      $(this).closest('.dropdown').hide();
      // show all posts again
      $('.post').show();
+     // hide placeholder if it's visible
+     $('#postContainer .placeholder').hide();
 });
 
 // flag stuff upon APPLY button in post filter dropdown
@@ -195,12 +208,12 @@ $('.post .dropdown button.closeDropdown').click(function() {
      // show Tags
      $(this).siblings('label').children('input:checked').each(function() {
           var tagClass = "." + $(this).attr('class');
-          $(this).closest('.header').children(tagClass).show();
+          $(this).closest('.header').children(tagClass).addClass('active');
      });
      // hide Tags
      $(this).siblings('label').children('input').not(':checked').each(function() {
           var tagClass = "." + $(this).attr('class');
-          $(this).closest('.header').children(tagClass).hide();
+          $(this).closest('.header').children(tagClass).removeClass('active');
      });
 });
 
