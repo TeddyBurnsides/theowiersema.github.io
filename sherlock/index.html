@@ -76,15 +76,11 @@
                <option value="2">Release Authorization</option>
                <option value="3">Release Note</option>
 			<option value="4">Reportable Issue</option>
+               <option value="5">Checklist</option>
           </select>
           <i class="fa fa-search"></i>
           <input type="text" placeholder="Search for record to link..." />
 		<div class="clear"></div>
-          <div class="searchResults">
-               <div class="result">Sample seach result 1</div>
-               <div class="result">This is a result</div>
-               <div class="result">Yet another beautiful result</div>
-          </div>
      </div>
      <div class="sidebarbox">
           <h4>Owners</h4>
@@ -265,7 +261,7 @@
      </div>
 
      <div id="posts" class="page">
-          <div class="navigation">
+          <div class="top navigation">
                <div class="nav">
                     <i class="fa fa-arrow-circle-left"></i>
                     <span class="active">1</span>
@@ -308,10 +304,6 @@
                               <input class="notes" type="checkbox" />
                               <span>Technical Notes</span>
                          </label>
-                         <label>
-                              <input type="checkbox" />
-                              <span>No Flags</span>
-                         </label>
                          <div class="clear"></div>
                          <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
                          <button class="cancel"><i class="fa fa-times"></i>Cancel</button>
@@ -320,6 +312,9 @@
                </span>
           </div> <!--navigation-->
           <div id="postContainer">
+          <div class="placeholder">
+               No posts found with those filters.
+          </div>
           <div class="post phi">
                <div class="header">
                     <img src="profile1.jpg" class="profilepic" />
@@ -367,13 +362,29 @@
 				 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. </p>
                      <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then <a href="https://en.wikipedia.org/wiki/Rabbit/">boom a rabbit!</a></p>
 				<div class="attachments">
-                         <div class="file">
-                              <span class="type">PDF</span>January 2018 Capacity Management Results <span class="desc">(CMAP_results.pdf)</span>
-                              <span class="size">12 KB</span>
+                         <div class="fileHeader">
+                              <span class="type"></span>
+                              <span class="name">Name</span>
+                              <span class="author">Author</span>
+                              <span class="date">Date</span>
+                              <span class="size">Size</span>
+                              <div class="clear"></div>
                          </div>
                          <div class="file">
-                              <span class="type">DOC</span>Raw data from census - 1/23/18 <span class="desc">(raw_data.doc)</span>
+                              <span class="type">PDF</span>
+                              <span class="name">January 2018 Capacity Management Results</span>
+                              <span class="author">Taryn Julian</span>
+                              <span class="date">11/12/2016</span>
                               <span class="size">12 KB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">DOC</span>
+                              <span class="name">Raw data from census - 1/23/18</span>
+                              <span class="author">Ed MacIntire</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">32 MB</span>
+                              <div class="clear"></div>
                          </div>
                          <div class="clear"></div>
                     </div>
@@ -435,7 +446,41 @@
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                     <!--<img src="murray.png" />-->
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
-
+                    <div class="attachments">
+                         <div class="fileHeader">
+                              <span class="type"></span>
+                              <span class="name">Name</span>
+                              <span class="author">Author</span>
+                              <span class="date">Date</span>
+                              <span class="size">Size</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">PDF</span>
+                              <span class="name">January 2018 Capacity Management Results from the most honorable and esteemed member of the group</span>
+                              <span class="author">Taryn Julian</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">12 KB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">DOC</span>
+                              <span class="name">Raw data from census - 1/23/18</span>
+                              <span class="author">Ed MacIntire</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">32 MB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">DOC</span>
+                              <span class="name">Files regarding those screenshots</span>
+                              <span class="author">Ed MacIntire</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">32 MB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="clear"></div>
+                    </div>
                </div>
                <div class="footer">
                  <span class="left"><i class="fa fa-pencil"></i></span>
@@ -492,11 +537,22 @@
                <div class="entry">
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     <div class="attachments">
-                         <div class="file">
-                              <span class="type">JPG</span>Screenshot of label <span class="desc">(image12.jpg)</span>
-                              <span class="size">12 KB</span>
+                         <div class="fileHeader">
+                              <span class="type"></span>
+                              <span class="name">Name</span>
+                              <span class="author">Author</span>
+                              <span class="date">Date</span>
+                              <span class="size">Size</span>
+                              <div class="clear"></div>
                          </div>
-                         <div class="clear"></div>
+                         <div class="file">
+                              <span class="type">DOC</span>
+                              <span class="name">Raw data from census - 1/23/18</span>
+                              <span class="author">Ed MacIntire</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">32 MB</span>
+                              <div class="clear"></div>
+                         </div>
                     </div>
                </div>
                <div class="footer">
@@ -737,10 +793,22 @@
                </div>
                <textarea></textarea>
                <div class="attachments">
-                    <div class="file">
-                         <span class="type">PDF</span>January 2018 Capacity Management Results <span class="desc">(CMAP_results.pdf)</span><span class="size">12 MB</span>
+                    <div class="fileHeader">
+                         <span class="type"></span>
+                         <span class="name">Name</span>
+                         <span class="author">Author</span>
+                         <span class="date">Date</span>
+                         <span class="size">Size</span>
+                         <div class="clear"></div>
                     </div>
-                    <div class="clear"></div>
+                    <div class="file">
+                         <span class="type">PDF</span>
+                         <span class="name">January 2018 Capacity Management Results from the most honorable and esteemed member of the group</span>
+                         <span class="author">Taryn Julian</span>
+                         <span class="date">11/12/2016</span>
+                         <span class="size">12 KB</span>
+                         <div class="clear"></div>
+                    </div>
                </div>
                <div class="footer">
 				<span class="left"><i class="fa fa-plus"></i>Add Attachment</span>
@@ -793,32 +861,45 @@
 
 <div id="attachments" class="page">
      <h2>Attachments</h2>
-     <h4>April 2018</h4>
-     <div class="file">
-          <span class="type">PDF</span>January 2018 Capacity Management Results <span class="desc">(CMAP_results.pdf)</span>
-          <span class="size">123 MB</span>
+     <div class="fileHeader">
+          <span class="type"></span>
+          <span class="name">Name</span>
+          <span class="author">Author</span>
+          <span class="date">Date</span>
+          <span class="size">Size</span>
+          <div class="clear"></div>
      </div>
      <div class="file">
-          <span class="type">DOC</span>Raw data from census - 1/23/18 <span class="desc">(raw_data.doc)</span>
-          <span class="size">123 MB</span>
+          <span class="type">PDF</span>
+          <span class="name">January 2018 Capacity Management Results from the most honorable and esteemed member of the group</span>
+          <span class="author">Taryn Julian</span>
+          <span class="date">11/12/2016</span>
+          <span class="size">12 KB</span>
+          <div class="clear"></div>
      </div>
      <div class="file">
-          <span class="type">PDF</span>January 2018 Capacity Management Results <span class="desc">(CMAP_results.pdf)</span>
-          <span class="size">123 MB</span>
-     </div>
-     <h4>February 2018</h4>
-     <div class="file">
-          <span class="type">DOC</span>Raw data from census - 1/23/18 <span class="desc">(raw_data.doc)</span>
-          <span class="size">123 MB</span>
-     </div>
-     <h4>January 2018</h4>
-     <div class="file">
-          <span class="type">PDF</span>January 2018 Capacity Management Results <span class="desc">(CMAP_results.pdf)</span>
-          <span class="size">123 MB</span>
+          <span class="type">DOC</span>
+          <span class="name">Raw data from census - 1/23/18</span>
+          <span class="author">Ed MacIntire</span>
+          <span class="date">11/12/2016</span>
+          <span class="size">32 MB</span>
+          <div class="clear"></div>
      </div>
      <div class="file">
-          <span class="type">DOC</span>Raw data from census - 1/23/18 <span class="desc">(raw_data.doc)</span>
-          <span class="size">123 MB</span>
+          <span class="type">DOC</span>
+          <span class="name">Raw data from census - 1/23/18</span>
+          <span class="author">Ed MacIntire</span>
+          <span class="date">11/12/2016</span>
+          <span class="size">32 MB</span>
+          <div class="clear"></div>
+     </div>
+     <div class="file">
+          <span class="type">DOC</span>
+          <span class="name">Raw data from census - 1/23/18</span>
+          <span class="author">Ed MacIntire</span>
+          <span class="date">11/12/2016</span>
+          <span class="size">32 MB</span>
+          <div class="clear"></div>
      </div>
 </div>
 <div class="clear"></div>
