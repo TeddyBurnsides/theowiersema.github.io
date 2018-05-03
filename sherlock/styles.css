@@ -415,11 +415,11 @@ h4 {
 	display:inline-block;
 }
 #sidebar .record .fa {
-	color:rgba(255,255,255,.3);
+	color:rgba(255,255,255,.4);
 	position:absolute;
 	right:-30px;
 	top:0;
-	font-size:13pt;
+	font-size:12pt;
 	width:30px;
 	height:100%;
 	text-align:center;
