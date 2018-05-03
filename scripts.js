@@ -296,7 +296,7 @@ $('.newRecord .button').change(function() {
           $(this).siblings('input').attr("placeholder","Search for reportable issues");
      }
      if ($(this).val() === '5') {
-          $(this).siblings('input').attr("placeholder","Search for checklist");
+          $(this).siblings('input').attr("placeholder","Search for checklists");
      }
 });
 
