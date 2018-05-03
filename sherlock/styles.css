@@ -741,8 +741,9 @@ h4 {
 	display:inline-block;
 	float:left;
 	overflow: hidden;
-     text-overflow: ellipsis;
-     white-space: nowrap;
+        text-overflow: ellipsis;
+        White-space: nowrap;
+	letter-spacing:-.4px;
 }
 .fileHeader {
 	border-bottom:1px solid #e3e3e3;
