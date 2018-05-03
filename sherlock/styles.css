@@ -192,9 +192,6 @@ body {
 	position:relative;
 	top:1px;
 }
-#menu li.back i {
-	top:0;
-}
 #menu > i {
 	font-size:22pt;
 	line-height:36px;
@@ -576,7 +573,7 @@ h4 {
 }
 .navigation .nav i {
 	float:left;
-	font-size:16pt;
+	font-size:14pt;
 	margin-left:5px;
 }
 .navigation .nav i:first-child {
@@ -746,7 +743,6 @@ h4 {
 	overflow: hidden;
      text-overflow: ellipsis;
      white-space: nowrap;
-<<<<<<< HEAD
 }
 .fileHeader {
 	border-bottom:1px solid #e3e3e3;
@@ -756,7 +752,6 @@ h4 {
 	color:#bbb !important;
 	font:bold 9pt/1 var(--font) !important;
 }
-=======
 }
 .fileHeader {
 	border-bottom:1px solid #e3e3e3;
@@ -766,7 +761,6 @@ h4 {
 	color:#bbb !important;
 	font:bold 9pt/1 var(--font) !important;
 }
->>>>>>> 308040fb503c5cb0a2dec98851afd7ecbd21a8b7
 .attachments .type, #attachments .type {
 	margin:0 15px 0 0;
 	background:#cfcfcf;
@@ -867,7 +861,7 @@ h4 {
 .post .header .flag > i, .post .header .phi > i {
 	color:#bbb;
 	padding:0 8px;
-	font-size:13pt;
+	font-size:12pt;
 	line-height:40px;
 	height:40px;
 }
@@ -883,7 +877,7 @@ h4 {
 }
 .post .header .phi i {
 	color:#ccc;
-	font-size:15pt;
+	font-size:12pt;
 }
 .post .header .phi .fa-lock {
 	color:var(--yellow);
@@ -954,18 +948,12 @@ h4 {
 .footer .left {margin-right:15px;}
 .footer .right {margin-left:15px;}
 .footer .fa {
-	padding-right:6px;
-	font-size:11pt;
+	padding-right:5px;
 }
 .footer .confidential {
 	display:none;
 	cursor:pointer;
 	font-weight:Bold;
-}
-.footer .confidential i {
-	font-size:13pt;
-	position:relative;
-	top:1px;
 }
 .post.phi .footer .confidential {display:inline-block;}
 .post .footer .confidential .show {display:none;}

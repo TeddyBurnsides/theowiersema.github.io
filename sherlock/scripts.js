@@ -250,7 +250,7 @@ SIDEBAR RELATED
 
 // Remove related records
 // adjust h4 count
-$('.record .fa-trash').click(function() {
+$('.record .fa-trash-alt').click(function() {
      var cnt = $(this).closest('.record').prevAll('h4:first').children('.count').html();
      var total=cnt-1;
      $(this).closest('.record').prevAll('h4:first').children('.count').html(total);
