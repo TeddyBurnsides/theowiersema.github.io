@@ -24,8 +24,7 @@ a {text-decoration:none;}
 	--border:#C8D3F1; /* post border top */
 	--fadedred:#F9ABB9; /* epic post border */
 	--h4:#67686B;
-	--bg:#F4F6F9; /*body bg */
-	--bg:#F0F2F4; /*slightly darker and more green*/
+	--bg:#F2F4F7; /*slightly darker and more green*/
 	--darkbg:#25262B; /* sidebar bg*/
 	--darkestbg:#1C1D21; /* Sidebar recorsd bg */
 	--minContentWidth:1150px;
@@ -54,10 +53,10 @@ input:focus {outline-width:none;}
 body {
 	font-family:var(--font);
 	background:var(--bg);
-	min-width:var(--minContentWidth);
 }
 #container {
   	min-height: 1300px; /*gross hack to keep sidebar bg working */
+		min-width:var(--minContentWidth);
 	position:relative;
 }
 
@@ -166,27 +165,31 @@ body {
 #menu li {
 	margin-right:20px;
 	float:left;
+}
+#menu li a {
 	cursor:pointer;
 	letter-spacing:-.5px;
-	color:#666;
+	color:#777;
+	height:36px;
+	display:inline-block;
 }
-#menu li.back {
+#menu li.back a {
 	color:var(--blue);
 	padding:0 14px;
 	border-radius:var(--radius);
 	background:rgba(200,211,241,.25);
 }
-#menu li.create, #menu li.create:hover {
+#menu li.create a, #menu li.create a:hover, #menu li.create i {
 	color:var(--green);
 }
-#menu li:hover  {
+#menu li a:hover, #menu li.active a  {
 	color:#000;
 }
-#menu li.back:hover {
+#menu li.back a:hover {
 	background:rgba(200,211,241,.4);
 	color:var(--blue);
 }
-#menu li i {
+#menu li a i {
 	font-size:12pt;
 	padding:0 6px 0 0;
 	position:relative;
@@ -205,7 +208,8 @@ body {
 /* Post header */
 
 #header {
-	padding:10px 30px 0px 30px;
+	padding:0 30px 0px 30px;
+	position:relative;
 }
 #header .customer {
 	font:13pt/20px var(--font);
@@ -1112,4 +1116,162 @@ h2 {
 }
 #details form {
 	padding-bottom:20px;
+}
+
+/*
+Post List
+*/
+
+#header input[type="text"] {
+	position:absolute;
+	right:30px;
+	top:0px;
+	padding:0 12px;
+	font:10pt/28px var(--font);
+	border-radius:var(--radius);
+	border:1px solid var(--border);
+	width:180px;
+	background:rgba(255,255,255,.8);
+}
+#header input[type="text"]::placeholder {
+	color:#aaa;
+}
+#container.full {
+	min-width:var(--postWidth);
+}
+#content.full {
+	width:100%;
+	min-width:800px;
+	float:none;
+	padding-bottom:30px;
+}
+.navigation.full {
+	width:calc(100% - 30px);
+	top:0;
+}
+.navigation.full.top {
+	padding-top:20px;
+}
+#postList {
+	background:#fff;
+	border-top:2px solid var(--border);
+	padding:20px 0;
+	box-shadow:0 2px 2px rgba(0,0,0,0.15);
+	border-radius:var(--radius);
+	width:calc(100% - 60px);
+	min-width:800px;
+	margin:10px 0 15px 30px;
+}
+table {
+  border-collapse: collapse;
+  width:100%;
+  font:9pt/20px var(--font);
+  letter-spacing:-.5px;
+}
+tr:nth-child(even) {
+	background:rgba(0,0,0,.02);
+}
+tbody tr:hover {
+	background:#f4f4f4;
+	cursor:pointer;
+}
+td, th {
+  border:0;
+  padding:0;
+  text-align:left;
+}
+th {
+	font-weight:bold;
+	font-size:9pt;
+	color:#aaa;
+	border:0;
+	text-transform:uppercase;
+	padding:8px 0;
+	border-bottom:1px solid #eee;
+}
+th:nth-child(1) {
+	padding-left:20px;
+}
+th:last-child {
+	padding-right:20px;
+}
+th i {
+	font-size:12pt;
+	font-weight:bold;
+	padding:0 0 0 10px;
+	position:relative;
+	top:1px;
+	color:inherit;
+}
+th:hover {
+	color:var(--purple);
+	cursor:pointer;
+}
+th:nth-child(3) {
+	border-color:#999;
+	color:#444;
+}
+td {
+	padding:14px 10px 14px 0;
+	color:#333;
+	vertical-align: middle;
+}
+tr {
+	border-bottom:1px solid #eee;
+}
+tr:last-child {
+	border:0;
+}
+td img {
+	width:18px;
+	height:18px;
+	border-radius:22px;
+	display:inline;
+	margin:0 6px 0 0;
+	position:relative;
+	top:5px;
+}
+td:nth-child(1) { /*Priority*/
+	min-width:75px;
+	font-weight:bold;
+	font-size:9pt;
+	padding-left:20px;
+}
+td:nth-child(2) { /*Epic # */
+	min-width:55px;
+	color:#666;
+	font-size:9pt;
+}
+td:nth-child(3) { /* Title # */
+	font-weight:Bold;
+	color:#444;
+}
+td:nth-child(4), td:nth-child(5) { /*Owner*/
+	min-width:110px;
+	font-size:9pt;
+}
+td:nth-child(6) { /*Status*/
+	min-width:70px;
+}
+td:nth-child(7) { /*Last Updated*/
+	width:80px;
+	padding-right:20px;
+}
+td i {
+	font-size:7pt;
+	position:relative;
+	top:-1px;
+	padding:0 4px 0 0;
+}
+td.critical {
+	color:var(--red);
+}
+td.high {
+	color:var(--yellow);
+}
+td.medium {
+	color:var(--blue);
+}
+td.low {
+	color:#999;
 }

@@ -344,4 +344,13 @@ $('#details form :input').bind({
      }
 });
 
+/*
+All posts
+*/
+
+// go to post from row
+$('tbody tr').click(function() {
+     window.location = $(this).data('href');
+});
+
 });
