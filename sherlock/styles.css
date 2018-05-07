@@ -1208,8 +1208,8 @@ th:hover {
 	cursor:pointer;
 }
 th:nth-child(3) {
-	border-color:#999;
-	color:#444;
+	border-color:var(--purple);
+	color:var(--purple);
 }
 td {
 	padding:14px 10px 14px 0;
