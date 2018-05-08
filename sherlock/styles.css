@@ -1166,7 +1166,7 @@ Post List
 table {
   border-collapse: collapse;
   width:100%;
-  font:9pt/20px var(--font);
+  font:10pt/20px var(--font);
   letter-spacing:-.5px;
 }
 tr:nth-child(even) {
@@ -1233,27 +1233,23 @@ td img {
 	top:5px;
 }
 td:nth-child(1) { /*Priority*/
-	min-width:75px;
+	width:75px;
 	font-weight:bold;
-	font-size:9pt;
 	padding-left:20px;
 }
 td:nth-child(2) { /*Epic # */
-	min-width:55px;
+	width:55px;
 	color:#666;
-	font-size:9pt;
 }
 td:nth-child(3) { /* Title # */
 	font-weight:Bold;
 	color:#444;
-	font-size:10pt;
 }
 td:nth-child(4), td:nth-child(5) { /*Owner*/
-	min-width:110px;
-	font-size:9pt;
+	width:110px;
 }
 td:nth-child(6) { /*Status*/
-	min-width:70px;
+	width:70px;
 }
 td:nth-child(7) { /*Last Updated*/
 	width:80px;
