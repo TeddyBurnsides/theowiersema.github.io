@@ -1247,7 +1247,7 @@ td:nth-child(3) { /* Title # */
 	color:#444;
 }
 td:nth-child(4), td:nth-child(5) { /*Owner*/
-	width:110px;
+	
 }
 td:nth-child(6) { /*Status*/
 	width:70px;
