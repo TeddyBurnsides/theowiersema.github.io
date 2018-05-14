@@ -859,6 +859,7 @@ h4 {
 }
 .post.epic .number {
 	color:var(--red);
+	border-color:var(--red);
 }
 .post .header .flag, .post .header .phi {
 	float:right;
