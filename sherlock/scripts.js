@@ -353,4 +353,13 @@ $('tbody tr').click(function() {
      window.location = $(this).data('href');
 });
 
+/*
+New Post
+*/
+
+//highlight active styler
+$('#newpost .style > i').click(function() {
+     $(this).toggleClass('active');
+});
+
 });

@@ -285,7 +285,7 @@ h1 .slash {
 /* Main Navigation */
 
 #sidebar .mainnav li {
-	color:#aaa;
+	color:#ccc;
 	font:700 10pt/40px var(--font);
 	cursor:pointer;
 	letter-spacing:-.2px;
@@ -841,7 +841,7 @@ h4 {
 	border-bottom-color:var(--fadedred);
 }
 .post.new:before {
-	border-bottom-color:var(--purple);
+	border-bottom-color:var(--blue);
 }
 .post.epic {
 	border-top-color:var(--fadedred);
@@ -855,7 +855,7 @@ h4 {
 	padding:0 8px;
 	min-width:20px;
 	text-align:center;
-	margin:7px 0 0 5px;
+	margin:7px 0 0 10px;
 }
 .post.epic .number {
 	color:var(--red);
@@ -921,12 +921,16 @@ h4 {
 	color:#555;
 }
 .name sup {
-	font-size:9pt;
-	font-weight:400;
-	color:var(--red);
-	position:relative;
-	top:-4px;
-	left:4px;
+	border: 1px solid var(--red);
+     border-radius: 4px;
+     padding: 0 4px;
+     height: 16px;
+     display: inline-block;
+     margin-left: 8px;
+     font: 8pt/16px var(--font);
+     color: var(--red);
+     position: relative;
+     top: -2px;
 }
 .post .header > .date {
 	position:absolute;
@@ -938,6 +942,7 @@ h4 {
 }
 .post .name > i {
 	color:#ccc;
+	font-size:13pt;
 	margin-left:10px;
 }
 .post .name > i:hover {
@@ -976,7 +981,7 @@ h4 {
 /* New Post */
 
 .post.new {
-	border-top-color:var(--purple);
+	border-top-color:var(--blue);
 	padding-top:10px;
 }
 .post.new.public {
@@ -992,6 +997,9 @@ h4 {
 	color:#666;
 	line-height:40px;
 	margin-right:10px;
+}
+.post.new .style .fa.active {
+	color:var(--blue);
 }
 .header select {
 	height: 20px;
@@ -1247,7 +1255,7 @@ td:nth-child(3) { /* Title # */
 	color:#444;
 }
 td:nth-child(4), td:nth-child(5) { /*Owner*/
-	
+
 }
 td:nth-child(6) { /*Status*/
 	width:70px;
