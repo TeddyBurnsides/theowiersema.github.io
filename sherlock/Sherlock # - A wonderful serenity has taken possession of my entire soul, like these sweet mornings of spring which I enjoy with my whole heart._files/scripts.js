@@ -120,33 +120,6 @@ $('.post.new .footer .internal input').on('click',function() {
 });
 
 /*
-
-Hidden Menu
-
-*/
-
-// show super menu when clicking more
-$('.userweb .more').click(function() {
-     $('#expand').fadeIn(100);
-});
-
-// Hide super menu when clicking outside of them
-$(document).click(function(event) {
-     // don't hide super menu if clicking the more button
-     if ($(event.target).attr('class') == 'more') {
-          return false;
-     }
-     // hide menu if clicking elsewhere
-     if (!$(event.target).closest('#expand').length) {
-          $('#expand').fadeOut(100);
-     }
-});
-// close button
-$('.fa-window-close').click(function() {
-     $('#expand').fadeOut(100);
-});
-
-/*
 FILTER DRODPOWN
 */
 

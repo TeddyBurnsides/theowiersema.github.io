@@ -71,11 +71,9 @@ body {
 .userweb {
 	font:9pt/30px var(--font);
 	padding-left:30px;
-	width:calc(var(--postWidth) - 60px);
-	float:left;
 }
 .userweb li {
-	margin-left:15px;
+	margin-left:20px;
 	color:#888;
 	letter-spacing:-.3px;
 	cursor:pointer;
@@ -95,7 +93,7 @@ body {
 	background:none;
 	line-height:30px;
 	color:#666;
-	width:140px;
+	width:160px;
 	font-size:9pt;
 	padding-right:10px;
 	background:rgba(0,0,0,.05);
@@ -111,66 +109,116 @@ body {
 	width:calc(var(--sidebarWidth) - 60px);
 	padding:0 30px;
 }
-.admin select {
+.admin > * {
 	float:right;
-	margin:0 0 0 10px;
-	padding:0 6px 0 0;
-	height:30px;
-	width:160px;
+}
+.admin select {
+	width:110px;
+	float:left;
+	margin:5px 0 0 0;
+	padding:0 6px;
+	height:18px;
 	border-radius:4px;
-	background-color:transparent;
-	border:0;
-	font:bold 9pt/30px var(--font);
-	color:#777;
+}
+.admin i {
+	color:#555;
+	margin-left:10px;
+	font-size:12pt;
 }
 .admin img {
 	border-radius:100px;
 	margin:5px 0 0 10px;
-	float:right;
 }
 #expand {
-	background: var(--darkbg);
-    border-radius: var(--radius);
-	position:absolute;
-	top:35px;
-	left:20px;
-	width:calc(var(--postWidth) - 100px);
-	z-index:10000;
-	padding:30px;
-	opacity:.98;
 	display:none;
 }
-#expand::before {
-	content: "";
-	border-style: solid;
-	border-width: 0px 10px 8px 10px;
-	border-color: transparent transparent var(--darkbg) transparent;
-	position: absolute;
-	left: 600px;
-	top: -8px;
+/*
+#hiddenMenu .top {
+	height:30px;
+	background:#eee;
+	border-radius:100px;
 }
-#expand .fa {
-	position: absolute;
-    right: 10px;
-    top: 0;
-    color: #fff;
-    font-size: 12pt;	
-}
-#expand .quarter {
-	width:25%;
+#hiddenMenu .top li {
+	font:10pt/30px var(--font);
+	color:#555;
+	letter-spacing:-.3px;
+	cursor:pointer;
 	float:left;
+	margin-left:15px;
 }
-#expand h4 {
-	margin-top:0;
+#hiddenMenu img {
+	border-radius:100px;
+	float:right;
+}
+#hiddenMenu .left img {
+	margin-right:15px;
+}
+#hiddenMenu input[type="text"] {
+	float:left;
+	height:28px;
+	border:1px solid #ddd;
+	padding:0 15px;
+	margin:0;
+	border-radius:100px;
+	font:9pt/28px var(--font);
+	width:170px;
+}
+
+.quarter {
+	width:calc(25% - 20px);
+	float:left;
+	padding-right:20px;
+	margin-bottom:20px;
+}
+#hiddenMenu li {
+	font:9pt/18px var(--font);
+	color:#777;
+	cursor:pointer;
+}
+#hiddenMenu li i {
+	padding-right:5px;
+}
+#hiddenMenu li:hover {
+	color:#333;
+}
+#hiddenMenu .left i {
+	font-size:12pt;
+}
+#hiddenMenu li > ul {
+	margin-left:10px;
+}
+#hiddenMenu h4 {
 	color:var(--green);
 }
-#expand li {
-	font:9pt/20px var(--font);
-	color:#ccc;
+#hiddenMenu .main {
+	float:left;
 }
-#expand li li {
-	padding-left:10px;
+#hiddenMenu .admin {
+	float:right;
 }
+#hiddenMenu .main li {
+	margin-left:0;
+	margin-right:15px;
+	float:left;
+	color:#999;
+	letter-spacing:-.5px;
+	font:10pt/40px var(--font);
+}
+#hiddenMenu .main li.active {
+	color:#333;
+	font-weight:bold;
+}
+#hiddenMenu .main li:hover {
+	color:#333;
+}
+#hiddenMenu .admin li {
+	float:left;
+	margin-left:15px;
+	color:#999;
+	line-height:40px;
+}
+*/
+
 /* Sherlock nav + search */
 
 #primaryMenu {
@@ -197,10 +245,10 @@ body {
 	height:34px;
 	display:inline-block;
 	border-radius:4px;
-	margin-left:20px;
+	margin-left:30px;
 }
 #menu li a:hover, #menu li.active a  {
-	color:#444;
+	color:#000;
 }
 #menu li.back a {
 	color:var(--blue);
@@ -220,12 +268,8 @@ body {
 	background:#EFF9F6;
 	padding:0 14px;
 }
-#menu li.create a, #menu li.create i {
+#menu li.create a, #menu li.create a:hover, #menu li.create i {
 	color:var(--green);
-}
-#menu li.create a:hover {
-	color:var(--green);
-	background:#E0F2EE;
 }
 #menu li a i {
 	font-size:10pt;
@@ -246,12 +290,12 @@ body {
 	position:absolute;
 	line-height:60px;
 	font-size:14pt;
-	left:30px;
+	right:30px;
 	bottom:0;
-	color:rgba(255,255,255,.3);
+	color:rgba(255,255,255,.2);
 }
 #search input[type="text"] {
-	padding:0 0 0 30px;
+	padding:0 30px 0 0;
 	font:12pt/60px var(--font);
 	width:calc(100% - 30px);
 	color:#fff;
@@ -260,7 +304,7 @@ body {
 	background:none;
 }
 #search input[type="text"]::placeholder {
-	color:rgba(255,255,255,.3);
+	color:rgba(255,255,255,.2);
 }
 
 /* Post header */
@@ -268,7 +312,7 @@ body {
 #header {
 	padding:30px 30px 10px 30px;
 	position:relative;
-	background:linear-gradient(rgba(0,0,0,.05),transparent 20%);
+	background:linear-gradient(rgba(0,0,0,.03),transparent 20%);
 }
 #header .customer {
 	font:13pt/20px var(--font);
