@@ -302,7 +302,7 @@ h1 .slash {
 #sidebar {
 	right: 0;
   	width: var(--sidebarWidth);
-    	background: var(--darkbg);
+    	background: linear-gradient(rgba(0,0,0,.89),var(--darkbg) 10px);
     	padding-bottom: 30px;
     	position: absolute;
     	bottom: 0;
@@ -760,7 +760,7 @@ h4 {
 .post {
 	margin-top:30px;
 	position:relative;
-	border-top:2px solid var(--border);
+	border-top:3px solid var(--border);
 	background:#fff;
 	padding:20px 20px 15px;
 	box-shadow:0 2px 2px rgba(0,0,0,0.15);
@@ -887,7 +887,7 @@ h4 {
     border-color: transparent transparent var(--border) transparent;
     position: absolute;
     left: 33px;
-    top:-9px;
+    top:-10px;
 }
 .post .header:before { /**inner white part of arrpw**/
     content:"";
