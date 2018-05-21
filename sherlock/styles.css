@@ -67,6 +67,7 @@ body {
 	background:#eee;
 	background:linear-gradient(#eee 80%,#e5e5e5);
 	line-height:30px;
+	display:none;
 }
 .userweb {
 	font:9pt/30px var(--font);
@@ -307,7 +308,6 @@ h1 .slash {
     	position: absolute;
     	bottom: 0;
     	top:60px;
-	top:90px;
 }
 #sidebar .sidebarbox {
 	padding:30px 30px 0 30px;
