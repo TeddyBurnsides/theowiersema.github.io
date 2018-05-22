@@ -66,8 +66,9 @@ body {
 	height:30px;
 	background:#eee;
 	background:linear-gradient(#eee 80%,#e5e5e5);
+
 	line-height:30px;
-	display:none;
+
 }
 .userweb {
 	font:9pt/30px var(--font);
@@ -93,7 +94,6 @@ body {
 .userweb input[type="text"] {
 	border:0;
 	padding:0;
-	background:none;
 	line-height:30px;
 	color:#666;
 	width:140px;
@@ -111,22 +111,24 @@ body {
 	float:right;
 	width:calc(var(--sidebarWidth) - 60px);
 	padding:0 30px;
+	background: linear-gradient(var(--darkbg) 10px,rgba(0,0,0,.9));
+	height:30px;
 }
 .admin select {
-	float:right;
-	margin:3px 0 0 10px;
-	padding:0 10px 0 30px;
-	border-radius:4px;
-	width:170px;
-	background-color:#fff;
-	background-image:url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#777' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
-	background-position:5px 55%;
-	background-repeat: no-repeat;
-	background-size: 20px;
-	border:1px solid rgba(0,0,0,.2);
-	font:9pt/22px var(--font);
-	color:#777;
-	letter-spacing:-.3px;
+	float: left;
+     margin: 5px 0 0 0px;
+     padding: 0 10px 0 0;
+     border-radius: 4px;
+     width: 170px;
+     background-color: transparent;
+     background-image:url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#fff' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+     background-position: 100% 55%;
+     background-repeat: no-repeat;
+     background-size: 20px;
+     border: 0;
+     font: 9pt/20px var(--font);
+     color: #fff;
+     letter-spacing: -.3px;
 }
 .admin img {
 	border-radius:100px;
@@ -307,7 +309,7 @@ h1 .slash {
     	padding-bottom: 30px;
     	position: absolute;
     	bottom: 0;
-    	top:60px;
+    	top:90px;
 }
 #sidebar .sidebarbox {
 	padding:30px 30px 0 30px;
@@ -468,7 +470,7 @@ h4 {
 	font-weight: bold;
 	float:right;
 	padding-left:6px;
-	color:var(--purple);
+	color:#fff;
 }
 #sidebar .record .name {
 	display:block;
