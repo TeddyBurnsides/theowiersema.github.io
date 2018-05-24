@@ -923,7 +923,7 @@ h4 {
 	border-bottom-color:var(--fadedred);
 }
 .post.new:before {
-	border-bottom-color:var(--blue);
+	border-bottom-color:var(--green);
 }
 .post.epic {
 	border-top-color:var(--fadedred);
@@ -1063,7 +1063,7 @@ h4 {
 /* New Post */
 
 .post.new {
-	border-top-color:var(--blue);
+	border-top-color:var(--green);
 	padding-top:10px;
 }
 .post.new.public {
@@ -1135,7 +1135,7 @@ h4 {
 #details,#attachments {
 	display:none;
 	background:#fff;
-	border-top:2px solid var(--border);
+	border-top:3px solid var(--border);
 	padding:20px;
 	box-shadow:0 2px 2px rgba(0,0,0,0.15);
 	border-radius:var(--radius);
