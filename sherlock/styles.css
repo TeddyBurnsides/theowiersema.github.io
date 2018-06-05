@@ -336,7 +336,7 @@ h1 .slash {
 	padding: 0 10px 0 40px;
     font: bold 10pt/36px var(--font);
     width: calc(100% - 50px);
-    color: rgba(255,255,255,.6);
+    color: rgba(255,255,255,.8);
     border: 0;
     border-bottom-color: rgba(255,255,255,.4);
     background: rgba(0,0,0,.15);
