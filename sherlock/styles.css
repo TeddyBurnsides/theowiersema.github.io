@@ -1229,6 +1229,7 @@ Post List
 }
 #container.full {
 	min-width:var(--postWidth);
+	min-width:1000px;
 }
 #content.full {
 	width:100%;
@@ -1322,6 +1323,7 @@ td img {
 	margin:0 6px 0 0;
 	position:relative;
 	top:5px;
+	display:none;
 }
 td:nth-child(1) { /*Priority*/
 	width:75px;
@@ -1337,7 +1339,7 @@ td:nth-child(3) { /* Title # */
 	color:#444;
 }
 td:nth-child(4), td:nth-child(5) { /*Owner*/
-
+	min-width:100px;
 }
 td:nth-child(6) { /*Status*/
 	width:70px;
