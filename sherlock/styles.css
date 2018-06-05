@@ -111,9 +111,8 @@ body {
 	float:right;
 	width:calc(var(--sidebarWidth) - 60px);
 	padding:0 30px;
-	background: linear-gradient(var(--darkbg) 10px,rgba(0,0,0,.9));
-	background:linear-gradient(#353B5A 10px,#2C3147);
 	height:30px;
+	display:none;
 }
 .admin select {
 	float: left;
@@ -122,13 +121,13 @@ body {
      border-radius: 4px;
      width: 170px;
      background-color: transparent;
-     background-image:url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#fff' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+     background-image:url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#777' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
      background-position: 100% 55%;
      background-repeat: no-repeat;
      background-size: 20px;
      border: 0;
      font: 9pt/20px var(--font);
-     color: #fff;
+     color: #777;
      letter-spacing: -.3px;
 }
 .admin img {
@@ -212,21 +211,10 @@ body {
 }
 #menu li.back a {
 	color:var(--blue);
-	background:rgba(200,211,241,.25);
 	margin-left:0;
-	padding:0 14px;
 }
 #menu li.back a:hover {
-	background:rgba(200,211,241,.4);
 	color:var(--blue);
-}
-#menu li.create {
-	float:right;
-	margin-right:0;
-}
-#menu li.create a {
-	background:#EFF9F6;
-	padding:0 14px;
 }
 #menu li.create a, #menu li.create i {
 	color:var(--green);
@@ -243,34 +231,35 @@ body {
 /* Search bar */
 
 #search {
-	position:relative;
-	float:right;
-	width:calc(var(--sidebarWidth) - 60px);
-	padding:0 30px;
-	height:100%;
-	background:#303136;
-	background:#222637;
-	background:#484E66;
+	position: relative;
+	float: right;
+	width: calc(var(--sidebarWidth) - 100px);
+	padding: 0 20px;
+	height: 34px;
+	background: rgba(200,211,241,.25);
+	margin: 13px 30px 0 30px;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 5px rgba(0,0,255,.10);
 }
 #search .fa-search {
-	position:absolute;
-	line-height:60px;
-	font-size:14pt;
-	left:30px;
-	bottom:0;
-	color:rgba(255,255,255,.5);
+	position: absolute;
+    line-height: 34px;
+    font-size: 10pt;
+    left: 12px;
+    bottom: 0;
+    color:rgba(0,0,255,.5);
 }
-#search input[type="text"] {
-	padding:0 0 0 30px;
-	font:12pt/60px var(--font);
-	width:calc(100% - 30px);
-	color:#fff;
-	border:0;
-	letter-spacing:-.7px;
-	background:none;
+ #search input[type="text"] {
+	padding: 0 0 0 15px;
+    font:bold 10pt/34px var(--font);
+    width: calc(100% - 30px);
+    color: var(--blue);
+    border: 0;
+    letter-spacing: -.7px;
+    background: none;
 }
 #search input[type="text"]::placeholder {
-	color:rgba(255,255,255,.5);
+	color:rgba(0,0,255,.4);
 }
 
 /* Post header */
@@ -333,32 +322,34 @@ h1 .slash {
 /* Search bar */
 
 #sidebar .fa-search {
-	position:absolute;
-	line-height:36px;
-	font-size:13pt;
-	left:30px;
-	bottom:0;
-	color:#777;
-	color:rgba(255,255,255,.4);
+	position: absolute;
+    line-height: 36px;
+    font-size: 11pt;
+    left: 42px;
+    bottom: 0;
+    color: #777;
+    color: rgba(255,255,255,.6);
 }
 #sidebar .fa-search:Hover {
 	color:#fff;
 }
 #sidebar input[type="text"] {
-	padding:0 0 0 25px;
-	font:11pt/36px var(--font);
-	width:calc(100% - 30px);
-	color:#fff;
-	border:0;
-	border-bottom:1px solid #555;
-	border-bottom-color:rgba(255,255,255,.4);
-	background:none;
+	padding: 0 10px 0 40px;
+    font: bold 10pt/36px var(--font);
+    width: calc(100% - 50px);
+    color: rgba(255,255,255,.6);
+    border: 0;
+    border-bottom-color: rgba(255,255,255,.4);
+    background: rgba(0,0,0,.15);
+    box-shadow: inset 0 1px 5px rgba(0,0,0,.2);
+    border-radius: 4px;
+}
 }
 #sidebar input[type="text"]:focus {
 	border-bottom:1px solid #fff;
 }
 #sidebar input[type="text"]::placeholder {
-	color:rgba(255,255,255,.4);
+	color:rgba(255,255,255,.6);
 }
 
 /* Main Navigation */
@@ -596,10 +587,7 @@ h4 {
 	padding-top:20px;
 }
 #sidebar .subSearch input[type="text"] {
-	margin-top:5px;
-}
-#sidebar .subSearch > i {
-	top:56px;
+	margin-top:15px;
 }
 #sidebar .subSearch input, #sidebar .subSearch .fa {
 	display:none;
@@ -1229,7 +1217,7 @@ Post List
 }
 #container.full {
 	min-width:var(--postWidth);
-	min-width:1000px;
+	min-width:1050px;
 }
 #content.full {
 	width:100%;
