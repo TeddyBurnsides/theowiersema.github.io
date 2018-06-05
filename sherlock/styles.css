@@ -221,7 +221,6 @@ body {
 }
 #menu li.create a:hover {
 	color:var(--green);
-	background:#E0F2EE;
 }
 #menu li a i {
 	font-size:10pt;
@@ -253,7 +252,7 @@ body {
 	padding: 0 0 0 15px;
     font:bold 10pt/34px var(--font);
     width: calc(100% - 30px);
-    color: var(--blue);
+    color:rgba(0,0,255,.6);
     border: 0;
     letter-spacing: -.7px;
     background: none;
