@@ -306,7 +306,7 @@ $('.meta .priority').change(function() {
 });
 
 // show new record search box
-$('.newRecord .button').change(function() {
+$('.sidebarbox .button').change(function() {
      if ($(this).val() > '0') {
           $(this).siblings('input, i').show();
      }
@@ -389,4 +389,25 @@ $('#newpost .style > i').click(function() {
      $(this).toggleClass('active');
 });
 
+/*
+Scroll to top - on click functionality
+*/
+
+$('#scroll').click(function() {
+     $('html').animate({scrollTop:0}, "slow");
+});
+
+});
+
+/*
+Only show scroll button if scroll down
+*/
+
+$(window).scroll(function() {
+     if ($(document).scrollTop() > 200) {
+          $('#scroll').fadeIn();
+     }
+     if ($(document).scrollTop() < 200) {
+          $('#scroll').fadeOut();
+     }
 });
