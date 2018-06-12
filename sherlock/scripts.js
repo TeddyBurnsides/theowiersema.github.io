@@ -285,7 +285,7 @@ $('.record .fa-trash-alt').click(function() {
 });
 
 // Show "Add Others" text field
-$('.newPeople button.others').on('click',function() {
+$('#sidebar button.others').on('click',function() {
      $(this).siblings('input, .fa').show();
 });
 
