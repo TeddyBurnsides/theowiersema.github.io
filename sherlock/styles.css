@@ -215,17 +215,16 @@ body {
 #menu li a {
 	cursor:pointer;
 	letter-spacing:-.5px;
-	color:#888;
+	color:#666;
 	height:34px;
 	display:inline-block;
 	border-radius:4px;
 	margin-left:20px;
 }
 #menu li a:hover, #menu li.active a  {
-	color:#444;
+	color:#333;
 }
-#menu li.back a {
-	color:var(--blue);
+#menu li:first-child a {
 	margin-left:0;
 }
 #menu li.back a:hover {
