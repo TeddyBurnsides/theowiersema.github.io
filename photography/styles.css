@@ -1,0 +1,143 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+ margin:0;
+ padding:0;
+ border:0;
+ outline:0;
+ font-size:100%;
+ vertical-align:baseline;
+ background:transparent;
+}
+body {
+ line-height:1;
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+ display:block;
+}
+nav ul {
+ list-style:none;
+}
+blockquote, q {
+ quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+ content:'';
+ content:none;
+}
+a {
+ margin:0;
+ padding:0;
+ font-size:100%;
+ vertical-align:baseline;
+ background:transparent;
+}
+/* change colours to suit your needs */
+ins {
+ background-color:#ff9;
+ color:#000;
+ text-decoration:none;
+}
+/* change colours to suit your needs */
+mark {
+ background-color:#ff9;
+ color:#000;
+ font-style:italic;
+ font-weight:bold;
+}
+del {
+ text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+ border-bottom:1px dotted;
+ cursor:help;
+}
+table {
+ border-collapse:collapse;
+ border-spacing:0;
+}
+/* change border colour to suit your needs */
+hr {
+ display:block;
+ height:1px;
+ border:0;
+ border-top:1px solid #cccccc;
+ margin:1em 0;
+ padding:0;
+}
+input, select {
+ vertical-align:middle;
+}
+
+/*
+Code Begins
+*/
+body {
+
+}
+
+h1 {
+     font:23pt/60px 'Gurajada', serif;
+     letter-spacing:-1px;
+     color:#7971ea;
+     display:block;
+     text-align:center;
+     margin-bottom:50px;
+     background:#f5f5f5;
+     display:block;
+     width:300px;
+     margin:50px auto;
+}
+h1 span:nth-child(2) {
+
+}
+h1 span:nth-child(3) {
+     color:#aaa;
+     display:inline-block;
+}
+
+h2, h3 {
+     font:300 16pt/25px 'Martel';
+     letter-spacing:-1.3px;
+     color:#444;
+     text-align:center;
+}
+h3 {
+     font-weight:100;
+     font-size:13pt;
+     color:#aaa;
+}
+.v, .h {
+     padding:50px 0;
+     position:relative;
+     display:block;
+     overflow:auto;
+}
+.h img {
+     width:85%;
+     max-width:1200px;
+     margin:30px auto;
+     display:block;
+}
+.v img {
+     height:85vh;
+     max-height:1200px;
+     display:block;
+     margin:30px auto;
+}
+footer {
+     font:10pt/50px 'Martel';
+     color:#aaa;
+     text-align:Center;
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Theo Wiersema</title>
+  <link href="https://fonts.googleapis.com/css?family=Gurajada|Martel:200,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+
+<body>
+
+<h1><span>theo</span><span> wiersema </span><span> photography</span></h1>
+<div class="h">
+     <h2>Mountains</h2>
+     <h3>50mm - f/18- 1/800 - ISO 100</h3>
+     <img data-echo="4.jpg" />
+</div>
+<div class="v">
+     <h2>Pear Tree</h2>
+     <h3>50mm - f/8 - 1/60 sec - ISO 400</h3>
+     <img data-echo="8.jpg" />
+</div>
+<div class="h">
+     <h2>Repetition</h2>
+     <h3>50mm - f/5.6 - 1/60 sec - ISO 100</h3>
+     <img data-echo="7.jpg" />
+</div>
+<div class="v">
+     <h2>Shore</h2>
+     <h3>50mm - f/11 - 1/60 sec - ISO 3200</h3>
+     <img data-echo="1.jpg" />
+</div>
+<div class="v">
+     <h2>Silhouette</h2>
+     <h3>50mm - f/11 - 1/80 sec - ISO 100</h3>
+     <img data-echo="5.jpg" />
+</div>
+<div class="h">
+     <h2>Sunrise</h2>
+     <h3>50mm - f/11 - 1/80 sec - ISO 100</h3>
+     <img data-echo="3.jpg" />
+</div>
+<div class="v">
+     <h2>Reflections</h2>
+     <h3>50mm - f/16 - 2 sec - ISO 100</h3>
+     <img data-echo="2.jpg" />
+</div>
+<footer>
+Copyright	&copy; 2018
+</footer>
+</body>
+<script src="echo.js"></script>
+<script>
+echo.init({
+  offset:1000,
+  throttle: 250,
+  unload: false,
+  callback: function (element, op) {
+   console.log(element, 'has been', op + 'ed')
+  }
+});
+
+// echo.render(); is also available for non-scroll callbacks
+</script>
+</html>
