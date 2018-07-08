@@ -83,61 +83,137 @@ input, select {
 /*
 Code Begins
 */
+.clear{
+     clear:both;
+}
 body {
-
+     padding:100px;
+     max-width:1920px;
 }
-
+.leftSide {
+     float:left;
+     width:calc(70% - 100px);
+     display:block;
+}
+.rightSide {
+     float:right;
+     width:30%;
+     position:relative;
+     height:calc(100vh - 200px);
+}
 h1 {
-     font:23pt/60px 'Gurajada', serif;
-     letter-spacing:-1px;
-     color:#7971ea;
+     font: 700 13pt/36px 'Catamaran';
+    letter-spacing: -.2px;
+    color: #fff;
+    border-radius: 3px;
+    background: #99e1e5;
+    display: inline-block;
+    padding: 0 10px;
+}
+h1 .fa {
+     color:#ccc;
+     padding-right:5px;
+     font-size:15pt;
+}
+#contact {
+     position:absolute;
+     top:0;
+     right:0;
+     font-size:15pt;
+     color:#ccc;
+     cursor:pointer;
+     line-height:36px;
+}
+#contact:hover {
+     color:#777;
+}
+.text .caption {
+     display:none;
+}
+.text .caption:first-child {
      display:block;
+}
+.frame {
      text-align:center;
-     margin-bottom:50px;
-     background:#f5f5f5;
-     display:block;
-     width:300px;
-     margin:50px auto;
+     display:none;
+     height:calc(100vh - 200px);
 }
-h1 span:nth-child(2) {
-
+.helper {
+     display: inline-block;
+     height: 100%;
+     vertical-align: middle;
 }
-h1 span:nth-child(3) {
-     color:#aaa;
+img {
+     max-width:99%;
+     max-height:calc(100vh - 200px);
+     margin:0 auto;
+     vertical-align: middle;
      display:inline-block;
 }
-
-h2, h3 {
-     font:300 16pt/25px 'Martel';
-     letter-spacing:-1.3px;
-     color:#444;
-     text-align:center;
+.leftSide .frame:first-child {
+     display:block;
+}
+h2 {
+     font:700 40pt/50px 'Catamaran';
+     letter-spacing:-2.5px;
+     padding:50px 0 25px;
 }
 h3 {
-     font-weight:100;
-     font-size:13pt;
-     color:#aaa;
+     font:200 20px/30px 'Catamaran';
+     letter-spacing:-1px;
+     color:#ccc;
+     padding:0 0 25px 0;
 }
-.v, .h {
-     padding:50px 0;
-     position:relative;
-     display:block;
-     overflow:auto;
+p {
+     font:200 15pt/35px 'Catamaran';
+     letter-spacing:-.5px;
+     color:#666;
+     padding-bottom:30px;
 }
-.h img {
-     width:85%;
-     max-width:1200px;
-     margin:30px auto;
-     display:block;
+.caption a {
+     display:inline-block;
+     background:#eee;
+     font:400 13pt/46px 'Catamaran';
+     letter-spacing:-.5px;
+     color:#666;
+     padding:0 20px;
+     text-decoration:none;
 }
-.v img {
-     height:85vh;
-     max-height:1200px;
-     display:block;
-     margin:30px auto;
+.caption a:hover {
+     background:#eaeaea;
+     color:#333;
 }
 footer {
-     font:10pt/50px 'Martel';
-     color:#aaa;
-     text-align:Center;
+     height:30px;
+     width:100%;
+     display:block;
+     position:absolute;
+     bottom:0px;
+     background:rgba(255,255,255,.8);
+}
+footer .counter {
+     display:block;
+     width:100%;
+     text-align:center;
+     font:400 15pt/30px 'Catamaran';
+     color:#444;
+     z-index:1;
+}
+footer .fa {
+     position:absolute;
+     top:0px;
+     font-size:20pt;
+     color:#333;
+     line-height:30px;
+     z-index:2;
+     cursor:pointer;
+}
+footer .fa-angle-left {
+     left:0;
+}
+footer .fa-angle-right {
+     right:0;
+}
+footer .fa:hover {
+     color:#17bebb;
 }

@@ -4,64 +4,156 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Theo Wiersema</title>
-  <link href="https://fonts.googleapis.com/css?family=Gurajada|Martel:200,400,700,900" rel="stylesheet">
+  <title>Theo Wiersema Photography</title>
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css" />
+  <script src="jquery.min.js"></script>
+  <script>
 
+$(document).ready(function() {
+
+     var visibleImg=1 // current image
+     var numImg=$('.leftSide .frame').length; // total number of images
+
+     // when clicking the right arrow
+     $('footer .right').click(function() {
+
+          // handle rollover
+          if (numImg==visibleImg) {
+               visibleImg=1
+          } else {
+               visibleImg = visibleImg + 1;
+          }
+
+          // hide/show appropriate images
+          $('.leftSide .frame').hide();
+          $('.leftSide .frame:nth-child('+visibleImg+')').fadeIn();
+
+          // hide/show appropriate captions
+          $('.text .caption').hide();
+          $('.text .caption:nth-child('+visibleImg+')').fadeIn();
+
+          // change image indicator
+          $("footer .counter .current").html(visibleImg);
+     });
+
+     // when clicking the left arrow
+     $('footer .left').click(function() {
+
+          // handle rollover
+          if (visibleImg==1) {
+               visibleImg=numImg;
+          } else {
+               visibleImg = visibleImg - 1;
+          }
+
+          // hide/show appropriate images
+          $('.leftSide .frame').hide();
+          $('.leftSide .frame:nth-child('+visibleImg+')').fadeIn();
+
+          // hide/show appropriate captions
+          $('.text .caption').hide();
+          $('.text .caption:nth-child('+visibleImg+')').fadeIn();
+
+          // change image indicator
+          $("footer .counter .current").html(visibleImg);
+     });
+
+     // display total image count
+     $("footer .counter .total").html(numImg);
+});
+  </script>
 
 <body>
 
-<h1><span>theo</span><span> wiersema </span><span> photography</span></h1>
-<div class="h">
-     <h2>Mountains</h2>
-     <h3>50mm - f/18- 1/800 - ISO 100</h3>
-     <img data-echo="4.jpg" />
+<div class="leftSide">
+     <div class="frame">
+          <span class="helper"></span>
+          <img src="3.jpg" />
+     </div>
+     <div class="frame">
+          <span class="helper"></span>
+          <img src="2.jpg" />
+     </div>
+     <div class="frame">
+          <span class="helper"></span>
+          <img src="1.jpg" />
+     </div>
+     <div class="frame">
+          <span class="helper"></span>
+          <img src="4.jpg" />
+     </div>
+     <div class="frame">
+          <span class="helper"></span>
+          <img src="5.jpg" />
+     </div>
+     <div class="frame">
+          <span class="helper"></span>
+          <img src="7.jpg" />
+     </div>
+     <div class="frame">
+          <span class="helper"></span>
+          <img src="8.jpg" />
+     </div>
 </div>
-<div class="v">
-     <h2>Pear Tree</h2>
-     <h3>50mm - f/8 - 1/60 sec - ISO 400</h3>
-     <img data-echo="8.jpg" />
-</div>
-<div class="h">
-     <h2>Repetition</h2>
-     <h3>50mm - f/5.6 - 1/60 sec - ISO 100</h3>
-     <img data-echo="7.jpg" />
-</div>
-<div class="v">
-     <h2>Shore</h2>
-     <h3>50mm - f/11 - 1/60 sec - ISO 3200</h3>
-     <img data-echo="1.jpg" />
-</div>
-<div class="v">
-     <h2>Silhouette</h2>
-     <h3>50mm - f/11 - 1/80 sec - ISO 100</h3>
-     <img data-echo="5.jpg" />
-</div>
-<div class="h">
-     <h2>Sunrise</h2>
-     <h3>50mm - f/11 - 1/80 sec - ISO 100</h3>
-     <img data-echo="3.jpg" />
-</div>
-<div class="v">
-     <h2>Reflections</h2>
-     <h3>50mm - f/16 - 2 sec - ISO 100</h3>
-     <img data-echo="2.jpg" />
-</div>
-<footer>
-Copyright	&copy; 2018
-</footer>
-</body>
-<script src="echo.js"></script>
-<script>
-echo.init({
-  offset:1000,
-  throttle: 250,
-  unload: false,
-  callback: function (element, op) {
-   console.log(element, 'has been', op + 'ed')
-  }
-});
 
-// echo.render(); is also available for non-scroll callbacks
-</script>
+<div class="rightSide">
+     <h1>theo.wiersema photography</h1>
+     <i id="contact" class="fa fa-envelope"></i>
+     <div class="text">
+          <div class="caption">
+               <h2>Rocks</h2>
+               <h3>Fence Lake, Wisconsin</h3>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+               <a href="">Purchase Print</a>
+          </div>
+          <div class="caption">
+               <h2>Sunset at Fence Lake</h2>
+               <h3>Fence Lake, Wisconsin</h3>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+               <a href="">Purchase Print</a>
+          </div>
+          <div class="caption">
+               <h2>Stuff</h2>
+               <h3>Fence Lake, Wisconsin</h3>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+               <a href="">Purchase Print</a>
+          </div>
+          <div class="caption">
+               <h2>More Stuff</h2>
+               <h3>Fence Lake, Wisconsin</h3>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+               <a href="">Purchase Print</a>
+          </div>
+          <div class="caption">
+               <h2>sdfsdfs</h2>
+               <h3>Fence Lake, Wisconsin</h3>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+               <a href="">Purchase Print</a>
+          </div>
+          <div class="caption">
+               <h2>sddddd</h2>
+               <h3>Fence Lake, Wisconsin</h3>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+               <a href="">Purchase Print</a>
+          </div>
+          <div class="caption">
+               <h2>Lakessss</h2>
+               <h3>Fence Lake, Wisconsin</h3>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+               <a href="">Purchase Print</a>
+          </div>
+     </div>
+     <footer>
+          <i class="left fa fa-angle-left"></i>
+          <span class="counter">
+               <span class="current">1</span>/<span class="total"></span>
+          </span>
+          <i class="right fa fa-angle-right"></i>
+     </footer>
+</div>
+<div class="clear"></div>
+
+</body>
 </html>
