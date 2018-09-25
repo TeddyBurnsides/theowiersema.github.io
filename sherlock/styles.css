@@ -923,13 +923,13 @@ h4 {
     top: 11px;
 }
 .post.epic:before, .post.new.public:before {
-	border-bottom-color:var(--fadedred);
+	border-right-color:var(--fadedred);
 }
 .post.new:before {
-	border-left-color:var(--green);
+	border-right-color:var(--green);
 }
 .post.epic {
-	border-left-color:var(--fadedred);
+	border-right-color:var(--fadedred);
 }
 .post .number {
 	float:right;
@@ -1076,7 +1076,7 @@ h4 {
 	padding-bottom:10px;
 }
 .post.new .header:before {
-	top:-16px;
+	top:21px;
 }
 .post.new .style .fa {
 	color:#666;
