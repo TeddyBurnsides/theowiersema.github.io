@@ -786,8 +786,9 @@ h4 {
 	border-top:3px solid var(--border);
 	background:#fff;
 	padding:20px 20px 15px;
-	box-shadow:0 2px 2px rgba(0,0,0,0.15);
+	box-shadow:0 2px 3px rgba(0,0,0,0.15);
 	border-radius:var(--radius);
+	border-top: 1px solid rgba(0,0,0,.1);
 }
 
 
@@ -906,20 +907,20 @@ h4 {
 .post:before { /**Chat box arrow magic**/
     content:"";
     border-style: solid;
-    border-width: 0px 10px 7px 10px;
-    border-color: transparent transparent var(--border) transparent;
+    border-width: 10px 7px 10px 0;
+    border-color: transparent var(--border) transparent transparent;
     position: absolute;
-    left: 33px;
-    top:-10px;
+    left: -10px;
+    top: 30px;
 }
 .post .header:before { /**inner white part of arrpw**/
     content:"";
     border-style: solid;
-    border-width: 0px 10px 7px 10px;
-    border-color: transparent transparent #fff transparent;
+    border-width: 9px 6px 9px 0;
+    border-color: transparent #fff transparent transparent;
     position: absolute;
-    left:13px;
-    top:-26px;
+    left: -26px;
+    top: 11px;
 }
 .post.epic:before, .post.new.public:before {
 	border-bottom-color:var(--fadedred);
