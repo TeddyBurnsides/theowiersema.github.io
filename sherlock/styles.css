@@ -929,7 +929,7 @@ h4 {
 	border-right-color:var(--green);
 }
 .post.epic {
-	border-right-color:var(--fadedred);
+	border-left-color:var(--fadedred);
 }
 .post .number {
 	float:right;
