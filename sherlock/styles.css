@@ -920,7 +920,7 @@ h4 {
     border-color: transparent #fff transparent transparent;
     position: absolute;
     left: -26px;
-    top: 11px;
+    top: 10px;
 }
 .post.epic:before, .post.new.public:before {
 	border-right-color:var(--fadedred);
