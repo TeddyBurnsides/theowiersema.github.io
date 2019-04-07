@@ -96,3 +96,8 @@ p span {
 	bottom:0;
 	transform:scaleY(-1);
 }
+body > a {
+	position:absolute;
+	top:0;
+	left:0;
+}
