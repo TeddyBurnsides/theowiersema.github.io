@@ -66,9 +66,9 @@ h2 {
 	font:17px/50px 'Dancing Script';
 }
 h3 {
-	font:20px/30px 'Playfair Display SC';
+	font:bold 18px/30px 'Playfair Display SC';
 	border-bottom:1px dashed #bbb;
-	padding: 0 0 15px 0;
+	padding: 0 0 10px 0;
 	margin-bottom:15px;
 	text-align:Center;
 }
@@ -77,14 +77,16 @@ h3 {
 	padding-top:15px;
 }
 p {
-	font:14px/30px 'Playfair Display SC';
+	font:bold 14px/30px 'Playfair Display SC';
+	letter-spacing:-.5px;
 }
 p span {
 	float:right;
 	font-style:italic;
+	font-weight:normal;
 }
 #content.back p:last-child {
-	padding-bottom:15px;
+	padding-bottom:25px;
 }
 #content div:first-child p {
 
