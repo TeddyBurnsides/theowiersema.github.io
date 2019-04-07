@@ -1,0 +1,92 @@
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike,strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd,ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;list-style:none;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+
+:root {
+	--width:650px;
+	--height:910px;
+}
+body {
+	background:#E9E8E6;
+}
+#card {
+	margin:50px auto;
+	width:var(--width);
+	height:calc(var(--height) - 100px);
+	background:#fff;
+	box-shadow:0 25px 50px rgba(0,0,0,.2);
+	position:relative;
+	padding:50px 0;
+}
+#header, #footer {
+	height:150px;
+	width:var(--width);
+	position:absolute;
+	background:url(greenery.png) scroll no-repeat center 0;
+	z-index:1;
+}
+#header {
+	top:0;
+}
+#content {
+	position:relative;
+	z-index:2;
+	padding:40px 100px 0;
+}
+#content.back p {
+
+}
+#title {
+	position:relative;
+	z-index:2;
+	padding:30px 0px 0;
+	background:rgba(255,255,255,.7);
+	margin:0px auto;
+	width:calc(var(--width) - 100px);
+}
+h4 {
+	text-align:Center;
+	font:24px/50px 'Dancing Script';
+}
+h1 {
+	font:40px/50px 'Playfair Display SC';
+	text-align:center;
+	letter-spacing:-1px;
+}
+h1 span {
+	padding:0 15px;
+}
+h2 {
+	text-align:Center;
+	font:17px/50px 'Dancing Script';
+}
+h3 {
+	font:20px/30px 'Playfair Display SC';
+	border-bottom:1px dashed #bbb;
+	padding: 0 0 15px 0;
+	margin-bottom:15px;
+	text-align:Center;
+}
+#content p:first-child {
+	border-top:1px dashed #bbb;
+	padding-top:15px;
+}
+p {
+	font:14px/30px 'Playfair Display SC';
+}
+p span {
+	float:right;
+	font-style:italic;
+}
+#content.back p:last-child {
+	padding-bottom:15px;
+}
+#footer {
+	bottom:0;
+	transform:scaleY(-1);
+}
