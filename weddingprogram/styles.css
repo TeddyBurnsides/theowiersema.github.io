@@ -86,6 +86,10 @@ p span {
 #content.back p:last-child {
 	padding-bottom:15px;
 }
+#content div:first-child p {
+
+	text-align:center;
+}
 #footer {
 	bottom:0;
 	transform:scaleY(-1);
