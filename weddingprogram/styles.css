@@ -38,8 +38,8 @@ body {
 	z-index:2;
 	padding:40px 100px 0;
 }
-#content.back p {
-
+#content.back {
+	padding-top:20px;
 }
 #title {
 	position:relative;
