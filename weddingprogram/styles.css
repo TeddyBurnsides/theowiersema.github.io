@@ -21,7 +21,7 @@ body {
 	background:#fff;
 	box-shadow:0 25px 50px rgba(0,0,0,.2);
 	position:relative;
-	padding:50px 0;
+	padding:40px 0;
 }
 #header, #footer {
 	height:150px;
@@ -36,7 +36,7 @@ body {
 #content {
 	position:relative;
 	z-index:2;
-	padding:40px 100px 0;
+	padding:40px 80px 0;
 }
 #content.back {
 	padding-top:20px;
@@ -51,10 +51,10 @@ body {
 }
 h4 {
 	text-align:Center;
-	font:24px/50px 'Dancing Script';
+	font:22px/30px 'Dancing Script';
 }
 h1 {
-	font:40px/50px 'Playfair Display SC';
+	font:35px/40px 'Playfair Display SC';
 	text-align:center;
 	letter-spacing:-1px;
 }
@@ -63,7 +63,7 @@ h1 span {
 }
 h2 {
 	text-align:Center;
-	font:17px/50px 'Dancing Script';
+	font:16px/40px 'Dancing Script';
 }
 h3 {
 	font:bold 18px/30px 'Playfair Display SC';
@@ -77,20 +77,20 @@ h3 {
 	padding-top:15px;
 }
 p {
-	font:bold 14px/30px 'Playfair Display SC';
+	font:700 14px/32px 'Playfair Display SC';
 	letter-spacing:-.5px;
+}
+#content .font p {
+	font:14px/25px 'Playfair Display';
+	letter-spacing:0;
+	text-align:center;
 }
 p span {
 	float:right;
-	font-style:italic;
-	font-weight:normal;
+	font-weight:300;
 }
 #content.back p:last-child {
-	padding-bottom:25px;
-}
-#content div:first-child p {
-
-	text-align:center;
+	padding-bottom:20px;
 }
 #footer {
 	bottom:0;
