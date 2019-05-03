@@ -1,0 +1,113 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+     display: block;
+}
+body {
+     line-height: 1;
+}
+ol, ul {
+     list-style: none;
+}
+blockquote, q {
+     quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+     content: '';
+     content: none;
+}
+table {
+     border-collapse: collapse;
+     border-spacing: 0;
+}
+.clear{clear:both;}
+body {
+     padding:20px;
+
+}
+#content {
+     max-width:1000px;
+     min-width:600px;
+     position:relative;
+     margin:0 auto;
+     padding:100px;
+
+     background:#fff;
+}
+h1 {
+font:300 20pt/1 "Actor",Arial;
+letter-spacing:-1px;
+color:#6b76ff;
+}
+h2 {
+font:11pt/50px "Actor",Helvetica,Arial;
+color:#aaa;
+margin-bottom:25px;
+}
+#menu {
+     position:absolute;
+     right:100px;
+     top:125px;
+}
+#menu li {
+     float:left;
+     font:11pt/30px "Actor";
+     color:#555;
+     margin-left:30px;
+     border-bottom:2px solid transparent;
+     cursor:pointer;
+}
+#menu li:hover {
+     color:#000;
+     border-bottom-color:#ddd;
+}
+#menu li:first-child {
+     border-bottom:2px solid #6b76ff;
+     color:#6b76ff;
+}
+#posts .post {
+     background:#aaa url(bg.png) scroll no-repeat center center;
+     width:calc(calc(100% / 3) - 20px);
+     height:160px;
+     float:left;
+     margin-bottom:80px;
+     position:relative;
+}
+#posts .post:nth-child(3n+1), #posts .post:nth-child(3n+2) {
+     margin-right:30px;
+}
+.post a {
+     text-decoration:none;
+     font:13pt/20px "Actor",Helvetica,Arial;
+     color:#777;
+     letter-spacing:-.5px;
+     position:absolute;
+     top:160px;
+     padding-top:15px;
+}
+.post a span {
+     color:#aaa;
+     display:block;
+     font:9pt/20px Helvetica,Arial;
+}
