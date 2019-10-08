@@ -43,71 +43,85 @@ table {
 }
 .clear{clear:both;}
 body {
-     padding:20px;
+background:#eee;
 
 }
 #content {
-     max-width:1000px;
-     min-width:600px;
-     position:relative;
-     margin:0 auto;
-     padding:100px;
-
+     padding:100px 50px 50px;
+     z-index:1;
+}
+#header {
      background:#fff;
+     z-index:2;
+     height:50px;
+     padding:0 50px;
+     position:fixed;
+     width:calc(100% - 100px);
 }
 h1 {
-font:300 20pt/1 "Actor",Arial;
-letter-spacing:-1px;
-color:#6b76ff;
+     font:700 15pt/50px 'IBM Plex Sans',Arial;
+     letter-spacing:4px;
+     color:#6b76ff;
+     display:inline-block;
+
 }
-h2 {
-font:11pt/50px "Actor",Helvetica,Arial;
-color:#aaa;
-margin-bottom:25px;
-}
-#menu {
+#nav {
      position:absolute;
-     right:100px;
-     top:125px;
+     right:50px;
+     top:0;
 }
-#menu li {
+#nav li {
      float:left;
-     font:11pt/30px "Actor";
-     color:#555;
-     margin-left:30px;
-     border-bottom:2px solid transparent;
+     font:500 11pt/50px 'IBM Plex Sans',Arial;
+     margin-left:40px;
+     color:#888;
      cursor:pointer;
+     letter-spacing:-.4px;
 }
-#menu li:hover {
-     color:#000;
-     border-bottom-color:#ddd;
-}
-#menu li:first-child {
-     border-bottom:2px solid #6b76ff;
+#nav li:last-child {
+     border:1px solid #6b76ff;
+     line-height:30px;
+     margin-top:8px;
+     padding:0 18px;
+     border-radius:100px;
      color:#6b76ff;
 }
-#posts .post {
-     background:#aaa url(bg.png) scroll no-repeat center center;
-     width:calc(calc(100% / 3) - 20px);
-     height:160px;
-     float:left;
-     margin-bottom:80px;
-     position:relative;
+#nav li:hover {
+     color:#000;
 }
-#posts .post:nth-child(3n+1), #posts .post:nth-child(3n+2) {
-     margin-right:30px;
+#nav li:last-child:hover {
+     color:#fff;
+     background:#6b76ff;
 }
-.post a {
-     text-decoration:none;
-     font:13pt/20px "Actor",Helvetica,Arial;
-     color:#777;
-     letter-spacing:-.5px;
-     position:absolute;
-     top:160px;
-     padding-top:15px;
-}
-.post a span {
-     color:#aaa;
+h2 {
+
+     font:900 45pt/100px "IBM Plex Sans",Helvetica,Arial;
+     color:#333;
+     text-transform:uppercase;
+     letter-spacing:-3px;
+     margin-top:50px;
      display:block;
-     font:9pt/20px Helvetica,Arial;
+}
+.date {
+     display:block;
+     font:italic 400 14pt/30px Georgia,"Times New Roman","IBM Plex Sans";
+     text-transform:uppercase;
+     font:500 12pt/30px "IBM Plex Sans";
+     color:#999;
+    position: relative;
+    letter-spacing:-.5px;
+    z-index: 1;
+}
+.date:before {
+        border-top: 1px solid #ccc;
+        content:"";
+        margin: 0 auto;
+        position: absolute;
+        top: 50%; left: 0; right: 0; bottom: 0;
+        width: 100%;
+        z-index: -1;
+    }
+.date span {
+        background: #eee;
+        padding: 0 15px 0 0;
 }

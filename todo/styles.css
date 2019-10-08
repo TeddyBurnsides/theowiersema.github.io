@@ -1,0 +1,142 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  font:12pt/20px 'Source Sans Pro', sans-serif;
+  padding:50px;
+}
+.hide {
+  display:none;
+}
+.text {
+  cursor:edit;
+}
+.clear {clear:both;
+}
+input#newItemText {
+  font-size:12pt;
+  line-height:36px;
+  padding:0 10px;
+  border:1px solid #ddd;
+  float:left;
+  margin-right:10px;
+}
+input#newItemText:focus {
+  border-color:#aaa;
+}
+button#newItem {
+  height:38px;
+  padding:0 10px;
+  float:left;
+  font-weight:bold;
+  font-size:12pt;
+  line-height:38px;
+  border:1px solid rgba(0,0,0,.2);
+  background:#01E29F;
+  color:rgba(0,0,0,.7);
+  cursor:pointer;
+}
+button#newItem:hover {
+  border-color:rgba(0,0,0,.4);
+  color:rgba(0,0,0,.9);
+}
+ul {
+  margin:50px 0;
+}
+li {
+  border-bottom:1px solid #eee;
+  margin:10px 0;
+  padding:0px 0 0px 60px;
+  position:relative;
+}
+button.complete { 
+  background:#f9f9f9;
+  border:1px solid rgba(0,0,0,.1);
+  height:40px;
+  width:40px;
+  border-radius:100px;
+  position:absolute;
+  left:0;
+  top:0;
+  font-size:21pt;
+  font-weight:bold;
+  text-align:center;
+  color:transparent;
+  cursor:pointer;
+}
+button.complete:hover {
+  border-color:rgba(0,0,0,.2);
+  color:rgba(0,0,0,.2);
+}
+li.completed button.complete {
+  border-color:rgba(0,0,0,.2);
+  background:#F1EFFB;
+  background:#3BE7B4;
+  color:rgba(255,255,255,1);
+}
+button.star {
+  position:absolute;
+  top:0;
+  right:0;
+}
+li span {
+  font-size:13pt;
+  line-height:25px;
+  font-weight:bold;
+}
+li small {
+  display:block;
+  line-height:10px;
+  font-size:9pt;
+  color:#999;
+}
+li.highlight .star {
+  border:0;
+  color:#FEEBB9;
+  font-size:20pt;
+  background:#FFF6DF;}
