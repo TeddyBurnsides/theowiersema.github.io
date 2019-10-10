@@ -65,7 +65,7 @@ input#newItemText {
   border:1px solid #ddd;
   float:left;
   margin-right:10px;
-  width:calc(100% - 90px);
+  width:calc(100% - 84px);
   border-radius:3px;
   box-shadow:inset 0 0 5px rgba(0,0,0,.05);
   color:#444;
@@ -164,7 +164,25 @@ li.completed button.complete {
   box-shadow:0 0 0 transparent;
 }
 button.remove {
+ position:absolute;
+ right:-50px;
+ top:0px;
+ padding:0;
+ background:0;
+ border:0;
+ font-size:20pt;
+ line-height:52px;
+ cursor:pointer;
+ color:#ccc;
+ width:50px;
  display:none;
+}
+li:hover button.remove {
+  display:block;
+}
+button.remove:hover {
+  display:block;
+  color:#777;
 }
 li span, li form input[type="text"] {
   font-size:16pt;

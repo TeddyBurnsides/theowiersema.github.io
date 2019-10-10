@@ -21,28 +21,29 @@ const addNewItem = () => {
 		let timestamp=getDate();
 		// insert a new task template
 		document.querySelector('#list').insertAdjacentHTML('afterbegin',
-			'<li class="item"><button class="complete">✓</button><button class="star">★</button><form onsubmit="return false;"><span class="text">' + input + '</span><button\ class="save hide">Save</button></form><small>Due by ' + timestamp + '</small><button class="remove">X</button></li>'
+			'<li class="item"><button class="complete">✓</button><button class="star">★</button><form onsubmit="return false;"><span class="text">' + input + '</span><button class="save hide">Save</button></form><small>Due by ' + timestamp + '</small><button class="remove">&times;</button></li>'
 		);
 		document.getElementById('newItemText').value = ""; //clear input field
-		//generateCookies(input,timestamp,1)
+		//saveCookies(input,timestamp,1)
 	} else {
 		if (alertStatus == 'hide') {
 			alertStatus.remove('hide');
 		}
 	}
 }
-//rebuild cookies
-const generateCookies = (title,timestamp,highlighted) => {
-	let currentCookies=document.cookie;
-	console.log(currentCookies.split(';'));
-	console.log(currentCookies);
-
-	document.cookie='title=' + title;
-	document.cookie='timestamp=' + timestamp;
-	document.cookie='highlighted=' + highlighted;
-	
-	
-
+//save off new cookies
+const saveCookies = (newTitle,newTimestamp,newHighlighted) => {
+	let array=document.cookie.split(';').join('=').split('=');
+	let existingHighlighted,existingTitle,existingTimestamp;
+	console.log(document.cookie);
+	array.forEach(function(element,i) {
+		if (element == 'highlighted') existingHighlighted=array[i+1]
+		if (element == ' title') existingTitle=array[i+1]
+		if (element == ' timestamp') existingTimestamp=array[i+1]
+	});
+	document.cookie='title=' + newTitle + ',' + existingTitle;
+	document.cookie='timestamp=' + newTimestamp + ',' + existingTimestamp;
+	document.cookie='highlighted=' + newHighlighted + ',' + existingHighlighted;	
 }
 // allow modifications to task when clicked
 const editItem = element => {
