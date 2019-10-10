@@ -47,7 +47,7 @@ table {
   border-spacing: 0;
 }
 body {
-  font:12pt/20px 'Source Sans Pro', sans-serif;
+  font:12pt/20px 'Source Sans Pro', Helvetica, Arial, sans-serif;
   padding:50px;
 }
 .hide {
@@ -60,18 +60,23 @@ body {
 }
 input#newItemText {
   font-size:12pt;
-  line-height:36px;
-  padding:0 10px;
+  line-height:46px;
+  padding:0 20px;
   border:1px solid #ddd;
   float:left;
   margin-right:10px;
+  width:calc(100% - 90px);
+  border-radius:3px;
+  box-shadow:inset 0 0 5px rgba(0,0,0,.05);
+  color:#444;
 }
 input#newItemText:focus {
-  border-color:#aaa;
+  border-color:#ccc;
+  box-shadow:inset 0 0 5px rgba(0,0,0,.15);
 }
 button#newItem {
-  height:38px;
-  padding:0 10px;
+  height:48px;
+  padding:0 20px;
   float:left;
   font-weight:bold;
   font-size:12pt;
@@ -80,10 +85,42 @@ button#newItem {
   background:#01E29F;
   color:rgba(0,0,0,.7);
   cursor:pointer;
+  border-radius:3px;
 }
 button#newItem:hover {
   border-color:rgba(0,0,0,.4);
   color:rgba(0,0,0,.9);
+}
+button:focus,input:focus {
+  outline: none;
+}
+#alert {
+  position:absolute;
+  background:#D61C7A;
+  color:#fff;
+  padding:4px 10px;
+  letter-spacing:-.3px;
+  border-radius:3px;
+  top:110px;
+  left:50px;
+  display:block;
+  opacity:1;
+  font-size:11pt;
+  transition:.2s linear;
+}
+#alert.hide {
+  opacity:0;
+}
+#alert::after {
+  content:'';
+  position:absolute;
+  top:-7px;
+  left:20px;
+  height:0;
+  width:0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid #D61C7A;
 }
 ul {
   margin:50px 0;
@@ -91,52 +128,115 @@ ul {
 li {
   border-bottom:1px solid #eee;
   margin:10px 0;
-  padding:0px 0 0px 60px;
+  padding:8px 40px 15px 70px;
   position:relative;
+  min-height:52px;
+}
+li:last-child {
+  border:0;
 }
 button.complete { 
   background:#f9f9f9;
   border:1px solid rgba(0,0,0,.1);
-  height:40px;
-  width:40px;
+  height:50px;
+  width:50px;
   border-radius:100px;
   position:absolute;
   left:0;
-  top:0;
-  font-size:21pt;
+  top:6px;
+  font-size:27pt;
   font-weight:bold;
   text-align:center;
   color:transparent;
   cursor:pointer;
+  box-shadow:inset 0 0 5px rgba(0,0,0,.05);
 }
 button.complete:hover {
-  border-color:rgba(0,0,0,.2);
+  border-color:rgba(0,0,0,.15);
   color:rgba(0,0,0,.2);
+  box-shadow:inset 0 0 5px rgba(0,0,0,.1);
 }
 li.completed button.complete {
   border-color:rgba(0,0,0,.2);
   background:#F1EFFB;
   background:#3BE7B4;
   color:rgba(255,255,255,1);
+  box-shadow:0 0 0 transparent;
 }
-button.star {
-  position:absolute;
-  top:0;
-  right:0;
+button.remove {
+ display:none;
 }
-li span {
-  font-size:13pt;
+li span, li form input[type="text"] {
+  font-size:16pt;
+  letter-spacing:-.5px;
   line-height:25px;
   font-weight:bold;
+  padding:0;
+  border:0;
+  display:block;
+  width:100%;
+  font-family:'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+li.completed span {
+  text-decoration:line-through;
+  color:rgba(0,0,0,.5);
+}
+li form input[type="text"] {
+  font-style:italic;
+ border-bottom:1px dotted #ccc;
+  color:rgba(0,0,0,.8);
 }
 li small {
   display:block;
-  line-height:10px;
-  font-size:9pt;
+  line-height:20px;
+  font-size:10pt;
   color:#999;
 }
-li.highlight .star {
+li.completed small {
+  color:#bbb;
+}
+button.save {
+  display:none;
+}
+li .star {
+  position:absolute;
+  right:0;
+  width:26px;
+  height:25px;
   border:0;
-  color:#FEEBB9;
-  font-size:20pt;
-  background:#FFF6DF;}
+  padding:0;
+  top:12px;
+  font-size:11pt;
+  cursor:pointer;
+  background:#eee;
+  color:#aaa;
+  border-top-right-radius:3px;
+  border-top-left-radius:3px;
+}
+li .star:hover {
+  color:#777;
+  background:#ddd;
+}
+li .star:hover:after {
+  border-left-color:#ddd;
+  border-right-color:#ddd;  
+}
+li.highlight .star {
+  background:#FF8469;
+  color:#fff;
+}
+li .star::after {
+  content:'';
+  position:absolute;
+  top:25px;
+  left:0;
+  height:0;
+  width:0;
+  border-left: 13px solid #eee;
+  border-right: 13px solid #eee;
+  border-bottom: 8px solid transparent;
+}
+li.highlight .star::after {
+  border-left-color:#FF8469;
+  border-right-color:#FF8469;
+}

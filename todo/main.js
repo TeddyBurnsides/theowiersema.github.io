@@ -13,7 +13,11 @@ window.onload = () => {
 // add new item to the task list
 const addNewItem = () => {
 	let input = document.getElementById('newItemText').value;  //get input from text field
+	let alertStatus=document.getElementById('alert').classList; 
 	if (IsValidInput(input) === true) { 
+		if (alertStatus !== 'hide') {
+			alertStatus.add('hide')
+		};
 		let timestamp=getDate();
 		// insert a new task template
 		document.querySelector('#list').insertAdjacentHTML('afterbegin',
@@ -21,6 +25,10 @@ const addNewItem = () => {
 		);
 		document.getElementById('newItemText').value = ""; //clear input field
 		//generateCookies(input,timestamp,1)
+	} else {
+		if (alertStatus == 'hide') {
+			alertStatus.remove('hide');
+		}
 	}
 }
 //rebuild cookies

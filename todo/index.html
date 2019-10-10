@@ -2,8 +2,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Javascript</title>
-	<title>Javascript</title><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet"> 
-
+	<title>Javascript</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600i&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -11,11 +11,12 @@
 <form onsubmit="return false;">
 	<input type="text" placeholder="Enter a new task..." id="newItemText" />
 	<button id="newItem">Add</button>
+	<div id="alert" class="hide">Cannot add a blank task!</div>
 	<div class="clear"></div>
 </form>
 
 <ul id="list">
-	<li class="item">
+	<li class="item completed">
 		<button class="complete">✓</button>
 		<button class="star">★</button>
 		<form onsubmit="return false;">
