@@ -4,6 +4,10 @@ if (numTasks == '' || isNaN(numTasks) || typeof numTasks == 'undefined') {
 }
 let id=localStorage.getItem('numTasks');
 window.onload = () => {
+	// browser support
+	if (typeof(Storage) == 'undefined') {
+		alert('Your browser does not support local storage. This website will not work.')
+	}
 	// immediately add listeners for various click types
 	document.addEventListener('click', event => {
 		const element=event.target; // this is the element that is clicked
