@@ -197,7 +197,7 @@ li span, li form input[type="text"] {
 }
 li.completed span {
   text-decoration:line-through;
-  color:rgba(0,0,0,.5);
+  color:rgba(0,0,0,.4);
 }
 li form input[type="text"] {
   font-style:italic;
@@ -257,4 +257,15 @@ li .star::after {
 li .star.highlight::after {
   border-left-color:#FF8469;
   border-right-color:#FF8469;
+}
+#clearAll {
+  font-size:10pt;
+  color:#aaa;
+  cursor:pointer;
+  position:fixed;
+  bottom:50px;
+  background:#fff;
+}
+#clearAll:hover {
+  color:#000;
 }

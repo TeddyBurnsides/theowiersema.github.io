@@ -1,38 +1,43 @@
-if (localStorage.getItem('numTasks') == '') {
-	localStorage.setItem('numTasks',100);
+let numTasks=localStorage.getItem('numTasks');
+if (numTasks == '' || isNaN(numTasks) || typeof numTasks == 'undefined') {
+	localStorage.setItem('numTasks',0); // pick arbitrary number of start at
 }
 let id=localStorage.getItem('numTasks');
 window.onload = () => {
-	//
-	
 	// immediately add listeners for various click types
 	document.addEventListener('click', event => {
 		const element=event.target; // this is the element that is clicked
-		if (element.classList == 'star') element.classList.toggle('highlight');
-		if (element.classList == 'remove') removeItem(element);
+		if (element.classList.contains('star')) toggleHighlight(element);
+		if (element.classList.contains('remove')) removeItem(element);
 		if (element.id == 'newItem') addNewItem();
-		if (element.classList == 'text') editItem(element);
-		if (element.classList == 'save') saveItem(element);
-		if (element.classList == 'complete') element.parentNode.classList.toggle('completed');
+		if (element.classList.contains('text')) editItem(element);
+		if (element.classList.contains('save')) saveItem(element);
+		if (element.classList.contains('complete')) toggleComplete(element);
+		if (element.id == 'clearAll') removeAll();
 	}, false);
-
-	//localStorage.setItem('id','1,2');
-	//localStorage.setItem('title','This title,another title');
-	//localStorage.setItem('timestamp','10/1/2019 2pm, 10/2/19 3:3pm')
-	//localStorage.setItem('highlight','0,1')
-	
+	// don't try to generate anything if no tasks
+	if (typeof localStorage.getItem('numTasks') == 'undefined' || localStorage.getItem('numTasks') == null) return false;
+	// build stored task list
 	let id=localStorage.getItem('id').split(',');
 	let title=localStorage.getItem('title').split(',');
 	let highlight=localStorage.getItem('highlight').split(',');
 	let timestamp=localStorage.getItem('timestamp').split(',');
+	let complete=localStorage.getItem('complete').split(',');
+	let highlightHTML,completeHTML;
 	id.forEach((element,i) => {
+		if (element == '') return false; // don't show empty tasks 
 		if (highlight[i] == 0) {
-			document.querySelector('#list').insertAdjacentHTML('afterbegin',
-			'<li data-id="' + id[i] + '" class="item"><button class="complete">✓</button><button class="star">★</button><form onsubmit="return false;"><span class="text">' + title[i] + '</span><button class="save hide">Save</button></form><small>Due by ' + timestamp[i] + '</small><button class="remove">&times;</button></li>');
+			highlightHTML='<button class="star">★</button>';
 		} else {
-			document.querySelector('#list').insertAdjacentHTML('afterbegin',
-			'<li data-id="' + id[i] + '" class="item"><button class="complete">✓</button><button class="highlight star">★</button><form onsubmit="return false;"><span class="text">' + title[i] + '</span><button class="save hide">Save</button></form><small>Due by ' + timestamp[i] + '</small><button class="remove">&times;</button></li>');
+			highlightHTML='<button class="star highlight">★</button>';
 		}
+		if (complete[i] == 0) {
+			completeHTML='" class="item"><button class="complete">✓</button>';
+		} else {
+			completeHTML='" class="item completed"><button class="complete">✓</button>';
+		}
+		document.querySelector('#list').insertAdjacentHTML('afterbegin',
+		'<li data-id="' + id[i] + completeHTML + highlightHTML + '<form onsubmit="return false;"><span class="text">' + title[i] + '</span><button class="save hide">Save</button></form><small>Created on  ' + timestamp[i] + '</small><button class="remove">&times;</button></li>');
 	})
 }
 // add new item to the task list
@@ -49,16 +54,27 @@ const addNewItem = () => {
 
 		// insert a new task template
 		document.querySelector('#list').insertAdjacentHTML('afterbegin',
-			'<li data-id="' + id + '" class="item"><button class="complete">✓</button><button class="star">★</button><form onsubmit="return false;"><span class="text">' + input + '</span><button class="save hide">Save</button></form><small>Due by ' + timestamp + '</small><button class="remove">&times;</button></li>'
+			'<li data-id="' + id + '" class="item"><button class="complete">✓</button><button class="star">★</button><form onsubmit="return false;"><span class="text">' + input + '</span><button class="save hide">Save</button></form><small>Created on ' + timestamp + '</small><button class="remove">&times;</button></li>'
 		);
 		document.getElementById('newItemText').value = ""; //clear input field
 
 		// save off the new Item to local storage
-		localStorage.setItem('numTasks',id);
-		localStorage.setItem('id',localStorage.getItem('id')+','+id);
-		localStorage.setItem('title',localStorage.getItem('title')+','+input);
-		localStorage.setItem('timestamp',localStorage.getItem('timestamp')+','+timestamp);
-		localStorage.setItem('highlight',localStorage.getItem('highlight')+','+'0');
+		if (typeof localStorage.getItem('numTasks') == 'undefined' || localStorage.getItem('numTasks') == null) {
+			localStorage.setItem('numTasks',id);
+			localStorage.setItem('id',id);
+			localStorage.setItem('title',input);
+			localStorage.setItem('timestamp',timestamp);
+			localStorage.setItem('highlight','0');
+			localStorage.setItem('complete','0');
+		} else {
+			localStorage.setItem('numTasks',id);
+			localStorage.setItem('id',localStorage.getItem('id')+','+id);
+			localStorage.setItem('title',localStorage.getItem('title')+','+input);
+			localStorage.setItem('timestamp',localStorage.getItem('timestamp')+','+timestamp);
+			localStorage.setItem('highlight',localStorage.getItem('highlight')+','+'0');
+			localStorage.setItem('complete',localStorage.getItem('complete')+','+'0');
+		}
+		
 
 	} else {
 		if (alertStatus == 'hide') {
@@ -76,21 +92,25 @@ const removeItem = element => {
 	let allTitles=localStorage.getItem('title').split(',');
 	let allTimestamps=localStorage.getItem('timestamp').split(',');
 	let allHighlights=localStorage.getItem('highlight').split(',');
+	let allComplete=localStorage.getItem('complete').split(',');
 	// remove task from arrays
 	allIDs.splice(indexOfTaskID,1);
 	allTitles.splice(indexOfTaskID,1);
 	allTimestamps.splice(indexOfTaskID,1);
 	allHighlights.splice(indexOfTaskID,1);
+	allComplete.splice(indexOfTaskID,1);
 	// convert back to strings
 	allIDs=allIDs.join(',');
 	allTitles=allTitles.join(',');
 	allTimestamps=allTimestamps.join(',');
 	allHighlights=allHighlights.join(',');
+	allComplete=allComplete.join(',');
 	// save off to local Storage
 	localStorage.setItem('id',allIDs)
 	localStorage.setItem('title',allTitles);
 	localStorage.setItem('timestamp',allTimestamps);
 	localStorage.setItem('highlight',allHighlights);
+	localStorage.setItem('complete',allComplete);
 
 	// remove HTML element
 	element.parentNode.remove();
@@ -120,6 +140,44 @@ const saveItem = element => {
 		element.parentNode.querySelector('input').outerHTML='<span class="text">' + fieldValue + '</span>'; // replace input with input value
 		element.classList.add('hide'); // hide save button
 	}
+}
+// toggle highlight flag on task
+const toggleHighlight = element => {
+	// local Storage stuff
+	let taskID=element.parentNode.getAttribute('data-id'); // task to remove
+	let indexOfTaskID=localStorage.getItem('id').split(',').indexOf(taskID);
+	let allHighlight=localStorage.getItem('highlight').split(',');
+	if (element.classList.contains('highlight')) {
+		allHighlight[indexOfTaskID]=0;
+	} else {
+		allHighlight[indexOfTaskID]=1;
+	}
+	allHighlight=allHighlight.join(',');
+	localStorage.setItem('highlight',allHighlight);
+	//
+	// HTML stuff
+	element.classList.toggle('highlight');
+}
+// toggle complete checkbox
+const toggleComplete = element => {
+	// local Storage stuff
+	let taskID=element.parentNode.getAttribute('data-id'); // task to remove
+	let indexOfTaskID=localStorage.getItem('id').split(',').indexOf(taskID);
+	let allComplete=localStorage.getItem('complete').split(',');
+	if (element.parentNode.classList.contains('completed')) {
+		allComplete[indexOfTaskID]=0;
+	} else {
+		allComplete[indexOfTaskID]=1;
+	}
+	allComplete=allComplete.join(',');
+	localStorage.setItem('complete',allComplete);
+	//
+	// HTML stuff
+	element.parentNode.classList.toggle('completed');
+}
+const removeAll = () => {
+	document.querySelector('#list').innerHTML = '';
+	localStorage.clear();
 }
 // restricts invalid text entry into a task
 const IsValidInput = input => {
