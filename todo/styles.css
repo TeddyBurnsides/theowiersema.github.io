@@ -157,11 +157,11 @@ button.complete:hover {
   box-shadow:inset 0 0 5px rgba(0,0,0,.1);
 }
 li.completed button.complete {
-  border-color:rgba(0,0,0,.2);
-  background:#F1EFFB;
+  border-color:#30BD93;
   background:#3BE7B4;
   color:rgba(255,255,255,1);
   box-shadow:0 0 0 transparent;
+  text-shadow:0 1px 0 #30BD93,0 -1px 0 #30BD93,1px 0px 0 #30BD93,-1px 0 0 #30BD93;
 }
 button.remove {
  position:absolute;
@@ -239,7 +239,7 @@ li .star:hover:after {
   border-left-color:#ddd;
   border-right-color:#ddd;  
 }
-li.highlight .star {
+li .star.highlight {
   background:#FF8469;
   color:#fff;
 }
@@ -254,7 +254,7 @@ li .star::after {
   border-right: 13px solid #eee;
   border-bottom: 8px solid transparent;
 }
-li.highlight .star::after {
+li .star.highlight::after {
   border-left-color:#FF8469;
   border-right-color:#FF8469;
 }
