@@ -1,5 +1,6 @@
 let numTasks=localStorage.getItem('numTasks');
 if (numTasks == '' || isNaN(numTasks) || typeof numTasks == 'undefined') {
+	localStorage.clear();
 	localStorage.setItem('numTasks',0); // pick arbitrary number of start at
 }
 let id=localStorage.getItem('numTasks');
