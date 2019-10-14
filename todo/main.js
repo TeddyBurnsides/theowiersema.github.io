@@ -187,6 +187,7 @@ const removeAll = () => {
 // restricts invalid text entry into a task
 const IsValidInput = input => {
 	if (input !== '') return true;
+	if (input.includes('=') || input.includes(',') || input.includes(';')) return true;
 }
 // returns nicely formatted date
 const getDate = () => {
