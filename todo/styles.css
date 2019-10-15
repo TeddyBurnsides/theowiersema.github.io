@@ -53,7 +53,7 @@ body {
 .hide {
   display:none;
 }
-.text {
+li span {
   cursor:edit;
 }
 .clear {clear:both;
