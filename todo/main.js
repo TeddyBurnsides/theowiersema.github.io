@@ -1,49 +1,43 @@
-
 // some initialization
 let id;
 if (typeof(Storage) == 'undefined') {
 	alert('Your browser does not support local storage. This website will not work.')
 } else {
-	const numTasks=localStorage.getItem('numTasks');
-	if (numTasks == '' || isNaN(numTasks) || typeof numTasks == 'undefined') {
-		localStorage.clear();
-		localStorage.setItem('numTasks',0); // pick arbitrary number of start at
+	if (localStorage.getItem('numTasks') == null) {
+		localStorage.clear(); // clear all data
+		id=0;
+	} else {
+		id=localStorage.getItem('numTasks'); // counter should always be >= numTasks
 	}
-	id=localStorage.getItem('numTasks');
 }
 
 // stuff to do after window is loaded
 window.onload = () => {
-	// browser support
-	if (typeof(Storage) == 'undefined') {
-		alert('Your browser does not support local storage. This website will not work.')
-	} else {
-		// immediately add listeners for various click types
-		document.addEventListener('click', event => {
-			const element=event.target; // this is the element that is clicked
-			if (element.classList.contains('star')) toggleHighlight(element);
-			if (element.classList.contains('remove')) removeItem(element);
-			if (element.id == 'newItem') addNewItem();
-			if (element.classList.contains('text')) editItem(element);
-			if (element.classList.contains('save')) saveItem(element);
-			if (element.classList.contains('complete')) toggleComplete(element);
-			if (element.id == 'clearAll') removeAll();
-		}, false);
+	// immediately add listeners for various click types
+	document.addEventListener('click', event => {
+		const element=event.target; // this is the element that is clicked
+		if (element.classList.contains('star')) toggleHighlight(element);
+		if (element.classList.contains('remove')) removeItem(element);
+		if (element.id == 'newItem') addNewItem();
+		if (element.classList.contains('text')) editItem(element);
+		if (element.classList.contains('save')) saveItem(element);
+		if (element.classList.contains('complete')) toggleComplete(element);
+		if (element.id == 'clearAll') removeAll();
+	}, false);
 
-		// only try to generate content if there are tasks in storage
-		if (storageAlreadyExists('id')) {
-			// get data from local storage
-			const id=localStorage.getItem('id').split(',');
-			const title=localStorage.getItem('title').split(',');
-			const highlight=localStorage.getItem('highlight').split(',');
-			const timestamp=localStorage.getItem('timestamp').split(',');
-			const complete=localStorage.getItem('complete').split(',');
+	// only try to generate HTML if there are tasks in storage
+	if (storageAlreadyExists('id')) {
+		// get data from local storage
+		const id=localStorage.getItem('id').split(',');
+		const title=localStorage.getItem('title').split(',');
+		const highlight=localStorage.getItem('highlight').split(',');
+		const timestamp=localStorage.getItem('timestamp').split(',');
+		const complete=localStorage.getItem('complete').split(',');
 
-			// build out HTML elements
-			id.forEach((element,i) => {
-				if (element) buildNewTaskHTML(id[i],title[i],timestamp[i],highlight[i],complete[i]);
-			})
-		}
+		// build out HTML elements
+		id.forEach((element,i) => {
+			if (element) buildNewTaskHTML(id[i],title[i],timestamp[i],highlight[i],complete[i]);
+		})
 	}
 }
 
@@ -175,8 +169,8 @@ const storageAlreadyExists = element => {
 
 // restricts invalid text entry into a task
 const IsValidInput = input => {
-	// invalid characters (conflicts with localStorage)
-	if (input.includes('=') || input.includes(',') || input.includes(';')) return false;
+	const invalidChars=['=',',',';'];
+	if (invalidChars.some(element => input.includes(element))) return false; // does input contains invalid characters?
 	if (input !== '') return true;
 }
 

@@ -7,18 +7,14 @@
 	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-<form onsubmit="return false;">
-	<input type="text" placeholder="Enter a new task..." id="newItemText" />
-	<button id="newItem">Add</button>
-	<div id="alert" class="hide">Invalid input - cannot be blank, or have the following characters: ;,=</div>
-	<div class="clear"></div>
-</form>
-
-<ul id="list">
-
-</ul>
-<a id="clearAll">Delete All</a>
-<script src="main.js"></script>
+	<form onsubmit="return false;">
+		<input type="text" placeholder="Enter a new task..." id="newItemText" />
+		<button id="newItem">Add</button>
+		<div id="alert" class="hide">Invalid input - cannot be blank, or have the following characters: ;,=</div>
+		<div class="clear"></div>
+	</form>
+	<ul id="list"></ul>
+	<a id="clearAll">Delete All</a>
+	<script src="main.js"></script>
 </body>
 </html>
