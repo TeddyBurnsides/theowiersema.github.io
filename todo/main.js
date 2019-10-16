@@ -13,9 +13,9 @@ if (typeof(Storage) == 'undefined') {
 
 // stuff to do after window is loaded
 window.onload = () => {
-	// immediately add listeners for various click types
+	// listeners for various click types
 	document.addEventListener('click', event => {
-		const element=event.target; // this is the element that is clicked
+		const element=event.target; // HTML node that is clicked
 		if (element.classList.contains('star')) toggleHighlight(element);
 		if (element.classList.contains('remove')) removeItem(element);
 		if (element.id == 'newItem') addNewItem();
@@ -24,6 +24,14 @@ window.onload = () => {
 		if (element.classList.contains('complete')) toggleComplete(element);
 		if (element.id == 'clearAll') removeAll();
 	}, false);
+
+	// listener for searching functionality
+	document.addEventListener('keyup', event => {
+		const element=event.target;
+		if (element.id == 'search') filterTaskList(event.keyCode);
+	})
+
+	document.getElementById('search').value = ""; // clear search field
 
 	// only try to generate HTML if there are tasks in storage
 	if (storageAlreadyExists('id')) {
@@ -34,10 +42,31 @@ window.onload = () => {
 		const timestamp=localStorage.getItem('timestamp').split(',');
 		const complete=localStorage.getItem('complete').split(',');
 
-		// build out HTML elements
+		// build out each task in HTML
 		id.forEach((element,i) => {
 			if (element) buildNewTaskHTML(id[i],title[i],timestamp[i],highlight[i],complete[i]);
 		})
+	}
+}
+
+// filter task list
+filterTaskList = (badKey) => {
+	const invalidChars=[16,17,18,224]; // shift,control,option,command
+	if (invalidChars.some(element => badKey == element)) return false; // ignore bad chars
+	// only search if data exists
+	if (storageAlreadyExists('id')) { 
+		const input = document.getElementById('search').value.toLowerCase();  //get input from text field and convert to lowercase
+		const id=localStorage.getItem('id').split(',');
+		let title=localStorage.getItem('title').split(',');
+		// loop through each post to hide/show
+		id.forEach((element,i) => {
+			document.querySelector('li[data-id="' + id[i] + '"').classList.add('hide'); // default to hidden
+			title[i]=title[i].toLowerCase(); // convert to lowercase for comparison
+			// if search text matches task title, show the task again
+			if (element && title[i].includes(input)) {
+				document.querySelector('li[data-id="' + id[i] + '"').classList.remove('hide');
+			}
+		});
 	}
 }
 
@@ -125,12 +154,7 @@ const toggleHighlight = element => {
 	const taskID=element.parentNode.getAttribute('data-id'); // task to remove
 	const indexOfTaskID=localStorage.getItem('id').split(',').indexOf(taskID); // index of task
 	let allHighlight=localStorage.getItem('highlight').split(','); // convert to array of highlights
-	// should we highlight or unhighlight?
-	if (element.classList.contains('highlight')) {
-		allHighlight[indexOfTaskID]=0;
-	} else {
-		allHighlight[indexOfTaskID]=1;
-	}
+	(element.classList.contains('highlight')) ? allHighlight[indexOfTaskID]=0 : allHighlight[indexOfTaskID]=1; // should we highlight or unhighlight?
 	allHighlight=allHighlight.join(','); // convert back to string
 	localStorage.setItem('highlight',allHighlight); // save off to localStorage
 	element.classList.toggle('highlight'); // HTML modifications
@@ -141,12 +165,7 @@ const toggleComplete = element => {
 	const taskID=element.parentNode.getAttribute('data-id'); // task to remove
 	const indexOfTaskID=localStorage.getItem('id').split(',').indexOf(taskID); // index of task
 	let allComplete=localStorage.getItem('complete').split(','); // convert to array
-	// should we complete or uncomplete?
-	if (element.parentNode.classList.contains('completed')) {
-		allComplete[indexOfTaskID]=0;
-	} else {
-		allComplete[indexOfTaskID]=1;
-	}
+	(element.parentNode.classList.contains('completed')) ? allComplete[indexOfTaskID]=0 : allComplete[indexOfTaskID]=1; // should we complete or uncomplete?
 	allComplete=allComplete.join(','); // back to a string!
 	localStorage.setItem('complete',allComplete); // save off to local Storage
 	element.parentNode.classList.toggle('completed'); // HTML modifications
@@ -185,44 +204,34 @@ const saveOffTasks = (id,input,timestamp,highlight,complete) => {
 
 // create the HTML for the new task (new technique)
 const buildNewTaskHTML = (id,title,timestamp,highlight,complete) => {
-	// create complete button
-	const check=document.createElement('button');
-	check.setAttribute('class','complete');
-	check.textContent = '✓';
-	// create star button
-	const star=document.createElement('button');
-	star.setAttribute('class','star');
-	star.textContent = '★';
+	const check=createHTML('button','✓','class','complete'); // complete button
+	const star = createHTML('button','★','class','star'); // star button
 	if (highlight == 1) star.setAttribute('class','star highlight');
-	// create remove button
-	const remove=document.createElement('button');
-	remove.setAttribute('class','remove');
-	remove.textContent = '×';
-	// create save button
-	const save=document.createElement('button');
-	save.setAttribute('class','save');
-	// create task title
-	const content=document.createElement('span');
-	content.setAttribute('class','text');
-	content.textContent = title;
-	// create timestamp
-	const small=document.createElement('small');
-	small.textContent = 'Created on ' + timestamp;
-	// create form
-	const form=document.createElement('form');
-	form.setAttribute('onsubmit','return false;');
-	form.appendChild(content);
-	form.appendChild(save);
-	// create <li>
-	const li=document.createElement('li');
-	li.setAttribute('data-id',id);
+	const remove=createHTML('button','×','class','remove'); // remove button
+	const save=createHTML('button','','class','save'); // save button	
+	const content=createHTML('span',title,'class','text'); // task content
+	const small=createHTML('small','Created on ' + timestamp); // create timestamp
+	const form=createHTML('form','','onsubmit','return false;'); // create form
+	appendChildren(form,[content, save]);
+	const li=createHTML('li','','data-id',id); // create <li>
 	if (complete == 1) li.setAttribute('class','completed');
-	li.appendChild(star);
-	li.appendChild(check);
-	li.appendChild(form);
-	li.appendChild(small);
-	li.appendChild(remove);
+	appendChildren(li,[star,check,form,small,remove]); // add elements inside parent
 	document.querySelector('#list').prepend(li);
+}
+
+// create HTML element with attribute and attribute value and populates element with content
+const createHTML = (type,content,attr,attrVal) => {
+	const element=document.createElement(type);
+	if (attr && attrVal) element.setAttribute(attr,attrVal);
+	if (content) element.textContent = content;
+	return element;
+}
+
+// append a bunch of things to a parent element
+const appendChildren = (parent,children) => {
+	children.forEach(child => {
+		parent.appendChild(child);
+	})
 }
 
 // returns nicely formatted date

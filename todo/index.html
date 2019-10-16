@@ -7,12 +7,15 @@
 	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-	<form onsubmit="return false;">
+	
+	<form id="taskInput" onsubmit="return false;">
 		<input type="text" placeholder="Enter a new task..." id="newItemText" />
 		<button id="newItem">Add</button>
 		<div id="alert" class="hide">Invalid input - cannot be blank, or have the following characters: ;,=</div>
 		<div class="clear"></div>
 	</form>
+	<input type="text" placeholder="Search..." id="search" />
+	<div class="clear"></div>
 	<ul id="list"></ul>
 	<a id="clearAll">Delete All</a>
 	<script src="main.js"></script>
