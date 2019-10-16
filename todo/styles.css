@@ -46,6 +46,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+:root {
+  --green:#63C2B6;
+  --darkGreen:#519F95;
+  --orange:#FF8469;
+}
 body {
   font:12pt/20px 'Source Sans Pro', Helvetica, Arial, sans-serif;
   padding:50px;
@@ -79,7 +84,7 @@ input#newItemText {
   box-shadow:inset 0 0 5px rgba(0,0,0,.05);
   color:#444;
 }
-input#newItemText:focus {
+input#newItemText:focus, input#search:focus {
   border-color:#ccc;
   box-shadow:inset 0 0 5px rgba(0,0,0,.15);
 }
@@ -150,7 +155,7 @@ ul {
 li {
   border-bottom:1px solid #eee;
   margin:10px 0;
-  padding:8px 40px 15px 70px;
+  padding:8px 40px 15px 68px;
   position:relative;
   min-height:52px;
 }
@@ -160,13 +165,13 @@ li:last-child {
 button.complete { 
   background:#f9f9f9;
   border:1px solid rgba(0,0,0,.1);
-  height:50px;
-  width:50px;
+  height:45px;
+  width:45px;
   border-radius:100px;
   position:absolute;
   left:0;
-  top:6px;
-  font-size:27pt;
+  top:7px;
+  font-size:23pt;
   font-weight:bold;
   text-align:center;
   color:transparent;
@@ -179,11 +184,11 @@ button.complete:hover {
   box-shadow:inset 0 0 5px rgba(0,0,0,.1);
 }
 li.completed button.complete {
-  border-color:#519F95;
-  background:#63C2B6;
+  border-color:var(--darkGreen);
+  background:var(--green);
   color:rgba(255,255,255,1);
   box-shadow:0 0 0 transparent;
-  text-shadow:0 1px 0 #519F95,0 -1px 0 #519F95,1px 0px 0 #519F95,-1px 0 0 #519F95;
+  text-shadow:0 1px 0 var(--darkGreen),0 -1px 0 var(--darkGreen),1px 0px 0 var(--darkGreen),-1px 0 0 var(--darkGreen);
 }
 button.remove {
  position:absolute;
@@ -262,7 +267,7 @@ li .star:hover:after {
   border-right-color:#ddd;  
 }
 li .star.highlight {
-  background:#FF8469;
+  background:var(--orange);
   color:#fff;
 }
 li .star::after {
@@ -277,8 +282,8 @@ li .star::after {
   border-bottom: 8px solid transparent;
 }
 li .star.highlight::after {
-  border-left-color:#FF8469;
-  border-right-color:#FF8469;
+  border-left-color:var(--orange);
+  border-right-color:var(--orange);
 }
 #clearAll {
   font-size:10pt;
