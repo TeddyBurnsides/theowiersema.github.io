@@ -298,7 +298,7 @@ li .star.highlight::after {
 /*
 Phone resolution adjustments
 */
-@media (min-resolution: 300dpi) {
+@media (min-resolution: 200dpi) {
   form#taskInput {
     float:none;
   }
