@@ -328,13 +328,13 @@ Phone resolution adjustments
     margin: 30px 0 0;
   }
   li span, li form input[type="text"] {
-    font-size:30pt;
+    font-size:38pt;
     line-height:60px;
-    margin-top:15px;
+    margin-top:10px;
   }
   li small {
-    font-size:16pt;
-    line-height:30px;
+    font-size:20pt;
+    line-height:40px;
   }
   button.complete {
     height:120px;
@@ -343,15 +343,15 @@ Phone resolution adjustments
     top:30px;
   }
   li .star {
-    width:48px;
-    height:50px;
-    top:50px;
-    font-size:20pt;
+    width:70px;
+    height:70px;
+    top:45px;
+    font-size:35pt;
   }
   li .star::after {
-    top:50px;
-    border-left-width:24px;
-    border-right-width:24px;
-    border-bottom-width:10px;
+    top:70px;
+    border-left-width:35px;
+    border-right-width:35px;
+    border-bottom-width:14px;
   }
 }
