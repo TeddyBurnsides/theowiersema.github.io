@@ -315,14 +315,14 @@ Phone resolution adjustments
   }
   input#search {
     float:none;
-    width:calc(100% - 180px);
+    width:calc(100% - 100px);
     height:120px;
     display:block;
     font-size:30pt;
     padding:0 40px;
     position:fixed;
     bottom:50px;
-    left:90px;
+    left:50px;
     background:#fff;
     z-index:1000;
     box-shadow:0 0 300px #fff;
