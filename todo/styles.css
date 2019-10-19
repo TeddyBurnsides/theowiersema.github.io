@@ -295,7 +295,10 @@ li .star.highlight::after {
 #clearAll:hover {
   color:#000;
 }
-@media only screen and (max-width:699px) {
+/*
+Phone resolution adjustments
+*/
+@media (min-resolution: 360dpi) {
   form#taskInput {
     float:none;
   }
