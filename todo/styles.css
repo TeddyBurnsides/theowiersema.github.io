@@ -295,3 +295,58 @@ li .star.highlight::after {
 #clearAll:hover {
   color:#000;
 }
+@media only screen and (max-width:699px) {
+  form#taskInput {
+    float:none;
+  }
+  input#newItemText {
+    width:calc(100% - 122px);
+    height:80px;
+    font-size:23pt;
+    padding:0 30px;
+  }
+  button#newItem {
+    width:120px;
+    height:80px;
+    font-size:23pt;
+  }
+  input#search {
+    float:none;
+    width:calc(100% - 2px);
+    height:80px;
+    display:block;
+    font-size:23pt;
+    padding:0 30px;
+    margin-bottom:50px;
+  }
+  li {
+    padding:15px 80px 15px 110px;
+    min-height:82px;
+  }
+  li span, li form input[type="text"] {
+    font-size:23pt;
+    line-height:45px;
+  }
+  li small {
+    font-size:14pt;
+    line-height:30px;
+  }
+  button.complete {
+    height:80px;
+    width:80px;
+    font-size:45pt;
+    top:15px;
+  }
+  li .star {
+    width:48px;
+    height:50px;
+    top:20px;
+    font-size:20pt;
+  }
+  li .star::after {
+    top:50px;
+    border-left-width:24px;
+    border-right-width:24px;
+    border-bottom-width:10px;
+  }
+}

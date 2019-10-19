@@ -62,7 +62,7 @@ filterTaskList = (badKey) => {
 		id.forEach((element,i) => {
 			document.querySelector('li[data-id="' + id[i] + '"').classList.add('hide'); // default to hidden
 			title[i]=title[i].toLowerCase(); // convert to lowercase for comparison
-			// if search text matches task title, show the task again
+			// if search text matches task title, unhide the task
 			if (element && title[i].includes(input)) {
 				document.querySelector('li[data-id="' + id[i] + '"').classList.remove('hide');
 			}
