@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+html,body {
+  height:100%;
+}
+button {
+   font:24pt/50px Helvetica;
+   width:25%;
+   margin:0;
+   padding:0;
+   float:left;
+   height:20%;
+}
+#display {
+   border:1px solid #000;
+   height:calc(20% - 2px);
+   padding:0;
+   margin:0;
+   width:calc(75% - 2px);
+   margin:0;
+   padding:0;
+   text-align:right;
+   float:left;
+   font:24pt/50px Helvetica;
+}
+    </style>
+    <title>Test</title>
+  </head>
+  <body>
+    <div id="display"></div>
+    <button class="reset">Clear</button>
+    <div class="clear"></div>
+    <br />
+    <button class="number">1</button>
+    <button class="number">2</button>
+    <button class="number">3</button>
+    <button class="operator add">+</button>
+    <div class="clear"></div>
+    <button class="number">4</button>
+    <button class="number">5</button>
+    <button class="number">6</button>
+    <button class="operator multiply">*</button>
+    <div class="clear"></div>
+    <button class="number">7</button>
+    <button class="number">8</button>
+    <button class="number">9</button>
+    <button class="operator subtract">-</button>
+    <div class="clear"></div>
+    <button class="equals">=</button>
+    <button class="number">0</button>
+    <button class="number point">.</button>
+    <button class="operator divide">/</button>
+    <div class="clear"></div>
+    <script src="main.js"></script>
+  </body>
+</html>
