@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+     <title>Sherlock # - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</title>
+     <script src="jquery.min.js"></script>
+     <script src="scripts.js"></script>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet">
+     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<a href="#container" id="scroll"><i class="fa fa-arrow-up"></i></a>
+<div id="container">
+
+<div id="sidebar">
+     <div class="sidebarbox mainnav">
+          <li class="newpost"><a href="#newpost"><i class="fa fa-plus"></i>Write a new post</a></li>
+          <li class="link posts active"><i class="fa fa-comments"></i>Discussion</li>
+          <li class="link attachments"><i class="fa fa-paperclip"></i>Attachments</li>
+          <li class="link details"><i class="fa fa-info-circle"></i>Details</li>
+     </div>
+     <div class="sidebarbox meta">
+          <h4>Priority</h4>
+          <h4>Status</h4>
+          <div class="clear"></div>
+          <select class="priority critical">
+               <option value="Critical"selected>Critical</option>
+               <option value="High">High</option>
+               <option value="Medium">Medium</option>
+               <option value="Low">Low</option>
+          </select>
+          <select class="status">
+               <option>New</option>
+               <option selected>In Progress</option>
+               <option>On Hold</option>
+               <option>Testing</option>
+               <option>Waiting for Info</option>
+               <option>Closed</option>
+          </select>
+          <div class="clear"></div>
+     </div>
+     <div class="sidebarbox records">
+          <h4 class="slg">Support Logs (<span class="count">2</span>)</h4>
+          <div class="record slg">
+               <span class="number">906772</span>
+               <span class="name">I am alone, and feel the charming breeze upon my face</span>
+               <i class="fa fa-trash-alt"></i>
+          </div>
+          <div class="record slg">
+               <span class="number">312223</span>
+               <span class="name">When, while the lovely valley sees it's reflection</span>
+               <i class="fa fa-trash-alt"></i>
+          </div>
+          <h4 class="ra">Release Authorizations (<span class="count">0</span>)</h4>
+          <h4 class="rn">Nova Notes (<span class="count">1</span>)</h4>
+          <div class="record rn">
+               <span class="number">25444</span>
+               <span class="name">I throw myself down among the leaves but alas</span>
+               <i class="fa fa-trash-alt"></i>
+          </div>
+          <select class="button" >
+               <option selected="true" disabled="disabled">Select a new record type to link</option>
+               <option value="1">Support Log</option>
+               <option value="2">Release Authorization</option>
+               <option value="3">Release Note</option>
+			<option value="4">Reportable Issue</option>
+               <option value="5">Checklist</option>
+          </select>
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Search for record to link..." />
+     </div>
+     <div class="sidebarbox">
+          <h4>Owners</h4>
+          <div class="people primary">
+               <img src="profile1.jpg" class="profilepic" />
+               <div class="name">Ernesto Gywn<sup>Epic</sup></div>
+               <div class="role">Grand Central<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+               <div class="clear"></div>
+          </div>
+          <div class="people">
+               <img src="profile2.jpg" class="profilepic" />
+               <div class="name">Gregory Smithers</div>
+               <div class="role">Prelude<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+               <div class="clear"></div>
+          </div>
+          <div class="people">
+               <img src="profile3.jpg" class="profilepic" />
+               <div class="name">Ed MacIntire</div>
+               <div class="role">RTE<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+               <div class="clear"></div>
+          </div>
+          <h4>Interested</h4>
+          <div class="people">
+               <img src="profile4.jpg" class="profilepic" />
+               <div class="name">Teddy Heath<sup>Epic</sup></div>
+               <div class="role">Cadence<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+               <div class="clear"></div>
+          </div>
+          <div class="people me">
+               <img src="profile5.jpg" class="profilepic" />
+               <div class="name">Karyn Smith</div>
+               <div class="role">Cadence<i class="fa fa-envelope"></i><i class="fa fa-phone"></i></div>
+               <div class="clear"></div>
+          </div>
+     </div>
+     <div class="sidebarbox">
+          <button class="button addme">Add me</button>
+          <button class="button others">Add others</button>
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Add another person" />
+          <div class="clear"></div>
+     </div>
+</div> <!-- Sidebar -->
+
+<div id="secondaryMenu">
+          <div class="userweb">
+               <i class="fa fa-search"></i>
+               <input type="text" placeholder="Search the UserWeb..." />
+<li>Userweb</li>
+               <li>Forums</li>
+               <li>Galaxy</li>
+               <li>Nova</li>
+               <li>Community Library</li>
+               <li>Training</li>
+               <li class="more">Show All</li>
+          </div>
+<div id="expand">
+     <i class="fa fa-window-close"></i>
+     <div class="quarter">
+          <h4>Events</h4>
+          <ul>
+               <li>XGM (Expert Group Meetings)
+                    <ul>
+                         <li>Agendas, Slides, and Audio</li>
+                         <li>Evaluations and CE</li>
+                         <li>Submit Ideas</li>
+                    </ul>
+               </li>
+               <li>UGM (User's Group Meeting)
+                    <ul>
+                         <li>Agendas, Slides, and Audio</li>
+                         <li>Evaluations and CE</li>
+                         <li>Call for Presentations</li>
+                    </ul>
+               </li>
+               <li>Strategy Summit</li>
+               <li>Epic Store</li>
+          </ul>
+     </div>
+     <div class="quarter">
+          <h4>Documentation</h4>
+          <ul>
+               <li>Galaxy
+                    <ul>
+                         <li>Physician's Toolkit</li>
+                         <li>Clinical Programs</li>
+                         <li>Financial Programs</li>
+                         <li>Development Preview</li>
+                         <li>Upgrade Overviews</li>
+                    </ul>
+               </li>
+               <li>Data Handbook
+                    <ul>
+                         <li>Report Repository</li>
+                         <li>Web Services</li>
+                         <li>Print Groups</li>
+
+                    </ul>
+               </li>
+               <li>Community Library</li>
+               <li>Nova</li>
+          </ul>
+     </div>
+     <div class="quarter">
+          <h4>Support</h4>
+          <ul>
+               <li>Forums</li>
+               <li>Sherlock
+                    <ul>
+                         <li>Support Logs</li>
+                         <li>Release Authorizations</li>
+                         <li>Reportable Issues</li>
+                    </ul>
+               </li>
+               <li>Foundation System
+                   <ul>
+                        <li>Foundation System Hosted</li>
+                        <li>Netherlands Hosted</li>
+                    </ul>
+               </li>
+               <li>System Pulse Analytics</li>
+               <li>Orion</li>
+               <li>Signal</li>
+               <li>Contact epic</li>
+          </ul>
+     </div>
+     <div class="quarter">
+          <h4>Training</h4>
+          <ul>
+               <li>Training Home
+                    <ul>
+                         <li>Course Catalog</li>
+                         <li>Taking an Exam</li>
+                    </ul>
+               </li>
+               <li>iSWTD/Certification Environments
+                    <ul>
+                         <li>Europe Ceritification Environments</li>
+                    </ul>
+               </li>
+               <li>weLearning</li>
+               <li>Epic Classics</li>
+               <li>Training Wheels</li>
+               <li>Sphinx</li>
+               <li>What's New</li>
+          </ul>
+     </div>
+</div>
+     <div class="admin">
+
+          <select>
+               <option>Support Logs</option>
+               <option>Release Authorization</option>
+               <option>Reportables</option>
+               <option>Checklists</option>
+          </select>
+          <img src="profile1.jpg" height="20px" width="20px" />
+     </div>
+     <div class="clear"></div>
+</div>
+
+<div id="primaryMenu">
+     <ul id="menu">
+          <li><a href="allposts.html"><i title="Back to all Sherlocks" class="fa fa-home"></i>Home</a></li>
+          <!--<li><a href="allposts.html"><i class="fa fa-home"></i>Home</a></li>-->
+          <li><a href="allposts.html"><i class="fa fa-tasks"></i>Review</a></li>
+          <li><a href=""><i class="fa fa-search"></i>Search</a></li>
+          <li><a href=""><i class="fa fa-chart-pie"></i>Reports</a></li>
+          <li class="create"><a href=""><i class="fa fa-plus"></i>Create Support Log</a></li>
+     </ul>
+     <div id="search">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Search for posts or tickets"/>
+     </div>
+     <div class="clear"></div>
+</div>
+
+<div id="content">
+     <div id="header">
+          <select class="customer">
+               <option>Northwest Pediatric Hospital</option>
+               <option>Peninsula West Medical Center</option>
+               <option>Bestest Healthcare Ever</option>
+          </select>
+          <h1><span class="postid">#4342336</span><span class="slash">/</span>Rogue registrars have gained access to the main frame. Are we allowed to implement Protocol B? Please Advise.</h1>
+     </div>
+
+     <div id="posts" class="page">
+          <div class="top navigation">
+               <div class="nav">
+                    <i class="fa fa-arrow-circle-left"></i>
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <i class="fa fa-arrow-circle-right"></i>
+                    <div class="clear"></div>
+               </div>
+               <span class="link internal">
+                    <span>
+                         <i class="fa fa-eye-slash"></i>
+                         <span class="hide">Hide</span><span class="show notVisible">Show</span> Internal
+                    </span>
+               </span>
+               <span class="link phi">
+                    <span>
+                         <i class="fa fa-lock"></i>
+                         <span class="hide">Hide</span><span class="show notVisible">Show</span> PHI
+                    </span>
+                    </span>
+               <span class="link">
+                    <span><i class="fa fa-arrows-alt-v"></i>Sort</span></span>
+               <span class="link filter">
+                    <span><i class="fa fa-filter"></i>Filter</span>
+                    <div class="dropdown">
+                         <h4>Filter by Tag</h4>
+                         <label>
+                              <input class="problem" type="checkbox" />
+                              <span>Problem Details</span>
+                         </label>
+                         <label>
+                              <input class="resolution" type="checkbox" />
+                              <span>Resolution</span>
+                         </label>
+                         <label>
+                              <input class="summary" type="checkbox" />
+                              <span>Summary</span>
+                         </label>
+                         <label>
+                              <input class="notes" type="checkbox" />
+                              <span>Technical Notes</span>
+                         </label>
+                         <div class="clear"></div>
+                         <button class="closeDropdown"><i class="fa fa-check"></i>Apply</button>
+                         <button class="cancel"><i class="fa fa-times"></i>Cancel</button>
+                         <div class="clear"></div>
+                    </div>
+               </span>
+          </div> <!--navigation-->
+          <div id="postContainer">
+          <div class="placeholder">
+               No posts found with those filters.
+          </div>
+          <div class="post phi">
+               <div class="header">
+                    <img src="profile1.jpg" class="profilepic" />
+                    <div class="name">Ernesto Gwyn<sup>Epic</sup><i class="fa fa-envelope"></i><i class="fa fa-phone-square"></i></div>
+                    <div class="date">April 3, 2016 at 11:30 PM (Yesterday)</div>
+                    <div class="number">#1</div>
+                    <div class="flag">
+                         <i class="fa fa-flag"></i>
+                         <div class="dropdown">
+                              <h4>Edit Tags</h4>
+                              <label>
+                                   <input class="problem" type="checkbox" />
+                                   <span>Problem Details</span>
+                              </label>
+                              <label>
+                                   <input class="resolution" type="checkbox" />
+                                   <span>Resolution</span>
+                              </label>
+                              <label>
+                                   <input class="summary" type="checkbox" />
+                                   <span>Summary</span>
+                              </label>
+                              <label>
+                                   <input class="notes" type="checkbox" />
+                                   <span>Technical Notes</span>
+                              </label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">
+                                   <i class="fa fa-check"></i>Apply
+                              </button>
+                              <button class="cancel">
+                                   <i class="fa fa-times"></i>Cancel
+                              </button>
+                              <div class="clear"></div>
+                         </div>
+                    </div>
+                    <div class="phi"><i class="fa fa-lock"></i></div>
+     		     <div class="problem tags">Problem Details</div>
+                    <div class="resolution tags">Resolution</div>
+                    <div class="summary tags">Summary</div>
+                    <div class="notes tags">Technical Notes</div>
+                    <div class="clear"></div>
+               </div>
+               <div class="entry">
+				 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. </p>
+                     <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then <a href="https://en.wikipedia.org/wiki/Rabbit/">boom a rabbit!</a></p>
+				<div class="attachments">
+                         <div class="fileHeader">
+                              <span class="type"></span>
+                              <span class="name">Name</span>
+                              <span class="author">Author</span>
+                              <span class="date">Date</span>
+                              <span class="size">Size</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">PDF</span>
+                              <span class="name">January 2018 Capacity Management Results</span>
+                              <span class="author">Taryn Julian</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">12 KB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">DOC</span>
+                              <span class="name">Raw data from census - 1/23/18</span>
+                              <span class="author">Ed MacIntire</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">32 MB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="clear"></div>
+                    </div>
+               </div>
+               <div class="footer">
+                 <span class="left"><i class="fa fa-pencil-alt"></i></span>
+                 <span class="confidential right">
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
+                 </span>
+                 <span class="left">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Today)</span>
+               </div>
+          </div>
+
+          <div class="epic post phi">
+               <div class="header">
+                    <img src="profile2.jpg" class="profilepic" />
+                    <div class="name">Ed MacIntire<i class="fa fa-envelope"></i><i class="fa fa-phone-square"></i></div>
+                    <div class="date">April 3, 2016 at 11:30 PM (Yesterday)</div>
+                    <div class="number">Epic #1</div>
+                    <div class="flag">
+                         <i class="fa fa-flag"></i>
+                         <div class="dropdown">
+                              <h4>Edit Tags</h4>
+                              <label>
+                                   <input class="problem" type="checkbox" />
+                                   <span>Problem Details</span>
+                              </label>
+                              <label>
+                                   <input class="resolution" type="checkbox" />
+                                   <span>Resolution</span>
+                              </label>
+                              <label>
+                                   <input class="summary" type="checkbox" />
+                                   <span>Summary</span>
+                              </label>
+                              <label>
+                                   <input class="notes" type="checkbox" />
+                                   <span>Technical Notes</span>
+                              </label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">
+                                   <i class="fa fa-check"></i>Apply
+                              </button>
+                              <button class="cancel">
+                                   <i class="fa fa-times"></i>Cancel
+                              </button>
+                              <div class="clear"></div>
+                         </div>
+                    </div>
+                    <div class="phi"><i class="fa fa-lock"></i></div>
+     		     <div class="problem tags">Problem Details</div>
+                    <div class="resolution tags">Resolution</div>
+                    <div class="summary tags">Summary</div>
+                    <div class="notes tags">Technical Notes</div>
+                    <div class="clear"></div>
+               </div>
+               <div class="entry">
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                    <!--<img src="murray.png" />-->
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
+                    <div class="attachments">
+                         <div class="fileHeader">
+                              <span class="type"></span>
+                              <span class="name">Name</span>
+                              <span class="author">Author</span>
+                              <span class="date">Date</span>
+                              <span class="size">Size</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">PDF</span>
+                              <span class="name">January 2018 Capacity Management Results from the most honorable and esteemed member of the group</span>
+                              <span class="author">Taryn Julian</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">12 KB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">DOC</span>
+                              <span class="name">Raw data from census - 1/23/18</span>
+                              <span class="author">Ed MacIntire</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">32 MB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">DOC</span>
+                              <span class="name">Files regarding those screenshots</span>
+                              <span class="author">Ed MacIntire</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">32 MB</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="clear"></div>
+                    </div>
+               </div>
+               <div class="footer">
+                 <span class="left"><i class="fa fa-pencil-alt"></i></span>
+                 <span class="confidential right">
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
+                 </span>
+                 <span class="left">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Today)</span>
+               </div>
+          </div>
+          <div class="post epic">
+               <div class="header">
+                    <img src="profile3.jpg" class="profilepic" />
+                    <div class="name">Teddy Heath<sup>Epic</sup><i class="fa fa-envelope"></i><i class="fa fa-phone-square"></i></div>
+                    <div class="date">April 3, 2016 at 11:30 PM (Yesterday)</div>
+                    <div class="number">Epic #2</div>
+                    <div class="flag">
+                         <i class="fa fa-flag"></i>
+                         <div class="dropdown">
+                              <h4>Edit Tags</h4>
+                              <label>
+                                   <input class="problem" type="checkbox" />
+                                   <span>Problem Details</span>
+                              </label>
+                              <label>
+                                   <input class="resolution" type="checkbox" />
+                                   <span>Resolution</span>
+                              </label>
+                              <label>
+                                   <input class="summary" type="checkbox" />
+                                   <span>Summary</span>
+                              </label>
+                              <label>
+                                   <input class="notes" type="checkbox" />
+                                   <span>Technical Notes</span>
+                              </label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">
+                                   <i class="fa fa-check"></i>Apply
+                              </button>
+                              <button class="cancel">
+                                   <i class="fa fa-times"></i>Cancel
+                              </button>
+                              <div class="clear"></div>
+                         </div>
+                    </div>
+                    <div class="phi"><i class="fa fa-unlock-alt"></i></div>
+     		     <div class="problem tags">Problem Details</div>
+                    <div class="resolution tags">Resolution</div>
+                    <div class="summary tags">Summary</div>
+                    <div class="notes tags">Technical Notes</div>
+                    <div class="clear"></div>
+               </div>
+               <div class="entry">
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="attachments">
+                         <div class="fileHeader">
+                              <span class="type"></span>
+                              <span class="name">Name</span>
+                              <span class="author">Author</span>
+                              <span class="date">Date</span>
+                              <span class="size">Size</span>
+                              <div class="clear"></div>
+                         </div>
+                         <div class="file">
+                              <span class="type">DOC</span>
+                              <span class="name">Raw data from census - 1/23/18</span>
+                              <span class="author">Ed MacIntire</span>
+                              <span class="date">11/12/2016</span>
+                              <span class="size">32 MB</span>
+                              <div class="clear"></div>
+                         </div>
+                    </div>
+               </div>
+               <div class="footer">
+                 <span class="left"><i class="fa fa-pencil-alt"></i></span>
+                 <span class="confidential right">
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
+                 </span>
+                 <span class="left">Last edited by Corriane Sanders on 11/1/2017 5:15 PM (Today)</span>
+               </div>
+          </div>
+
+          <div class="post">
+               <div class="header">
+                    <img src="profile5.jpg" class="profilepic" />
+                    <div class="name">Aaron Rodgers<i class="fa fa-envelope"></i><i class="fa fa-phone-square"></i></div>
+                    <div class="date">April 3, 2016 at 11:30 PM (Yesterday)</div>
+                    <div class="number">#2</div>
+                    <div class="flag">
+                         <i class="fa fa-flag"></i>
+                         <div class="dropdown">
+                              <h4>Edit Tags</h4>
+                              <label>
+                                   <input class="problem" type="checkbox" />
+                                   <span>Problem Details</span>
+                              </label>
+                              <label>
+                                   <input class="resolution" type="checkbox" />
+                                   <span>Resolution</span>
+                              </label>
+                              <label>
+                                   <input class="summary" type="checkbox" />
+                                   <span>Summary</span>
+                              </label>
+                              <label>
+                                   <input class="notes" type="checkbox" />
+                                   <span>Technical Notes</span>
+                              </label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">
+                                   <i class="fa fa-check"></i>Apply
+                              </button>
+                              <button class="cancel">
+                                   <i class="fa fa-times"></i>Cancel
+                              </button>
+                              <div class="clear"></div>
+                         </div>
+                    </div>
+                    <div class="phi"><i class="fa fa-unlock-alt"></i></div>
+     		     <div class="problem tags">Problem Details</div>
+                    <div class="resolution tags">Resolution</div>
+                    <div class="summary tags">Summary</div>
+                    <div class="notes tags">Technical Notes</div>
+                    <div class="clear"></div>
+               </div>
+               <div class="entry">
+                    <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.</p>
+               </div>
+               <div class="footer">
+                 <span class="left"><i class="fa fa-pencil-alt"></i></span>
+                 <span class="confidential right">
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
+                 </span>
+
+               </div>
+          </div>
+
+          <div class="post">
+               <div class="header">
+                    <img src="profile4.jpg" class="profilepic" />
+                    <div class="name">Gregory Smithers<i class="fa fa-envelope"></i><i class="fa fa-phone-square"></i></div>
+                    <div class="date">April 3, 2016 at 11:30 PM (Yesterday)</div>
+                    <div class="number">#3</div>
+                    <div class="flag">
+                         <i class="fa fa-flag"></i>
+                         <div class="dropdown">
+                              <h4>Edit Tags</h4>
+                              <label>
+                                   <input class="problem" type="checkbox" />
+                                   <span>Problem Details</span>
+                              </label>
+                              <label>
+                                   <input class="resolution" type="checkbox" />
+                                   <span>Resolution</span>
+                              </label>
+                              <label>
+                                   <input class="summary" type="checkbox" />
+                                   <span>Summary</span>
+                              </label>
+                              <label>
+                                   <input class="notes" type="checkbox" />
+                                   <span>Technical Notes</span>
+                              </label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">
+                                   <i class="fa fa-check"></i>Apply
+                              </button>
+                              <button class="cancel">
+                                   <i class="fa fa-times"></i>Cancel
+                              </button>
+                              <div class="clear"></div>
+                         </div>
+                    </div>
+                    <div class="phi"><i class="fa fa-unlock-alt"></i></div>
+     		     <div class="problem tags">Problem Details</div>
+                    <div class="resolution tags">Resolution</div>
+                    <div class="summary tags">Summary</div>
+                    <div class="notes tags">Technical Notes</div>
+                    <div class="clear"></div>
+               </div>
+               <div class="entry">
+                    <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
+                    <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed</p>
+                    <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed</p>
+                    <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed</p>
+                    <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed</p>
+                    <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed</p>
+                    <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed</p>
+                    <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed</p>	  
+		  </div>
+               <div class="footer">
+                 <span class="left"><i class="fa fa-pencil-alt"></i></span>
+                 <span class="confidential right">
+                    <span class="show"><i class="fa fa-chevron-circle-down"></i>Show</span>
+                    <span class="hide"><i class="fa fa-chevron-circle-up"></i>Hide</span>
+                 </span>
+
+               </div>
+          </div>
+     </div>
+          <div class="navigation">
+               <div class="nav">
+                    <i class="fa fa-arrow-circle-left"></i>
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <i class="fa fa-arrow-circle-right"></i>
+                    <div class="clear"></div>
+               </div>
+               <span class="link internal">
+                    <span>
+                         <i class="fa fa-eye-slash"></i>
+                         <span class="hide">Hide</span><span class="show notVisible">Show</span> Internal
+                    </span>
+               </span>
+               <span class="link phi">
+                    <span>
+                         <i class="fa fa-lock"></i>
+                         <span class="hide">Hide</span><span class="show notVisible">Show</span> PHI
+                    </span>
+                    </span>
+               <span class="link">
+                    <span><i class="fa fa-arrows-alt-v"></i>Sort</span></span>
+               <span class="link filter">
+                    <span><i class="fa fa-filter"></i>Filter</span>
+                    <div class="dropdown">
+                         <h4>Edit Tags</h4>
+                         <label>
+                              <input class="problem" type="checkbox" />
+                              <span>Problem Details</span>
+                         </label>
+                         <label>
+                              <input class="resolution" type="checkbox" />
+                              <span>Resolution</span>
+                         </label>
+                         <label>
+                              <input class="summary" type="checkbox" />
+                              <span>Summary</span>
+                         </label>
+                         <label>
+                              <input class="notes" type="checkbox" />
+                              <span>Technical Notes</span>
+                         </label>
+                         <div class="clear"></div>
+                         <button class="closeDropdown">
+                              <i class="fa fa-check"></i>Apply
+                         </button>
+                         <button class="cancel">
+                              <i class="fa fa-times"></i>Cancel
+                         </button>
+                         <div class="clear"></div>
+                    </div>
+               </span>
+          </div> <!--navigation-->
+
+          <div id="newpost" class="post new">
+               <div class="header">
+                    <div class="style left">
+                         <i class="fa fa-bold"></i>
+                         <i class="fa fa-italic"></i>
+                         <i class="fa fa-underline"></i>
+                         <select>
+                              <option>Helvetica</option>
+                              <option>Courier New</option>
+                              <option>Calibri</option>
+                         </select>
+                         <select class="size">
+                              <option>10pt</option>
+                              <option>14pt</option>
+                              <option>16pt</option>
+                         </select>
+                         <i class="fa fa-link"></i>
+                         <i class="fa fa-list-ul"></i>
+                         <i class="fa fa-list-ol"></i>
+                         <i class="fa fa-table"></i>
+                    </div>
+                    <div class="flag">
+                         <i class="fa fa-flag"></i>
+                         <div class="dropdown">
+                              <h4>Edit Tags</h4>
+                              <label>
+                                   <input class="problem" type="checkbox" />
+                                   <span>Problem Details</span>
+                              </label>
+                              <label>
+                                   <input class="resolution" type="checkbox" />
+                                   <span>Resolution</span>
+                              </label>
+                              <label>
+                                   <input class="summary" type="checkbox" />
+                                   <span>Summary</span>
+                              </label>
+                              <label>
+                                   <input class="notes" type="checkbox" />
+                                   <span>Technical Notes</span>
+                              </label>
+                              <div class="clear"></div>
+                              <button class="closeDropdown">
+                                   <i class="fa fa-check"></i>Apply
+                              </button>
+                              <button class="cancel">
+                                   <i class="fa fa-times"></i>Cancel
+                              </button>
+                              <div class="clear"></div>
+                         </div>
+                    </div>
+                    <div class="phi"><i class="fa fa-unlock-alt"></i></div>
+     		     <div class="problem tags">Problem Details</div>
+                    <div class="resolution tags">Resolution</div>
+                    <div class="summary tags">Summary</div>
+                    <div class="notes tags">Technical Notes</div>
+                    <div class="clear"></div>
+               </div>
+               <textarea></textarea>
+               <div class="attachments">
+                    <div class="fileHeader">
+                         <span class="type"></span>
+                         <span class="name">Name</span>
+                         <span class="author">Author</span>
+                         <span class="date">Date</span>
+                         <span class="size">Size</span>
+                         <div class="clear"></div>
+                    </div>
+                    <div class="file">
+                         <span class="type">PDF</span>
+                         <span class="name">January 2018 Capacity Management Results from the most honorable and esteemed member of the group</span>
+                         <span class="author">Taryn Julian</span>
+                         <span class="date">11/12/2016</span>
+                         <span class="size">12 KB</span>
+                         <div class="clear"></div>
+                    </div>
+               </div>
+               <div class="footer">
+				<span class="left"><i class="fa fa-plus"></i>Add Attachment</span>
+                    <button type="button" class="right submit"><i class="fa fa-check"></i>Post</button>
+                    <label class="internal right"><input type="checkbox" />Internal Post</label>
+                    <label class="right"><input type="checkbox" />Suppress Notification</label>
+               </div>
+          </div>
+
+     </div> <!--Posts-->
+
+
+
+<div id="details" class="page">
+     <h2>Edit Details</h2>
+     <form>
+      <label for="title" class="fullWidth">Title</label>
+      <input id="title" class="fullWidth" type="text" placeholder="RTE has become sentient. Please advise. What can we possibly do?" />
+
+      <label for="RefNum" class="leftSide">Reference #</label>
+      <label for="ReportedOn" class="rightSide">Reported On</label>
+      <div class="clear"></div>
+      <input id="RefNum" class="leftSide" type="text" placeholder="1322" />
+      <input id="ReportedOn" class="rightSide" type="text" placeholder="1/22/2017" />
+      <div class="clear"></div>
+
+      <label for="ReportedBy" class="leftSide">Reported By</label>
+      <label for="NextUpdate" class="rightSide">Next Update</label>
+      <div class="clear"></div>
+      <input id="ReportedBy" class="leftSide" type="text" placeholder="Mr. Bean" />
+      <input id="NextUpdate" class="rightSide" type="text" placeholder="1/23/2022" />
+      <div class="clear"></div>
+
+      <label for="SentToEpic" class="leftSide">Sent to Epic</label>
+      <label for="type" class="rightSide">Type</label>
+      <div class="clear"></div>
+      <input id="SentToEpic" type="text" class="leftSide" placeholder="1/23/2018" />
+      <select id="type" class="rightSide">
+           <option>Project Tracking</option>
+           <option>Problem Investigation</option>
+           <option>Upgrade Tracking</option>
+      </select>
+      <div class="clear"></div>
+</form>
+      <div class="footer">
+           <button class="left"><i class="fa fa-check"></i>Save</button>
+      </div>
+</div>
+<!-- Details -->
+
+<div id="attachments" class="page">
+     <h2>Attachments</h2>
+     <div class="fileHeader">
+          <span class="type"></span>
+          <span class="name">Name</span>
+          <span class="author">Author</span>
+          <span class="date">Date</span>
+          <span class="size">Size</span>
+          <div class="clear"></div>
+     </div>
+     <div class="file">
+          <span class="type">PDF</span>
+          <span class="name">January 2018 Capacity Management Results from the most honorable and esteemed member of the group</span>
+          <span class="author">Taryn Julian</span>
+          <span class="date">11/12/2016</span>
+          <span class="size">12 KB</span>
+          <div class="clear"></div>
+     </div>
+     <div class="file">
+          <span class="type">DOC</span>
+          <span class="name">Raw data from census - 1/23/18</span>
+          <span class="author">Ed MacIntire</span>
+          <span class="date">11/12/2016</span>
+          <span class="size">32 MB</span>
+          <div class="clear"></div>
+     </div>
+     <div class="file">
+          <span class="type">DOC</span>
+          <span class="name">Raw data from census - 1/23/18</span>
+          <span class="author">Ed MacIntire</span>
+          <span class="date">11/12/2016</span>
+          <span class="size">32 MB</span>
+          <div class="clear"></div>
+     </div>
+     <div class="file">
+          <span class="type">DOC</span>
+          <span class="name">Raw data from census - 1/23/18</span>
+          <span class="author">Ed MacIntire</span>
+          <span class="date">11/12/2016</span>
+          <span class="size">32 MB</span>
+          <div class="clear"></div>
+     </div>
+</div>
+<div class="clear"></div>
+
+</div> <!--Content-->
+<div class="clear"></div>
+</div>
+</body>
+</html>
