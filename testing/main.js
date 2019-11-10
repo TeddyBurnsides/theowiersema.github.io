@@ -1,12 +1,12 @@
 const data = [
 	['hello everybody and hi folks'],
-	['hello everybody'],
-	['hi people'],
-	['hello people'],
-	['how are the bananas'],
-	['How is the family'],
-	['how are the kids'],
-	['wide are the lakes']
+	['hello everybody and goodbye'],
+	['hi people out there'],
+	['hello people in outer space'],
+	['how are the bananas in Wisconsin'],
+	['How is the family farm'],
+	['how are the kids these days'],
+	['wide are the lakes in Wisconsin']
 ];
 let markov = new Array();
 let sumOfFollowers = new Array();
@@ -45,8 +45,21 @@ for (let i=0; i<data.length; i++) { // loop through each sentence provided
 
 // choose a word at random to start sentence with
 const startIndex = Math.floor(Math.random() * data.length);
-const startWord = data[startIndex].toString().split(' ')[0]; 
-//console.log('Start Word: ' + startWord);
-
+const startWord = data[startIndex].toString().split(' ')[0].toLowerCase(); 
+console.log('Start Word: ' + startWord);
+//
+found=0;
+let length;
+for (i=0;i<markov.length && !found;i++) {
+	if (startWord == markov[i][0]) {
+		length=markov[i][1].length;		
+		nextWordIndex=Math.floor(Math.random() * length);
+		nextWord=markov[i][1][nextWordIndex];
+		console.log(nextWordIndex);
+		console.log(nextWord);
+		found=1;
+	}
+}
+//console.log(Math.floor(Math.random() * 3)+1);
 // print markov data
 console.log(markov);
