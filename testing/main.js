@@ -1,4 +1,4 @@
-const data = [
+const input = [
 	['hello everybody and hi folks'],
 	['hello everybody and goodbye'],
 	['hi people out there'],
@@ -14,8 +14,8 @@ let indexer = new Array();
 let string,initial,follower,index,found,stop;
 // build markov array
 index=0;
-for (let i=0; i<data.length; i++) { // loop through each sentence provided
-	string=data[i].toString().split(' '); // convert each sentence to array with a word per element
+for (let i=0; i<input.length; i++) { // loop through each sentence provided
+	string=input[i].toString().split(' '); // convert each sentence to array with a word per element
 	for (let k=0; k<string.length-1; k++) { // loop through words in each sentence (stopping before last value because we want pairs of words)
 		initial = string[k].toLowerCase();
 		follower = string[k+1].toLowerCase();
@@ -44,8 +44,8 @@ for (let i=0; i<data.length; i++) { // loop through each sentence provided
 }
 
 // choose a word at random to start sentence with
-const startIndex = Math.floor(Math.random() * data.length);
-const startWord = data[startIndex].toString().split(' ')[0].toLowerCase(); 
+const randomIndex = Math.floor(Math.random() * input.join(' ').split(' ').length);
+startWord=input.join(' ').split(' ')[randomIndex];
 console.log('Start Word: ' + startWord);
 //
 found=0;
@@ -55,11 +55,11 @@ for (i=0;i<markov.length && !found;i++) {
 		length=markov[i][1].length;		
 		nextWordIndex=Math.floor(Math.random() * length);
 		nextWord=markov[i][1][nextWordIndex];
-		console.log(nextWordIndex);
-		console.log(nextWord);
+		console.log('Next Word: ' + nextWord);
 		found=1;
 	}
 }
+if (!found) console.log('Next Word: N/A');
 //console.log(Math.floor(Math.random() * 3)+1);
 // print markov data
-console.log(markov);
+//console.log(markov);
