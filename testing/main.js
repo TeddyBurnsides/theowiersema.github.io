@@ -41,14 +41,13 @@ const initialize = input => {
 	let initial,follower,index,markov = [],allFollowers  = [];
 	for (let sentence of input) { // loop through each sentence provided
 		sentence=sentence.toString().split(' '); // convert each sentence to array with a word per element
-		for (let k=0; k<sentence.length-1; k++) { // loop through words in each sentence (stopping before last value because we want pairs of words)
+		for (let k=0; k<sentence.length-1; k++) { // loop through each word in sentence to get pairs
 			initial = sentence[k].toLowerCase();
 			follower = sentence[k+1].toLowerCase();
-			// logic for adding values to markov array
-			if (!markov.length) { 
+			if (!markov.length) { // if array doesn't exist, create it 
 				markov.push([initial,[follower]]);
-			} else { // only need to do fancy stuff if array exists
-				index = markov.findIndex(word => word[0] == initial) // look for existance of "initial" value in array
+			} else { // only need to do fancy logic if array exists
+				index = markov.findIndex(word => word[0] == initial) // look for index of "initial" value in array
 				if (index!=-1) { // if found, append new value
 					allFollowers=markov[index][1];
 					allFollowers.push(follower);
