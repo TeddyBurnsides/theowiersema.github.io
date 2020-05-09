@@ -229,7 +229,7 @@ li span, li form input[type="text"] {
   padding:0;
   border:0;
   display:block;
-  width:100%;
+  width:calc(100% - 50px);
   font-family:var(--fonts);
 }
 li.completed span {
