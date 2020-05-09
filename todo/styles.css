@@ -50,9 +50,10 @@ table {
   --green:#63C2B6;
   --darkGreen:#519F95;
   --orange:#FF8469;
+  --fonts:Helvetica, Arial, sans-serif;
 }
 body {
-  font:12pt/20px 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font:12pt/20px var(--fonts);
   padding:50px;
   margin:0 auto;
   max-width:900px;
@@ -101,7 +102,7 @@ button#newItem {
   cursor:pointer;
   border-top-right-radius:3px;
   border-bottom-right-radius:3px;
-  text-shadow:0 1px 0 #519F95;
+  text-shadow:0 1px 0 var(--darkGreen);
 }
 button#newItem:hover {
   border-color:rgba(0,0,0,.3);
@@ -152,11 +153,22 @@ ul {
   margin:50px 0;
 }
 li {
-  border-bottom:1px solid #eee;
-  margin:10px 0;
-  padding:8px 40px 15px 68px;
+  padding:25px 40px 18px 68px;
   position:relative;
   min-height:52px;
+  width:calc(100% - 58px);
+}
+.break {
+  width:calc(100% - 50px);
+  background: #eee;
+  height:1px;
+  display:block;
+  position:absolute;
+  left:0;
+  bottom:0;
+}
+li:last-child .break {
+  height:0;
 }
 li:last-child {
   border:0;
@@ -169,8 +181,8 @@ button.complete {
   border-radius:100px;
   position:absolute;
   left:0;
-  top:7px;
-  font-size:23pt;
+  top:25px;
+  font-size:21pt;
   font-weight:bold;
   text-align:center;
   color:transparent;
@@ -191,8 +203,8 @@ li.completed button.complete {
 }
 button.remove {
  position:absolute;
- right:-50px;
- top:0px;
+ right:0px;
+ top:20px;
  padding:0;
  background:0;
  border:0;
@@ -211,18 +223,16 @@ button.remove:hover {
   color:#777;
 }
 li span, li form input[type="text"] {
-  font-size:16pt;
-  letter-spacing:-.5px;
+  font-size:15pt;
+  letter-spacing:-.7px;
   line-height:25px;
-  font-weight:bold;
   padding:0;
   border:0;
   display:block;
   width:100%;
-  font-family:'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-family:var(--fonts);
 }
 li.completed span {
-  text-decoration:line-through;
   color:rgba(0,0,0,.4);
 }
 li form input[type="text"] {
@@ -244,12 +254,12 @@ button.save {
 }
 li .star {
   position:absolute;
-  right:0;
+  right:50px;
   width:26px;
   height:25px;
   border:0;
   padding:0;
-  top:12px;
+  top:32px;
   font-size:11pt;
   cursor:pointer;
   background:#eee;

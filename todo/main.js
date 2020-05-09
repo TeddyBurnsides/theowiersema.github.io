@@ -214,8 +214,9 @@ const buildNewTaskHTML = (id,title,timestamp,highlight,complete) => {
 	const form=createHTML('form','','onsubmit','return false;'); // create form
 	appendChildren(form,[content, save]);
 	const li=createHTML('li','','data-id',id); // create <li>
+	const br=createHTML('div','','class','break'); // create <br />
 	if (complete == 1) li.setAttribute('class','completed');
-	appendChildren(li,[star,check,form,small,remove]); // add elements inside parent
+	appendChildren(li,[star,check,form,small,remove,br]); // add elements inside parent
 	document.querySelector('#list').prepend(li);
 }
 
