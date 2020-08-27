@@ -33,12 +33,13 @@ class App extends React.Component {
         const dueDate=this.dateInput.current.value;
         const taskTitle=this.taskInput.current.value;
 
-        if (taskTitle===''||dueDate==='') return false; // don't continue if empty
+        if (taskTitle==='') return false; // don't continue if empty
 
         // build new task
         const newTask = {
             title:taskTitle,
-            dueDate:dueDate
+            dueDate:dueDate,
+            complete:false
         };
     
         // push new task to array and update state

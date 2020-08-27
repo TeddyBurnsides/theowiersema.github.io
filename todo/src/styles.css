@@ -53,8 +53,14 @@ table {
     border: 3px solid orange;
   }
 body {
-    font-family:Helvetica;
+	font-family:Helvetica;
+	font-size:12pt;
     padding:10px;
+}
+input,button {
+	font-family:Helvetica;
+	font-size:12pt;
+	padding:5px;
 }
 form {
 	margin:0 0 20px 0;

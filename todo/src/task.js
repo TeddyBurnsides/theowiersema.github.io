@@ -9,6 +9,7 @@ class Task extends React.Component {
         return {year,month,day}
     }
     formatDate(date) {
+        if (date==="") return false;
         const datePieces = this.extractDateElements(date);
         const monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         return monthName[parseInt(datePieces.month)-1] + " " + datePieces.day + ", " + datePieces.year;
