@@ -1,0 +1,312 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*::-webkit-scrollbar {
+    width: 12px;
+  }
+  *::-webkit-scrollbar-track {
+    background: orange;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 20px;
+    border: 3px solid orange;
+  }
+  
+body {
+    background:#204051;
+    background:#EFF6FF;
+    font:11pt/1 'Helvetica';
+    
+}
+#wrapper {
+    margin:50px auto;
+    position:relative;
+    width:750px;
+}
+#chatBox {
+    width:500px;
+    background:#fff;
+    box-shadow:0 10px 30px rgba(88, 99, 179, .2);
+    padding:50px 0px 0 0;
+    border-radius:8px;
+    overflow:hidden;
+    margin-right:200px;
+    min-height:400px;
+}
+#sidebar {
+    position:absolute;
+    right:0;
+    top:50px;
+    width:200px;
+}
+#sidebar > div {
+    padding-bottom:50px;
+}
+#sidebar > div label {
+    height:16px;
+    font-size:8pt;
+    font-weight:Bold;
+    text-transform:uppercase;
+    display:block;
+    padding-left:5px;
+    padding-bottom:5px;
+    color:Rgba(0,0,0,.3);
+}
+#whoami {
+    position:relative;
+}
+#whoami input {
+    height:30px;
+    border:0;
+    padding:0 10px;
+    border-radius:3px;
+    width:145px;
+    font-size:10pt;
+    background:rgba(0,0,0,.08);
+    box-shadow:inset 0 0 5px rgba(0,0,0,.05);
+    font-weight:bold;
+    letter-spacing:-.5px;
+}
+#whoami button {
+    width:30px;
+    height:30px;
+    border:0;
+    position:absolute;
+    right:0;
+    bottom:0;
+    background:#fff;
+    border:1px solid rgba(0,0,0,.1);
+    border-radius:3px;
+    cursor:pointer;
+    font-weight:bold;
+    color:#5863B3;
+    font-size:11pt;
+}
+#whoami button:hover {
+    background:rgba(255,255,255,.8);
+    border-color:rgba(0,0,0,.13);
+}
+#sidebar > div li {
+    font-size:10pt;
+    line-height:30px;
+    height:30px;
+    padding:0 25px 0 8px;
+    letter-spacing:-.2px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    position:relative;
+    color:rgba(0,0,0,.25);
+}
+#sidebar > div li::after {
+    content:'•';
+    position:absolute;
+    right:8px;
+    top:0;
+    font-size:35pt;
+    line-height:38px;
+    color:rgba(0,0,0,.2);
+}
+#sidebar > div li.active:hover {
+    border-radius:3px;
+    background:rgba(88, 178, 122,.1);
+}
+#sidebar > div li.active {
+    cursor:pointer;
+    color:#58b27a;
+    font-weight:bold; 
+}
+#sidebar > div li.active::after {
+    color:#58b27a;
+}
+#sidebar > div li span {
+    padding-right:5px;
+    display:none;
+}
+#header {
+    border-bottom:1px solid #ececec;
+    padding:0 50px 25px 50px;
+    letter-spacing:-.2px;
+}
+h1 {
+    font:bold 11pt/20px Helvetica;
+    color:#bbb;
+    display:inline-block;
+}
+h1 span {
+    color:#5863B3;
+}
+#leave {
+    height:20px;
+    background:#ce7195;
+    color:#fff;
+    font-size:8pt;
+    border:0;
+    border-radius:2px;
+    cursor:pointer;
+    float:right;
+}
+#profile {
+    height:20px;
+    background:#ddd;
+    color:#555;
+    font-size:8pt;
+    border:0;
+    border-radius:2px;
+    cursor:pointer;
+    float:right;
+    margin:0 0 0 15px;
+}
+
+#leave:hover {
+    background:#FD7687;
+}
+#profile:hover {
+    background:#e4e4e4;
+}
+#list {
+    height:400px;
+    overflow:scroll;
+    padding:25px 50px;
+    position:relative;
+}
+#msgEnd {
+    height:20px;
+}
+.postWrapper {
+    margin:0 0 15px 0;
+}
+.clear {
+    clear:both;
+}
+.post {
+    color:#777;
+    max-width:70%;
+}
+.post > div {
+    background:#ededed;
+    padding:8px 15px;
+    border-radius:4px;
+    line-height:22px;
+    float:left;
+}
+.post > br {
+    float:left;
+    display:block;
+    width:100%;
+}
+.post > small {
+    font-size:9pt;
+    color:#bbb;
+    padding:5px 0 0 5px;
+    display:block;
+    float:left;
+}
+.postWrapper.targetUser .post {
+    margin-left:auto;
+    margin-right:0;
+}
+.postWrapper.targetUser .post > div {
+    background:#DDDFF8;
+    color:#5863B3;
+    float:right;
+    min-height:22px;
+}
+.postWrapper.targetUser .post > small {
+    text-align:right;
+    display:block;
+    float:right;
+}
+:root {
+    --formHeight:60px;
+    --sendButtonWidth:100px;
+}
+#chatForm {
+    padding:0px 0px 0 0px;
+    height:var(--formHeight);
+    position:relative;
+    background:rgba(255,255,255,.4);
+    backdrop-filter: blur(1);
+}
+input[type="text"]#msg {
+    width:calc(calc(100% - var(--sendButtonWidth)) - 60px);
+    padding:0 30px;
+    background:#f9f9f9;
+    border:0;
+    margin:0;
+    height:calc(var(--formHeight) - 1px);
+    border-top:1px solid #e6e6e6;
+    font:inherit;
+    float:left;
+    border-bottom-left-radius:8px;
+    color:#555;
+   
+}
+input[type="text"]#msg::placeholder {
+    color:#888;
+}
+*:focus {
+    outline:none;
+}
+button#send {
+    border-bottom-right-radius:8px;
+    position:absolute;
+    right:0px;
+    cursor:pointer;
+    margin:0;
+    padding:0;
+    border:0;
+    background:#5863B3;
+    width:var(--sendButtonWidth);
+    height:var(--formHeight);
+    color:#fff;
+    font:inherit;
+    font-weight:bold;
+}
+button#send {
+    display:none;
+}
+input[type="text"]#msg {
+    width:calc(100% - 60px);
+}
