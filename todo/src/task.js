@@ -1,6 +1,5 @@
 import React from 'react';
 import TaskTitle from './TaskTitle';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class Task extends React.Component {
     extractDateElements(date) {
