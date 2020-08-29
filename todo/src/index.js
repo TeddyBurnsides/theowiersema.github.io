@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {SingleTaskPage} from './SingleTaskPage';
 import HomePage from './HomePage';
 import './styles.css'
@@ -22,8 +22,9 @@ class App extends React.Component {
         // build initial state
         this.state = {
             tasks: [
-                {title:'This test',dueDate:'2019-12-9',complete:false},
-                {title:'Another thing',dueDate:'2019-1-23',complete:false}
+                {title:'Take out the trash',dueDate:'2019-12-9',complete:false},
+                {title:'Do the dishes',dueDate:'2019-1-23',complete:true},
+                {title:'Mow grass',dueDate:'2019-1-23',complete:false}
             ]
         }
     }
@@ -92,35 +93,37 @@ class App extends React.Component {
     render() {     
         return (        
             <Router>
-                <Route 
-                    path="/" 
-                    exact
-                    render={() => (
-                        <HomePage 
-                            submitTask={this.submitTask}
-                            taskInput={this.taskInput} 
-                            dateInput={this.dateInput}
-                            activeTasks={this.state.tasks} 
-                            deleteTask={this.deleteTask}
-                            toggleTask={this.toggleTask}
-                            editTask={this.editTask}
-                        />
-                    )}
-                />
-                <Route
-                    path="/task/:id"
-                    render={() => (
-                        <SingleTaskPage 
-                            activeTasks={this.state.tasks} 
-                            deleteTask={this.props.deleteTask}
-                            toggleTask={this.toggleTask}
-                            editTask={this.editTask}
-                        />
-                    )}
-                />
+                <Switch>
+                    <Route 
+                        path="/" 
+                        exact
+                        render={() => (
+                            <HomePage 
+                                submitTask={this.submitTask}
+                                taskInput={this.taskInput} 
+                                dateInput={this.dateInput}
+                                activeTasks={this.state.tasks} 
+                                deleteTask={this.deleteTask}
+                                toggleTask={this.toggleTask}
+                                editTask={this.editTask}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/task/:id"
+                        render={() => (
+                            <SingleTaskPage 
+                                activeTasks={this.state.tasks} 
+                                deleteTask={this.props.deleteTask}
+                                toggleTask={this.toggleTask}
+                                editTask={this.editTask}
+                            />
+                        )}
+                    />
+                </Switch>
             </Router>
-        );
-    }
-}
+        ); // return ()
+    } // render()
+} // class
 
 ReactDOM.render(<App />,document.getElementById('root'));

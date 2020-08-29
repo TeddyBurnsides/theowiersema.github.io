@@ -1,20 +1,7 @@
 import React from 'react';
-import TaskTitle from './TaskTitle';
+import TaskContent from './TaskContent';
 
 class Task extends React.Component {
-    extractDateElements(date) {
-        date=date.split('-');
-        const year=date[0];
-        const month=date[1];
-        const day=date[2];
-        return {year,month,day}
-    }
-    formatDate(date) {
-        if (date==="") return "no due date";
-        const datePieces = this.extractDateElements(date);
-        const monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        return monthName[parseInt(datePieces.month)-1] + " " + datePieces.day + ", " + datePieces.year;
-    }
     render() {
         // toggle text for completion buttone
         let completeButtonVal;
@@ -23,9 +10,10 @@ class Task extends React.Component {
         return (
             <div className={'task ' + this.props.status}>
           
-                <TaskTitle title={this.props.title} />
-
-                <div className={'dueDate'}>{this.formatDate(this.props.dueDate)}</div>
+                <TaskContent 
+                    title={this.props.title} 
+                    dueDate={this.props.dueDate}
+                />
 
                 <button 
                     onClick={event => this.props.editTask(event,this.props.index)}

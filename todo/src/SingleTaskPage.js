@@ -6,8 +6,8 @@ export function SingleTaskPage(props) {
     const {id} = useParams();
     const task = props.activeTasks[id];
     return (
-        <div id="task">
-            <Link to='/'>Back Home</Link>
+        <div id="singeTaskPage">
+            <Link className={'homeLink'} to='/'>Back</Link>
             <Task 
                 index={id}
                 title={task.title}

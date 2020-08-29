@@ -55,25 +55,63 @@ table {
 body {
 	font-family:Helvetica;
 	font-size:12pt;
-    padding:20px;
+	padding:20px;
+	background:#265b51;
 }
 input,button {
 	font-family:Helvetica;
 	font-size:12pt;
 	padding:5px;
 }
+input[type="text"] {
+	background:#fff;
+	border:0;
+	padding:10px 20px;
+	margin:0 20px 0 0;
+	line-height:30px;
+	font-size:15pt;
+}
+input[type="date"] {
+	background:#fff;
+	border:0;
+	padding:10px 20px;
+	line-height:30px;
+	margin:0 20px 0 0;
+	width:120px;
+}
+#newTaskEntry button {
+	background:rgba(0,0,0,.3);
+	border:0;
+	color:#fff;
+	padding:10px 30px;
+	margin:0 10px 0 0;
+	line-height:30px;
+	font-size:14pt;
+}
+.task button {
+	background:rgba(0,0,0,.3);
+	border:0;
+	color:#fff;
+	padding:10px 20px;
+	margin:0 10px 0 0;
+	line-height:30px;
+	font-size:12pt;
+}
 form {
-	padding:20px 0;
+	padding:0 0 20px 0;
 }
 .task {
 	margin:0 0 20px 0;
 	padding:20px;
-	background:#eee;
-	border-left:5px solid #eee;
+	background:rgba(255,255,255,.1);
 	display:block;
+	border-left:5px solid transparent;
 }
 .task.true {
-	border-left:5px solid #aaa;
+	border-left:5px solid rgba(255,255,255,.4);
+}
+#taskList .task:hover {
+	background:rgba(255,255,255,.15);
 }
  button {
 	 cursor:pointer;
@@ -81,4 +119,21 @@ form {
  a {
 	 text-decoration:none;
 	 color:#000;
+ }
+ a.homeLink {
+	margin:0 0 20px 0;
+	display:inline-block;
+	color:#fff;
+	padding:10px 0 0;
+	height:40px;
+ }
+ h1 {
+	 font-size:25pt;
+	 padding:10px 0 10px 0;
+	 color:#fff;
+ }
+ h2 {
+	 font-style:italic;
+	 color:rgba(255,255,255,.6);
+	 padding:0 0 25px 0;
  }
