@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TaskList from './taskList';
-import NewTaskEntry from './input';
+import { BrowserRouter as Router, Route, Link, useParams } from "react-router-dom";
+
+import Task from './task';
+
+import HomePage from './HomePage';
 import './styles.css'
 
 class App extends React.Component {
@@ -16,6 +19,7 @@ class App extends React.Component {
         this.deleteTask = this.deleteTask.bind(this);
         this.submitTask = this.submitTask.bind(this); 
         this.toggleTask = this.toggleTask.bind(this);
+        this.editTask = this.editTask.bind(this);
 
         // build initial state
         this.state = {
@@ -58,7 +62,7 @@ class App extends React.Component {
         // remove task from array and update state
         this.setState((state) => {
             state.tasks.splice(index,1);
-            return {tasks:state.tasks}
+            return {tasks:state.tasks};
         })
     }
 
@@ -71,27 +75,73 @@ class App extends React.Component {
         // update completed value on task and update state
         this.setState((state) => {
             state.tasks[index].complete = isCompleted;
-            return {tasks:state.tasks}
+            return {tasks:state.tasks};
         });
 
     }
 
-    render() {
-        return (
-            <div id="app">
-                <NewTaskEntry 
-                    submitTask={this.submitTask}
-                    taskInput={this.taskInput} 
-                    dateInput={this.dateInput}
+    editTask(event,index) {
+
+        event.preventDefault(); // stop page from refreshing
+
+        this.setState((state) => {
+            state.tasks[index].title = "theodore";
+            return {tasks:state.tasks};
+        });
+        
+    }
+    
+    render() {     
+        return (        
+            <Router>
+                <Route 
+                    path="/" 
+                    exact
+                    render={() => (
+                        <HomePage 
+                            submitTask={this.submitTask}
+                            taskInput={this.taskInput} 
+                            dateInput={this.dateInput}
+                            activeTasks={this.state.tasks} 
+                            deleteTask={this.deleteTask}
+                            toggleTask={this.toggleTask}
+                            editTask={this.editTask}
+                        />
+                    )}
                 />
-                <TaskList 
-                    activeTasks={this.state.tasks} 
-                    deleteTask={this.deleteTask}
-                    toggleTask={this.toggleTask}
+                <Route
+                    path="/task/:id"
+                    render={() => (
+                        <SingleTaskPage 
+                            activeTasks={this.state.tasks} 
+                            deleteTask={this.props.deleteTask}
+                            toggleTask={this.toggleTask}
+                            editTask={this.editTask}
+                        />
+                    )}
                 />
-            </div>
+            </Router>
         );
     }
 }
+
+const SingleTaskPage = (props) => {
+    const {id} = useParams();
+    const task = props.activeTasks[id];
+    return (
+        <div id="task">
+            <Link to='/'>Back Home</Link>
+            <Task 
+                index={id}
+                title={task.title}
+                dueDate={task.dueDate} 
+                status={task.complete}
+                deleteTask={props.deleteTask}
+                toggleTask={props.toggleTask}
+                editTask={props.editTask}
+            />
+        </div>        
+    );
+};
 
 ReactDOM.render(<App />,document.getElementById('root'));

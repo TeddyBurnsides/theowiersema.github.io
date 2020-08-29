@@ -55,7 +55,7 @@ table {
 body {
 	font-family:Helvetica;
 	font-size:12pt;
-    padding:10px;
+    padding:20px;
 }
 input,button {
 	font-family:Helvetica;
@@ -63,8 +63,22 @@ input,button {
 	padding:5px;
 }
 form {
-	margin:0 0 20px 0;
+	padding:20px 0;
 }
 .task {
 	margin:0 0 20px 0;
+	padding:20px;
+	background:#eee;
+	border-left:5px solid #eee;
+	display:block;
 }
+.task.true {
+	border-left:5px solid #aaa;
+}
+ button {
+	 cursor:pointer;
+ }
+ a {
+	 text-decoration:none;
+	 color:#000;
+ }
