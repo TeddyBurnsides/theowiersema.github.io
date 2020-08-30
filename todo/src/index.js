@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {SingleTaskPage} from './SingleTaskPage';
 import HomePage from './HomePage';
-import './styles.css'
+import './styles.css';
 
 class App extends React.Component {
     constructor(props) {

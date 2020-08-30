@@ -72,22 +72,22 @@ input:focus {
 	padding:0 0 20px 0;
 }
 #newTaskEntry input[type="text"] {
-	background:rgba(255,255,255,.7);
+	background:rgba(255,255,255,.6);
 	padding:0px 30px;
 	margin:0 20px 0 0;
 	line-height:60px;
 	height:60px;
-	font-size:22pt;
-	width:calc(100% - 420px);
+	font-size:18pt;
+	width:calc(100% - 390px);
 	float:left;
 }
 #newTaskEntry input[type="date"] {
-	background:rgba(255,255,255,.7);
+	background:rgba(255,255,255,.6);
 	padding:0 20px;
 	line-height:30px;
 	margin:0 20px 0 0;
-	width:180px;
-	font-size:18pt;
+	width:150px;
+	font-size:16pt;
 	height:60px;
 	line-height:60px;
 	text-align:center;
@@ -98,37 +98,45 @@ input:focus {
 	color:#000;
 }
 #newTaskEntry input:focus {
-	background:#fff;
+	background:rgba(255,255,255,.8);
 }
 #newTaskEntry button {
 	background:rgba(0,0,0,.3);
 	color:#fff;
 	padding:0;
 	line-height:30px;
-	font-size:18pt;
+	font-size:16pt;
 	width:100px;
 	line-height:60px;
 	height:60px;
 	float:left;
+	font-weight:300;
+}
+#newTaskEntry button:hover {
+	background:rgba(0,0,0,.4);
 }
 .task {
 	position:Relative;
 	margin:0 0 20px 0;
 	padding:30px;
+	height:80px;
 	background:rgba(255,255,255,.1);
 	display:block;
 	border-right:50px solid rgba(255,255,255,.05);
 }
-#singleTaskPage .homeLink {
+
+.homeLink {
+	margin:0;
 	float:left;
 	width:50px;
 	display:block;
-	height:200px;
+	height:205px;
 	background:rgba(0,0,0,.1);
 	line-height:200px;
 	text-align:center;
 	font-size:25pt;
 	color:rgba(255,255,255,.6);
+	color:#fff;
 }
 #singleTaskPage .homeLink:hover {
 	background:rgba(0,0,0,.15);
@@ -136,7 +144,7 @@ input:focus {
 }
 #singleTaskPage .task {
 	float:right;
-	height:150px;
+	height:145px;
 	width:calc(100% - 160px);
 }
 .task input[type="text"] {
@@ -174,6 +182,7 @@ input:focus {
 	background:#c25e63;
 	font-size:10pt;
 	opacity:.7;
+	margin:20px 0 0 0;
 }
 .task button.delete:hover {
 	opacity:1;
@@ -193,9 +202,12 @@ input:focus {
 	right:-50px;
 	top:0;
 	background:none;
-	height:160px;
+	height:140px;
 	width:50px;
 	font-size:25pt;
+}
+#singleTaskPage .complete {
+	height:205px;
 }
 .task.false .complete:hover {
 	color:#fff;
@@ -215,26 +227,17 @@ input:focus {
 	 text-decoration:none;
 	 color:#000;
  }
- a.homeLink {
-	margin:0 0 20px 0;
-	display:inline-block;
-	color:#fff;
-	padding:10px 0 0;
-	height:40px;
- }
  h1 {
 	 font-size:25pt;
+	 line-height:50px;
 	 padding:0px 0 10px 0;
 	 color:#fff;
+	 font-weight:300;
+	 letter-spacing:-.5px;
  }
  h2 {
 	 font-style:italic;
 	 color:rgba(255,255,255,.6);
-	 padding:0 0 25px 0;
- }
- h3 {
-	 font-size:14pt;
-	 font-style:italic;
-	 color:rgba(0,0,0,.5);
-	 margin-bottom:20px;
+	 line-height:20px;
+	 padding:0 0 10px 0;
  }

@@ -2,11 +2,19 @@ import React from 'react';
 import TaskContent from './TaskContent';
 
 class Task extends React.Component {
+    deleteButton() {
+        if (this.props.editModeOn) {
+            return (
+                <button 
+                    onClick={event => this.props.deleteTask(event,this.props.index)} 
+                    className={'delete'}>
+                        Delete Task
+                </button>
+            );
+        }
+    };
     render() {
-        // toggle text for completion buttone
-        let completeButtonVal;
-        this.props.status ? completeButtonVal = '\u2713' : completeButtonVal = '\u2713';
-
+        
         return (
             <div className={'task ' + this.props.status}>
           
@@ -19,13 +27,11 @@ class Task extends React.Component {
                     editModeOn={this.props.editModeOn}
                 />
 
-                <button 
-                    onClick={event => this.props.deleteTask(event,this.props.index)} 
-                    className={'delete'}>Delete Task</button>
+                {this.deleteButton()}
 
                 <button 
                     onClick={event => this.props.toggleTask(event,this.props.index)} 
-                    className={'complete'}>{completeButtonVal}</button>
+                    className={'complete'}>&#10003;</button>
            
             </div>
         )
