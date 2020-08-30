@@ -5,7 +5,7 @@ class Task extends React.Component {
     render() {
         // toggle text for completion buttone
         let completeButtonVal;
-        this.props.status ? completeButtonVal = 'Mark In Progress' : completeButtonVal = 'Mark Completed';
+        this.props.status ? completeButtonVal = '\u2713' : completeButtonVal = '\u2713';
 
         return (
             <div className={'task ' + this.props.status}>
@@ -21,7 +21,7 @@ class Task extends React.Component {
 
                 <button 
                     onClick={event => this.props.deleteTask(event,this.props.index)} 
-                    className={'delete'}>Delete</button>
+                    className={'delete'}>Delete Task</button>
 
                 <button 
                     onClick={event => this.props.toggleTask(event,this.props.index)} 

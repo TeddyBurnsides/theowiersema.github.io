@@ -7,6 +7,7 @@ class NewTaskEntry extends React.Component {
                 <input placeholder="Type new task..." type="text" ref={this.props.taskInput} />
                 <input type="date" ref={this.props.dateInput} />
                 <button onClick={event => this.props.submitTask(event)}>Add</button>
+                <div className={'clear'}></div>
             </form>
         )
     }

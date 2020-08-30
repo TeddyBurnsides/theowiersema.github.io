@@ -30,6 +30,7 @@ class TaskContent extends React.Component {
                         className={'edit'}>
                         Save
                     </button>
+                    <div className={'clear'}></div>
                 </form>
             );
         } else {
