@@ -16,6 +16,7 @@ class TaskList extends React.Component {
                         deleteTask={this.props.deleteTask}
                         toggleTask={this.props.toggleTask}
                         editTask={this.props.editTask}
+                        editModeOn={false}
                     />
                 </Link>
             );

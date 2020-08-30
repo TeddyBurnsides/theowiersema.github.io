@@ -62,18 +62,23 @@ input,button {
 	font-family:Helvetica;
 	font-size:12pt;
 	padding:5px;
-}
-input[type="text"] {
-	background:#fff;
 	border:0;
+}
+input:focus {
+	outline:none;
+}
+#newTaskEntry {
+	padding:0 0 20px 0;
+}
+#newTaskEntry input[type="text"] {
+	background:#fff;
 	padding:10px 20px;
 	margin:0 20px 0 0;
 	line-height:30px;
 	font-size:15pt;
 }
-input[type="date"] {
+#newTaskEntry input[type="date"] {
 	background:#fff;
-	border:0;
 	padding:10px 20px;
 	line-height:30px;
 	margin:0 20px 0 0;
@@ -81,24 +86,11 @@ input[type="date"] {
 }
 #newTaskEntry button {
 	background:rgba(0,0,0,.3);
-	border:0;
 	color:#fff;
 	padding:10px 30px;
 	margin:0 10px 0 0;
 	line-height:30px;
 	font-size:14pt;
-}
-.task button {
-	background:rgba(0,0,0,.3);
-	border:0;
-	color:#fff;
-	padding:10px 20px;
-	margin:0 10px 0 0;
-	line-height:30px;
-	font-size:12pt;
-}
-form {
-	padding:0 0 20px 0;
 }
 .task {
 	margin:0 0 20px 0;
@@ -107,11 +99,37 @@ form {
 	display:block;
 	border-left:5px solid transparent;
 }
-.task.true {
-	border-left:5px solid rgba(255,255,255,.4);
+.task input[type="text"] {
+	margin:0 20px 20px 0;
+	border-bottom:3px solid rgba(255,255,255,.2);
+	font-size:25pt;
+	padding:10px 0;
+	color:#fff;
+	background:none;
+	width:calc(100% - 120px);
+}
+.task input[type="text"]:focus {
+	border-color:rgba(255,255,255,.6);
+}
+.task button.edit {
+	background:rgba(0,0,0,.2);
+	color:#fff;
+	margin:0;
+	line-height:35px;
+	font-size:11pt;
+	width:100px;
+}
+.task button.edit:hover {
+	background:rgba(0,0,0,.3);
+}
+#taskList .task.true {
+	opacity:.4;
 }
 #taskList .task:hover {
 	background:rgba(255,255,255,.15);
+}
+#taskList button {
+	margin:0 20px 0 0;
 }
  button {
 	 cursor:pointer;

@@ -14,11 +14,42 @@ class TaskContent extends React.Component {
         const monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         return monthName[parseInt(datePieces.month)-1] + " " + datePieces.day + ", " + datePieces.year;
     }
+
+    toEditOrNotToEdit() {
+        const editModeOn=this.props.editModeOn;
+        if (editModeOn) {
+            return (
+                <form>
+                    <input 
+                        type="text" 
+                        defaultValue={this.props.title} 
+                        ref={this.props.newTaskTitle}
+                    />   
+                    <button 
+                        onClick={event => this.props.editTask(event,this.props.index)}
+                        className={'edit'}>
+                        Save
+                    </button>
+                </form>
+            );
+        } else {
+            return (
+                <h1 className={'title'}>{this.props.title}</h1>
+            );
+        }
+    };
+
     render() {
         return (
             <div className={'content'}>
-                <h1 className={'title'}>{this.props.title}</h1>
-                <h2 className={'dueDate'}>{this.formatDate(this.props.dueDate)}</h2>
+
+                {this.toEditOrNotToEdit()}
+                
+
+
+
+                
+                <h2 className={'dueDate'}>Due by: {this.formatDate(this.props.dueDate)}</h2>
             </div>
         );
     }

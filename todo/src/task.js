@@ -5,7 +5,7 @@ class Task extends React.Component {
     render() {
         // toggle text for completion buttone
         let completeButtonVal;
-        this.props.status ? completeButtonVal = 'Undo' : completeButtonVal = 'Complete';
+        this.props.status ? completeButtonVal = 'Mark In Progress' : completeButtonVal = 'Mark Completed';
 
         return (
             <div className={'task ' + this.props.status}>
@@ -13,11 +13,11 @@ class Task extends React.Component {
                 <TaskContent 
                     title={this.props.title} 
                     dueDate={this.props.dueDate}
+                    editTask={this.props.editTask}
+                    index={this.props.index}
+                    newTaskTitle={this.props.newTaskTitle}
+                    editModeOn={this.props.editModeOn}
                 />
-
-                <button 
-                    onClick={event => this.props.editTask(event,this.props.index)}
-                    className={'edit'}>Edit</button>
 
                 <button 
                     onClick={event => this.props.deleteTask(event,this.props.index)} 
@@ -26,8 +26,6 @@ class Task extends React.Component {
                 <button 
                     onClick={event => this.props.toggleTask(event,this.props.index)} 
                     className={'complete'}>{completeButtonVal}</button>
-
-                <button className={'dragger'}> = </button>
            
             </div>
         )

@@ -12,6 +12,7 @@ class App extends React.Component {
         // refs for input fields
         this.taskInput = React.createRef();
         this.dateInput = React.createRef();
+        this.newTaskTitle = React.createRef();
 
         // bind this to events
         this.deleteTask = this.deleteTask.bind(this);
@@ -83,8 +84,10 @@ class App extends React.Component {
 
         event.preventDefault(); // stop page from refreshing
 
+       const newTaskTitle = this.newTaskTitle.current.value;
+
         this.setState((state) => {
-            state.tasks[index].title = "theodore";
+            state.tasks[index].title = newTaskTitle;
             return {tasks:state.tasks};
         });
         
@@ -117,6 +120,7 @@ class App extends React.Component {
                                 deleteTask={this.props.deleteTask}
                                 toggleTask={this.toggleTask}
                                 editTask={this.editTask}
+                                newTaskTitle={this.newTaskTitle}
                             />
                         )}
                     />

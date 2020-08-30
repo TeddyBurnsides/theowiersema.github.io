@@ -16,6 +16,8 @@ export function SingleTaskPage(props) {
                 deleteTask={props.deleteTask}
                 toggleTask={props.toggleTask}
                 editTask={props.editTask}
+                newTaskTitle={props.newTaskTitle}
+                editModeOn={true}
             />
         </div>        
     );
