@@ -59,11 +59,13 @@ body {
 	background:#265b51; /* dark green */
 	/*background:#1e3250;*/ /* dark blue */
 	min-width:450px;
+	font-weight:300;
 }
 .clear {clear:both;}
 input,button {
 	font-family:Helvetica;
 	border:0;
+	font-weight:300;
 }
 input:focus {
 	outline:none;

@@ -1,15 +1,16 @@
 import React from 'react';
 import TaskContent from './TaskContent';
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class Task extends React.Component {
     deleteButton() {
         if (this.props.editModeOn) {
-            return (
-                <button 
+            return (  
+                <button
                     onClick={event => this.props.deleteTask(event,this.props.index)} 
                     className={'delete'}>
-                        Delete Task
-                </button>
+                        <Link to='/'>Delete Task</Link>
+                </button>     
             );
         }
     };

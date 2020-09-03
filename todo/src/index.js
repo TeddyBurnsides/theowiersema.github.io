@@ -23,9 +23,10 @@ class App extends React.Component {
         // build initial state
         this.state = {
             tasks: [
-                {title:'Take out the trash',dueDate:'2019-12-9',complete:false},
-                {title:'Do the dishes',dueDate:'2019-1-23',complete:true},
-                {title:'Mow grass',dueDate:'2019-1-23',complete:false}
+                {title:'Take out the trash',dueDate:'2019-12-9',complete:false,active:true},
+                {title:'Do the dishes',dueDate:'2019-1-23',complete:true,active:true},
+                {title:'Mow grass',dueDate:'2019-1-23',complete:false,active:true},
+                {title:'Deleted Task',dueDate:'2019-1-23',complete:false,active:false},
             ]
         }
     }
@@ -43,7 +44,8 @@ class App extends React.Component {
         const newTask = {
             title:taskTitle,
             dueDate:dueDate,
-            complete:false
+            complete:false,
+            active:true
         };
     
         // push new task to array and update state
@@ -59,11 +61,13 @@ class App extends React.Component {
        
         event.preventDefault(); // stop page from refreshing
 
+        console.log('theo');
+
         // remove task from array and update state
         this.setState((state) => {
-            state.tasks.splice(index,1);
+            state.tasks[index].active = false;
             return {tasks:state.tasks};
-        })
+        });
     }
 
     toggleTask(event,index) {
@@ -117,7 +121,7 @@ class App extends React.Component {
                         render={() => (
                             <SingleTaskPage 
                                 activeTasks={this.state.tasks} 
-                                deleteTask={this.props.deleteTask}
+                                deleteTask={this.deleteTask}
                                 toggleTask={this.toggleTask}
                                 editTask={this.editTask}
                                 newTaskTitle={this.newTaskTitle}
