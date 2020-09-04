@@ -7,19 +7,22 @@ export function SingleTaskPage(props) {
     const task = props.activeTasks[id];
     return (
         <div id="singleTaskPage">
-            <Link className={'homeLink'} to='/'>&larr;</Link>
-            <Task 
-                index={id}
-                title={task.title}
-                dueDate={task.dueDate} 
-                status={task.complete}
-                deleteTask={props.deleteTask}
-                toggleTask={props.toggleTask}
-                editTask={props.editTask}
-                newTaskTitle={props.newTaskTitle}
-                editModeOn={true}
-            />
-            <div className={'clear'}></div>
+            <div class="wrapper">
+                <Link className={'homeLink'} to='/'>&larr;</Link>
+                <Task 
+                    index={id}
+                    title={task.title}
+                    dueDate={task.dueDate} 
+                    status={task.complete}
+                    deleteTask={props.deleteTask}
+                    toggleTask={props.toggleTask}
+                    editTask={props.editTask}
+                    newTaskTitle={props.newTaskTitle}
+                    newDueDate={props.newDueDate}
+                    editModeOn={true}
+                />
+                <div className={'clear'}></div>
+            </div>
         </div>        
     );
 };

@@ -14,6 +14,20 @@ class Task extends React.Component {
             );
         }
     };
+    completeButton() {
+        if (this.props.editModeOn === false) {
+            return (
+                <button 
+                    onClick={event => this.props.toggleTask(event,this.props.index)} 
+                    className={'complete'}>
+                        <span>{this.checkbox()}</span>
+                </button>
+            );
+        }
+    }
+    checkbox() {
+        if (this.props.status===true) return ('\u2713');
+    }
     render() {
         
         return (
@@ -25,14 +39,13 @@ class Task extends React.Component {
                     editTask={this.props.editTask}
                     index={this.props.index}
                     newTaskTitle={this.props.newTaskTitle}
+                    newDueDate={this.props.newDueDate}
                     editModeOn={this.props.editModeOn}
                 />
 
                 {this.deleteButton()}
 
-                <button 
-                    onClick={event => this.props.toggleTask(event,this.props.index)} 
-                    className={'complete'}>&#10003;</button>
+                {this.completeButton()}
            
             </div>
         )

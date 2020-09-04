@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 class TaskList extends React.Component {
     render () {
         const taskList = this.props.activeTasks.map((task,index) => {
-            if (task.active == true) {
+            if (task.active) {
                 return (
                     <Link key={index} to={'/task/' + index}>
                         <Task 
@@ -21,12 +21,16 @@ class TaskList extends React.Component {
                         />
                     </Link>
                 );
+            } else {
+                return false;
             }
         });
 
         return (
             <div id="taskList">
-                {taskList}
+                <div class="wrapper">
+                    {taskList}
+                </div> 
             </div>
         );
     }

@@ -13,6 +13,7 @@ class App extends React.Component {
         this.taskInput = React.createRef();
         this.dateInput = React.createRef();
         this.newTaskTitle = React.createRef();
+        this.newDueDate = React.createRef();
 
         // bind this to events
         this.deleteTask = this.deleteTask.bind(this);
@@ -23,10 +24,11 @@ class App extends React.Component {
         // build initial state
         this.state = {
             tasks: [
-                {title:'Take out the trash',dueDate:'2019-12-9',complete:false,active:true},
-                {title:'Do the dishes',dueDate:'2019-1-23',complete:true,active:true},
-                {title:'Mow grass',dueDate:'2019-1-23',complete:false,active:true},
-                {title:'Deleted Task',dueDate:'2019-1-23',complete:false,active:false},
+                {title:'Take out the trash to the curb',dueDate:'2020-09-03',complete:false,active:true},
+                {title:'Do the dishes in the kitchen',dueDate:'2019-01-23',complete:true,active:true},
+                {title:'Mow grass',dueDate:'',complete:true,active:true},
+                {title:'Deleted Task - this should not show up ever really ever again to be honest',dueDate:'2019-01-23',complete:false,active:true},
+                {title:'Complete this site',dueDate:'2020-09-04',complete:false,active:true},
             ]
         }
     }
@@ -61,8 +63,6 @@ class App extends React.Component {
        
         event.preventDefault(); // stop page from refreshing
 
-        console.log('theo');
-
         // remove task from array and update state
         this.setState((state) => {
             state.tasks[index].active = false;
@@ -89,9 +89,11 @@ class App extends React.Component {
         event.preventDefault(); // stop page from refreshing
 
        const newTaskTitle = this.newTaskTitle.current.value;
+       const newDueDate = this.newDueDate.current.value;
 
         this.setState((state) => {
             state.tasks[index].title = newTaskTitle;
+            state.tasks[index].dueDate = newDueDate;
             return {tasks:state.tasks};
         });
         
@@ -125,6 +127,7 @@ class App extends React.Component {
                                 toggleTask={this.toggleTask}
                                 editTask={this.editTask}
                                 newTaskTitle={this.newTaskTitle}
+                                newDueDate={this.newDueDate}
                             />
                         )}
                     />
