@@ -245,14 +245,19 @@ html {
 	box-shadow:0 2px 5px rgba(0,0,0,.4);
 	color:#214da5;
 }
-#singleTaskPage button.edit {
+#singleTaskPage button.edit { /* style button different because there's a <link> in it */
+	float:left;
+	padding:0;
+}
+#singleTaskPage button.edit a {
 	background:#c0c8ff;
 	width:80px;
 	height:44px;
-	float:left;
-	border:0;
+	display:inline-block;
+	border-radius:3px;
+	line-height:44px;
 }
-#singleTaskPage button.edit:hover {
+#singleTaskPage button.edit a:hover {
 	background:#dfe3ff;
 }
 #singleTaskPage button.edit a {

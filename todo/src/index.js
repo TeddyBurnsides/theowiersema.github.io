@@ -100,8 +100,6 @@ class App extends React.Component {
         
     }
 
-    
-    
     render() {     
 
         // add functions to array to pass as a spread prop
