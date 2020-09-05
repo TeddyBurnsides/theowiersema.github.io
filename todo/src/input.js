@@ -17,7 +17,7 @@ class NewTaskEntry extends React.Component {
     render() {
         return (      
             <form id="newTaskEntry">
-                <div class="wrapper">
+                <div className={'wrapper'}>
                     <input placeholder="Type new task..." type="text" ref={this.props.taskInput} />
                     <input defaultValue={this.today()} type="date" ref={this.props.dateInput} />
                     <button onClick={event => this.props.submitTask(event)}>Add</button>

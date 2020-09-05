@@ -3,7 +3,21 @@ import Task from './task';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class TaskList extends React.Component {
+
+    noTasksMsg() {
+        let count = 0;
+        this.props.activeTasks.forEach(task => {
+            if (task.active) count++;
+        });
+        if (count===0) return (
+            <h3>No tasks yet!</h3>
+        );
+    }
+
     render () {
+
+       
+
         const taskList = this.props.activeTasks.map((task,index) => {
             if (task.active) {
                 return (
@@ -28,8 +42,9 @@ class TaskList extends React.Component {
 
         return (
             <div id="taskList">
-                <div class="wrapper">
+                <div className={'wrapper'}>
                     {taskList}
+                    {this.noTasksMsg()}
                 </div> 
             </div>
         );

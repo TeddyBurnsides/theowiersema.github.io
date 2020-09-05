@@ -73,7 +73,7 @@ input,button {
 	font-family:Helvetica;
 	font-weight:300;
 	border-radius:4px;
-	font-size:14pt;
+	font-size:13pt;
 	border:0;
 	box-shadow:0 2px 5px rgba(0,0,0,.1);
 }
@@ -81,19 +81,19 @@ input,button {
 	Header
 */
 #newTaskEntry {
-	padding:40px 40px;
+	padding:30px 40px;
 	background:#3f3cc9;
 }
 #newTaskEntry input {
 	background:#fff;
-	height:50px;
-	line-height:50px;
+	height:44px;
+	line-height:44px;
 	float:left;
 	margin:0 30px 0 0;
-	padding:0px 20px;
+	padding:0px 15px;
 }
 #newTaskEntry input[type="text"] {
-	width:calc(100% - 354px);
+	width:calc(100% - 330px);
 	color:#8a89cd;
 }
 #newTaskEntry input[type="date"] {
@@ -109,7 +109,7 @@ input,button {
 	background:#c0c8ff;
 	color:#3f3cc9;
 	width:80px;
-	height:50px;
+	height:44px;
 	float:left;
 	border:0;
 }
@@ -174,7 +174,7 @@ input,button {
 	width:30px;
 	font-size:14pt;
 	border:2px solid #4886e469;
-	border-color:#c0c8ff;
+	border-color:#3f3cc9;
 	border-radius:100px;
 	box-shadow:0 0;
 }
@@ -183,14 +183,20 @@ input,button {
 	position:relative;
 }
 .task.false button.complete:hover {
-
-	background:#d7e5f9d0;
 	background:#f1f2fc;
 }
 .task.true button.complete {
-	border-color:#4886e4;
-	border-color:#3f3cc9;
-	color:#3f3cc9;
+	border-color:#c0c8ff;
+	color:#c0c8ff;
+}
+/*
+	Empty Task List
+*/
+h3 {
+	line-height:100px;
+	font-size:16pt;
+	color:#666;
+	text-align:center;
 }
 /*
 	Individual Task Page
@@ -220,14 +226,14 @@ html {
 }
 #singleTaskPage input {
 	background:#fff;
-	height:50px;
-	line-height:50px;
+	height:44px;
+	line-height:44px;
 	float:left;
 	margin:0 30px 0 0;
-	padding:0px 20px;
+	padding:0px 15px;
 }
 #singleTaskPage input[type="text"] {
-	width:calc(100% - 400px);
+	width:calc(100% - 380px);
 	color:#8a89cd;
 }
 #singleTaskPage input[type="date"] {
@@ -242,7 +248,7 @@ html {
 #singleTaskPage button.edit {
 	background:#c0c8ff;
 	width:80px;
-	height:50px;
+	height:44px;
 	float:left;
 	border:0;
 }

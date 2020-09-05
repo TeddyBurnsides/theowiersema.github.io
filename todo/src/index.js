@@ -28,9 +28,10 @@ class App extends React.Component {
                 {title:'Do the dishes in the kitchen',dueDate:'2019-01-23',complete:true,active:true},
                 {title:'Mow grass',dueDate:'',complete:true,active:true},
                 {title:'Deleted Task - this should not show up ever really ever again to be honest',dueDate:'2019-01-23',complete:false,active:true},
-                {title:'Complete this site',dueDate:'2020-09-04',complete:false,active:true},
+                {title:'Complete this site',dueDate:'2020-09-04',complete:false,active:false},
             ]
         }
+
     }
 
     submitTask(event) {
@@ -98,8 +99,27 @@ class App extends React.Component {
         });
         
     }
+
+    
     
     render() {     
+
+        // add functions to array to pass as a spread prop
+        const actions = {
+            submitTask: this.submitTask,
+            deleteTask: this.deleteTask,
+            toggleTask: this.toggleTask,
+            editTask: this.editTask,
+        }
+
+        // add refs to array to pass a spread prop
+        const refs = {
+            taskInput: this.taskInput,
+            dateInput: this.dateInput,
+            newTaskTitle: this.newTaskTitle,
+            newDueDate: this.newDueDate,
+        }
+
         return (        
             <Router>
                 <Switch>
@@ -107,28 +127,13 @@ class App extends React.Component {
                         path="/" 
                         exact
                         render={() => (
-                            <HomePage 
-                                submitTask={this.submitTask}
-                                taskInput={this.taskInput} 
-                                dateInput={this.dateInput}
-                                activeTasks={this.state.tasks} 
-                                deleteTask={this.deleteTask}
-                                toggleTask={this.toggleTask}
-                                editTask={this.editTask}
-                            />
+                            <HomePage {...actions} {...refs} activeTasks={this.state.tasks} />
                         )}
                     />
                     <Route
                         path="/task/:id"
                         render={() => (
-                            <SingleTaskPage 
-                                activeTasks={this.state.tasks} 
-                                deleteTask={this.deleteTask}
-                                toggleTask={this.toggleTask}
-                                editTask={this.editTask}
-                                newTaskTitle={this.newTaskTitle}
-                                newDueDate={this.newDueDate}
-                            />
+                            <SingleTaskPage {...actions} {...refs} activeTasks={this.state.tasks} />
                         )}
                     />
                 </Switch>

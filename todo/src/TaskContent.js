@@ -22,8 +22,8 @@ class TaskContent extends React.Component {
     // December 9, 2019
     prettifyDate(date) { // date is in format YYYY-MM-DD or YYYY-M-D
         if (date==="") return false;
-        if (date == this.today()) return 'Today';
-        if (date == this.today(1)) return 'Tomorrow';
+        if (date === this.today()) return 'Today';
+        if (date === this.today(1)) return 'Tomorrow';
         const datePieces = this.extractDateElements(date);
         const monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         return monthName[parseInt(datePieces.month)-1].substring(0,3) + " " + datePieces.day;
