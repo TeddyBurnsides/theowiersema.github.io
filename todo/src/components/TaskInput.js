@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NewTaskEntry extends React.Component {
+class TaskInput extends React.Component {
     // returns today's date in YYYY-MM-DD format
     today() {
         const now = new Date();
@@ -18,8 +18,8 @@ class NewTaskEntry extends React.Component {
         return (      
             <form id="newTaskEntry">
                 <div className={'wrapper'}>
-                    <input placeholder="Type new task..." type="text" ref={this.props.taskInput} />
-                    <input defaultValue={this.today()} type="date" ref={this.props.dateInput} />
+                    <input placeholder="Type new task..." type="text" ref={this.props.newTaskTitle} />
+                    <input defaultValue={this.today()} type="date" ref={this.props.newTaskDate} />
                     <button onClick={event => this.props.submitTask(event)}>Add</button>
                     <div className={'clear'}></div>
                 </div>
@@ -28,4 +28,4 @@ class NewTaskEntry extends React.Component {
     }
 }
 
-export default NewTaskEntry;
+export default TaskInput;

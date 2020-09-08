@@ -1,7 +1,8 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import React from 'react';
+import { Link} from "react-router-dom";
 
 class TaskContent extends React.Component {
+
     // today in YYYY-MM-DD
     today(dayOffset) {
         if (dayOffset == null) dayOffset = 0;
@@ -38,39 +39,31 @@ class TaskContent extends React.Component {
         n = n + '';
         return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
     }
-    toEditOrNotToEdit() {
-        const editModeOn=this.props.editModeOn;
+    render() {
         // when single task is open
-        if (editModeOn) {
+        if (this.props.editModeOn) {
             return (
-                <form>
-                    <input type="text" defaultValue={this.props.title} ref={this.props.newTaskTitle} />   
-                    <input type="date" defaultValue={this.standardizeDate(this.props.dueDate)} ref={this.props.newDueDate} />
-                    <button className={'edit'} onClick={event => this.props.editTask(event,this.props.index)}>
-                        <Link to='/'>Save</Link>
-                    </button>
-                    <div className={'clear'}></div>
-                </form>
+                <div className={'content'}>
+                    <form>
+                        <input type="text" defaultValue={this.props.title} ref={this.props.editedTaskTitle} />   
+                        <input type="date" defaultValue={this.standardizeDate(this.props.dueDate)} ref={this.props.editedTaskDate} />
+                        <button className={'edit'} onClick={e => this.props.editTask(e,this.props.index)}>
+                            <Link to='/'>Save</Link>
+                        </button>
+                        <div className={'clear'}></div>
+                    </form>
+                </div>
             );
         // displayed in task list
         } else {
             return (
-                <div>
+                <div className={'content'}>
                     <h1 className={'title'}><span>{this.props.title}</span></h1>
                     <h2 className={'dueDate'}>{this.prettifyDate(this.props.dueDate)}</h2>
                 </div>
-                
             );
         }
-    };
-
-    render() {
-        return (
-            <div className={'content'}>
-                {this.toEditOrNotToEdit()}
-            </div>
-        );
     }
-}
+};
 
 export default TaskContent;

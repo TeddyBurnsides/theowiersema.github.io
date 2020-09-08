@@ -1,25 +1,21 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {SingleTaskPage} from './SingleTaskPage';
-import HomePage from './HomePage';
+import TaskPage from './components/TaskPage';
+import HomePage from './components/HomePage';
 import './styles.css';
+
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
         // refs for input fields
-        this.taskInput = React.createRef();
-        this.dateInput = React.createRef();
         this.newTaskTitle = React.createRef();
-        this.newDueDate = React.createRef();
-
-        // bind this to events
-        this.deleteTask = this.deleteTask.bind(this);
-        this.submitTask = this.submitTask.bind(this); 
-        this.toggleTask = this.toggleTask.bind(this);
-        this.editTask = this.editTask.bind(this);
+        this.newTaskDate = React.createRef();
+        this.editedTaskTitle = React.createRef();
+        this.editedTaskDate = React.createRef();
 
         // build initial state
         this.state = {
@@ -31,113 +27,102 @@ class App extends React.Component {
                 {title:'Complete this site',dueDate:'2020-09-04',complete:false,active:false},
             ]
         }
-
-    }
-
-    submitTask(event) {
-
-        event.preventDefault(); // stop page from refreshing
-
-        const dueDate=this.dateInput.current.value;
-        const taskTitle=this.taskInput.current.value;
-
-        if (taskTitle==='') return false; // don't continue if empty
-
-        // build new task
-        const newTask = {
-            title:taskTitle,
-            dueDate:dueDate,
-            complete:false,
-            active:true
-        };
-    
-        // push new task to array and update state
-        this.setState((state) => {
-            state.tasks.push(newTask)
-            return {tasks:state.tasks}
-        });
-
-        document.getElementById('newTaskEntry').reset(); // clear form
-    }
-
-    deleteTask(event,index) {
-       
-        event.preventDefault(); // stop page from refreshing
-
-        // remove task from array and update state
-        this.setState((state) => {
-            state.tasks[index].active = false;
-            return {tasks:state.tasks};
-        });
-    }
-
-    toggleTask(event,index) {
-
-        event.preventDefault(); // stop page from refreshing
-
-        const isCompleted = !this.state.tasks[index].complete; // toggle completed state
-
-        // update completed value on task and update state
-        this.setState((state) => {
-            state.tasks[index].complete = isCompleted;
-            return {tasks:state.tasks};
-        });
-
-    }
-
-    editTask(event,index) {
-
-        event.preventDefault(); // stop page from refreshing
-
-       const newTaskTitle = this.newTaskTitle.current.value;
-       const newDueDate = this.newDueDate.current.value;
-
-        this.setState((state) => {
-            state.tasks[index].title = newTaskTitle;
-            state.tasks[index].dueDate = newDueDate;
-            return {tasks:state.tasks};
-        });
-        
     }
 
     render() {     
 
         // add functions to array to pass as a spread prop
         const actions = {
-            submitTask: this.submitTask,
-            deleteTask: this.deleteTask,
-            toggleTask: this.toggleTask,
-            editTask: this.editTask,
+            submitTask: (event) => {
+
+                event.preventDefault(); // stop page from refreshing
+        
+                // get values of input fields from refs
+                const dueDate=this.newTaskDate.current.value;
+                const taskTitle=this.newTaskTitle.current.value;
+        
+                if (taskTitle==='') return false; // don't continue if empty
+        
+                // build new task
+                const newTask = {
+                    title:taskTitle,
+                    dueDate:dueDate,
+                    complete:false,
+                    active:true
+                };
+            
+                // push new task to array and update state
+                this.setState((state) => {
+                    state.tasks.push(newTask)
+                    return {tasks:state.tasks}
+                });
+        
+                document.getElementById('newTaskEntry').reset(); // clear form
+            },
+            deleteTask: (event,index) => {
+       
+                event.preventDefault(); // stop page from refreshing
+        
+                // remove task from array and update state
+                this.setState((state) => {
+                    state.tasks[index].active = false;
+                    return {tasks:state.tasks};
+                });
+            },
+            toggleTask: (event,index) => {
+
+                event.preventDefault(); // stop page from refreshing
+        
+                const isCompleted = !this.state.tasks[index].complete; // toggle completed state
+        
+                // update completed value on task and update state
+                this.setState((state) => {
+                    state.tasks[index].complete = isCompleted;
+                    return {tasks:state.tasks};
+                });
+        
+            },
+            editTask: (event,index) => {
+
+                event.preventDefault(); // stop page from refreshing
+        
+               const newTaskTitle = this.editedTaskTitle.current.value;
+               const newDueDate = this.editedTaskDate.current.value;
+        
+                this.setState((state) => {
+                    state.tasks[index].title = newTaskTitle;
+                    state.tasks[index].dueDate = newDueDate;
+                    return {tasks:state.tasks};
+                });
+                
+            }
         }
 
         // add refs to array to pass a spread prop
         const refs = {
-            taskInput: this.taskInput,
-            dateInput: this.dateInput,
             newTaskTitle: this.newTaskTitle,
-            newDueDate: this.newDueDate,
+            newTaskDate: this.newTaskDate,
+            editedTaskTitle: this.editedTaskTitle,
+            editedTaskDate: this.editedTaskDate,
         }
 
         return (        
             <Router>
                 <Switch>
-                    <Route 
-                        path="/" 
-                        exact
+                    <Route path="/" exact
                         render={() => (
-                            <HomePage {...actions} {...refs} activeTasks={this.state.tasks} />
+                            <HomePage {...actions} {...refs} tasks={this.state.tasks} />
                         )}
                     />
-                    <Route
-                        path="/task/:id"
+                    <Route path="/task/:id"
                         render={() => (
-                            <SingleTaskPage {...actions} {...refs} activeTasks={this.state.tasks} />
+                            <TaskPage {...actions} {...refs} tasks={this.state.tasks} />
                         )}
                     />
                 </Switch>
             </Router>
         ); // return ()
     } // render()
-} // class
+} // App class
 
 ReactDOM.render(<App />,document.getElementById('root'));

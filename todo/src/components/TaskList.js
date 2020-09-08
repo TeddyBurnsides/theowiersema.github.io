@@ -1,12 +1,12 @@
 import React from 'react';
-import Task from './task';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import Task from './Task';
+import {Link} from "react-router-dom";
 
 class TaskList extends React.Component {
 
     noTasksMsg() {
         let count = 0;
-        this.props.activeTasks.forEach(task => {
+        this.props.tasks.forEach(task => {
             if (task.active) count++;
         });
         if (count===0) return (
@@ -18,15 +18,14 @@ class TaskList extends React.Component {
 
        
 
-        const taskList = this.props.activeTasks.map((task,index) => {
+        const taskList = this.props.tasks.map((task,index) => {
             if (task.active) {
                 return (
                     <Link key={index} to={'/task/' + index}>
                         <Task 
                             key={index}
                             index={index}
-                            title={task.title}
-                            dueDate={task.dueDate} 
+                            task={task}
                             status={task.complete}
                             deleteTask={this.props.deleteTask}
                             toggleTask={this.props.toggleTask}
