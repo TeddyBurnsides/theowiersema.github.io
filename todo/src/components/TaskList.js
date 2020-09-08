@@ -26,7 +26,6 @@ class TaskList extends React.Component {
                             key={index}
                             index={index}
                             task={task}
-                            status={task.complete}
                             deleteTask={this.props.deleteTask}
                             toggleTask={this.props.toggleTask}
                             editTask={this.props.editTask}

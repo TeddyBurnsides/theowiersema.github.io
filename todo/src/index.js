@@ -22,8 +22,8 @@ class App extends React.Component {
             tasks: [
                 {title:'Take out the trash to the curb',dueDate:'2020-09-03',complete:false,active:true},
                 {title:'Do the dishes in the kitchen',dueDate:'2019-01-23',complete:true,active:true},
-                {title:'Mow grass',dueDate:'',complete:true,active:true},
-                {title:'Deleted Task - this should not show up ever really ever again to be honest',dueDate:'2019-01-23',complete:false,active:true},
+                {title:'Mow grass',dueDate:'',complete:false,active:true},
+                {title:'Deleted Task - this should not show up ever really ever again to be honest',dueDate:'2019-01-23',complete:true,active:true},
                 {title:'Complete this site',dueDate:'2020-09-04',complete:false,active:false},
             ]
         }
