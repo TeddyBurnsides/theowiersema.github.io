@@ -53,7 +53,7 @@ table {
     border:3px solid orange;
   }
 body {
-	font-family:Helvetica;
+	font-family:Helvetica,Sans;
 	font-size:12pt;
 	background:#265b51; /* dark green */
 	/*background:#1e3250;*/ /* dark blue */
@@ -70,10 +70,11 @@ input:focus {outline:none;}
 button {cursor:pointer;}
 a {text-decoration:none;}
 input,button {
-	font-family:Helvetica;
+	font-family:Helvetica,Sans;
 	font-weight:300;
 	border-radius:4px;
-	font-size:13pt;
+	font-size:14pt;
+	letter-spacing:-.5px;
 	border:0;
 	box-shadow:0 2px 5px rgba(0,0,0,.1);
 }
@@ -147,19 +148,22 @@ input,button {
 	text-overflow:ellipsis;
 	overflow:hidden;
 	white-space:nowrap;
+	
 }
 .task:hover h1 span {
 	border-bottom:1px solid rgba(0,0,0,.2);
 	padding:0 0 5px 0;
 }
 .task h2 {
-	color:rgba(0,0,0,.4);
-	line-height:16px;
-	font-size:11pt;
-	position:absolute;
-	right:0px;
-	top:calc(12px + 15px);
-	letter-spacing:-.2px;
+	color: #000;
+	font-size:10pt;
+	position: absolute;
+	right: 0px;
+	top: 22px;
+	background: #f3f3f3;
+	line-height: 25px;
+	padding: 0 12px;
+	border-radius: 100px;
 }
 .task:hover h2 {
 	color:rgba(0,0,0,.8);
@@ -240,6 +244,7 @@ html {
 	width:130px;
 	text-align:center;
 	color:#889fcf;
+	letter-spacing:-1px;
 }
 #singleTaskPage input:focus {
 	box-shadow:0 2px 5px rgba(0,0,0,.4);
