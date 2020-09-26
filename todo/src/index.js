@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as Realm from "realm-web";
+import * as Realm from 'realm-web';
+
+const bson = require('bson');
+
 
 // Connection
 const app = new Realm.App({ id: "todo-app-mnupq", timeout: 10000 });
-const mongo = app.services.mongodb('mongodb-atlas');
-const mongoCol = mongo.db('data').collection('tasks');
+const mongoCol = app.services.mongodb('mongodb-atlas').db('data').collection('tasks');
 
 class App extends React.Component {
     constructor(props) {
@@ -36,6 +38,15 @@ class App extends React.Component {
             }
             
         }
+        const deleteTask = async (id) => {
+            try {
+                const o_id = new bson.ObjectId(id);
+                const found = await mongoCol.deleteOne({_id:o_id});
+                console.log(found);
+            } catch {
+                console.log('Unable to delete Task.')
+            }
+        }
         const deleteAllTasks = async () => {
             try {
                 const allTasks = {
@@ -43,7 +54,7 @@ class App extends React.Component {
                 }
                 await mongoCol.deleteMany(allTasks);
             } catch {
-                console.log('Unable to delete all tasks.')
+                console.log('Unable to delete all tasks!')
             }
         }
         const login = async () => {
@@ -56,7 +67,7 @@ class App extends React.Component {
                     <NewTaskButton addTask={addTask} />
                     <LogOutButton logout={logout} />
                     <DeleteAllButton deleteAllTasks={deleteAllTasks} />
-                    <TaskList toggle={this.state.toggle} />
+                    <TaskList deleteTask={deleteTask} toggle={this.state.toggle} />
                     
                 </div>  
             )
@@ -105,19 +116,42 @@ class TaskList extends React.Component {
             getTasks();
         }
     }
-    render() {       
+    render() {    
         let taskList = this.state.tasks.map((task,index) => {
             return(
-                <Task key={task._id} title={task.title} />
+                <Task 
+                    key={task._id} 
+                    id ={task._id.toString()} 
+                    title={task.title} 
+                    deleteTask={this.props.deleteTask}
+                />
             );
         }).reverse();
-        return <ul>{taskList}</ul>
+        if (taskList.length === 0) {
+            return <p>Loading...</p>
+        } else {
+            return <ul>{taskList}</ul>
+        }
     }
 }
 
 class Task extends React.Component {
     render() {
-        return <li>{this.props.title}</li>
+        return (
+            <li>
+                {this.props.title}
+                <DeleteTaskButton 
+                    id={this.props.id} 
+                    deleteTask={this.props.deleteTask}
+                />
+            </li>
+        );
+    }
+}
+
+class DeleteTaskButton extends React.Component {
+    render() {
+        return <button onClick={() => this.props.deleteTask(this.props.id)}>Delete Task</button>
     }
 }
 
