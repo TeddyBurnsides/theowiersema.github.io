@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Realm from 'realm-web';
-import bson from 'bson';
+import bson from 'bson'; // for ObjectID translation
 
 // Connection
 const app = new Realm.App({ id: "todo-app-mnupq", timeout: 10000 });
@@ -13,10 +13,13 @@ const mongoCol = app.services.mongodb('mongodb-atlas').db('data').collection('ta
 class App extends React.Component {
     constructor(props) {
         super();
+        // refs for input fields
         this.newTaskTitle = React.createRef();
+        // state holds things require page updates when changed
         this.state = {
             tasks:[],
-            user:app.currentUser
+            user:app.currentUser,
+            addingTask:false
         }
     }
     componentDidMount() {
@@ -37,10 +40,14 @@ class App extends React.Component {
         const addTask = async (event) => {
             // prevent page from refreshing
             event.preventDefault(); 
+            // starting loading animation
+            this.setState({addingTask:true});
             // get value of input field
             const taskTitle = this.newTaskTitle.current.value; 
             // don't continue if empty
             if (taskTitle==='') return false; 
+            // clear input fields in form
+            document.getElementById('newTaskEntry').reset();
             // server operations
             try {
                 // add new tasks to server 
@@ -53,16 +60,16 @@ class App extends React.Component {
                     state.tasks.push({
                         _id: new bson.ObjectId(newID.insertedId.id), // extract actual ID
                         title: taskTitle,
-                        status: true
+                        status: true,
+                        complete: false
                     });
                     return {tasks:state.tasks}
                 });
+                // clear loading animation
+                this.setState({addingTask:false});
             } catch {
                 console.log('Adding task failed!');
             }
-
-            // clear input fields in form
-            document.getElementById('newTaskEntry').reset();
         }
         /*
             LOG OUT
@@ -122,6 +129,7 @@ class App extends React.Component {
                     <NewTaskEntry 
                         newTaskTitle={this.newTaskTitle} 
                         addTask={addTask} 
+                        addingTask={this.state.addingTask}
                     />
                     <TaskList 
                         tasks={this.state.tasks}
@@ -148,8 +156,7 @@ class TaskList extends React.Component {
             return(
                 <Task 
                     key={task._id} 
-                    id ={task._id.toString()} 
-                    title={task.title} 
+                    task={task}
                     deleteTask={this.props.deleteTask}
                 />
             );
@@ -167,16 +174,29 @@ class Task extends React.Component {
     render() {
         return (
             <li>
-                {this.props.title}
+                {this.props.task.title}
+                <TaskStatus status={this.props.task.complete} />
                 <DeleteTaskButton 
-                    id={this.props.id} 
+                    id={this.props.task._id.toString()} 
                     deleteTask={this.props.deleteTask}
                 />
             </li>
         );
     }
 }
-
+class TaskStatus extends React.Component {
+    render() {
+        if (this.props.status) {
+            return (    
+                <button>UnComplete</button>
+            )
+        } else {
+            return (
+                <button>Complete</button>
+            )
+        }
+    }
+}
 class DeleteTaskButton extends React.Component {
     render() {
         return <button onClick={() => this.props.deleteTask(this.props.id)}>Delete</button>
@@ -188,12 +208,23 @@ class NewTaskEntry extends React.Component {
         return (
             <form id="newTaskEntry">
                 <input type="text" ref={this.props.newTaskTitle} />
-
                 <button onClick={(e) => this.props.addTask(e)}>Add Task</button>
+                <Loader addingTask={this.props.addingTask} />
             </form>       
         );
     }
 }
+
+class Loader extends React.Component {
+    render() {
+        if (this.props.addingTask) {
+            return <p>Loading...</p>
+        } else {
+            return ('')
+        }
+    }
+}
+
 class LogOutButton extends React.Component {
     render() {
         return <button onClick={() => this.props.logout()}>Log Out</button>
