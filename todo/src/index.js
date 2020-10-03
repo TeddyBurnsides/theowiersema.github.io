@@ -19,19 +19,25 @@ class App extends React.Component {
         this.state = {
             tasks:[],
             user:app.currentUser,
-            addingTask:false
+            addingTask:false,
+            loadingTasks:false
         }
     }
     componentDidMount() {
+        // start task loading animation
+        this.setState({loadingTasks:true});
         // anonymous function to retrieve tasks from server when page loads
         (async () => {
             try {
                 const tasks = await mongoCol.find({status:true}); // find non-deleted tasks
                 this.setState({tasks:tasks})
+                // finish task loading animation
+                this.setState({loadingTasks:false});
             } catch {
                 return 'Failed to retrieve tasks';
             }
         })();
+        
     }
     render() {
         /*
@@ -134,6 +140,7 @@ class App extends React.Component {
                     <TaskList 
                         tasks={this.state.tasks}
                         deleteTask={deleteTask}
+                        loadingTasks={this.state.loadingTasks}
                     />    
                     <LogOutButton logout={logout} />
                     <DeleteAllButton deleteAllTasks={deleteAllTasks} />  
@@ -162,7 +169,9 @@ class TaskList extends React.Component {
             );
         }).reverse(); // puts most recent task on top
         // handle "loading"
-        if (taskList.length === 0) {
+        if (this.props.loadingTasks) {
+            return <p>Loading...</p>
+        } else if (taskList.length === 0) {
             return <p>No tasks</p>
         } else {
             return <ul>{taskList}</ul>
