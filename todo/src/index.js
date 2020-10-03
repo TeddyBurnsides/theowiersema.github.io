@@ -59,7 +59,8 @@ class App extends React.Component {
                 // add new tasks to server 
                 const newID = await mongoCol.insertOne({
                     title:taskTitle,
-                    status:true
+                    status:true,
+                    complete:false
                 });
                 // update state with new task (for real time updates on page)
                 this.setState((state) => {
@@ -90,6 +91,27 @@ class App extends React.Component {
             }
         }
         /*
+            Complete and Uncomplete Task
+        */
+        const completeTask = async (id,status) => {
+            try {
+                // get index of task we're removing
+                const index = this.state.tasks.findIndex((el) => el._id.toString() === id);
+                // set state
+                this.setState((state) => {
+                    state.tasks[index].complete=!status;
+                    return {tasks:state.tasks}
+                });
+                // update task on server
+                await mongoCol.updateOne(
+                    {_id: new bson.ObjectId(id)},
+                    {$set: {'complete': !status}} // toggle true/false flag
+                );
+            } catch {
+                console.log('Unable to complete task');
+            }
+        }
+        /*
             DELETE SINGLE TASK
         */  
         const deleteTask = async (id) => {
@@ -102,9 +124,9 @@ class App extends React.Component {
                     return {tasks:state.tasks}
                 });
                 // remove tasks on server
-                await mongoCol.deleteOne({
-                    _id: new bson.ObjectId(id)
-                });
+                await mongoCol.deleteOne(
+                    {_id: new bson.ObjectId(id)}
+                );
             } catch {
                 console.log('Unable to delete Task.')
             }
@@ -140,6 +162,7 @@ class App extends React.Component {
                     <TaskList 
                         tasks={this.state.tasks}
                         deleteTask={deleteTask}
+                        completeTask={completeTask}
                         loadingTasks={this.state.loadingTasks}
                     />    
                     <LogOutButton logout={logout} />
@@ -165,12 +188,13 @@ class TaskList extends React.Component {
                     key={task._id} 
                     task={task}
                     deleteTask={this.props.deleteTask}
+                    completeTask={this.props.completeTask}
                 />
             );
         }).reverse(); // puts most recent task on top
         // handle "loading"
         if (this.props.loadingTasks) {
-            return <p>Loading...</p>
+            return <p>Loading Tasks...</p>
         } else if (taskList.length === 0) {
             return <p>No tasks</p>
         } else {
@@ -184,7 +208,11 @@ class Task extends React.Component {
         return (
             <li>
                 {this.props.task.title}
-                <TaskStatus status={this.props.task.complete} />
+                <CompleteTaskButton 
+                    complete={this.props.task.complete} 
+                    id={this.props.task._id.toString()} 
+                    completeTask={this.props.completeTask}
+                />
                 <DeleteTaskButton 
                     id={this.props.task._id.toString()} 
                     deleteTask={this.props.deleteTask}
@@ -193,17 +221,13 @@ class Task extends React.Component {
         );
     }
 }
-class TaskStatus extends React.Component {
+class CompleteTaskButton extends React.Component {
     render() {
-        if (this.props.status) {
-            return (    
-                <button>UnComplete</button>
-            )
-        } else {
-            return (
-                <button>Complete</button>
-            )
-        }
+        let buttonText = 'Complete';
+        if (this.props.complete) buttonText='Uncomplete';
+        return (    
+            <button onClick={() => this.props.completeTask(this.props.id,this.props.complete)}>{buttonText}</button>
+        )
     }
 }
 class DeleteTaskButton extends React.Component {
@@ -227,7 +251,7 @@ class NewTaskEntry extends React.Component {
 class Loader extends React.Component {
     render() {
         if (this.props.addingTask) {
-            return <p>Loading...</p>
+            return <i>Adding Task..</i>
         } else {
             return ('')
         }
