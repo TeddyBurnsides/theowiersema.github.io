@@ -33,7 +33,7 @@ class App extends React.Component {
             // anonymous function to retrieve tasks from server when page loads
             (async () => {
                 try {
-                    const tasks = await mongoCol.find({status:true}); // find non-deleted tasks
+                    const tasks = await mongoCol.find({user:this.state.user.id}); // find non-deleted tasks
                     this.setState({tasks:tasks})
                     // finish task loading animation
                     this.setState({loadingTasks:false});
@@ -64,7 +64,8 @@ class App extends React.Component {
                 const newID = await mongoCol.insertOne({
                     title:taskTitle,
                     status:true,
-                    complete:false
+                    complete:false,
+                    user:this.state.user.id
                 });
                 // update state with new task (for real time updates on page)
                 this.setState((state) => {
@@ -177,7 +178,7 @@ class App extends React.Component {
                 // get posts from server
                 (async () => {
                     try {
-                        const tasks = await mongoCol.find({status:true}); // find non-deleted tasks
+                        const tasks = await mongoCol.find({user:this.state.user.id}); // find non-deleted tasks
                         this.setState({tasks:tasks})
                         // finish task loading animation
                         this.setState({loadingTasks:false});
