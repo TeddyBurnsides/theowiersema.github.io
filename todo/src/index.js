@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Realm from 'realm-web';
 import bson from 'bson'; // for ObjectID translation
-
 // Connection
 const app = new Realm.App({ id: "todo-app-mnupq", timeout: 10000 });
 const mongoCol = app.services.mongodb('mongodb-atlas').db('data').collection('tasks');
@@ -15,29 +14,34 @@ class App extends React.Component {
         super();
         // refs for input fields
         this.newTaskTitle = React.createRef();
+        this.password = React.createRef();
+        this.username = React.createRef();
         // state holds things require page updates when changed
         this.state = {
-            tasks:[],
-            user:app.currentUser,
-            addingTask:false,
-            loadingTasks:false
+            tasks:[], // contains all tasks
+            user:app.currentUser, // info from the currently logged in user
+            addingTask:false, // flag while we add task to server
+            loadingTasks:false, // flag while we wait for tasks from server
+            failedLogin:false // flag that login failed
         }
     }
     componentDidMount() {
-        // start task loading animation
-        this.setState({loadingTasks:true});
-        // anonymous function to retrieve tasks from server when page loads
-        (async () => {
-            try {
-                const tasks = await mongoCol.find({status:true}); // find non-deleted tasks
-                this.setState({tasks:tasks})
-                // finish task loading animation
-                this.setState({loadingTasks:false});
-            } catch {
-                return 'Failed to retrieve tasks';
-            }
-        })();
-        
+        // if you're logged in
+        if (this.state.user) {
+            // start task loading animation
+            this.setState({loadingTasks:true});
+            // anonymous function to retrieve tasks from server when page loads
+            (async () => {
+                try {
+                    const tasks = await mongoCol.find({status:true}); // find non-deleted tasks
+                    this.setState({tasks:tasks})
+                    // finish task loading animation
+                    this.setState({loadingTasks:false});
+                } catch {
+                    return 'Failed to retrieve tasks';
+                }
+            })();
+        }
     }
     render() {
         /*
@@ -144,10 +148,46 @@ class App extends React.Component {
         /*
             LOG IN
         */  
-        const login = async () => {
-            const user = await app.logIn(Realm.Credentials.anonymous());
-            this.setState({user:user});
-        };
+        const logIn = async (event) => {
+            // prevent page refresh
+            event.preventDefault();
+            // get username and password
+            const username = this.username.current.value;
+            const password = this.password.current.value;
+            // don't do anything if values are empty
+            if (username===''||password==="") return false;
+            // Create an anonymous credential
+            const credentials = Realm.Credentials.emailPassword(username, password);
+            let user = null;
+            try {
+              // Authenticate the user
+              user = await app.logIn(credentials);
+              // update state to trigger page refresh
+              this.setState({user:user});
+            } catch(err) {
+               // this.setState({user:user});
+              console.error("Failed to log in", err);
+            }
+            // handles failed login warning (Reset if login successful)
+            this.setState({failedLogin:(user === null)});
+            // load posts if login was successful
+            if (user) {
+                // trigger loading posts indicator
+                this.setState({loadingTasks:true});
+                // get posts from server
+                (async () => {
+                    try {
+                        const tasks = await mongoCol.find({status:true}); // find non-deleted tasks
+                        this.setState({tasks:tasks})
+                        // finish task loading animation
+                        this.setState({loadingTasks:false});
+                    } catch {
+                        return 'Failed to retrieve tasks';
+                    }
+                })();
+            }
+            
+          }
         /*
             IF LOGGED IN
         */  
@@ -174,7 +214,12 @@ class App extends React.Component {
         */
         } else {
             return (
-                <LogInButton login={login} />
+                <LogIn
+                    failedLogin={this.state.failedLogin}
+                    username={this.username}
+                    password={this.password}
+                    logIn={logIn} 
+                />
             )
         }
     }
@@ -192,11 +237,13 @@ class TaskList extends React.Component {
                 />
             );
         }).reverse(); // puts most recent task on top
-        // handle "loading"
+        // if still loading tasks
         if (this.props.loadingTasks) {
             return <p>Loading Tasks...</p>
+        // if not loading, but no tasks retrieved
         } else if (taskList.length === 0) {
             return <p>No tasks</p>
+        // if not loading, and we have tasks
         } else {
             return <ul>{taskList}</ul>
         }
@@ -240,10 +287,14 @@ class NewTaskEntry extends React.Component {
     render() { 
         return (
             <form id="newTaskEntry">
-                <input type="text" ref={this.props.newTaskTitle} />
+                <input 
+                    placeholder="Type here..."
+                    type="text" 
+                    ref={this.props.newTaskTitle} 
+                />
                 <button onClick={(e) => this.props.addTask(e)}>Add Task</button>
                 <Loader addingTask={this.props.addingTask} />
-            </form>       
+            </form>
         );
     }
 }
@@ -264,9 +315,31 @@ class LogOutButton extends React.Component {
     }
 }
 
-class LogInButton extends React.Component {
+class LogIn extends React.Component {
     render() {
-        return <button onClick={() => this.props.login()}>Log In</button>
+        let failedLoginMsg = '';
+        if (this.props.failedLogin) {
+            failedLoginMsg = 'Incorrect Credentials';
+        }
+        return (
+            <form>
+                <p>{failedLoginMsg}</p>
+                <input 
+                    ref={this.props.username}
+                    type="text" 
+                    placeholder="Email"
+                    defaultValue="theo.ew@gmail.com" 
+                />
+                <input 
+                    ref={this.props.password}
+                    type="password" 
+                    placeholder="Password" 
+                    defaultValue="password"
+                />
+                <button onClick={(e) => this.props.logIn(e)}>Log In</button>
+            </form>
+            
+        )
     }
 }
 
