@@ -12,10 +12,6 @@ const mongoCol = app.services.mongodb('mongodb-atlas').db('data').collection('ta
 class App extends React.Component {
     constructor(props) {
         super();
-        // refs for input fields
-        this.newTaskTitle = React.createRef();
-        //this.password = React.createRef();
-       // this.username = React.createRef();
         // state holds things require page updates when changed
         this.state = {
             tasks:[], // contains all tasks
@@ -48,13 +44,13 @@ class App extends React.Component {
         /*
             ADD NEW TASK
         */
-        const addTask = async (event) => {
+        const addTask = async (event,taskTitle) => {
             // prevent page from refreshing
             event.preventDefault(); 
             // starting loading animation
             this.setState({addingTask:true});
             // get value of input field
-            const taskTitle = this.newTaskTitle.current.value; 
+            taskTitle = taskTitle.current.value; 
             // don't continue if empty
             if (taskTitle==='') return false; 
             // clear input fields in form
@@ -198,7 +194,6 @@ class App extends React.Component {
             return (
                 <div>
                     <NewTaskEntry 
-                        newTaskTitle={this.newTaskTitle} 
                         addTask={addTask} 
                         addingTask={this.state.addingTask}
                     />
@@ -219,8 +214,6 @@ class App extends React.Component {
             return (
                 <LogIn
                     failedLogin={this.state.failedLogin}
-                    username={this.username}
-                    password={this.password}
                     logIn={logIn} 
                 />
             )
@@ -287,15 +280,19 @@ class DeleteTaskButton extends React.Component {
 }
 
 class NewTaskEntry extends React.Component {
+    constructor(props) {
+        super();
+        this.newTaskTitle = React.createRef();
+    }
     render() { 
         return (
             <form id="newTaskEntry">
                 <input 
                     placeholder="Type here..."
                     type="text" 
-                    ref={this.props.newTaskTitle} 
+                    ref={this.newTaskTitle} 
                 />
-                <button onClick={(e) => this.props.addTask(e)}>Add Task</button>
+                <button onClick={(e) => this.props.addTask(e,this.newTaskTitle)}>Add Task</button>
                 <Loader addingTask={this.props.addingTask} />
             </form>
         );
