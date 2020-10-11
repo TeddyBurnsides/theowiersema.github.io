@@ -14,8 +14,8 @@ class App extends React.Component {
         super();
         // refs for input fields
         this.newTaskTitle = React.createRef();
-        this.password = React.createRef();
-        this.username = React.createRef();
+        //this.password = React.createRef();
+       // this.username = React.createRef();
         // state holds things require page updates when changed
         this.state = {
             tasks:[], // contains all tasks
@@ -25,6 +25,7 @@ class App extends React.Component {
             failedLogin:false // flag that login failed
         }
     }
+    // fetch task list when reloading
     componentDidMount() {
         // if you're logged in
         if (this.state.user) {
@@ -149,12 +150,12 @@ class App extends React.Component {
         /*
             LOG IN
         */  
-        const logIn = async (event) => {
+        const logIn = async (event,username,password) => {
             // prevent page refresh
             event.preventDefault();
-            // get username and password
-            const username = this.username.current.value;
-            const password = this.password.current.value;
+            // get username and password values (refs were passed in)
+            username = username.current.value;
+            password = password.current.value;
             // don't do anything if values are empty
             if (username===''||password==="") return false;
             // Create an anonymous credential
@@ -187,6 +188,7 @@ class App extends React.Component {
                     }
                 })();
             }
+            
             
           }
         /*
@@ -317,6 +319,12 @@ class LogOutButton extends React.Component {
 }
 
 class LogIn extends React.Component {
+    constructor(props) {
+        super();
+        // refs are eventually passed into logIn() function
+        this.username = React.createRef();
+        this.password = React.createRef();
+    }
     render() {
         let failedLoginMsg = '';
         if (this.props.failedLogin) {
@@ -326,18 +334,18 @@ class LogIn extends React.Component {
             <form>
                 <p>{failedLoginMsg}</p>
                 <input 
-                    ref={this.props.username}
+                    ref={this.username}
                     type="text" 
                     placeholder="Email"
                     defaultValue="theo.ew@gmail.com" 
                 />
                 <input 
-                    ref={this.props.password}
+                    ref={this.password}
                     type="password" 
                     placeholder="Password" 
                     defaultValue="password"
                 />
-                <button onClick={(e) => this.props.logIn(e)}>Log In</button>
+                <button onClick={(e) => this.props.logIn(e,this.username,this.password)}>Log In</button>
             </form>
             
         )
