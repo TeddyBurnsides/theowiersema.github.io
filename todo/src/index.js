@@ -6,11 +6,9 @@ import bson from 'bson'; // for ObjectID translation
 const app = new Realm.App({ id: "todo-app-mnupq", timeout: 10000 });
 const mongoCol = app.services.mongodb('mongodb-atlas').db('data').collection('tasks');
 
-/*
-    MAIN WRAPPER
-*/
+// Main Wrapper
 class App extends React.Component {
-    constructor(props) {
+    constructor() {
         super();
         // state holds things require page updates when changed
         this.state = {
@@ -18,7 +16,14 @@ class App extends React.Component {
             user:app.currentUser, // info from the currently logged in user
             addingTask:false, // flag while we add task to server
             loadingTasks:false, // flag while we wait for tasks from server
-            failedLogin:false // flag that login failed
+            signUpBanner: { // sign up warnings/success
+                show:false,
+                msg:''
+            },
+            logInBanner: { // log in warnings
+                show:false,
+                msg:''
+            }
         }
     }
     // fetch task list when reloading
@@ -41,9 +46,6 @@ class App extends React.Component {
         }
     }
     render() {
-        /*
-            ADD NEW TASK
-        */
         const addTask = async (event,taskTitle) => {
             // prevent page from refreshing
             event.preventDefault(); 
@@ -80,9 +82,6 @@ class App extends React.Component {
                 console.log('Adding task failed!');
             }
         }
-        /*
-            LOG OUT
-        */
         const logout = async () => {
             try {
                 await app.currentUser.logOut().then(this.setState({
@@ -92,9 +91,6 @@ class App extends React.Component {
                 console.log('Unable to Log out');
             }
         }
-        /*
-            Complete and Uncomplete Task
-        */
         const completeTask = async (id,status) => {
             try {
                 // get index of task we're removing
@@ -113,9 +109,24 @@ class App extends React.Component {
                 console.log('Unable to complete task');
             }
         }
-        /*
-            DELETE SINGLE TASK
-        */  
+        const saveEditedTask = async (id,newTitle) => {
+            try {                
+                // get index of task we're removing
+                const index = this.state.tasks.findIndex((el) => el._id.toString() === id);
+                // update state 
+                this.setState((state) => {
+                    state.tasks[index].title=newTitle;
+                    return {tasks:state.tasks}
+                });
+                // update server
+                await mongoCol.updateOne(
+                    {_id: new bson.ObjectId(id)},
+                    {$set: {'title': newTitle}} // toggle true/false flag
+                );
+            } catch {
+                console.log('Unable to update task.')
+            }
+        }
         const deleteTask = async (id) => {
             try {
                 // get index of task we're removing
@@ -133,27 +144,16 @@ class App extends React.Component {
                 console.log('Unable to delete Task.')
             }
         }
-        /*
-            DELETE ALL TASKS 
-        */
-        const deleteAllTasks = async () => {
-            try {
-                await mongoCol.deleteMany({status:true});
-            } catch {
-                console.log('Unable to delete all tasks!')
-            }
-        }
-        /*
-            LOG IN
-        */  
         const logIn = async (event,username,password) => {
             // prevent page refresh
             event.preventDefault();
-            // get username and password values (refs were passed in)
-            username = username.current.value;
-            password = password.current.value;
-            // don't do anything if values are empty
-            if (username===''||password==="") return false;
+            // validate inputs else showing loading indicator
+            if (isInvalidUsername(username) || isInvalidPassword(password)) {
+                this.setState({logInBanner: {show:true,msg:'Invalid username or password'}});
+                return false;
+            } else {
+                this.setState({logInBanner: {show:true,msg:'Logging in...'}});
+            }
             // Create an anonymous credential
             const credentials = Realm.Credentials.emailPassword(username, password);
             let user = null;
@@ -162,12 +162,12 @@ class App extends React.Component {
               user = await app.logIn(credentials);
               // update state to trigger page refresh
               this.setState({user:user});
-            } catch(err) {
-               // this.setState({user:user});
-              console.error("Failed to log in", err);
+              // reset any warnings messages
+              this.setState({logInBanner:{show:false},signUpBanner:{show:false}})
+            } catch {
+                // trigger warning banner
+                this.setState({logInBanner: {show:true,msg:'Login Failed'}});
             }
-            // handles failed login warning (Reset if login successful)
-            this.setState({failedLogin:(user === null)});
             // load posts if login was successful
             if (user) {
                 // trigger loading posts indicator
@@ -183,53 +183,84 @@ class App extends React.Component {
                         return 'Failed to retrieve tasks';
                     }
                 })();
+            } else {
+                // if no user, then login failed
+                this.setState({logInBanner: {show:true,msg:'Login Failed'}});
             }
-            
-            
-          }
-        /*
-            IF LOGGED IN
-        */  
+        }
+        const signUp = async (event,username,password) => {
+            // stop page refresh
+            event.preventDefault();
+            // validate input else showing in progress indicator
+            if (isInvalidPassword(password) || isInvalidUsername(username)) {
+                this.setState({signUpBanner: {show:true,msg:'Invalid username or password'}});
+                return false;
+            } else {
+                // in progress banner
+                this.setState({signUpBanner: {show:true,msg:'Signing up...'}});
+            }
+            // server request to create user
+            try {
+                await app.emailPasswordAuth.registerUser(username,password);
+                // show success banner
+                this.setState({signUpBanner: {show:true,msg:'Successfully signed up! Please log in.'}});
+            } catch {
+                // show failure banner
+                this.setState({signUpBanner: {show:true,msg:'Sign up failed.'}});
+            }
+        }
+        const isInvalidUsername = (username) => {
+            if (username !== '') return false; // is valid
+            return true; // is not valid
+        }
+        const isInvalidPassword = (password) => {
+            if (password.length >= 6) return false; // is valid
+            return true; // is not valid
+        }
+        // if logged in
         if (this.state.user) {
             return (
                 <div>
-                    <NewTaskEntry 
-                        addTask={addTask} 
-                        addingTask={this.state.addingTask}
-                    />
+                    <NewTaskEntry addTask={addTask} addingTask={this.state.addingTask} />
                     <TaskList 
                         tasks={this.state.tasks}
                         deleteTask={deleteTask}
                         completeTask={completeTask}
                         loadingTasks={this.state.loadingTasks}
+                        saveEditedTask={saveEditedTask}
                     />    
-                    <LogOutButton logout={logout} />
-                    <DeleteAllButton deleteAllTasks={deleteAllTasks} />  
+                <button onClick={() => logout()}>Log Out</button>
                 </div>  
-            )
-        /*
-            IF LOGGED OUT
-        */
+            );
+        // if not logged in
         } else {
             return (
-                <LogIn
-                    failedLogin={this.state.failedLogin}
-                    logIn={logIn} 
-                />
-            )
+                <div>
+                    <LogIn 
+                        logInBanner={this.state.logInBanner} 
+                        logIn={logIn} 
+                    />
+                    <SignUp 
+                        signUp={signUp} 
+                        signUpBanner={this.state.signUpBanner}
+                    />
+                </div>
+                
+            );
         }
     }
 }
-
+// Full task list (composed of many Task components)
 class TaskList extends React.Component {
     render() {    
         let taskList = this.props.tasks.map((task,index) => {
             return(
                 <Task 
-                    key={task._id} 
+                    key={task._id}
                     task={task}
                     deleteTask={this.props.deleteTask}
                     completeTask={this.props.completeTask}
+                    saveEditedTask={this.props.saveEditedTask}
                 />
             );
         }).reverse(); // puts most recent task on top
@@ -245,25 +276,63 @@ class TaskList extends React.Component {
         }
     }
 }
-
+// Individual Task
 class Task extends React.Component {
+    constructor(props) {
+        super();
+        this.newTitle = React.createRef();
+        this.state = {
+            editMode:false
+        }
+    }
     render() {
-        return (
-            <li>
-                {this.props.task.title}
-                <CompleteTaskButton 
-                    complete={this.props.task.complete} 
-                    id={this.props.task._id.toString()} 
-                    completeTask={this.props.completeTask}
-                />
-                <DeleteTaskButton 
-                    id={this.props.task._id.toString()} 
-                    deleteTask={this.props.deleteTask}
-                />
-            </li>
-        );
+        // simplify task ID
+        const id=this.props.task._id.toString();
+        // enable or disble editing mode
+        const toggleEditMode = () => {
+            this.setState({editMode:!this.state.editMode})
+        }
+        // wrapper that allows us to call server routine and update local state
+        const saveEditedTaskWrapper = async (event,id,newTitle) => {
+            // prevent page refresh
+            event.preventDefault();
+            // get value from ref
+            newTitle = newTitle.current.value;
+            // call server function in parent component (allows state to be updated)
+            this.props.saveEditedTask(id,newTitle);
+            // disable editing mode
+            toggleEditMode();
+        }
+        if (this.state.editMode) {
+            return (
+                <li>
+                    <form>
+                        <input 
+                            type="text"
+                            defaultValue={this.props.task.title}
+                            ref={this.newTitle}
+                        />
+                        <button onClick={(e) => saveEditedTaskWrapper(e,id,this.newTitle)}>Save</button>
+                    </form>
+                    <button onClick={() => this.props.deleteTask(id)}>Delete</button>
+                </li>    
+            );
+        } else {
+            return (
+                <li>
+                    {this.props.task.title}
+                    <CompleteTaskButton 
+                        complete={this.props.task.complete} 
+                        id={id} 
+                        completeTask={this.props.completeTask}
+                    />
+                    <button onClick={() => toggleEditMode()}>Edit</button>
+                </li>
+            );
+        }  
     }
 }
+// Togglable task completion button
 class CompleteTaskButton extends React.Component {
     render() {
         let buttonText = 'Complete';
@@ -273,12 +342,7 @@ class CompleteTaskButton extends React.Component {
         )
     }
 }
-class DeleteTaskButton extends React.Component {
-    render() {
-        return <button onClick={() => this.props.deleteTask(this.props.id)}>Delete</button>
-    }
-}
-
+// new task entry form
 class NewTaskEntry extends React.Component {
     constructor(props) {
         super();
@@ -293,28 +357,18 @@ class NewTaskEntry extends React.Component {
                     ref={this.newTaskTitle} 
                 />
                 <button onClick={(e) => this.props.addTask(e,this.newTaskTitle)}>Add Task</button>
-                <Loader addingTask={this.props.addingTask} />
+                <Loader waitFlag={this.props.addingTask} msg='Adding Task...' />
             </form>
         );
     }
 }
-
+// Generic component to dsplay message while waiting for response from server
 class Loader extends React.Component {
     render() {
-        if (this.props.addingTask) {
-            return <i>Adding Task..</i>
-        } else {
-            return ('')
-        }
+        return (this.props.waitFlag) ? this.props.msg : false;
     }
 }
-
-class LogOutButton extends React.Component {
-    render() {
-        return <button onClick={() => this.props.logout()}>Log Out</button>
-    }
-}
-
+// Log in screen
 class LogIn extends React.Component {
     constructor(props) {
         super();
@@ -323,35 +377,52 @@ class LogIn extends React.Component {
         this.password = React.createRef();
     }
     render() {
-        let failedLoginMsg = '';
-        if (this.props.failedLogin) {
-            failedLoginMsg = 'Incorrect Credentials';
-        }
         return (
             <form>
-                <p>{failedLoginMsg}</p>
+                <h1>Log In</h1>
+                <p><Loader waitFlag={this.props.logInBanner.show} msg={this.props.logInBanner.msg} /></p>
                 <input 
                     ref={this.username}
                     type="text" 
                     placeholder="Email"
-                    defaultValue="theo.ew@gmail.com" 
                 />
                 <input 
                     ref={this.password}
                     type="password" 
-                    placeholder="Password" 
-                    defaultValue="password"
+                    placeholder="Password"
                 />
-                <button onClick={(e) => this.props.logIn(e,this.username,this.password)}>Log In</button>
+                <button onClick={(e) => this.props.logIn(e,this.username.current.value,this.password.current.value)}>Log In</button>
             </form>
             
         )
     }
 }
 
-class DeleteAllButton extends React.Component {
+class SignUp extends React.Component {
+    constructor(props) {
+        super();
+        // refs are eventually passed into signUp() function
+        this.username = React.createRef();
+        this.password = React.createRef();
+    }
     render() {
-        return <button onClick={() => this.props.deleteAllTasks()}>Delete All</button>
+        return (
+            <form>
+                <h1>Sign Up</h1>
+                <p><Loader waitFlag={this.props.signUpBanner.show} msg={this.props.signUpBanner.msg} /></p>
+                <input 
+                    type="text"
+                    placeholder="username"
+                    ref={this.username}
+                />
+                <input 
+                    type="password"
+                    placeholder="password"
+                    ref={this.password}
+                />
+                <button onClick={(e) => this.props.signUp(e,this.username.current.value,this.password.current.value)}>Sign Up</button>
+            </form>
+        )
     }
 }
 
