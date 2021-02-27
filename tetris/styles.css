@@ -1,0 +1,8 @@
+#container {
+    border:3px solid #555;
+    position:relative;
+    margin:30px;
+}
+#container > div:nth-child(even) {
+    background:#f3f3f3;
+}
