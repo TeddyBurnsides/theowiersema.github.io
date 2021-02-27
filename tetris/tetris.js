@@ -76,7 +76,7 @@ window.onload = () => {
 
     renderBlock(blockType,initialOffset);
 
-    const maxYPos = getMaxYPos(blockType);
+    
 
     // animate block moving down
     /*const interval = window.setInterval(function() {
@@ -87,52 +87,87 @@ window.onload = () => {
 }
 
 const moveBlock = (direction) => {
-    if (direction === 'left' || direction === 'right') {
         
+    // find left-most and right-most positions
+    const [leftYPosition, rightYPosition, bottomXPosition, topXPosition] = findEdges();
 
-        // determine max number of left positions shape can move
-        let leftPos = CONTAINER_WIDTH;
-        let rightPos = 0;
-        for (y=0; y<CONTAINER_HEIGHT; y++) {
-            for (x=0; x<CONTAINER_WIDTH; x++) {
-                if (cells[y][x] === 1 && x<leftPos) leftPos=x;
-                if (cells[y][x] === 1 && x>rightPos) rightPos=x;
-            }
-        }
-      
+    //console.log([leftYPosition, rightYPosition, bottomXPosition, topXPosition]);
+
+    if (direction === 'left' || direction === 'right') {
         // move shape
-        if (direction === 'left') {
-            for (y=0; y<CONTAINER_HEIGHT; y++) {
-                for (x=0; x<CONTAINER_WIDTH; x++) {
-                    movingLogic(direction,leftPos,rightPos,x,y,x-1);
+        for (y=0; y<CONTAINER_HEIGHT; y++) {
+            if (direction === 'left') {
+                for (x=0; x<=CONTAINER_WIDTH-1; x++) {
+                    movingLogic(direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition,x,y,x-1,0);
                 }
-            }
-        } else if (direction === 'right') {
-            for (y=0; y<CONTAINER_HEIGHT; y++) {
+            } else if (direction === 'right') {
                 for (x=CONTAINER_WIDTH-1; x>=0; x--) {
-                    movingLogic(direction,leftPos,rightPos,x,y,x+1);
+                    movingLogic(direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition,x,y,x+1,0);
                 }
             } 
         }
-        
+    } else if (direction === 'down') {
+        for (y=CONTAINER_HEIGHT-1; y>=0; y--) {
+            for (x=0; x<=CONTAINER_WIDTH-1; x++) {
+                movingLogic(direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition,x,y,0,y+1)
+            }
+        }
     }
 }
 
-const movingLogic = (direction,leftPos,rightPos,x,y,xOffset) => {
-    if (cells[y][x] === 1 && ((direction === 'left' && leftPos !== 0) || (direction === 'right' && rightPos !== CONTAINER_WIDTH-1))) {
-        cells[y][x]=0;
-        const oldBox = document.querySelector('[x="' + x + '"][y="' + y + '"]');
-        
-        const oldBackground=oldBox.style.background;
-        oldBox.style.background = 'transparent';
-    
-        
-        cells[y][xOffset]=1;
-        //
-        const newBox = document.querySelector('[x="' + xOffset + '"][y="' + y + '"]');
-        // sets backgroun color for elements that represent element
-        newBox.style.background = oldBackground;
+const findEdges = () => {
+    let leftYPosition = CONTAINER_WIDTH;
+    let rightYPosition = 0;
+    let bottomXPosition = 0;
+    let topXPosition = CONTAINER_HEIGHT;
+    for (y=0; y<CONTAINER_HEIGHT; y++) {
+        for (x=0; x<CONTAINER_WIDTH; x++) {
+            if (cells[y][x] === 1 && x<leftYPosition) leftYPosition=x;
+            if (cells[y][x] === 1 && x>rightYPosition) rightYPosition=x;
+            if (cells[y][x] === 1 && y>bottomXPosition) bottomXPosition=y;
+            if (cells[y][x] === 1 && y<topXPosition) topXPosition=y;
+        }
     }
+    return [leftYPosition,rightYPosition,bottomXPosition,topXPosition];
+}
+
+const movingLogic = (direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition,x,y,xOffset,yOffset) => {
+
+    if (cells[y][x] === 1 && isValidMove(direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition)) {
+        
+        cells[y][x]=0;
+
+        const oldBackground=getBoxBackground(x,y);
+
+        formatBoxElement(x,y,'transparent');
+    
+        if (direction === 'left' || direction === 'right') {
+            cells[y][xOffset]=1;
+            formatBoxElement(xOffset,y,oldBackground);
+        }
+        if (direction === 'down') {
+            cells[yOffset][x]=1;
+            formatBoxElement(x,yOffset,oldBackground);
+        }
+    
+    }
+}
+
+const getBoxBackground = (x,y) => {
+    const box = document.querySelector('[x="' + x + '"][y="' + y + '"]');
+    return box.style.background;
+}
+
+const formatBoxElement = (x,y,background) => {
+    const box = document.querySelector('[x="' + x + '"][y="' + y + '"]');
+    box.style.background = background;
+}
+
+const isValidMove = (direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition) => {
+    if (direction === 'left' && leftYPosition !== 0) return true;
+    if (direction === 'right' && rightYPosition !== CONTAINER_WIDTH-1) return true;
+    if (direction === 'down' && topXPosition !== CONTAINER_HEIGHT-(bottomXPosition-topXPosition)-1) return true;
+    return false;
 }
 
 
