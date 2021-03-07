@@ -1,6 +1,23 @@
-const SCALE_FACTOR = 30;
+const SCALE_FACTOR = 30; // for HTML element styling purposes
 
 let cells = [
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+];
+
+let ACTIVE_CELLS = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
@@ -22,164 +39,225 @@ const CONTAINER_HEIGHT = cells.length;
 
 const blockDefs = [
     { // column
-        shape: [[1,1,1,1]],
-        background: 'blue'
+        shape: [[1,1,1,1]]
     },
     { // square
-        shape: [[1,1],[1,1]],
-        background: 'green'
+        shape: [[2,2],[2,2]]
     },
     { // L
-        shape: [[1,1,1],[1,0,0]],
-        background:'red'
+        shape: [[3,3,3],[3,0,0]]
     },
     { // step
-        shape: [[1,1,0],[0,1,1]],
-        background:'orange'
+        shape: [[4,4,0],[0,4,4]]
     },
     { // arrow?
-        shape: [[0,1,0],[1,1,1]],
-        background: 'brown'
+        shape: [[0,5,0],[5,5,5]]
     }
 ];
 
-window.onload = () => {
-    // pause button
-    document.addEventListener('click', event => {
-        if (event.target.id === 'pause') clearInterval(interval);
-    });
-
-    // listen for arrow key presses (left, right, down)
-    document.addEventListener('keydown', event => {
-        const key = event.key;
-        switch (key) {
-            case 'ArrowLeft':
-                moveBlock('left');
-                break;
-            case 'ArrowRight':
-                moveBlock('right');
-                break;
-            case 'ArrowDown':
-                moveBlock('down');
-                break;
-        }
-        
-    })
-
-    let newYPos = 0;
-
-    renderContainer();
-
-    const blockType = getRandBlockType();
-
-    const initialOffset = getInitialOffset(blockType);
-
-    renderBlock(blockType,initialOffset);
-
-    
-
-    // animate block moving down
-    /*const interval = window.setInterval(function() {
-        if (newYPos<maxYPos) {
-            newYPos = moveBlockDown('block1');
-        }
-    },100);*/
+const MOVEMENT = {
+    left: 'left',
+    right: 'right',
+    down: 'down'
 }
 
-const moveBlock = (direction) => {
+let CURRENT_BLOCK_TYPE;
+
+window.onload = () => {
+
+    // pause button
+    document.querySelector('#pause').addEventListener('click', pauseGame);
+
+    // listen for arrow key presses (left, right, down)
+    document.addEventListener('keydown', e => {
+        const key = e.key;
+        if (key === 'ArrowLeft') attemptToMoveBlock(MOVEMENT.left);
+        if (key === 'ArrowRight') attemptToMoveBlock(MOVEMENT.right);
+        if (key === 'ArrowDown') attemptToMoveBlock(MOVEMENT.down);
+        if (key === 'Shift') rotateBlock();    
+    });
+
+    
+    renderContainer(); // initialize container
+
+    CURRENT_BLOCK_TYPE = getRandBlockType();
+
+    const x = getInitialOffset();
+
+    renderActiveShape(x,0); // build initial block
+ 
+}
+
+const rotateBlock = () => {
+    
+}
+
+const pauseGame = () => {
+
+    clearInterval()
+}
+
+
+const attemptToMoveBlock = (direction) => {
         
-    // find left-most and right-most positions
-    const [leftYPosition, rightYPosition, bottomXPosition, topXPosition] = findEdges();
+    if (isValidMove(direction)) {
 
-    //console.log([leftYPosition, rightYPosition, bottomXPosition, topXPosition]);
+        // get current top left coordinates
+        const [x, y] = getCurrentPosition();
 
-    if (direction === 'left' || direction === 'right') {
-        // move shape
-        for (y=0; y<CONTAINER_HEIGHT; y++) {
-            if (direction === 'left') {
-                for (x=0; x<=CONTAINER_WIDTH-1; x++) {
-                    movingLogic(direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition,x,y,x-1,0);
-                }
-            } else if (direction === 'right') {
-                for (x=CONTAINER_WIDTH-1; x>=0; x--) {
-                    movingLogic(direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition,x,y,x+1,0);
-                }
-            } 
+        // get number of blocks to move for each direction 
+        const [xOffset, yOffset] = getOffsets(direction);
+
+        // render block on screen
+        renderActiveShape(x+xOffset,y+yOffset)
+    }
+
+}
+
+const getCurrentPosition = () => {
+
+    // get top left coordinate of current block
+    const edges = findEdgesOfActiveBlock()
+
+    return [edges.leftYPosition,edges.topXPosition];
+}
+
+const renderActiveShape = (xOffset,yOffset) => {
+
+    // clear last render of active shape
+    for (let x=0; x<CONTAINER_WIDTH; x++) {
+        for (let y=0; y<CONTAINER_HEIGHT; y++) {
+            if (ACTIVE_CELLS[y][x] > 0) changeActiveCell(x,y,0);
         }
-    } else if (direction === 'down') {
-        for (y=CONTAINER_HEIGHT-1; y>=0; y--) {
-            for (x=0; x<=CONTAINER_WIDTH-1; x++) {
-                movingLogic(direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition,x,y,0,y+1)
+    }
+    
+    // get max dimensions of block
+    const height = blockDefs[CURRENT_BLOCK_TYPE].shape.length;
+    const width = blockDefs[CURRENT_BLOCK_TYPE].shape[0].length;
+    
+    // loop through each cell of the shape
+    for (let x=0; x<width; x++) {
+        for (let y=0; y<height; y++) {
+            // only do things for define shape positions
+            if (blockDefs[CURRENT_BLOCK_TYPE].shape[y][x] > 0) {
+                const backgroundColor=blockDefs[CURRENT_BLOCK_TYPE].shape[y][x];   
+                changeActiveCell(x+xOffset,y+yOffset,backgroundColor);
             }
         }
     }
+
 }
 
-const findEdges = () => {
+const isValidMove = (direction) => {
+
+    const edges = findEdgesOfActiveBlock();
+
+    // is outside bounds of container
+    if (!insideContainer(direction,edges)) {
+        console.log('Not inside container');
+        return false;
+    }
+
+    // overlaps existing block
+    if (overlapsBlock(direction)) {
+        console.log('Overlaps existing block');
+        return false;
+    }
+
+    return true;
+}
+
+const overlapsBlock = (direction) => {
+
+    let xOffset=0;
+    let yOffset=0;
+    if (direction==='left') xOffset=-1;
+    if (direction==='right') xOffset=1;
+    if (direction==='down') yOffset=1;
+
+    for (y=CONTAINER_HEIGHT-1; y>=0; y--) {
+        for (x=0; x<=CONTAINER_WIDTH-1; x++) {
+            // overlap between current active block position, and future background block position
+            if (ACTIVE_CELLS[y][x] > 0 && cells[y+yOffset][x+xOffset] > 0) return true;
+        }
+    }
+    return false;
+}
+
+const findEdgesOfActiveBlock = (direction) => {
+
+    // find current edges
     let leftYPosition = CONTAINER_WIDTH;
     let rightYPosition = 0;
     let bottomXPosition = 0;
     let topXPosition = CONTAINER_HEIGHT;
     for (y=0; y<CONTAINER_HEIGHT; y++) {
         for (x=0; x<CONTAINER_WIDTH; x++) {
-            if (cells[y][x] === 1 && x<leftYPosition) leftYPosition=x;
-            if (cells[y][x] === 1 && x>rightYPosition) rightYPosition=x;
-            if (cells[y][x] === 1 && y>bottomXPosition) bottomXPosition=y;
-            if (cells[y][x] === 1 && y<topXPosition) topXPosition=y;
+            if (ACTIVE_CELLS[y][x] > 0 && x<leftYPosition) leftYPosition=x;
+            if (ACTIVE_CELLS[y][x] > 0 && x>rightYPosition) rightYPosition=x;
+            if (ACTIVE_CELLS[y][x] > 0 && y>bottomXPosition) bottomXPosition=y;
+            if (ACTIVE_CELLS[y][x] > 0 && y<topXPosition) topXPosition=y;
         }
     }
-    return [leftYPosition,rightYPosition,bottomXPosition,topXPosition];
+
+    // make adjustments for movement (if provided)
+    if (direction === MOVEMENT.left) {
+        leftYPosition=leftYPosition-1;
+        rightYPosition=rightYPosition-1;
+    }
+    if (direction === MOVEMENT.right) {
+        leftYPosition=leftYPosition+1;
+        rightYPosition=rightYPosition+1;
+    }
+    if (direction === MOVEMENT.down) {
+        bottomXPosition=bottomXPosition+1;
+        topXPosition=topXPosition+1;
+    }
+
+    return {leftYPosition,rightYPosition,bottomXPosition,topXPosition};
 }
 
-const movingLogic = (direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition,x,y,xOffset,yOffset) => {
-
-    if (cells[y][x] === 1 && isValidMove(direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition)) {
-        
-        cells[y][x]=0;
-
-        const oldBackground=getBoxBackground(x,y);
-
-        formatBoxElement(x,y,'transparent');
+const getOffsets = (direction) => {
+    let xOffset=0;
+    let yOffset=0;
+    if (direction === MOVEMENT.left) xOffset=-1;
+    if (direction === MOVEMENT.right) xOffset=1;
+    if (direction === MOVEMENT.down) yOffset=1;
     
-        if (direction === 'left' || direction === 'right') {
-            cells[y][xOffset]=1;
-            formatBoxElement(xOffset,y,oldBackground);
-        }
-        if (direction === 'down') {
-            cells[yOffset][x]=1;
-            formatBoxElement(x,yOffset,oldBackground);
-        }
-    
+    return [xOffset, yOffset];
+}
+
+const changeActiveCell = (x,y,backgroundValue) => {
+    // only set cells inside container
+    if (y >=0 && x >= 0 && y < CONTAINER_HEIGHT && x < CONTAINER_WIDTH) {
+        ACTIVE_CELLS[y][x]=backgroundValue;
+        setCellBackground(x,y,backgroundValue);
     }
 }
 
-const getBoxBackground = (x,y) => {
+const setCellBackground = (x,y,background) => {
     const box = document.querySelector('[x="' + x + '"][y="' + y + '"]');
-    return box.style.background;
+    box.style.background = backgroundColor(background);
 }
 
-const formatBoxElement = (x,y,background) => {
-    const box = document.querySelector('[x="' + x + '"][y="' + y + '"]');
-    box.style.background = background;
-}
-
-const isValidMove = (direction,leftYPosition,rightYPosition,bottomXPosition,topXPosition) => {
-    if (direction === 'left' && leftYPosition !== 0) return true;
-    if (direction === 'right' && rightYPosition !== CONTAINER_WIDTH-1) return true;
-    if (direction === 'down' && topXPosition !== CONTAINER_HEIGHT-(bottomXPosition-topXPosition)-1) return true;
+const insideContainer = (direction,edges) => {
+    if (direction === 'left' && edges.leftYPosition !== 0) return true;
+    if (direction === 'right' && edges.rightYPosition !== CONTAINER_WIDTH-1) return true;
+    if (direction === 'down' && edges.topXPosition !== CONTAINER_HEIGHT-(edges.bottomXPosition-edges.topXPosition)-1) return true;
     return false;
 }
 
-
-const getInitialOffset = (blockType) => {
-    return Math.round((CONTAINER_WIDTH-blockDefs[blockType].shape[0].length)/2);
+const getInitialOffset = () => {
+    return Math.round((CONTAINER_WIDTH-blockDefs[CURRENT_BLOCK_TYPE].shape[0].length)/2);
 }
 
 const renderContainer = () => {
 
     // outer box
-    document.getElementById('container').style.height = CONTAINER_HEIGHT*SCALE_FACTOR + 'px';
-    document.getElementById('container').style.width = CONTAINER_WIDTH*SCALE_FACTOR + 'px';
+    const container=document.getElementById('container');
+
+    container.style.height = CONTAINER_HEIGHT*SCALE_FACTOR + 'px';
+    container.style.width = CONTAINER_WIDTH*SCALE_FACTOR + 'px';
 
     // create array of inner boxes
     for (y=0; y<CONTAINER_HEIGHT; y++) {
@@ -193,13 +271,9 @@ const renderContainer = () => {
             innerBox.style.left = x*SCALE_FACTOR;
             innerBox.setAttribute('x',x);
             innerBox.setAttribute('y',y);
-            document.getElementById('container').appendChild(innerBox);
+            container.appendChild(innerBox);
         }
     }
-}
-
-const getMaxYPos = (blockType) => {
-    return CONTAINER_HEIGHT - parseInt(blockDefs[blockType].height*SCALE_FACTOR)
 }
 
 const getRandBlockType = () => {
@@ -209,35 +283,11 @@ const getRandBlockType = () => {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-const renderBlock = (type,offset) => {
-
-    // get max dimensions of block
-    const height = blockDefs[type].shape.length;
-    const width = blockDefs[type].shape[0].length;
-
-    // save off background value
-    const background=blockDefs[type].background;
-    
-    // loop through each cell of the shape
-    for (let x=0; x<width; x++) {
-        for (let y=0; y<height; y++) {
-            // allows for center the block initially
-            const xPos=x+offset;
-            // populate array with shape definition
-            cells[y][xPos] = blockDefs[type].shape[y][x];
-            // get the HTML element that matches our array position
-            const box = document.querySelector('[x="' + xPos + '"][y="' + y + '"]');
-            // sets backgroun color for elements that represent element
-            if (cells[y][xPos]===1) box.style.background = background;
-        }
-    }
-}
-
-const moveBlockDown = (id) => {
-    const el = document.getElementById(id);
-    const curYPos = getComputedStyle(el).top;
-    const curYPosVal = parseInt(curYPos.slice(0,-2));
-    const newYPosVal = curYPosVal + SCALE_FACTOR;
-    el.style.top = newYPosVal + 'px';
-    return newYPosVal;
+const backgroundColor = (val) => {
+    if (val===1) return 'blue';
+    if (val===2) return 'green';
+    if (val===3) return 'orange';
+    if (val===4) return 'brown';
+    if (val===5) return 'red';
+    return 'transparent';
 }
