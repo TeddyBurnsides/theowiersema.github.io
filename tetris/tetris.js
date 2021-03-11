@@ -7,32 +7,14 @@ let cells = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
+    [0,4,0,0,2,2,1,0,0,1],
+    [4,4,0,0,2,2,1,0,0,1],
+    [4,5,0,0,4,4,1,2,2,1],
+    [5,5,5,4,4,0,1,2,2,1],
 ];
 
-let ACTIVE_CELLS = [
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-];
+// build 10x10 array with zeros
+let ACTIVE_CELLS = Array.from(Array(10), () => new Array(10).fill(0))
 
 const CONTAINER_WIDTH = cells[0].length;
 const CONTAINER_HEIGHT = cells.length;
@@ -55,6 +37,7 @@ const blockDefs = [
     }
 ];
 
+// define movement for consistency
 const MOVEMENT = {
     left: 'left',
     right: 'right',
@@ -62,6 +45,7 @@ const MOVEMENT = {
 }
 
 let CURRENT_BLOCK_TYPE;
+let CURRENT_BLOCK_ROTATION;
 
 window.onload = () => {
 
@@ -89,12 +73,40 @@ window.onload = () => {
 }
 
 const rotateBlock = () => {
+
+    const currentShape = blockDefs[CURRENT_BLOCK_TYPE].shape;
     
+    console.log(currentShape);
+
+    const rotatedShape = rotateArray(currentShape);
+
+    console.log(rotatedShape);
+}
+
+function rotateArray(currentArray) {          // function statement
+
+    const padArray = (arr,len,fill) => {
+        return arr.concat(Array(len).fill(fill)).slice(0,len);
+    }
+
+    let rotatedShape = [];
+    for (x=0; x<4; x++) {
+        rotatedShape[x] = padArray(currentArray[x],4,0);
+    }
+    
+    /*let rotatedArray=[[]];
+    for (x=0; x<currentArray.length; x++) {
+        for (y=0; y<currentArray[0].length; y++) {
+            rotatedArray[x][y] = currentArray[y][x];
+        }
+    }
+    */
+    return rotatedShape;
 }
 
 const pauseGame = () => {
 
-    clearInterval()
+    clearInterval();
 }
 
 
@@ -102,14 +114,18 @@ const attemptToMoveBlock = (direction) => {
         
     if (isValidMove(direction)) {
 
-        // get current top left coordinates
+        // get current coordinates of top left cell of shape
         const [x, y] = getCurrentPosition();
 
         // get number of blocks to move for each direction 
         const [xOffset, yOffset] = getOffsets(direction);
 
+        const [newX, newY] = [x+xOffset, y+yOffset];
+
+        console.log('Valid Move: Current Position is x=' + newX + ' y=' + newY);
+
         // render block on screen
-        renderActiveShape(x+xOffset,y+yOffset)
+        renderActiveShape(newX,newY)
     }
 
 }
@@ -154,13 +170,13 @@ const isValidMove = (direction) => {
 
     // is outside bounds of container
     if (!insideContainer(direction,edges)) {
-        console.log('Not inside container');
+        console.log('Invalid Move: Not inside container');
         return false;
     }
 
     // overlaps existing block
     if (overlapsBlock(direction)) {
-        console.log('Overlaps existing block');
+        console.log('Invalid Move: Overlaps existing block');
         return false;
     }
 
@@ -263,7 +279,6 @@ const renderContainer = () => {
     for (y=0; y<CONTAINER_HEIGHT; y++) {
         for (x=0; x<CONTAINER_WIDTH; x++) {
             const innerBox=document.createElement("div");
-            innerBox.classList = 'box';
             innerBox.style.width=SCALE_FACTOR;
             innerBox.style.height=SCALE_FACTOR;
             innerBox.style.position='absolute';
@@ -271,6 +286,8 @@ const renderContainer = () => {
             innerBox.style.left = x*SCALE_FACTOR;
             innerBox.setAttribute('x',x);
             innerBox.setAttribute('y',y);
+            innerBox.style.background = backgroundColor(cells[y][x]);
+            innerBox.classList = 'active';
             container.appendChild(innerBox);
         }
     }
@@ -284,10 +301,10 @@ const getRandBlockType = () => {
 }
 
 const backgroundColor = (val) => {
-    if (val===1) return 'blue';
-    if (val===2) return 'green';
-    if (val===3) return 'orange';
-    if (val===4) return 'brown';
-    if (val===5) return 'red';
+    if (val===1) return '#4f92ce'; // blue
+    if (val===2) return '#209b75'; // green
+    if (val===3) return '#ffd46b'; // yellow
+    if (val===4) return '#5848cf'; // purple
+    if (val===5) return '#ff6262'; // red
     return 'transparent';
 }

@@ -1,8 +1,9 @@
 #container {
-    border:3px solid #555;
+    border:10px solid #ddd;
     position:relative;
     margin:30px;
 }
-#container > div:nth-child(even) {
-    background:#f3f3f3;
+#container > div.active {
+    border:1px solid rgba(255,255,255,.3);
+    box-sizing:border-box;
 }
