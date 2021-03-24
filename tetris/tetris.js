@@ -44,8 +44,8 @@ const MOVEMENT = {
     down: 'down'
 }
 
-let CURRENT_BLOCK_TYPE;
-let CURRENT_BLOCK_ROTATION;
+let CURRENT_BLOCK_TYPE; // 0,1,2,3,4
+let CURRENT_BLOCK_ROTATION; //0,1,2,3
 
 window.onload = () => {
 
