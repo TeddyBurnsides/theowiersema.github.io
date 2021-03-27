@@ -19,7 +19,7 @@ let ACTIVE_CELLS = Array.from(Array(10), () => new Array(10).fill(0))
 const CONTAINER_WIDTH = cells[0].length;
 const CONTAINER_HEIGHT = cells.length;
 
-const blockDefs = [
+const blockDefs2 = [
     { // column
         shape: [[1,1,1,1]]
     },
@@ -37,6 +37,49 @@ const blockDefs = [
     }
 ];
 
+const blockDefs = [
+    { // column
+        shape: [
+            [[1,1,1,1],[0,0,0,0],[0,0,0,0],[0,0,0,0]],
+            [[1,0,0,0],[1,0,0,0],[1,0,0,0],[1,0,0,0]],
+            [[0,0,0,0],[0,0,0,0],[0,0,0,0],[1,1,1,1]],
+            [[0,0,0,1],[0,0,0,1],[0,0,0,1],[0,0,0,1]]
+        ]
+    },
+    { // square
+        shape: [
+            [[2,2],[2,2]],
+            [[2,2],[2,2]],
+            [[2,2],[2,2]],
+            [[2,2],[2,2]]
+        ]
+    },
+    { // L
+        shape: [
+            [[3,3,3],[3,0,0],[0,0,0]],
+            [[3,0,0],[3,0,0],[3,3,0]]
+            [[0,0,0],[3,0,0],[3,3,3]],
+            [[0,0,3],[0,0,3],[0,3,3]]
+        ]
+    },
+    { // step
+        shape: [
+            [[4,4,0],[0,4,4],[0,0,0]],
+            [[0,4,0],[4,4,0],[4,0,0]],
+            [[0,0,0],[4,4,0],[0,4,4]],
+            [[0,4,0],[0,4,4],[0,0,4]]
+        ]
+    },
+    { // arrow?
+        shape: [
+            [[0,5,0],[5,5,5],[0,0,0]],
+            [[5,0,0],[5,5,0],[5,0,0]],
+            [[0,0,0],[5,5,5],[0,5,0]],
+            [[0,0,5],[0,5,5],[0,0,5]]
+        ]
+    }
+];
+
 // define movement for consistency
 const MOVEMENT = {
     left: 'left',
@@ -45,7 +88,7 @@ const MOVEMENT = {
 }
 
 let CURRENT_BLOCK_TYPE; // 0,1,2,3,4
-let CURRENT_BLOCK_ROTATION; //0,1,2,3
+let CURRENT_BLOCK_ROTATION=0; //0,1,2,3
 
 window.onload = () => {
 
@@ -58,7 +101,7 @@ window.onload = () => {
         if (key === 'ArrowLeft') attemptToMoveBlock(MOVEMENT.left);
         if (key === 'ArrowRight') attemptToMoveBlock(MOVEMENT.right);
         if (key === 'ArrowDown') attemptToMoveBlock(MOVEMENT.down);
-        if (key === 'Shift') rotateBlock();    
+        if (key === 'ArrowUp') attemptToRotateBlock();    
     });
 
     
@@ -72,36 +115,34 @@ window.onload = () => {
  
 }
 
-const rotateBlock = () => {
+const attemptToRotateBlock = () => {
 
-    const currentShape = blockDefs[CURRENT_BLOCK_TYPE].shape;
+    const nextRotationPosition = getNextRotation();
     
-    console.log(currentShape);
+    const rotatedShape = blockDefs[CURRENT_BLOCK_TYPE].shape[nextRotationPosition];
 
-    const rotatedShape = rotateArray(currentShape);
+    const position = getCurrentPosition();
 
-    console.log(rotatedShape);
+    console.log(position);
+
+    // is rotation valid, and if so return [x,y] coordinates as output variable
+    if (isValidRotation(nextRotationPosition,position)) {
+        console.log(position)
+    }
 }
 
-function rotateArray(currentArray) {          // function statement
+// 
+const isValidRotation = (rotationPos,currentPos) => {
 
-    const padArray = (arr,len,fill) => {
-        return arr.concat(Array(len).fill(fill)).slice(0,len);
-    }
+    currentPos[0]=currentPos[0]+1;
 
-    let rotatedShape = [];
-    for (x=0; x<4; x++) {
-        rotatedShape[x] = padArray(currentArray[x],4,0);
-    }
-    
-    /*let rotatedArray=[[]];
-    for (x=0; x<currentArray.length; x++) {
-        for (y=0; y<currentArray[0].length; y++) {
-            rotatedArray[x][y] = currentArray[y][x];
-        }
-    }
-    */
-    return rotatedShape;
+    return true;
+}
+
+// define shape array position (cycles from 0 to 3)
+const getNextRotation = () => {
+    if (CURRENT_BLOCK_ROTATION<3) return CURRENT_BLOCK_ROTATION+1;
+    return 0;
 }
 
 const pauseGame = () => {
@@ -148,15 +189,15 @@ const renderActiveShape = (xOffset,yOffset) => {
     }
     
     // get max dimensions of block
-    const height = blockDefs[CURRENT_BLOCK_TYPE].shape.length;
-    const width = blockDefs[CURRENT_BLOCK_TYPE].shape[0].length;
+    const height = blockDefs[CURRENT_BLOCK_TYPE].shape[CURRENT_BLOCK_ROTATION].length;
+    const width = blockDefs[CURRENT_BLOCK_TYPE].shape[CURRENT_BLOCK_ROTATION][0].length;
     
     // loop through each cell of the shape
     for (let x=0; x<width; x++) {
         for (let y=0; y<height; y++) {
             // only do things for define shape positions
-            if (blockDefs[CURRENT_BLOCK_TYPE].shape[y][x] > 0) {
-                const backgroundColor=blockDefs[CURRENT_BLOCK_TYPE].shape[y][x];   
+            if (blockDefs[CURRENT_BLOCK_TYPE].shape[CURRENT_BLOCK_ROTATION][y][x] > 0) {
+                const backgroundColor=blockDefs[CURRENT_BLOCK_TYPE].shape[CURRENT_BLOCK_ROTATION][y][x];   
                 changeActiveCell(x+xOffset,y+yOffset,backgroundColor);
             }
         }
@@ -183,7 +224,7 @@ const isValidMove = (direction) => {
     return true;
 }
 
-const overlapsBlock = (direction) => {
+const overlapsBlock = (direction='') => {
 
     let xOffset=0;
     let yOffset=0;
@@ -264,7 +305,7 @@ const insideContainer = (direction,edges) => {
 }
 
 const getInitialOffset = () => {
-    return Math.round((CONTAINER_WIDTH-blockDefs[CURRENT_BLOCK_TYPE].shape[0].length)/2);
+    return Math.round((CONTAINER_WIDTH-blockDefs[CURRENT_BLOCK_TYPE].shape[CURRENT_BLOCK_ROTATION][0].length)/2);
 }
 
 const renderContainer = () => {
