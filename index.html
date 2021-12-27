@@ -1,21 +1,229 @@
 <html>
     <head>
         <style>
-            body {
-                padding:100px;
-            }
-a {
-    font:25pt/100px Helvetica,Arial;
-    color:#333;
-    text-align:center;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Styles */
+
+body {
+    padding:50px;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    background:#fff;
+    max-width:600px;
+    min-width:420px;
+}
+h1 {
+    font-size:55pt;
+    font-weight:900;
+    color:#cddee5;
+    color:#142e3f;
+    letter-spacing:-2.5px;
+    width:100px;
+}
+h2 {
+    color:#abb2ba;
+    font-style:italic;
+    font-size:14pt;
+    padding:10px 0 0 0;
+    letter-spacing:-.5px;
+}
+#links {
+    margin:40px 0 60px 0;
+}
+#links a {
+    font-weight:500;
+    font-size:12pt;
+    color:#268e76;
+    letter-spacing:-.4px;
+    padding:8px 12px;
+    display:inline-block;
+    text-decoration:none;
+    margin:0 10px 0 0;
+    background:#79edd1;
+    border-radius:4px;
+}
+#links a:hover {
+    border:2px solid #268e76;
+    padding:6px 10px;
+}
+h3 {
+    text-transform:uppercase;
+    color:#8690a0;
+    font-weight:bold;
+    margin:0 0 20px 0;
+}
+#projects .project {
     display:block;
+    background:#edf2f7;
+    border:1px solid #edf2f7;
+    margin:0 0 20px 0;
+    border-radius:4px;
+    padding:20px;
+    position:Relative;
+    margin-left:120px;
+}
+#projects h4 {
+    font-size:22px;
+    font-weight:bold;
+    color:#283d4a;
+    letter-spacing:-.7px;
+    padding:0 0 15px 0;
 }    
+#projects .date {
+    color:#abb2ba;
+    font-size:9pt;
+    display:block;
+    letter-spacing:-.2px;
+    padding:0 0 20px 0;
+    text-transform: uppercase;
+    font-weight:bold;
+    position:absolute;
+    top:10px;
+    left:-120px;
+    text-align:right;
+    width:100px;
+    
+}
+#projects .description {
+    color:#283d4a;
+    padding:0 0 20px 0;
+    display:block;
+    line-height:24px;
+    letter-spacing:-.3px;
+}
+#projects .tech {
+    display:block;
+    margin:0 0 20px 0;
+}
+#projects .tech span {
+    border-radius:4px;
+    padding:3px 6px;
+    background:#dbe6f0;
+    font-size:9pt;
+    font-weight:400;
+    color:#779ec5;
+    margin:0 10px 0 0;
+}
+#projects a {
+    text-decoration: none;
+    font-size:9pt;
+    margin:0 10px 0 0;
+}
+#projects a.visit {
+    background:#8c71c3;
+    color:#fff;
+    font-weight:600;
+    padding:6px 12px;
+    border-radius:4px;
+}
+#projects a.visit:hover {
+    background:#9c81d1;
+}
+#projects a.github {
+    background:none;
+    color:#4d80b3;
+    text-decoration: underline;
+}
+#projects a.github:hover {
+    color:#406b96;
+}
         </style>
     </head>
     <body>
-            <a href="https://reactjs-simple-todo.herokuapp.com/">Task Manager</a>
-            <a href="https://theodore-booksearch.herokuapp.com/">Book Search</a>
-            <a href="https://markovmodel.herokuapp.com/">Text Prediction</a>
-            <a href="https://theowiersema.github.io/sherlock/">Issue Tracking Mockup</a> 
+        <h1>Theodore Wiersema</h1>
+        <h2>Front-end Javascript developer</h2>
+        <div id="links">
+            <a href="https://github.com/theowiersema">GitHub</a>
+            
+            <a href="https://stackoverflow.com/users/story/142237">Stack Overflow</a>
+            <a href="mailto:theo.ew@gmail.com">Email</a>
+        </div>
+        <div id="projects">
+            <h3>Personal Projects</h3>
+            <div class="project">
+                <h4>Pseudo-intelligent Text Generator</h4>
+                <span class="date">December 2021</span>
+                <span class="tech"><span>Javascript</span><span>ReactJS</span><span>HTML/CSS</span></span>
+                <span class="description">Uses predictive Markov models to “predict” text from various input sources such as the Jabberwocky poem, the book of Job, and the full text of Hamlet.</span>
+                <a class="visit" href="https://markovmodel.herokuapp.com/">Visit Site</a>
+                <a class="github" href="https://github.com/theowiersema/markov">Github Repository</a>
+            </div>
+            <div class="project">
+                <h4>Book Search</h4>
+                <span class="date">November 2021</span>
+                <span class="tech"><span>Fetch API</span><span>Javascript</span><span>ReactJS</span><span>HTML/CSS</span></span>
+                
+                <span class="description">Search for books using React and the Google Books API.</span>
+                <a class="visit" href="https://theodore-booksearch.herokuapp.com/">Visit Site</a>
+                <a class="github" href="https://github.com/theowiersema/book_search">Github Repository</a>
+            </div>
+            <div class="project">
+                <h4>Task Application with Log In</h4>
+                <span class="date">October 2020</span>
+                <span class="tech"><span>MongoDB</span><span>Typescript</span><span>ReactJS</span><span>HTML/CSS</span></span>
+                <span class="description">To do application that utilizes React, Typescript, and MongoDB.</span>
+                
+                <a class="visit" href="https://reactjs-simple-todo.herokuapp.com/">Visit Site</a>
+                <a class="github" href="https://github.com/theowiersema/todo">Github Repository</a>
+            </div>
+            <div class="project">
+                <h4>Issue Tracking Proof of Concept</h4>
+                <span class="date">2019</span>
+                <span class="tech"><span>Javascript</span><span>HTML/CSS</span></span>
+                <span class="description">A semi-functioning mockup of an issue tracking site.</span>
+                
+                <a class="visit" href="https://theowiersema.github.io/issuetracking/">Visit Site</a>
+            </div>
+            <div class="project">
+                <h4>Task App Using Local Storage</h4>
+                <span class="date">2018</span>
+                <span class="tech"><span>Javascript</span><span>HTML/CSS</span></span>
+                <span class="description">A to do application utilizing local storage to save tasks.</span>
+                
+                <a class="visit" href="https://theowiersema.github.io/todo-html/">Visit Site</a>
+            </div>
+        </div>
     </body>
 </html>
