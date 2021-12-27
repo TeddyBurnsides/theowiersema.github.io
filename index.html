@@ -45,6 +45,7 @@ table {
 	border-spacing: 0;
 }
 
+
 /* Styles */
 
 body {
@@ -53,7 +54,7 @@ body {
     background:#fff;
     max-width:900px;
     width:calc(100% - 100px);
-    min-width:420px;
+    min-width:520px;
 }
 h1 {
     font-size:60pt;
@@ -104,7 +105,7 @@ h3 {
     border:1px solid #edf2f7;
     margin:0 0 20px 0;
     border-radius:4px;
-    padding:20px;
+    padding:25px;
     position:Relative;
     margin-left:140px;
 }
@@ -140,6 +141,7 @@ h3 {
 #projects .tech {
     display:block;
     margin:0 0 25px 0;
+    display:flex;
 }
 #projects .tech span {
     border-radius:4px;
@@ -156,22 +158,66 @@ h3 {
     margin:0 10px 0 0;
 }
 #projects a.visit {
-    background:#8c71c3;
+    background:#a7bfd8;
     color:#fff;
-    font-weight:600;
     padding:8px 12px;
     border-radius:4px;
 }
 #projects a.visit:hover {
-    background:#9c81d1;
+    background:#83a6c8;
 }
 #projects a.github {
     background:none;
-    color:#4d80b3;
+    color:#83a6c8;
     text-decoration: underline;
 }
 #projects a.github:hover {
-    color:#406b96;
+    color:#4d80b3;
+}
+
+/* Mobile overrides */
+
+@media only screen and (max-width: 800px) {
+    h1 {
+        font-size:80pt;
+    }
+    h2 {
+        font-size:22pt;
+    }
+    #links a {
+        font-size:20pt;
+        margin:0 15px 0 0;
+        padding:10px 20px;
+    }
+    h3 {
+        font-size:20pt;
+    }
+    #projects .project {
+        margin:0 0 30px 160px;
+    }
+    #projects .date {
+        font-size:12pt;
+        width:140px;
+        left:-160px;
+    }
+    #projects h4 {
+        font-size:22pt;
+    }
+    #projects .tech span {
+        font-size:12pt;
+        padding:4px 8px;
+    }
+    #projects .description {
+        font-size:13pt;
+        padding:0 0 35px 0;
+    }
+    #projects a {
+        font-size:13pt;
+        margin:0 20px 0 0;
+    }
+    #projects a.visit {
+        padding:10px 15px;
+    }
 }
         </style>
     </head>
