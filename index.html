@@ -72,7 +72,7 @@ h2 {
     letter-spacing:-.5px;
 }
 #links {
-    margin:40px 0 60px 0;
+    margin:40px 0 0 0;
 }
 #links a {
     font-weight:500;
@@ -94,12 +94,12 @@ h3 {
     letter-spacing:-.5px;
     color:#a2b3cc;
     font-weight:bold;
-    margin:0 0 40px 0;
+    margin:60px 0 40px 0;
     padding:0 0 10px 0;
     font-size:16pt;
     border-bottom:2px solid #b9c8df;
 }
-#projects .project {
+.section {
     display:block;
     background:#edf2f7;
     border:1px solid #edf2f7;
@@ -109,14 +109,14 @@ h3 {
     position:Relative;
     margin-left:140px;
 }
-#projects h4 {
+.section h4 {
     font-size:24px;
     font-weight:bold;
     color:#283d4a;
     letter-spacing:-.7px;
     padding:0 0 15px 0;
 }    
-#projects .date {
+.section .date {
     color:#abb2ba;
     font-size:10pt;
     display:block;
@@ -131,19 +131,28 @@ h3 {
     width:120px;
     
 }
-#projects .description {
+.section .description {
     color:#283d4a;
-    padding:0 0 25px 0;
+    padding:0 0 0 0;
     display:block;
     line-height:26px;
     letter-spacing:-.3px;
 }
-#projects .tech {
+.section ul {
+    padding:10px 0 0 20px;
+    color:#283d4a;
+    line-height:24px;
+}
+.section li {
+    list-style-type:disc;
+    padding:0 0 5px 10px;
+}
+.section .tech {
     display:block;
     margin:0 0 25px 0;
     display:flex;
 }
-#projects .tech span {
+.section .tech span {
     border-radius:4px;
     padding:3px 6px;
     background:#dbe6f0;
@@ -152,32 +161,33 @@ h3 {
     color:#779ec5;
     margin:0 10px 0 0;
 }
-#projects a {
+.section a {
     text-decoration: none;
     font-size:11pt;
-    margin:0 10px 0 0;
+    margin:30px 10px 0 0;
+    display:inline-block;
 }
-#projects a.visit {
+.section a.visit {
     background:#a7bfd8;
     color:#fff;
     padding:8px 12px;
     border-radius:4px;
 }
-#projects a.visit:hover {
+.section a.visit:hover {
     background:#83a6c8;
 }
-#projects a.github {
+.section a.github {
     background:none;
     color:#83a6c8;
     text-decoration: underline;
 }
-#projects a.github:hover {
+.section a.github:hover {
     color:#4d80b3;
 }
 
 /* Mobile overrides */
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
     h1 {
         font-size:80pt;
     }
@@ -192,30 +202,29 @@ h3 {
     h3 {
         font-size:20pt;
     }
-    #projects .project {
+    .section {
         margin:0 0 30px 160px;
     }
-    #projects .date {
+    .section .date {
         font-size:12pt;
         width:140px;
         left:-160px;
     }
-    #projects h4 {
+    .section h4 {
         font-size:22pt;
     }
-    #projects .tech span {
+    .section .tech span {
         font-size:12pt;
         padding:4px 8px;
     }
-    #projects .description {
+    .section .description {
         font-size:13pt;
-        padding:0 0 35px 0;
     }
-    #projects a {
+    .section a {
         font-size:13pt;
-        margin:0 20px 0 0;
+        margin:30px 20px 0 0;
     }
-    #projects a.visit {
+    .section a.visit {
         padding:10px 15px;
     }
 }
@@ -232,7 +241,7 @@ h3 {
         </div>
         <div id="projects">
             <h3>Personal Projects</h3>
-            <div class="project">
+            <div class="section">
                 <h4>Pseudo-intelligent Text Generator</h4>
                 <span class="date">December 2021</span>
                 <span class="tech"><span>Javascript</span><span>ReactJS</span><span>HTML/CSS</span></span>
@@ -240,7 +249,7 @@ h3 {
                 <a class="visit" href="https://markovmodel.herokuapp.com/">Visit Site</a>
                 <a class="github" href="https://github.com/theowiersema/markov">Github Repository</a>
             </div>
-            <div class="project">
+            <div class="section">
                 <h4>Book Search</h4>
                 <span class="date">November 2021</span>
                 <span class="tech"><span>Fetch API</span><span>Javascript</span><span>ReactJS</span><span>HTML/CSS</span></span>
@@ -249,7 +258,7 @@ h3 {
                 <a class="visit" href="https://theodore-booksearch.herokuapp.com/">Visit Site</a>
                 <a class="github" href="https://github.com/theowiersema/book_search">Github Repository</a>
             </div>
-            <div class="project">
+            <div class="section">
                 <h4>Task Application with Log In</h4>
                 <span class="date">October 2020</span>
                 <span class="tech"><span>MongoDB</span><span>Typescript</span><span>ReactJS</span><span>HTML/CSS</span></span>
@@ -258,7 +267,7 @@ h3 {
                 <a class="visit" href="https://reactjs-simple-todo.herokuapp.com/">Visit Site</a>
                 <a class="github" href="https://github.com/theowiersema/todo">Github Repository</a>
             </div>
-            <div class="project">
+            <div class="section">
                 <h4>Issue Tracking Proof of Concept</h4>
                 <span class="date">2019</span>
                 <span class="tech"><span>Javascript</span><span>HTML/CSS</span></span>
@@ -266,13 +275,43 @@ h3 {
                 
                 <a class="visit" href="https://theowiersema.github.io/issuetracking/">Visit Site</a>
             </div>
-            <div class="project">
+            <div class="section">
                 <h4>Task App Using Local Storage</h4>
                 <span class="date">2018</span>
                 <span class="tech"><span>Javascript</span><span>HTML/CSS</span></span>
                 <span class="description">A to do application utilizing local storage to save tasks.</span>
                 
                 <a class="visit" href="https://theowiersema.github.io/todo-html/">Visit Site</a>
+            </div>
+        </div>
+        <div id="experience">
+            <h3>Experience</h3>
+            <div class="section">
+                <h4>Epic: Technical Services Engineer</h4>
+                <span class="date">2016 &rarr; Current</span>
+                <ul>
+                    <li>Provided individualized customer technical support for 6-8 hospital systems for organizations goals and initiatives</li>
+                    <li>Managed a team of 3-5 employees for 2.5 years</li>
+                    <li>Coordinated company-wide project to increase adoption of critical functionality across all Epic organizations</li>
+                    <li>Triaged and communicated code issues to team for escalation to hospital organizations</li>
+                    <li>Taught 300+ employees about upcoming functionality</li>
+                    <li>Trained new team members on customer service skills and M programming</li>
+                    <li>Completed SQL, C#, and Typescript classes to take on developer-level projects</li>
+                    <li>Created several M utilities that increased efficiency for projects used across the company</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>Caterpillar</h4>
+                <span class="date">Summer 2015</span>
+                <span class="description">Engineering Intern</span>
+            </div>
+        </div>
+        <div id="education">
+            <h3>Education</h3>
+            <div class="section">
+                <h4>Bradley University</h4>
+                <span class="date">2012 &rarr; 2016</span>
+                <span class="description">Bachelor of Science in Electrical Engineering</span>
             </div>
         </div>
     </body>
