@@ -1,5 +1,6 @@
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/49ec6acbaa.js" crossorigin="anonymous"></script>
         <style>
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -70,6 +71,9 @@ h2 {
     padding:15px 0 0 0;
     letter-spacing:-.5px;
 }
+.fab, .fas {
+    padding:0 10px 0 0;
+}
 #links {
     margin:40px 0 0 0;
 }
@@ -78,7 +82,7 @@ h2 {
     font-size:13pt;
     color:#268e76;
     letter-spacing:-.4px;
-    padding:8px 14px;
+    padding:8px 12px;
     display:inline-block;
     text-decoration:none;
     margin:0 10px 0 0;
@@ -151,6 +155,9 @@ h3 {
     margin:0 0 25px 0;
     display:flex;
 }
+.section .tech i {
+    padding-right:5px;
+}
 .section .tech span {
     border-radius:4px;
     padding:3px 6px;
@@ -198,7 +205,7 @@ h3 {
     #links a {
         font-size:20pt;
         margin:0 15px 0 0;
-        padding:10px 24px;
+        padding:10px 20px;
     }
     h3 {
         font-size:20pt;
@@ -235,54 +242,74 @@ h3 {
         <h1>Theodore Wiersema</h1>
         <h2>Front-end Javascript developer</h2>
         <div id="links">
-            <a href="https://github.com/theowiersema">GitHub</a>
+            <a href="https://github.com/theowiersema"><i class="fab fa-github"></i>GitHub</a>
             
-            <a href="https://stackoverflow.com/users/story/142237">Stack Overflow</a>
-            <a href="mailto:theo.ew@gmail.com">Email</a>
+            <a href="https://stackoverflow.com/users/story/142237"><i class="fab fa-stack-overflow"></i>Stack Overflow</a>
+            <a href="mailto:theo.ew@gmail.com"><i class="fas fa-envelope"></i>Email</a>
         </div>
         <div id="projects">
             <h3>Personal Projects</h3>
             <div class="section">
                 <h4>Pseudo-intelligent Text Generator</h4>
                 <span class="date">December 2021</span>
-                <span class="tech"><span>Javascript</span><span>ReactJS</span><span>HTML/CSS</span></span>
+                <span class="tech">
+                    <span><i class="fab fa-js-square"></i>Javascript</span>
+                    <span><i class="fab fa-react"></i>ReactJS</span>
+                    <span><i class="fab fa-html5"></i>HTML/CSS</span>
+                </span>
                 <span class="description">Uses predictive Markov models to “predict” text from various input sources such as the Jabberwocky poem, the book of Job, and the full text of Hamlet.</span>
-                <a class="visit" href="https://markovmodel.herokuapp.com/">Visit Site</a>
+                <a class="visit" href="https://markovmodel.herokuapp.com/"><i class="fas fa-link"></i>Visit Site</a>
                 <a class="github" href="https://github.com/theowiersema/markov">Github Repository</a>
             </div>
             <div class="section">
                 <h4>Book Search</h4>
                 <span class="date">November 2021</span>
-                <span class="tech"><span>Fetch API</span><span>Javascript</span><span>ReactJS</span><span>HTML/CSS</span></span>
+                <span class="tech">
+                    <span><i class="fas fa-wrench"></i>Fetch API</span>
+                    <span><i class="fab fa-js-square"></i>Javascript</span>
+                    <span><i class="fab fa-react"></i>ReactJS</span>
+                    <span><i class="fab fa-html5"></i>HTML/CSS</span>
+                </span>
                 
                 <span class="description">Search for books using ReactJS and the Google Books API.</span>
-                <a class="visit" href="https://theodore-booksearch.herokuapp.com/">Visit Site</a>
+                <a class="visit" href="https://theodore-booksearch.herokuapp.com/"><i class="fas fa-link"></i>Visit Site</a>
                 <a class="github" href="https://github.com/theowiersema/book_search">Github Repository</a>
             </div>
             <div class="section">
                 <h4>Task App</h4>
                 <span class="date">October 2020</span>
-                <span class="tech"><span>MongoDB</span><span>Typescript</span><span>ReactJS</span><span>HTML/CSS</span></span>
+                <span class="tech">
+                    <span><i class="fas fa-database"></i>MongoDB</span>
+                    <span><i class="fab fa-js-square"></i>Typescript</span>
+                    <span><i class="fab fa-react"></i>ReactJS</span>
+                    <span><i class="fab fa-html5"></i>HTML/CSS</span>
+                </span>
                 <span class="description">To-do application with personalized user accounts.</span>
                 
-                <a class="visit" href="https://reactjs-simple-todo.herokuapp.com/">Visit Site</a>
+                <a class="visit" href="https://reactjs-simple-todo.herokuapp.com/"><i class="fas fa-link"></i>Visit Site</a>
                 <a class="github" href="https://github.com/theowiersema/todo">Github Repository</a>
             </div>
             <div class="section">
                 <h4>Issue Tracking Proof of Concept</h4>
                 <span class="date">2019</span>
-                <span class="tech"><span>Javascript</span><span>HTML/CSS</span></span>
+                <span class="tech">
+                    <span><i class="fab fa-js-square"></i>Javascript</span>
+                    <span><i class="fab fa-html5"></i>HTML/CSS</span>
+                </span>
                 <span class="description">A mockup of an issue tracking site.</span>
                 
-                <a class="visit" href="https://theowiersema.github.io/issuetracking/">Visit Site</a>
+                <a class="visit" href="https://theowiersema.github.io/issuetracking/"><i class="fas fa-link"></i>Visit Site</a>
             </div>
             <div class="section">
                 <h4>Task App Using Local Storage</h4>
                 <span class="date">2018</span>
-                <span class="tech"><span>Javascript</span><span>HTML/CSS</span></span>
+                <span class="tech">
+                    <span><i class="fab fa-js-square"></i>Javascript</span>
+                    <span><i class="fab fa-html5"></i>HTML/CSS</span>
+                </span>
                 <span class="description">A to-do application utilizing local storage to save task data.</span>
                 
-                <a class="visit" href="https://theowiersema.github.io/todo-html/">Visit Site</a>
+                <a class="visit" href="https://theowiersema.github.io/todo-html/"><i class="fas fa-link"></i>Visit Site</a>
             </div>
         </div>
         <div id="experience">
